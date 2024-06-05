@@ -1,0 +1,200 @@
+body {
+    font: 400 14px/1.25 'Source Sans Pro',"Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #111111;
+    background-color: #fdfdfd;
+    /* -webkit-text-size-adjust: 100%; */
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+  }
+
+  .text {
+    font: 10px sans-serif;
+    pointer-events: none;
+}
+
+/* network and nodes styling */
+    .node {
+    /* fill: white; */
+    stroke-width: 2px;
+    }
+
+    .link {
+        stroke: #b6b6b6;
+        /* stroke-opacity: 0.6; */
+    }
+    .panel-VisualCode {
+        fill: white;
+        stroke: #EDDF2B;
+    }
+    .panel-VisualCode:hover {
+        fill: #EDDF2B;
+        stroke: #EDDF2B;
+    }
+
+    .panel-MappingConflict {
+        fill: white;
+        stroke: #AC7EEB;
+    }
+    .panel-MappingConflict:hover {
+        fill: #AC7EEB;
+        stroke: #AC7EEB;
+    }
+
+    .panel-CounterNarrative {
+        fill: white;
+        stroke: #EF422D;
+    }
+    .panel-CounterNarrative:hover {
+        fill: #EF422D;
+        stroke: #EF422D;
+    }
+
+    .panel-LocalData {
+        fill: white;
+        stroke: #19C5CC;
+    }
+    .panel-LocalData:hover {
+        fill: #19C5CC;
+        stroke: #19C5CC;
+    }
+
+    .panel-NetworkModels {
+        fill: white;
+        stroke: #BCD18A;
+    }
+    .panel-NetworkModels:hover {
+        fill: #BCD18A;
+        stroke: #BCD18A;
+    }
+
+    .panel-CounterForensics {
+        fill: white;
+        stroke: #FF9922;
+    }
+    .panel-CounterForensics:hover{
+        fill: #FF9922;
+        stroke: #FF9922;
+    }
+
+    .panel-Default {
+        fill: white;
+        stroke: #727272;
+    }
+    .panel-Default:hover {
+        fill: #727272;
+        stroke: #727272;
+    }
+
+/* .side-panel styling */
+    .searchButton{
+        width: 15px;
+        height: 15px;
+
+    }
+    .side-panel {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        bottom: 30px;
+        width: 250px;
+        height: 100%;
+        background-color: #f0f0f0;
+        padding: 15px;
+    }
+    
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        /* text-size-adjust: auto; */
+        font-size: small;
+        width: 230px;
+    }
+    .panel-button-wrapper {
+        display: flex;
+        align-items: center;
+        /* margin-bottom: 5px; */
+    }
+
+    .panel-button {
+        display: flex; /* Set display to flex to align items */
+        align-items: center; /* Align items vertically */
+        justify-content: space-between; 
+        width: 25px;
+        height: 25px;
+        background-color: white; 
+        border-radius: 50%; /* Border radius to make it circular */
+        cursor: pointer; 
+        margin-bottom: 10px; 
+        margin-left: 10px;  /* indent */
+    }
+
+    .button-text {
+        margin-left: 10px;
+        /* margin-right: 20px; */
+        /* align-items: top; */
+        line-height: 24px
+    }
+
+    #VisualCodeButton {
+        border: 3px solid #EDDF2B;
+    }
+    
+    /* Define styles for the highlighted state */
+    #VisualCodeButton.highlighted {
+        background-color: #EDDF2B;
+    }
+    #mappingConflictButton {
+        border: 3px solid #AC7EEB; /* Border color and thickness */
+    }
+    #mappingConflictButton.highlighted {
+        background-color: #AC7EEB;
+    }
+
+    #counterNarrativesButton {
+        border: 3px solid  #EF422D;
+    }
+    #counterNarrativesButton.highlighted {
+        background-color: #EF422D;
+    }
+
+    #localDataButton {
+        border: 3px solid #19C5CC;
+    }
+    #localDataButton.highlighted {
+        background-color: #19C5CC;
+    }
+
+    #networksButton {
+        border: 3px solid #BCD18A;
+    }
+    #networksButton.highlighted {
+        background-color: #BCD18A;
+    }
+
+    #forensicsButton {
+        border: 3px solid #FF9922;
+    }
+    #forensicsButton.highlighted {
+        background-color: #FF9922;
+    }
+
+    #csrButton {
+        border: 3px solid yellow;
+    }
+
+    #csrButton.highlighted {
+        background-color: red;
+    }
