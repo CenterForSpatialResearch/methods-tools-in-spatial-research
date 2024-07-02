@@ -1,0 +1,24 @@
+{
+    "colorGroups": {
+        "#29AAE1": ["CSR"],
+        "##EDDF2B": ["visual code","data representation"],
+
+        "#33FF57": ["GIS"],
+        "#3357FF": ["mapping"],
+        "#F033FF": ["census"],
+        
+        "#FF33A1": ["administrative boundaries"],
+        "#FFAA33": ["speculative cartography"],
+        "#AAFF33": ["alternate realities"],
+        "#33AAFF": ["weather"],
+        "#AA33FF": ["climate"],
+        "#FF33AA": ["open data"],
+        "#33FFAA": ["NASA"],
+        "#AA33AA": ["machine learning"],
+        "#33AAAA": ["computer vision", "satellite", "ground truth", "black magic", "DIY Tools", "local data", "augmented reality", "locality", "community", "historical new york", "language", "history", "networks", "sentiment analysis", "migration", "context model", "aerial imagery", "video tagging"],
+        "#AAAA33": ["chemical warfare", "sensors", "local data", "language", "networks", "sentiment analysis", "reconstruction", "Xinjiang", "china"],
+        "#AA33AA": ["critical race studies", "computational cultures", "network model", "forensic architecture", "dolly camera", "GIS", "mapping", "ground truth", "agriculture", "ICE", "feminicide", "gender-related violence", "data activism", "public interest technology", "reporting", "center for Spatial Technologies", "mapbox", "historical sites", "motion tracking", "historical new york", "artist controls", "image processing", "GAN model"],
+        "#33AAAA": ["forensic architecture", "machine learning", "open weather data", "computational cultures", "artist controls", "GAN model"],
+        "#AAAAAA": ["forensic architecture", "language", "mapbox", "video tagging", "machine learning"]
+    }
+}

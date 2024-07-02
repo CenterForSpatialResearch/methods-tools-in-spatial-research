@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is an Index | Jia Zhang</title>
+    <link rel="stylesheet" href="../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body data-project-name="What is an Index">
+
+    <div class="side-panel">
+        <div id="workshop_panel"></div>
+        <div id="project_tags" class="tag-grid"></div>
+    </div>
+
+        <script>
+
+            let data;
+
+            function loadData() {
+                d3.json("../tutorials.json").then(function(loadedData) {
+                    data = loadedData;
+                    displayTags();
+                });
+            }
+
+            // add workshop panel
+    
+            function displayTags() {
+                const projectName = document.body.getAttribute("data-project-name");
+                const tagContainer = document.getElementById("project_tags");
+    
+                // Find the project by name and extract its tags
+                const project = data.tutorials.find(tutorial => tutorial.project === projectName);
+    
+                if (project) {
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement("div");
+                        tagElement.className = "tag-item";
+                        tagElement.innerText = tag;
+                        tagContainer.appendChild(tagElement);
+                    });
+                }
+            }
+    
+            loadData();
+        </script>
+</body>
+</html>

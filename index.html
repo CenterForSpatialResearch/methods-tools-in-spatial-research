@@ -13,8 +13,6 @@
 </head>
 <body>
 
-   
-
     <div class="side-panel">
         <p>
             Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
@@ -61,11 +59,12 @@
             <div id="csrButton" class="panel-button"></div>
             <span class="button-text">Projects</span>
         </div>
-
         
     </div>
     
 <div id="networkviz"></div>
+<div id="authorButton"></div>
+<div id="projectButton"></div>
 
 <script>
 
@@ -92,7 +91,7 @@
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
-                `translate(${margin.left}, ${margin.top})`);
+                `translate(${margin.left}, ${margin.top})`); 
 
 
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
@@ -190,14 +189,11 @@
             }
         });
 
-        // console.log(allLinks);
-
         
         function getNodePanel(node) {
              const tutorial = data.tutorials.find(tutorial => tutorial.project === node.project);
             return tutorial ? tutorial.panel : ""; // Return panel if tutorial exists, otherwise return an empty string
         }
-
 
         const node = svg
             .selectAll("circle")
@@ -245,9 +241,11 @@
 
         function handleClick(event, d) {
             const projectName = d.project.replace(/\s+/g, '');
-            const projectUrl = `https://centerforspatialresearch.github.io/criticalmethods/${projectName}.html`;
-            window.open(projectUrl, '_blank'); //open in new window
+            const baseUrl = `${window.location.origin}${window.location.pathname.replace('index.html', '')}`;
+            const projectUrl = `${baseUrl}tutorials/${projectName}.html`;
+            window.open(projectUrl, '_blank'); // open in new window
         }
+
     }
 
     function search() {
@@ -316,6 +314,59 @@
     }
 
 // Function to toggle highlight based on panel
+
+const originalNodeStrokeColors = {};
+
+function toggleHighlightByTag(tag, highlight) {
+    const normalizedTag = tag.toLowerCase(); // Normalize the tag to lower case
+    const taggedNodes = document.querySelectorAll('.node');
+    const taggedLinks = document.querySelectorAll('.link');
+
+    const highlightedNodes = new Set(); // Set to store currently highlighted nodes
+
+    taggedNodes.forEach(node => {
+        const nodeData = d3.select(node).data()[0]; // Get the data bound to the node
+        const nodeTags = nodeData.tags.map(t => t.toLowerCase()); // Normalize node tags to lower case
+        if (nodeTags.includes(normalizedTag)) {
+            if (highlight && normalizedTag === 'csr') {
+                if (!originalNodeStrokeColors[nodeData.project]) {
+                    originalNodeStrokeColors[nodeData.project] = node.style.stroke; // Store original stroke color
+                }
+                node.style.strokeWidth = '5px'; // Set stroke width to 5px
+                node.setAttribute('r', 12); // Increase circle radius size
+                node.style.stroke = '#29AAE1'; // Set stroke color to #29AAE1 for csr tag
+            } else if (highlight) {
+                node.style.strokeWidth = '5px'; // Set stroke width to 5px
+                node.setAttribute('r', 12); // Increase circle radius size
+            } else {
+                node.style.strokeWidth = '2px'; // Restore default stroke width
+                node.setAttribute('r', 10); // Restore default circle radius size
+                if (normalizedTag === 'csr') {
+                    node.style.stroke = originalNodeStrokeColors[nodeData.project] || ''; // Restore original stroke color for csr tag
+                }
+            }
+            highlightedNodes.add(nodeData.project); // Add node project to highlighted set
+        }
+    });
+
+    taggedLinks.forEach(link => {
+        const linkData = d3.select(link).data()[0]; // Get the data bound to the link
+        const sourceNode = linkData.source.project;
+        const targetNode = linkData.target.project;
+        
+        if (highlightedNodes.has(sourceNode) && highlightedNodes.has(targetNode)) {
+            if (highlight) {
+                link.style.strokeWidth = '3px'; 
+            } else {
+                link.style.strokeWidth = '1px'; // Restore default stroke width
+            }
+        } else {
+            link.style.strokeWidth = '1px'; // Restore default stroke width for unhighlighted links
+        }
+    });
+}
+
+
 function toggleHighlight(panel, highlight) {
     const panelNodes = document.querySelectorAll(`.node.panel-${panel}`);
     const panelLinks = document.querySelectorAll(`.link.${panel}`);
@@ -346,6 +397,7 @@ const counterNarrativesButton = document.getElementById('counterNarrativesButton
 const localDataButton = document.getElementById('localDataButton');
 const networksButton = document.getElementById('networksButton');
 const forensicsButton = document.getElementById('forensicsButton');
+const csrButton = document.getElementById('csrButton');
 
 // Add click event listener
 visualCodeButton.addEventListener('click', function() {
@@ -377,6 +429,11 @@ networksButton.addEventListener('click', function() {
 forensicsButton.addEventListener('click', function() {
     this.classList.toggle('highlighted');
     toggleHighlight('CounterForensics', this.classList.contains('highlighted'));
+});
+
+csrButton.addEventListener('click', function() {
+    this.classList.toggle('highlighted');
+    toggleHighlightByTag('csr', this.classList.contains('highlighted'));
 });
 
 

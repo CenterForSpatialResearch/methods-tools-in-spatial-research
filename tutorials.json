@@ -111,8 +111,8 @@
     {
         "project": "Undercounting Underfunding of Poultry Farms in North Carolina",
         "authors":["Adeline Chum", "James Clinton-Francis","Tim Wu"],
-        "panel": "",
-        "tags": ["CSR","aerial imagery", "satellite","GIS", "agriculture", "machine learning", "training data"]
+        "panel": "CSR",
+        "tags": ["csr","aerial imagery", "satellite","GIS", "agriculture", "machine learning", "training data"]
     }
 ]
 }
