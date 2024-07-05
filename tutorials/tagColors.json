@@ -1,13 +1,10 @@
 {
     "colorGroups": {
         "#29AAE1": ["CSR"],
-        "##EDDF2B": ["visual code","data representation"],
-
+        "##EDDF2B":["visual code","data representation"],
         "#33FF57": ["GIS"],
         "#3357FF": ["mapping"],
-        "#F033FF": ["census"],
-        
-        "#FF33A1": ["administrative boundaries"],
+        "#F033FF": ["census", "GIS","administrative boundaries"],
         "#FFAA33": ["speculative cartography"],
         "#AAFF33": ["alternate realities"],
         "#33AAFF": ["weather"],
