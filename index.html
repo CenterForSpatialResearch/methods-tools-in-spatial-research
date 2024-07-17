@@ -208,6 +208,23 @@
                 });
 
 
+
+        const text = svg
+            .selectAll("text")
+            .data(data.tutorials)
+            .enter()
+            .append("text")
+            .attr("class", "node-text")
+            .attr("x", d => d.x)
+            .attr("y", d => d.y)
+            .text(d => d.authors)
+            .each(function(d) {
+                d3.select(this)
+                    .attr("original-panel", d.panel); // Store the original panel name
+            });
+
+
+                
             // console.log(links);
         const simulation = d3.forceSimulation(data.tutorials)
             .force("link", d3.forceLink(allLinks) // This force provides links between nodes
@@ -233,6 +250,10 @@
             node
                 .attr("cx", function (d) { return d.x+1; })
                 .attr("cy", function(d) { return d.y-1; });
+
+            text
+               .attr("x", function(d) { return d.x -50; }) // Adjust the position of the text
+               .attr("y", function(d) { return d.y +30; }); // Adjust the position of the text
         };
 
         //onclick link to individual tutorial pages
