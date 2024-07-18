@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forensic Architecture's technique in camera matching</title>
+    <link rel="stylesheet" href="../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .content-section {
+            width: 50%;
+            float: right;
+            margin: -700px auto;
+            padding: 700px;
+        }
+
+        .content-section h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .content-section h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 150px; 
+            margin-bottom: 50px;
+        }
+
+        .content-section h3 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px; 
+            margin-bottom: 0px;
+        }
+
+        .content-section p {
+            font-size: 20px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            display: block;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .iframe {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+
+    </style>
+</head>
+
+<body data-project-name="Dolly">
+
+    <div class="side-panel">
+        <div id="workshop_panel"></div>
+        <div id="project_tags" class="tag-grid"></div>
+    </div>
+
+    <div class="content-section">
+        <h1>Forensic Architecture's technique in camera matching</h1>
+        <h3>Nicholas Masterton</h3>
+        
+        <h2>Operative Space</h2>
+        <p>The dolly zoom is a cinematic camera technique in which the camera moves backwards or forwards (dolly) whilst also changing its focal length (zoom) such that the composition of a subject in the image is roughly maintained throughout the movement.  This technique is used to enhance the drama of a scene, but it also serves a useful role in the process of manual camera matching.  Camera matching is the process by which the position or 'pose' of a camera is established by comparing the contents of an image to a 3D scene, translating, rotating, zooming, and lens shifting the camera until the image aligns.  This process can be very labour intensive, sometimes requiring hours of manual configuration to resolve a single camera position. The dolly zoom accelerates the process of manual camera matching by simultaneously and proportionally changing the eponymous variables. The dolly zoom can be enacted around any point in 3D space and as in the cinematic case, there is normally a subject or locus around which the transformation occurs. Manual camera matching contrasts greatly with the process of photogrammetry, wherein camera poses can be computed automatically by comparing small groups of pixels known as features, which are detected in multiple frames and linked together in a network across images.</p>
+        <p>The manual camera match is instrumental in the work of Forensic Architecture as it is a robust method for piecing together images describing spaces of violence.  When a camera is immersed in 3D it can be used not only to situate the perspective of the camera person, but also to reconstruct the architecture of the scene.  One camera provides a single perspective of an object, a second camera can triangulate a point, a third camera can provide corroboration and confirmation, and a fourth may describe changes in time.  Often, incidents of violence are captured as blurry, overexposed, incomplete, and unstable images.  The disorder of these images speaks to the violent circumstances in which they were captured, but also often precludes the use of computational methods like photogrammetry in their reconstruction. A hand crafted approach to camera matching leverages the intuitive eye of the human investigator.</p>
+        <p>In this tutorial we use dolly zoom to manually match cameras.  First we look at how to use a Dolly Zoom addon with the active camera and pivot point. Then we approach two scenes, the first, a hallway with a regular tiled floor pattern and a geometrically vaulted ceiling, the second, an aerial image of the port of Beirut with non-rectilinear geometry, unclear vanishing point, and a large distance between foreground and background.</p>
+        <p>See full video here: </p>
+        <iframe width="1250" height="800" src="https://youtu.be/Ml3vzaqSD-g?si=dYRGOv_LJIVolKtK" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        let data;
+
+        function loadData() {
+            d3.json("../tutorials.json").then(function (loadedData) {
+                data = loadedData;
+                displayTags();
+            });
+        }
+
+        function displayTags() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+
+            // Find the project by name and extract its tags
+            const project = data.tutorials.find(tutorial => tutorial.project === projectName);
+
+            if (project) {
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagContainer.appendChild(tagElement);
+                });
+            }
+        }
+
+        loadData();
+    </script>
+</body>
+
+</html>

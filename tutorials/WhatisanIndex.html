@@ -3,57 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is an Index | Jia Zhang</title>
-    <link rel="stylesheet" href="../main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Your Title Here</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .content-section {
+            width: 50%;
+            float: right;
+            margin: -700px auto;
+            padding: 700px;
+        }
+
+        .content-section h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .content-section h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 150px; 
+            margin-bottom: 50px;
+        }
+
+        .content-section h3 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px; 
+            margin-bottom: 0px;
+        }
+
+        .content-section p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            display: block;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .iframe {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
 </head>
-
 <body data-project-name="What is an Index">
+    <div class="content-section">
+        <h1>Census Experiments</h1>
+        <h3>Jia Zhang</h3>
+        
+        <h2>Different ways to think about the Census</h2>
+        <p>The census provides crucial data infrastructure for the United States. It orchestrates data collection at scale, its units of measurement are geographical building blocks for systems such as voting.</p>
+        <p>In theory, this massive survey is a data centric method of governing, promises are made (in the constitution itself) for a complete count, and the most visible aspect of the project is presented as tables or factoids that describe the state of the nation. In practice, as with most technocratic processes, it is a perfect storm of politics and bureaucracy. Not a single census in its 230 year history has gone undisputed.</p> 
+        <p>The census is an obscure monolith. What is visible to the public only appears at either end of its process. At one end, the results of tabulations, and at the other, a person sitting in front of a form, engaged in a very subjective, personal, and even intimate process of self-identifying as a part of the larger population. Census data always comes with its hidden mechanisms of collection and tabulation. The purpose of visualizing census data is therefore both to show where and how people live, and an opportunity to expose some of the hidden infrastructure surrounding how data is made.</p> 
+        <p>What follows is a series of exercises in census visualization, which attempt to provide new entry points into, and build more intuitive and widespread understandings of datasets like the Census. There are many ways to think and do data visualization. In order to specifically address the census and the above observations, these exercises focus on 2 sets of terms. Data structures vs. data infrastructures, and close vs. distant reading.</p>
+        <img src="./images_jia_zhang/image7.png" alt="Placeholder" class="center-image">
+        <img src="./images_jia_zhang/image4.png" alt="Placeholder" class="center-image">
 
-    <div class="side-panel">
-        <div id="workshop_panel"></div>
-        <div id="project_tags" class="tag-grid"></div>
+        <h2>Exercise 1 Hierarchy and Quantity</h2>
+        <p>This is an interactive diagram that connects the geographical hierarchy of Census units to the data itself. The original diagram on the left comes from census documentation itself and serves as the interface to access the range of quantities represented by each layer of the hierarchy.</p>
+        <!-- <p>Image: diagram and charts</p>  -->
+        <!-- <img src="./images_jia_zhang/image8.gif" alt="Image: diagram and charts" class="center-image">  -->
+        <iframe src="https://centerforspatialresearch.github.io/censusGeographicHierarchy/" class="iframe" height="1000" width="1800" title="Exercise 1" frameborder="0"></iframe>
+        <p>See visualization in full screen here: <a href="https://centerforspatialresearch.github.io/censusGeographicHierarchy/" target="_blank">Click here</a></p>
+
+        <h2>Exercise 2 Intersection to Connection</h2>
+        <p>This interactive map combines the boundaries of the census data system with other systems of control and distinction by mapping 11 layers of the many administrative boundaries that govern nyc. Boundaries of fire and policing are largely dictated by spatial qualities. Community and school districts are physical as well, but interjected with some elements of demographics. In contrast, the places that are drawn intentionally as dictated by politics are in essence groupings of census tracts, here is where demographic advantage is the orienting principle and physical order falls to the wayside.</p>
+        <!-- <p>Image: map</p>  -->
+        <!-- <img src="./images_jia_zhang/image1.png" alt="Image: map" class="center-image">  -->
+        <iframe src="https://centerforspatialresearch.github.io/admin_infrastructure/" class="iframe" height="600" width="1250" title="Exercise 2" frameborder="0"></iframe>
+        <p>See visualization in full screen here: <a href="https://centerforspatialresearch.github.io/admin_infrastructure/" target="_blank">Click here</a></p>
+        <p>What is most interesting is what becomes shared spaces when boundaries don’t align. These overlaps are how we share the city. For example, school district 30 in Queens is shared by 3 state senate districts, 13 zip codes, 17 fire companies, 4 community districts, 2 municipal courts, 2 congressional districts, 4 police precincts, and 6 state assembly districts. These boundaries are not faceless. At the center of each boundary is a person, who through the everyday routine of governance must navigate each overlap.</p>
+        <p>In a network view, each physical overlap becomes a link, and each boundary is a node. This view shows the strength of the connective tissue between parts of the city in terms of governance. For example, Staten Island is set adrift functionally in terms of schools and safety, but not politically.</p>
+        <!-- <p>Image: network</p>  -->
+        <img src="./images_jia_zhang/image9.gif" alt="Image: network" class="center-image">
+
+        <h2>Exercise 3 Distant reading and Close reading</h2>
+        <p>These grids of images create distant readings of demographically grouped geographies. At a glance, socioeconomic as well as cultural differences and our histories dictate the extremely different landscapes we inhabit.</p>
+        <!-- <p>Image: grid of tracts by % race</p> -->
+        <!-- <img src="./images_jia_zhang/image3.png" alt="Image: grid of tracts by % race" class="center-image"> -->
+        <iframe src="https://centerforspatialresearch.github.io/svi_rankings/" class="iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
+        
+        <p>These same images placed in a different context than above require closer reading. This series of satellite comparisons show how the same data points can look very different. This sketch generates pairs of satellite images of census tracts in New York city that have the same % of some population measure but are different in almost all other measures. For example, here we can see that unemployment means lots of different things.</p>
+        <!-- <p>Image: comparisons of pairs</p> -->
+        <!-- <img src="./images_jia_zhang/image6.png" alt="Image: comparisons of pairs" class="center-image"> -->
+        <p>See visualization in full screen here: <a href="https://centerforspatialresearch.github.io/svi_rankings/" target="_blank">Click here</a></p>
+        
+        <h2>Exercise 4 Indexing</h2>
+        <p>Indexing is one afterlife of census data. The function of the index is to provide order, it is to embed comparison and prioritization into the data and to replace the descriptive data entirely with a numbered ranking. Every index is different even if they address the same.</p>
+        <!-- <p>Image: map comparison of 8 indices</p> -->
+        <!-- <img src="./images_jia_zhang/image5.png" alt="Image: map comparison of 8 indices" class="center-image"> -->
+
+        <p>Here we dissected 23 indices from various institutions by looking at their intended function, the categories of data they draw from as well as the methodology they use.</p>
+        <!-- <p>Image: flow diagram of indices</p> -->
+        <!-- <img src="./images_jia_zhang/image10.gif" alt="Image: flow diagram of indices" class="center-image"> -->
+        <p>Here are 8 separate indices that rank New York City on different measures, each according to a different principle and some even contradicting each other. For example, the SVI index emphasizes access to infrastructure, such as housing and transportation, while the SEVI index emphasizes the exposure of that infrastructure to environmental hazards. These maps point to the result of different indices.</p>
+        <!-- <p>Image: map comparison of 8 indices</p> -->
+        <img src="./images_jia_zhang/image5.png" alt="Image: map comparison of 8 indices" class="center-image">
+        
+        <p>Indexing is one afterlife of census data. The function of the index is to provide order, it is to embed comparison and prioritization into the data and to replace the descriptive data entirely with a numbered ranking. Every index is different even if they address the same.</p>
     </div>
 
-        <script>
+    <div id="project_tags" class="tag-grid"></div>
 
-            let data;
+    <script>
+        let data;
 
-            function loadData() {
-                d3.json("../tutorials.json").then(function(loadedData) {
-                    data = loadedData;
-                    displayTags();
+        function loadData() {
+            d3.json("../tutorials.json").then(function(loadedData) {
+                data = loadedData;
+                displayTags();
+            });
+        }
+
+        function displayTags() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+
+            const project = data.tutorials.find(tutorial => tutorial.project === projectName);
+
+            if (project) {
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagContainer.appendChild(tagElement);
                 });
             }
+        }
 
-            // add workshop panel
-    
-            function displayTags() {
-                const projectName = document.body.getAttribute("data-project-name");
-                const tagContainer = document.getElementById("project_tags");
-    
-                // Find the project by name and extract its tags
-                const project = data.tutorials.find(tutorial => tutorial.project === projectName);
-    
-                if (project) {
-                    project.tags.forEach(tag => {
-                        const tagElement = document.createElement("div");
-                        tagElement.className = "tag-item";
-                        tagElement.innerText = tag;
-                        tagContainer.appendChild(tagElement);
-                    });
-                }
-            }
-    
-            loadData();
         </script>
 
-        <div class="title">
-            Different ways to think about the Census
-        </div>
 </body>
 </html>
