@@ -13,7 +13,7 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 
-<body data-project-name="Dolly">
+<body data-project-name="Forensic Architecture's technique in camera matching"> <!-- The name here is to link Tags from json file (project name)-->
         <div class="top-bar">
             <div class="menu">
                 <a href="#about">ABOUT</a>
@@ -25,7 +25,7 @@
                 METHODS OF RESEARCH 
             </p>
         </div>
-    
+
         <div class="tutorials-side-panel">
             <h3>Workshop Panel: </h3>
             <div class="visual-code-container">
@@ -33,25 +33,8 @@
                 <p style="font-weight: bold;">Dolly Zoom</p>
             </div>
             <h3>Project Tags: </h3>
-            <div class="tutorials-ProjectTagsContainer">
-                <div class="tutorials-ProjectTags-yellow">
-                    <p>visualization</p>
-                </div>
-                <div class="tutorials-ProjectTags-yellow">
-                    <p>design</p>
-                </div>
-                <div class="tutorials-ProjectTags-yellow">
-                    <p>d3</p>
-                </div>
-                <div class="tutorials-ProjectTags-grey">
-                    <p>public data</p>
-                </div>
-                <div class="tutorials-ProjectTags-grey">
-                    <p>census</p>
-                </div>
-                <div class="tutorials-ProjectTags-purple">
-                    <p>mapping</p>
-                </div>
+            <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                <!-- Tags will be dynamically inserted here -->
             </div>
         </div>
 
@@ -74,7 +57,7 @@
         let data;
 
         function loadData() {
-            d3.json("../tutorials.json").then(function (loadedData) {
+            d3.json("../tutorials.json").then(function(loadedData) {
                 data = loadedData;
                 displayTags();
             });
@@ -97,7 +80,11 @@
             }
         }
 
-        loadData();
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+
+        loadData(); // Call the loadData function to load the JSON and display the tags
     </script>
 </body>
 

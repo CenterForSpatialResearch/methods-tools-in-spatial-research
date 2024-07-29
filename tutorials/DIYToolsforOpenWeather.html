@@ -10,7 +10,7 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 
 </head>
-<body data-project-name="What is an Index">
+<body data-project-name="DIY Tools for Open Weather"> <!-- The name here is to link Tags from json file (project name)-->
     <div class="top-bar">
         <div class="menu">
             <a href="#about">ABOUT</a>
@@ -27,28 +27,11 @@
         <h3>Workshop Panel: </h3>
         <div class="visual-code-container">
             <div class="tutorials-circle"></div>
-            <p style="font-weight: bold;">Open Weather Tutorial</p>
+            <p style="font-weight: bold;">Dolly Zoom</p>
         </div>
         <h3>Project Tags: </h3>
-        <div class="tutorials-ProjectTagsContainer">
-            <div class="tutorials-ProjectTags-yellow">
-                <p>visualization</p>
-            </div>
-            <div class="tutorials-ProjectTags-yellow">
-                <p>design</p>
-            </div>
-            <div class="tutorials-ProjectTags-yellow">
-                <p>d3</p>
-            </div>
-            <div class="tutorials-ProjectTags-grey">
-                <p>public data</p>
-            </div>
-            <div class="tutorials-ProjectTags-grey">
-                <p>census</p>
-            </div>
-            <div class="tutorials-ProjectTags-purple">
-                <p>mapping</p>
-            </div>
+        <div class="tutorials-ProjectTagsContainer" id="project_tags">
+            <!-- Tags will be dynamically inserted here -->
         </div>
     </div>
     
@@ -308,6 +291,7 @@
             const projectName = document.body.getAttribute("data-project-name");
             const tagContainer = document.getElementById("project_tags");
 
+            // Find the project by name and extract its tags
             const project = data.tutorials.find(tutorial => tutorial.project === projectName);
 
             if (project) {
@@ -321,10 +305,11 @@
         }
 
         document.getElementById('sidePanel').addEventListener('click', function() {
-        window.location.href = '../index.html'; 
+            window.location.href = '../index.html'; 
         });
 
-        </script>
+        loadData(); // Call the loadData function to load the JSON and display the tags
+    </script>
 
 </body>
 </html>
