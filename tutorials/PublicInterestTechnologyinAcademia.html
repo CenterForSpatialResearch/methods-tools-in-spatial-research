@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Interest Technology in Academia</title>
+    <link rel="stylesheet" href="../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body data-project-name="Public Interest Technology in Academia"> <!-- The name here is to link Tags from json file (project name)-->
+        <div class="top-bar">
+            <div class="menu">
+                <a href="#about">ABOUT</a>
+            </div>
+        </div>
+    
+        <div class="tutorials-corner-panel"  id="sidePanel">
+            <p weight="bold">
+                METHODS OF RESEARCH 
+            </p>
+        </div>
+    
+        <div class="tutorials-side-panel">
+            <h3>Workshop Panel: </h3>
+            <div class="visual-code-container">
+                <div class="tutorials-circle"></div>
+                <p style="font-weight: bold;">Public Interest Technology in Academia</p>
+            </div>
+            <h3>Project Tags: </h3>
+            <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                <!-- Tags will be dynamically inserted here -->
+            </div>
+        </div>
+
+    <div class="tutorials-section">
+        <h1>Another AI is Possible</h1>
+        <h2>A Case Study in Co-Designing Feminist, Decolonial, Participatory AI</h2>
+        <h3>Catherine D'Ignazio</h3>
+        
+        <p style="color: #ef3e6a; text-align: center; font-size: 30px; font-weight: bold; max-width: 550px; word-wrap: break-word; margin: 0 auto; margin-top: 100px">Another world is not only possible, she is on her way. On a quiet day, I can hear her breathing.</p>
+        <p>― Arundhati Roy, War Talk</p> 
+        <p>I have always loved this quote from Arundhati Roy. It reminds me that no matter how fixed and determined and bleak the current situation may seem, there are more just and more joyful worlds beginning to take shape in the present moment.</p>
+        <p>How does this relate to Artificial Intelligence (AI)? Some of the most important things that we lack right now, in relation to AI, are powerful and captivating imaginaries about how life with technology could be different. </p>
+        <p>AI Hype tells us we need enormous foundation models. AI Hype tells us only elite men at elite institutions can understand the technology. AI Hype tells us we need to redirect scarce natural resources to feed computer farms to train our enormous models. AI Hype assures us that Big Tech has got everything under control. AI Hype tells us that generalized artificial intelligence is just around the corner. </p>
+        <p>None of this is true and none of this is inevitable. So it is our responsibility to envision and realize alternative, more sustainable, and more just approaches to technology.</p>
+        
+        <h2 style="color: #ef3e6a;">AI and Power</h2>
+        <p>There have been important works in the past decade, in the emerging field of Critical Data Studies, that have advanced concepts to name the harmful, discriminatory effects of data and AI. Among them: <a href="https://www.hachettebookgroup.com/titles/shoshana-zuboff/the-age-of-surveillance-capitalism/9781610395694/?lens=publicaffairs" target="_blank">surveillance capitalism</a>, <a href="https://www.wiley.com/en-us/Race+After+Technology%3A+Abolitionist+Tools+for+the+New+Jim+Code-p-9781509526437" target="_blank">the New Jim Code</a>, <a href="https://us.macmillan.com/books/9781250074317/automatinginequality" target="_blank">automated inequality</a>, <a href="https://www.ucpress.edu/book/9780520389328/the-map-in-the-machine" target="_blank">data extractivism</a>, and <a href="https://www.sup.org/books/title/?id=28816" target="_blank">data colonialism</a>. These works show very convincingly how our data sets, data systems, algorithms, and AI are accelerating and exacerbating existing longstanding, durable social inequalities, such as patriarchy, white supremacy, colonialism and more. What these works teach us is that data & AI are not outside of power, or separate from power. In fact, power is increasingly concentrated and wielded through data, especially when we start to think of how AI systems are permeating all levels of the public and private sector, allocating public services, medical services, loans, access to education, food, housing and more.</p>
+        <p>This work to name and describe algorithmic harms is important and I myself do work in this vein. For example, together with PhD student Wonyoung So, we have been increasingly looking at housing technologies. The housing sector in the United States is experiencing the integration of a whole host of different technologies, many powered by AI, algorithms, and predictive models. </p>
+        <p>Here we can ask a simple question: </p>
+        <p style="color: #ef3e6a; text-align: center; font-size: 30px; font-weight: bold; max-width: 550px; word-wrap: break-word; margin: 0 auto;">Why are we building systems that concentrate power in the hands of the powerful?</p>
+        <p>Why, for example, do landlords have so much more data, algorithms and AI on their side? When considered across the sector, we have ended up with an increasingly dizzying array of what is called <a href="https://urbanomnibus.net/2019/11/disruption-at-the-doorstep/" target="_blank">proptech</a> – property technology – that helps landlords to screen tenants, monitor and surveil them on their property, control their access to their homes, and so on. Landlords can know almost everything about tenants whereas tenants can know very, very little about landlords and, say, their history of evicting people unfairly or not fixing broken things on the property. Why is there so much information asymmetry? Where are the technologies and prediction systems that help tenants build power? Why are we not building those? </p>
+        <p>The answer to these questions is simple: landlords can pay and tenants cannot. That is to say, there is a market that makes it profitable to build technologies for landlords. Thus, those with money get more technology and information on their side, and such biased and uneven distribution of "innovation" bolsters and exacerbates inequality.</p>
+        <p>Proptech technologies are bolstering landlords' power, and corporate landlords in particular. In addition, some of these technologies are actively discriminating against and excluding tenants. For example, I recently worked with Wonyoung So and urban studies scholars in my department on <a href="https://www.regulations.gov/comment/FTC-2023-0024-0583" target="_blank">a comment to the US Federal Trade Commission (FTC)</a> about how tenant screening services demonstrate significant racial discrimination and exclude low-income tenants from housing. The evidence against these firms is so egregious that we propose a federal moratorium on such technology until companies can prove safety, i.e. that they are not disproportionately excluding racialized and low-income people. </p>
+        <p>I include this example in an essay that is ostensibly about alternative approaches to AI systems because I want us to remember that refusal is always an option. Just because a system can be built and someone will pay for it doesn't make it ethical. There are some technologies towards which we have to build a collective political response: that we have to walk away from, refuse to build, regulate against, and, if it comes to it, completely shut down, because they are causing harm and violence on a massive scale. Tenant screening services is an example of one such technology.</p>
+
+        <h2 style="color: #ef3e6a;">Between AI refusal and AI hype</h2>
+        <p>Yet between refusal and wholesale embrace of AI Hype, there are a lot of other options. One person I have taken a lot of inspiration from recently is scholar and activist Paola Ricaurte. </p>
+        <p>In her work on data epistemologies, Ricaurte leaves open the door for other technological imaginaries – ways of mobilizing data and technology that do not just enable bolster the money and power of the people who already have it. This is to say that the mainstream approach to data and AI is not the only approach open to us.</p>
+        <p>Ricaurte says:</p>
+        <p style="color: #ef3e6a; text-align: center; font-size: 30px; font-weight: bold; max-width: 550px; word-wrap: break-word; margin: 0 auto;">There are "possible alternative data frameworks and epistemologies that are respectful of populations, cultural diversity, and environments."</p>
+        <p>– Paola Ricaurte. "<a href="https://journals.sagepub.com/doi/10.1177/1527476419831640" target="_blank" >Data epistemologies, the coloniality of power, and resistance.</a>" Television & New Media 20, no. 4 (2019): 350-365.</p>
+        <p>This is where a second line of Critical Data Studies work comes in. This body of work is not solely about documenting harms and making concepts to describe the uneven, unequal and unjust accumulation of power in AI. This work starts from the idea that, as scholars and technology designers, we can do more than critique. We can be generative about what it looks like to use data science in the service of justice. We can envision and build alternative sociotechnical imaginaries, even if they only exist at a small scale or for a weekend.  </p>
+        ---------------
+        <p>In recent years, alternative approaches to data science and AI have been developed and put into practice. These are approaches that mobilize alternative epistemologies, value systems and worldviews while engaging with data. These have drawn from <a href="https://designjustice.mitpress.mit.edu/" target="_blank">feminist</a>, <a href="https://datasociety.net/wp-content/uploads/2024/04/Keywords_Indigenous_Data_Sovereignty_Carroll_Duarte_Liboiron_04242024.pdf" target="_blank">Indigenous</a>, <a href="https://d4bl.org/" target="_blank">Black</a>, <a href="https://uwapress.uw.edu/book/9780295751979/queer-data-studies/" target="_blank">queer</a>, <a href="https://www.uihi.org/projects/decolonizing-data-toolkit/" target="_blank">decolonial</a>, <a href="https://bristoluniversitypress.co.uk/resisting-ai" target="_blank">prefigurative</a>, and other perspectives.</p>
+        <p>This is where I would situate Lauren Klein and I's 2020 book, <a href="https://data-feminism.mitpress.mit.edu/" target="_blank">Data Feminism</a>. We looked to intersectional feminist theory along with the already existing data practices of activists, citizens, journalists, artists and social movements to formulate seven principles for doing data science in a feminist way. Since then, we have also published <a href="https://dl.acm.org/doi/fullHtml/10.1145/3630106.3658543" target="_blank">a paper about data feminism principles in relation to AI</a>.</p>
+        <p>After we published Data Feminism, I felt that the next step, for me, was to try to use the data feminism principles: to walk the talk; to try, in some sense, to test them in the real world. This is partially what led me to undertake an in-depth participatory design project with feminist data activists.</p>
+
+        <h2 style="color: #ef3e6a;">Counting Feminicide</h2>
+        <p>This case study in participatory AI comes out of Chapter 7 of my book called <a href="https://mitpress.mit.edu/9780262048873/counting-feminicide/" target="_blank">Counting Feminicide: Data Feminism in Action</a> (MIT Press, 2024). This book documents the creative, intellectual and emotional labor of feminicide data activists across the Americas. It shows how their approach to data ethics and data science holds lessons for scholars and practitioners of data science.</p>
+        <img src="./images_catherine_D'Ignazio/image1.png" alt="Image: network" class="center-image">
+        <p>Figure 1. Counting Feminicide: Data Feminism in Action is available open access from MIT Press.</p> 
+        <p>My first encounter with feminicide data activism was getting to know the work of <a href="https://www.opendemocracy.net/en/5050/how-one-woman-is-mapping-femicides-in-mexico/" target="_blank">Maria Salguero</a> who monitors feminicide in Mexico.</p>
+        <p>Feminicide is a feminist concept that names the gender-related killings of women and girls, and it includes cisgender and transgender women. Feminicide is legally defined as a crime in <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VQKIPJ" target="_blank">almost all Latin American countries</a> including Mexico, but most states do not systematically collect and publish data on feminicides. Feminicide is also the subject of emerging public anger in Latin America and beyond because of the way in which the state neglects to fully implement its own laws and provisions.</p>
+        <p>Frustrated by the lack of action, Salguero has singlehandedly compiled <a href="https://www.ellastienennombre.org/mapa.html" target="_blank">the largest public archive of feminicide in Mexico</a>. Using her database and map, she has helped families locate loved ones, provided data to journalists and NGOs and has testified in front of Mexico’s Congress multiple times. Salguero's work constitutes a practice of counterdata production - activist data production that steps in when the state and other institutions are systematically failing to ensure the basic human rights of their people.</p>
+        <p>While Maria Salguero's work has received significant (and well-deserved) media attention, there are in fact many observatories - grassroots efforts that produce data about feminicide and document these human rights violations. Our collaborative research project, called <a href="https://datoscontrafeminicidio.net/en/home-2/" target="_blank">Data Against Feminicide</a>, has cataloged more than 180 data activism projects around the world who do this work. Most monitor feminicide but others have other names or more specific categories of violence, including Missing and Murdered Indigenous Women, Girls and Two Spirit people or fatal transgender violence or Black women killed by police violence.</p>
+        <p>I would like to take a moment and call your attention to what it means to "produce counterdata" - this means these grassroots groups try to "count" feminicide, case by case, person by person. Typically they seek out official information, and, finding little to no official data, they turn to news media and to social media as their primary source of information. Maria Salguero spends 2-4 hours per day reading news articles about violence and copying and pasting details into her database. This is manual work, artisanal work - such details might be name, age, method of death, place, number of children, relationship with the perpetrator, information about the perpetrator, status of the case in the justice system, and many more things. It is time consuming and <a href="https://medium.com/data-feminism-lab-mit/feminicide-data-emotional-labor-and-self-care-a3337bcd22c7" target="_blank">it is difficult emotionally and spiritually</a> to read so many cases of brutal violence, often reported by the press in misogynistic, racist, classist and transphobic ways. Salguero talks about how she takes breaks for her own mental health.</p>
+
+        <h2 style="color: #ef3e6a;">Data Against Feminicide</h2>
+        <img src="./images_catherine_D'Ignazio/image2.jpg" alt="Image: network" class="center-image">
+        <p>Figure 2. Timeline of when feminicide data activism projects started their monitoring efforts. Each bar shows a count of how many projects started that year. Image by Melissa Q. Teng. Source: Counting Feminicide, MIT Press.</p>
+        <p>In the chart, you can see that data activism about feminicide has really proliferated in the past two decades, and in particular, since the <a href="https://en.wikipedia.org/wiki/Ni_una_menos" target="_blank">#NiUnaMenos</a> uprising which began in 2015 in Buenos Aires, Argentina, and spread globally. These observatories and monitoring projects are an increasingly common and widespread form of citizen data science across the Americas.</p>
+        <p>Since 2019, the Data Against Feminicide project has been organized around three pillars. We are: </p>
+        <p>- A qualitative research project to understand activist data & information practices</p>
+        <p>- A participatory design project to co-design digital & AI tools to support data activists</p>
+        <p>- A growing, global community of practice for people working on feminicide & data</p>
+        <p>One thing I want to be clear about – because it's often misunderstood – is that our project does not collect and aggregate activist data. Rather, we aim to build tools and build community to support and sustain the existing data practices of activists in their own contexts and on their own terms. The project is co-led by myself together with <a href="https://www.isadoracruxen.com/" target="_blank">Isadora Cruxên</a> (Brazil/UK), <a href="https://www.google.com/url?q=https://www.linkedin.com/in/silvana-fumega/&sa=D&source=docs&ust=1721912726477889" target="_blank">Silvana Fumega</a> (Argentina), <a href="https://www.feminicidiouruguay.net/" target="_blank">Helena Suárez Val</a> (Uruguay). Geographically, our project has centered on feminicide data activism in the Americas because it is where the co-leaders of the project are based as well as where the Latin American feminist movements have been mobilizing most fiercely against feminicide.</p>
+        <img src="./images_catherine_D'Ignazio/image3.png" alt="Image: network" class="center-image">
+        <p>Figure 3. Map of the interviewees and collaborators of the Data Against Feminicide project. Map by Angeles Martinez Cuba and Melissa Q. Teng.</p>
+        <p>In June 2020, we initiated a participatory process to co-design digital tools and technologies with feminicide data activists. The process continues to this day and you can see the different stages of participation in the graphic below. </p>
+        <img src="./images_catherine_D'Ignazio/image4.png" alt="Image: network" class="center-image">
+        <p>Figure 4. The various stages of participatory technology development with feminicide data activists.</p>
+        <img src="./images_catherine_D'Ignazio/image5.png" alt="Image: network" class="center-image">
+        <p>Figure 5. The Data Against Feminicide Data Highlighter. </p>
+        <p>So what did we – the Data Against Feminicide team and activists – build together?</p>
+        <p>The first tool we built was relatively simple, designed to facilitate activist scanning of news articles when they are reading them for details about specific cases (figure 5). This is a browser extension that highlights names, places, and dates (the most common pieces of information activists are seeking for their databases) along with custom words. For example, an activist seeking to monitor the role of guns in feminicide might put "gun" or "firearm" as a custom word to search for.</p>
+        <img src="./images_catherine_D'Ignazio/image6.png" alt="Image: network" class="center-image">
+        <p>Figure 6. The Data Against Feminicide Email Alerts System.</p>
+        <p>The second tool we built is more of a system or platform (figure 6). Many activists use Google Alerts for getting notified about potential cases of feminicide, but many had stopped using it because it doesn't index local news, because it didn't have geographic specificity, and because it often gave them news about violence but not feminicide. So, we basically built Google Alerts but tuned for detecting articles about feminicide specifically. Because the activists' labor is so emotionally burdensome, one of our most central design goals was to reduce the amount of extraneous violence that activists were exposed to, so the system seeks to filter out those cases which are not feminicide. This is where the AI comes in in the form of a machine learning classifier that scores candidate articles and tries to determine whether or not they represent a feminicide. If an article passes the threshold, then that article is delivered to activists as an email alert and also deposited into their online, searchable project dashboard.</p>
+        <p>Currently there are more than 40 human rights groups using these tools in English, Spanish, and Portuguese. </p>
+
+        <h2 style="color: #ef3e6a;">Feminist and decolonial AI</h2>
+        <p>Coming back to the principles of data feminism, I want to explain a little bit about how these played a role in our design process and our decision making.</p>
+        <h3>Challenge power</h3>
+        <p>Data feminism commits to challenging unequal power structures and working toward justice. At the most basic level, the tools' theory of change is that they challenge power - unjust violence - by supporting and sustaining the underresourced labor of activists and grassroots organizations working on feminicide, especially those in Latin America. Paola Ricaurte and other organizers of the <a href="https://www.tierracomun.net/" target="_blank">Tierra Común network</a> have demonstrated how AI replicates global colonial power relations. Thus we sought to support knowledge making practices from the South as well as to build power outside of profit (Silicon Valley capitalism only innovates for those who can pay, making AI innovation a powerful engine for the status quo). Within the project, we also made decisions about money that are aligned with challenging power. We paid all activists for their time and labor in the design process, including ideating, annotating data, piloting the tools, and reporting bugs. We also sought to avoid large grants in early stages of the project. Large grants mean that you are accountable to the funder, and we wanted to be most accountable to the activists and grassroots organizations themselves at the beginning of the project, while we were building relationships and figuring out what the project was about. Finally, we challenged power by embracing AI humility over AI hype - using AI/ML to perform specific tasks to alleviate the emotional burden of undertaking data activism about feminicide. The goal was not to automate or outsource activists' work, but to reduce their exposure to violence and reduce the overall time needed to produce feminicide data.</p>
+        <h3>Embrace pluralism</h3>
+        <p>Data feminism insists that the most complete knowledge comes from synthesizing multiple perspectives, with priority given to local, Indigenous, and experiential ways of knowing. To embrace pluralism, we designed a participatory process that brought together activists across languages and geographies and ethnic backgrounds. We intentionally sought the participation of Indigenous colleagues as well as groups working on racialized violence, and, indeed, they taught us many things about how our tools needed to incorporate an intersectional perspective. In our participatory process, activists were centered as, and paid as, the experts. Too often, academics and designers parachute into communities, collect information, and depart without ever sharing knowledge back to the community. To the extent possible, we sought to establish mutually beneficial, non-extractive relationships with activists and organizations. These are on-going and they are reinforced by the social infrastructure of the project which brings feminicide data activists together in annual transnational gatherings.</p>
+        <h3>Elevate emotion and embodiment</h3>
+        <p>Data feminism teaches us to value multiple forms of knowledge, including the knowledge that comes from people as living, feeling bodies in the world. One of our main goals, both in the development of the tools as well as in the Data Against Feminicide project more broadly, is to "foster caring relations," as <a href="https://journals.sagepub.com/doi/10.1177/0306312710380301" target="_blank">Maria Puig de la Bellacasa</a> has stated. For us, this means caring for each other – the friendship that has been built between the four co-organizers of the project – as well as caring for and cultivating the existing community of practice around feminicide data activism. It also means seeing and designing for the significant emotional and spiritual labor involved in feminicide data activism.</p>
+        <h3>Make labor visible</h3>
+        <p>The work of data science, like all work in the world, is the work of many hands. Data feminism makes this labor visible so that it can be recognized and valued. One of our most fundamental decisions in this project was to support and sustain the existing grassroots labor of feminicide data activism. This is aligned with the <a href="https://designjustice.org/" target="_blank">Design Justice</a> principle "Before seeking new design solutions, we look for what is already working at the community level." Too often, academics and designers enter a project with the (arrogant!) idea that they might aggregate data collected by others and produce their own expert knowledge. We intentionally did not do this. </p>
+        <h3>Consider context</h3>
+        <p>Data feminism asserts that data are not neutral or objective. They are the products of unequal
+            social relations, and this context is essential for conducting accurate, ethical analysis. In building our tools, we sought to use small machine learning models tuned to specific contexts (languages, types of violence, geographies) for a discrete task (detecting articles about feminicide). We were able to make context-specific models by paying experts (the activists) to annotate data. Small models trained on high-quality datasets run counter to the current norm in AI which values large language models (LLMs) trained on massive, not-context-specific, low-quality, predominantly English, and toxic data sets from the internet. Such models are imagined to be "foundational" and serve "universal" purposes, yet in practice "universal" means that these models do nothing well and their "foundation" is based in the structural biases prevalent in internet discourse.
+            </p>
+        
+        <h2 style="color: #ef3e6a;">Modeling Another AI</h2>
+        <p>Those were the ways that we tried to align this project and design process with data feminism's principles. Yet, we still encountered oversights and frictions. Here are some of our open questions:</p>
+        <p>1. How can we use AI and computation for politically contested concepts like feminicide? This is particularly challenging as definitions vary across geographies, languages, legal frameworks, and even between activist groups themselves.</p>
+        <p>2. How can we use AI/ML with an intersectional framework? For example, we learned through this project that our "default" feminicide models performed extremely poorly for groups seeking to monitor racialized violence like <a href="https://www.sovereign-bodies.org/mmiw-database" target="_blank">MMIWG2S</a> and <a href="https://www.aapf.org/sayhername" target="_blank">Black women killed in police violence</a>. We needed to create <a href="https://dl.acm.org/doi/10.1145/3531146.3533132" target="_blank">new, more contextualized and specific models</a> for these groups.</p>
+        <p>3. How can we build and maintain AI tools outside of capitalist and for-profit funding structures? Many academic structures – which favor novelty and academic publishing – are not set up well for building and maintaining software products. And yet, academia is one of the only sectors in which there is enough autonomy and possible funding to get such tools off the ground. </p>
+        <p>Despite not having answers to all of these questions, I am proud of our group's process and our on-going collaborative work to maintain our tools and the community of feminicide data activists that surrounds them. I see this work as a significant contribution to modeling an approach to AI that is feminist, decolonial and grounded in anti-capitalist and anti-extractivist values. Such an approach places AI more humbly in the service of social movements which are already working towards visionary goals such as eliminating feminicide, along with the destruction of all those systems – patriarchy, white supremacy, colonialism – which permit and enable feminicidal violence. </p>
+
+    </div>
+
+    <script>
+        let data;
+    
+        function loadData() {
+            d3.json("../tutorials.json").then(function(loadedData) {
+                data = loadedData;
+                displayTags();
+            });
+        }
+    
+        function displayTags() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+    
+            // Find the project by name and extract its tags
+            const project = data.tutorials.find(tutorial => tutorial.project === projectName);
+    
+            if (project) {
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagContainer.appendChild(tagElement);
+                });
+            }
+        }
+    
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+    
+        loadData(); // Call the loadData function to load the JSON and display the tags
+    </script>
+
+
+
+
+</body>
+
+</html>

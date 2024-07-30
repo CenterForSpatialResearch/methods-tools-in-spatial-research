@@ -11,70 +11,34 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <style>
-        .content-section {
-            width: 50%;
-            float: right;
-            margin: -700px auto;
-            padding: 700px;
-        }
-
-        .content-section h1 {
-            font-size: 50px;
-            font-weight: bold;
-            margin-bottom: 16px;
-        }
-
-        .content-section h2 {
-            font-size: 30px;
-            font-weight: bold;
-            margin-top: 150px; 
-            margin-bottom: 50px;
-        }
-
-        .content-section h3 {
-            font-size: 25px;
-            font-weight: bold;
-            margin-top: 50px; 
-            margin-bottom: 0px;
-        }
-
-        .content-section p {
-            font-size: 20px;
-            margin-top: 50px;
-            margin-bottom: 20px;
-        }
-
-        .content-section img {
-            max-width: 100%;
-            display: block;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-        
-        .center-image {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .iframe {
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-
-
-    </style>
 </head>
 
-<body data-project-name="Dolly">
+<body data-project-name="Forensic Architecture's technique in camera matching"> <!-- The name here is to link Tags from json file (project name)-->
+        <div class="top-bar">
+            <div class="menu">
+                <a href="#about">ABOUT</a>
+            </div>
+        </div>
+    
+        <div class="tutorials-corner-panel"  id="sidePanel">
+            <p>
+                METHODS OF RESEARCH 
+            </p>
+        </div>
 
-    <div class="side-panel">
-        <div id="workshop_panel"></div>
-        <div id="project_tags" class="tag-grid"></div>
-    </div>
+        <div class="tutorials-side-panel">
+            <h3>Workshop Panel: </h3>
+            <div class="visual-code-container">
+                <div class="tutorials-circle"></div>
+                <p style="font-weight: bold;">Dolly Zoom</p>
+            </div>
+            <h3>Project Tags: </h3>
+            <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                <!-- Tags will be dynamically inserted here -->
+            </div>
+        </div>
 
-    <div class="content-section">
+    <div class="tutorials-section">
         <h1>Forensic Architecture's technique in camera matching</h1>
         <h3>Nicholas Masterton</h3>
         
@@ -83,8 +47,7 @@
         <p>The manual camera match is instrumental in the work of Forensic Architecture as it is a robust method for piecing together images describing spaces of violence.  When a camera is immersed in 3D it can be used not only to situate the perspective of the camera person, but also to reconstruct the architecture of the scene.  One camera provides a single perspective of an object, a second camera can triangulate a point, a third camera can provide corroboration and confirmation, and a fourth may describe changes in time.  Often, incidents of violence are captured as blurry, overexposed, incomplete, and unstable images.  The disorder of these images speaks to the violent circumstances in which they were captured, but also often precludes the use of computational methods like photogrammetry in their reconstruction. A hand crafted approach to camera matching leverages the intuitive eye of the human investigator.</p>
         <p>In this tutorial we use dolly zoom to manually match cameras.  First we look at how to use a Dolly Zoom addon with the active camera and pivot point. Then we approach two scenes, the first, a hallway with a regular tiled floor pattern and a geometrically vaulted ceiling, the second, an aerial image of the port of Beirut with non-rectilinear geometry, unclear vanishing point, and a large distance between foreground and background.</p>
         <p>See full video here: </p>
-        
-    
+      
         <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/986497012?h=3ac90aceaa&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Nicholas-Masterton_Forensic-Architecture_DollyZoom"></iframe></div>
         
         <script src="https://player.vimeo.com/api/player.js"></script>
@@ -95,7 +58,7 @@
         let data;
 
         function loadData() {
-            d3.json("../tutorials.json").then(function (loadedData) {
+            d3.json("../tutorials.json").then(function(loadedData) {
                 data = loadedData;
                 displayTags();
             });
@@ -118,7 +81,11 @@
             }
         }
 
-        loadData();
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+
+        loadData(); // Call the loadData function to load the JSON and display the tags
     </script>
 </body>
 
