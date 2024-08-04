@@ -1,0 +1,28 @@
+{
+    "colors":[
+    {
+        "panel":  "Visual Code",
+        "tags": ["data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "CSR", "Ceneter for Spatial Technologies", "mapbox", "motion tracking", "camera matching"] 
+    },
+    {
+        "panel":  "Mapping Conflict",
+        "tags": ["web mapping", "georeferencing", "satellites", "mapping", "counter mapping", "GIS"] 
+    }, 
+    {
+        "panel":  "Counter Narratives",
+        "tags": ["narrative", "mixed media", "histories", "media actvism", "storytelling", "data activism", "critical race studies", "computational cultures", "reporting", "human rights"] 
+    }, 
+    {
+        "panel":  "Local Data",
+        "tags": ["weather", "climate", "satellite", "ground truth", "agriculture", "chemical warfare", "feminicide", "language", "gender-related violence", "sensors", "locality", "community", "historical new york", "history", "xinjiang", "china", "historical sites", "aerial imagery"] 
+    },
+    {
+        "panel":  "Network Models",
+        "tags": ["administrative boundaries", "machine learning", "ICE", "public interest technology", "DIY Tools", "open weather data", "augmented reality", "GAN model", "image processing", "artist controls", "network model", "Homophily", "investigative journalism", "migration", "context model", "video tagging", "training data"] 
+    },
+    {
+        "panel":  "Counter Forensics",
+        "tags": ["alternate realities", "speculative cartography", "black magic", "sentiment analysis", "reconstruction", "forensic architecture", "dolly camera"] 
+    }
+]
+} 

@@ -58,7 +58,7 @@
         "project": "DIY Tools for Open Weather",
         "authors":["Sophie Dyer","Sasha Engelmann"],
         "panel": "Local Data",
-        "tags": ["DIY Tools", "open weater data", "climate", "sensors","mapping"]
+        "tags": ["DIY Tools", "open weather data", "climate", "sensors","mapping"]
     },
     {
         "project": "All Data is Local",

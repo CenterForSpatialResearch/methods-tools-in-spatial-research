@@ -13,23 +13,23 @@
 <body data-project-name="DIY Tools for Open Weather"> <!-- The name here is to link Tags from json file (project name)-->
     <div class="top-bar">
         <div class="menu">
-            <a href="#about">ABOUT</a>
+            <a href="#about" style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;" >ABOUT</a>
         </div>
     </div>
 
     <div class="tutorials-corner-panel"  id="sidePanel">
-        <p>
-            METHODS OF RESEARCH
+        <p style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif; font-weight: 400; font-size: 16px;">
+            METHODS OF RESEARCH 
         </p>
     </div>
 
     <div class="tutorials-side-panel">
-        <h3>Workshop Panel: </h3>
+        <h3 style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;">Workshop Panel: </h3>
         <div class="visual-code-container">
             <div class="tutorials-circle"></div>
-            <p style="font-weight: bold;">DIY Tools for Open Weather</p>
+            <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
         </div>
-        <h3>Project Tags: </h3>
+        <h3 style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif;">Project Tags: </h3>
         <div class="tutorials-ProjectTagsContainer" id="project_tags">
             <!-- Tags will be dynamically inserted here -->
         </div>
@@ -278,27 +278,53 @@
     <div id="project_tags" class="tag-grid"></div>
 
     <script>
-        let data;
+        let tutorialsData;
+        let colorsData;
 
         function loadData() {
+            // Load both JSON files
             d3.json("../tutorials.json").then(function(loadedData) {
-                data = loadedData;
-                displayTags();
+                tutorialsData = loadedData;
+                d3.json("../colors.json").then(function(loadedColors) {
+                    colorsData = loadedColors;
+                    displayTagsAndPanel();
+                });
             });
         }
 
-        function displayTags() {
+        function getColorForTag(tag) {
+            // Find the panel color for a given tag
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function getPanelColor(panel) {
+            // Find the color for a given panel
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function displayTagsAndPanel() {
             const projectName = document.body.getAttribute("data-project-name");
             const tagContainer = document.getElementById("project_tags");
+            const panelTextElement = document.getElementById("panel-text");
+            const circleElement = document.querySelector(".tutorials-circle");
 
-            // Find the project by name and extract its tags
-            const project = data.tutorials.find(tutorial => tutorial.project === projectName);
+            const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
 
             if (project) {
+                panelTextElement.innerText = project.panel;
+
+                // Find and set the color for the panel
+                const panelColor = getPanelColor(project.panel);
+                circleElement.style.backgroundColor = panelColor;
+
+                // Display and color the tags
                 project.tags.forEach(tag => {
                     const tagElement = document.createElement("div");
                     tagElement.className = "tag-item";
                     tagElement.innerText = tag;
+                    tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
                     tagContainer.appendChild(tagElement);
                 });
             }
@@ -308,7 +334,7 @@
             window.location.href = '../index.html'; 
         });
 
-        loadData(); // Call the loadData function to load the JSON and display the tags
+        loadData(); // Call the loadData function to load the JSON and display the tags and panel text
     </script>
 
 </body>

@@ -263,10 +263,10 @@ body {
 
     /* Style for tutorials */ 
     .tutorials-section {
-        max-width: 1000px; 
+        max-width: 50%; 
         float: right;
-        margin: -500px auto;
-        padding: 700px;
+        margin: 0px auto;
+        padding: 100px;
     }
 
     .tutorials-section h1 {
@@ -351,11 +351,31 @@ body {
         display: flex;
         position: fixed; 
         flex-direction: column;
-        height: 500px;
+        max-height: calc(100vh - 65px);
         justify-content: center; /* Center content vertically */
         align-items: left; /* Center content horizontally */
         border-radius: 5px;
     }
+    
+
+    .tag-item {
+        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif;
+        margin: 5px; /* 5px space between each tag */
+        margin-top: 5px;
+        padding: 5px; /* Add some padding for better appearance */
+        display: inline-block; /* Ensure tags appear inline */
+        border-radius: 3px; /* Optional: rounded corners for better appearance */
+        color: #000000; /* Default text color (optional, adjust if needed) */
+        border: none; /* Remove any border */
+        outline: none; /* Remove any outline */
+        height: 50px; 
+        text-align: center; 
+        vertical-align: middle; 
+        width: 87px;
+        white-space: normal; /* Allow text to break to a new line */
+        word-wrap: break-word; /* Break long words onto the next line */
+    }
+
 
     .visual-code-container {
         display: flex; 
@@ -375,7 +395,7 @@ body {
         flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
     }
     
-    .tutorials-ProjectTags-yellow {
+    /*.tutorials-ProjectTags-yellow {
         width: 80px; 
         height: 50px; 
         margin-left: 5px; 
@@ -383,10 +403,10 @@ body {
         margin-top: 2px; 
         margin-bottom: 5px;
         background-color: rgb(254, 244, 69);
-        display: flex; /* Enable flexbox */
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-        box-sizing: border-box; /* Ensure padding/border are included in width/height */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        box-sizing: border-box; 
         border-radius: 5px;
     }
 
@@ -398,10 +418,10 @@ body {
         margin-top: 2px; 
         margin-bottom: 5px;
         background-color: rgb(223, 223, 223);
-        display: flex; /* Enable flexbox */
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-        box-sizing: border-box; /* Ensure padding/border are included in width/height */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        box-sizing: border-box; 
         border-radius: 5px;
     }
 
@@ -413,12 +433,12 @@ body {
         margin-top: 2px; 
         margin-bottom: 5px;
         background-color: rgb(220, 195, 255);
-        display: flex; /* Enable flexbox */
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-        box-sizing: border-box; /* Ensure padding/border are included in width/height */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        box-sizing: border-box; 
         border-radius: 5px;
-    }
+    }*/
     
 
     
