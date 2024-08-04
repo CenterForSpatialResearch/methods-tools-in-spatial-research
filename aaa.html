@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>critical methods in spatial research</title>
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .button-wrapper {
+            margin: 10px 0;
+        }
+        .button-wrapper button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button-wrapper button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="menu">
+            <a href="#about">ABOUT</a>
+        </div>
+    </div>
+
+    <div class="tutorials-corner-panel" id="sidePanel">
+        <p style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif; font-weight: 400; font-size: 16px;" onclick="location.reload();">
+            METHODS OF RESEARCH 
+        </p>
+    </div> 
+
+    <div class="side-panel">
+        <p>
+            Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
+        </p>
+        <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
+        <button onclick="search()" id="searchButton">Go</button>
+        <p>
+            Workshop Panels:
+        </p>
+        <div class="panel-button-wrapper">
+            <div id="VisualCodeButton" class="panel-button"></div>
+            <span class="button-text">Visual Code</span>
+        </div>
+    
+        <div class="panel-button-wrapper">
+            <div id="mappingConflictButton" class="panel-button"></div>
+            <div class="button-text">Mapping Conflict</div>
+        </div>
+    
+        <div class="panel-button-wrapper">
+            <div id="counterNarrativesButton" class="panel-button"></div>
+            <span class="button-text">Counter Narratives</span>
+        </div>
+    
+        <div class="panel-button-wrapper">
+            <div id="localDataButton" class="panel-button"></div>
+            <span class="button-text">Local Data</span>
+        </div>
+    
+        <div class="panel-button-wrapper">
+            <div id="networksButton" class="panel-button"></div>
+            <span class="button-text">Network Models</span>
+        </div>
+    
+        <div class="panel-button-wrapper">
+            <div id="forensicsButton" class="panel-button"></div>
+            <span class="button-text">Counter Forensics</span>
+        </div>
+
+        <p>
+            Center for Spatial Research
+        </p>
+        <div class="panel-button-wrapper">
+            <div id="csrButton" class="panel-button"></div>
+            <span class="button-text">Projects</span>
+        </div>
+
+        <div class="button-wrapper">
+            <button id="authorButton">AUTHOR NAMES</button>
+        </div>
+        <div class="button-wrapper">
+            <button id="projectButton">PROJECT TITLES</button>
+        </div>
+    </div>
+    
+    <div id="networkviz"></div>
+
+    <script>
+        let data; 
+        function loadData() {
+            d3.json("tutorials.json").then(function(loadedData) {
+                data = loadedData;
+                visualizeData();
+            });
+        }
+
+        loadData();
+
+        function visualizeData() {
+            // set the dimensions and margins of the graph
+            const margin = {top: 10, right: 10, bottom: 10, left: 400},
+            width = window.innerWidth - margin.left - margin.right,
+            height = window.innerHeight - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            const svg = d3.select("#networkviz")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                    `translate(${margin.left}, ${margin.top})`); 
+
+            var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
+
+            var links = [];
+            var tagLinks =[]
+            var panelLinks =[] 
+
+            panels.forEach(panel => {
+                var tutorialsInPanel = data.tutorials.filter(tutorial => tutorial.panel === panel);
+                for (let i = 0; i < tutorialsInPanel.length; i++) {
+                    for (let j = i + 1; j < tutorialsInPanel.length; j++) {
+                        if (tutorialsInPanel[i].project !== tutorialsInPanel[j].project) {
+                            panelLinks.push({
+                                source: tutorialsInPanel[i].project,
+                                target: tutorialsInPanel[j].project,
+                                panel: panel
+                            });
+                        }
+                    }
+                }
+            });
+
+            const projectTags = data.tutorials.map(tutorial => ({ project: tutorial.project, tags: tutorial.tags }));
+
+            projectTags.forEach((source, i) => {
+            projectTags.slice(i + 1).forEach(target => {
+                const commonTags = [];
+                source.tags.forEach(sourceTag => {
+                    target.tags.forEach(targetTag => {
+                        const sourceWords = sourceTag.split(" ");
+                        const targetWords = targetTag.split(" ");
+                        sourceWords.forEach(word => {
+                            if (targetWords.includes(word)) {
+                                commonTags.push(word);
+                            }
+                        });
+                    });
+                });
+                if (commonTags.length > 0) {
+                    tagLinks.push({ source: source.project, target: target.project, commonTags: commonTags });
+                    }
+                });
+            });
+
+            const allLinks = links.concat(tagLinks, panelLinks); 
+
+            function getNodeColor(panel) {
+                switch (panel) {
+                    case "Visual Code":
+                        return "panel-VisualCode";
+                    case "Mapping Conflict":
+                        return "panel-MappingConflict";
+                    case "Counter Narrative":
+                        return "panel-CounterNarrative";
+                    case "Local Data":
+                        return "panel-LocalData";
+                    case "Network Models":
+                        return "panel-NetworkModels";
+                    case "Counter Forensics":
+                        return "panel-CounterForensics";
+                    default:
+                        return "panel-Default";
+                }
+            }
+
+            function getLinkClassName(panel) {
+                return `link ${panel.replace(/\s+/g, '')}`;
+            }
+
+            const link = svg
+                .selectAll("line")
+                .data(allLinks)
+                .enter()
+                .append("line")
+                .attr("class", function(d) {
+                    if (d.panel) {
+                        return getLinkClassName(d.panel);
+                    } else {
+                        return "link";
+                    }
+                });
+
+            function getNodePanel(node) {
+                 const tutorial = data.tutorials.find(tutorial => tutorial.project === node.project);
+                return tutorial ? tutorial.panel : "";
+            }
+
+            const node = svg
+                .selectAll("circle")
+                .data(data.tutorials)
+                .join("circle")
+                    .attr("r", 10)
+                    .attr("class", d => `node panel-${d.panel.replace(/\s+/g, '')} ${getNodeColor(d.panel)}`)
+                    .each(function(d) {
+                     d3.select(this).attr("original-panel", d.panel);
+                    });
+
+            const text = svg
+                .selectAll("text")
+                .data(data.tutorials)
+                .enter()
+                .append("text")
+                .attr("class", "node-text")
+                .attr("x", d => d.x)
+                .attr("y", d => d.y)
+                .text(d => d.authors)
+                .each(function(d) {
+                    d3.select(this)
+                        .attr("original-panel", d.panel);
+                });
+
+            const simulation = d3.forceSimulation(data.tutorials)
+                .force("link", d3.forceLink(allLinks)
+                    .id(d => d.project)
+                    .links(allLinks)
+                    ) 
+                .force("charge", d3.forceManyBody()
+                    .strength(-150)
+                    )
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .on("tick", () => {
+                    link
+                        .attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+
+                    node
+                        .attr("cx", d => d.x)
+                        .attr("cy", d => d.y);
+
+                    text
+                        .attr("x", d => d.x)
+                        .attr("y", d => d.y);
+                });
+
+            // Toggle visualization
+            function toggleVisibility(id, show) {
+                document.querySelectorAll(`#${id}`).forEach(el => {
+                    el.style.display = show ? "block" : "none";
+                });
+            }
+
+            document.getElementById('authorButton').addEventListener('click', function() {
+                toggleVisibility('node', true);
+                toggleVisibility('text', false);
+            });
+
+            document.getElementById('projectButton').addEventListener('click', function() {
+                toggleVisibility('node', false);
+                toggleVisibility('text', true);
+            });
+        }
+    </script>
+</body>
+</html>

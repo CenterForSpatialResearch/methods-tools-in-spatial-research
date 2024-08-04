@@ -17,6 +17,12 @@
             <a href="#about">ABOUT</a>
         </div>
     </div>
+
+    <div class="tutorials-corner-panel"  id="sidePanel">
+        <p onclick="location.reload();">
+            METHODS OF RESEARCH 
+        </p>
+    </div> 
     
     <div class="side-panel">
         <p>
@@ -67,6 +73,14 @@
         
     </div>
     
+    <div class="visualize-container">
+        <p>Visualize By:</p>
+        <div class="button-container">
+            <button id="show-authors">AUTHOR NAMES</button>
+            <button id="show-projects">PROJECT TITLES</button>
+        </div>
+    </div>
+    
 <div id="networkviz"></div>
 <div id="authorButton"></div>
 <div id="projectButton"></div>
@@ -98,7 +112,7 @@
         .attr("transform",
                 `translate(${margin.left}, ${margin.top})`); 
 
-
+        //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
 
           // Creating the links
@@ -176,11 +190,12 @@
 
         // console.log(panelLinks);
 
-
+    // Returns the linked CSS class name for style definition based on the panel name.
     function getLinkClassName(panel) {
         return `link ${panel.replace(/\s+/g, '')}`; // Remove spaces and lowercase
     }
 
+    // Create a <line> element for each linked data and assign CSS class names based on the panel name. 
     const link = svg
         .selectAll("line")
         .data(allLinks)
@@ -200,6 +215,7 @@
             return tutorial ? tutorial.panel : ""; // Return panel if tutorial exists, otherwise return an empty string
         }
 
+        // Creates a <circle> element for each tutorial data, sets the radius, and assigns CSS classes and colors based on the panel name. Each node also holds the original panel name.
         const node = svg
             .selectAll("circle")
             .data(data.tutorials)
@@ -213,20 +229,57 @@
                 });
 
 
-
+        // Create a <text> element for each tutorial that displays author information and stores the original panel name based on the panel name.
         const text = svg
             .selectAll("text")
             .data(data.tutorials)
             .enter()
             .append("text")
             .attr("class", "node-text")
-            .attr("x", d => d.x)
-            .attr("y", d => d.y)
+            .attr("x", d => d.x -50)  // Modify the location of the <text> 
+            .attr("y", d => d.y -15)  // Modify the location of the <text> 
             .text(d => d.authors)
             .each(function(d) {
                 d3.select(this)
                     .attr("original-panel", d.panel); // Store the original panel name
             });
+        
+        
+
+
+
+
+        // When "AUTHOR NAMES" is clicked, a <text> element is created for each tutorial, displaying author information and storing the original panel name based on the panel name. When "PROJECT TITLES" is clicked, a <text> element is created for each tutorial, displaying project information and storing the original panel name based on the panel name.
+
+        function updateTextElements(textContent) {
+            // Delete existing <text> elements
+            svg.selectAll("text").remove();
+
+            // Recreating <text> elements
+            svg
+                .selectAll("text")
+                .data(data.tutorials)
+                .enter()
+                .append("text")
+                .attr("class", "node-text")
+                .attr("x", d => d.x -50)  // Modify the location of the <text> 
+                .attr("y", d => d.y -15)  // Modify the location of the <text> 
+                .text(d => textContent(d))
+                .each(function(d) {
+                    d3.select(this)
+                        .attr("original-panel", d.panel); // Storing the original panel name
+                });
+        }
+
+        // Handling button click events (AUTHOR NAMES and PROJECT TITLES)
+        d3.select("#show-authors").on("click", function() {
+            updateTextElements(d => d.authors); // AUTHOR NAMES
+        });
+
+        d3.select("#show-projects").on("click", function() {
+            updateTextElements(d => d.project); // PROJECT TITLES
+        });
+
 
 
                 
@@ -461,6 +514,19 @@ csrButton.addEventListener('click', function() {
     this.classList.toggle('highlighted');
     toggleHighlightByTag('csr', this.classList.contains('highlighted'));
 });
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//             const buttons = document.querySelectorAll('.button-container button');
+
+//             buttons.forEach(button => {
+//                 button.addEventListener('click', function() {
+//                     // Toggle the 'active' class on the clicked button
+//                     button.classList.toggle('active');
+//                 });
+//             });
+//         });
 
 
     
