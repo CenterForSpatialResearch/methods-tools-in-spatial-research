@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data is Local</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+<body data-project-name="Xinjiang Detention Camps"> <!-- The name here is to link Tags from json file (project name)-->
+    <div class="top-bar">
+        <div class="menu">
+            <a href="#about" style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;" >ABOUT</a>
+        </div>
+    </div>
+
+    <div class="tutorials-corner-panel"  id="sidePanel">
+        <p>
+            METHODS OF RESEARCH 
+        </p>
+    </div>
+
+    <div class="tutorials-side-panel">
+        <h3 style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;">Workshop Panel: </h3>
+        <div class="visual-code-container">
+            <div class="tutorials-circle"></div>
+            <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+        </div>
+        <h3>Project Tags: </h3>
+        <div class="tutorials-ProjectTagsContainer" id="project_tags">
+            <!-- Tags will be dynamically inserted here -->
+        </div>
+    </div>
+    
+
+    </div>
+
+    <div class="tutorials-section">
+        <h1>Xinjiang Detention Camps</h1>
+        <h3>Alison Killing</h3>
+        <div style="height: 150px;"></div> <!-- Adds space -->
+        <p>LK: Alison, thanks so much for agreeing to do this. I know that you're really busy in your new job, but it would be horrible to not have anything from you.
+        </p>
+
+        <p>AK: 12:31:39
+            Like, thank you so much. I really appreciate you organizing this so that I could take part in a few.
+            </p>
+
+        <p>LK: Have you been able to leverage your skills and expertise in the built environment.
+            Into your current work in journalism.
+            </p>
+
+        <p>AK: 12:33:53
+            Sure. The work that I do is for the most part very visual. So I'm working with satellite imagery. I'm working with video, with photography, working with 3D models, and links to the way that I would have worked as an architect as well. 
+            </p>
+
+        <p>When I was working with satellite imagery, people would ask me sort of like, How did you learn this? There's a very, very clear link to the way that you would work with satellite imagery to the way that you would work with plans, especially where you're very used to looking at something. Which has been reduced to a 2 dimensional view and understanding what that means in 3 dimensions, and doing the sort of analytical and associative work to understand what that drawing means. And so it was a very quick to using satellite imagery.
+        </p>
+
+        <p>AK: 12:35:06
+            I think, as well. You're also used to Many of the like foundational Skills that you need Need in order to do to your location, which is similarly to be able to look at a photograph and to understand what that place might look like from above, and then to be able to like, locate that and locate yourself.
+            </p>
+
+        <p>AK: 12:35:27
+            I'm in that. So.
+            </p>
+
+        <p>AK: 12:35:30
+            That would. It's actually a relatively short step to be able to to do many of those things.
+            </p>
+
+        <p>AK: 12:35:37
+            The sort of the 3 dimensional analysis and sort of 3D modeling.
+            </p>
+
+        <p>AK: 12:35:43
+            Again. That's just something that you would do as an architect, and it's not that.
+            </p>
+
+        <p>AK: 12:35:51
+            About differences that you're trying to achieve different things when you're using those skills as an architect. But it's it's quite a small skills gap between what you would be doing in architecture and what we're doing here for investigations.
+            </p>
+
+        <p>LK: 12:36:05
+            Okay, that's a great answer.
+            </p>
+
+        <p> AK: 12:36:06
+            At least as it relates to Visual and spatial analysis.
+            </p>
+
+        <p>LK: 12:36:13
+            Right. So it's the tools that are useful going from architecture to journalism, and it's not as if anybody ever treats you as if you're an architect per se, though.
+            </p>
+
+        <p>AK: 12:36:31
+            I mean, I think that I now have enough of a track record that I'm much seen as a journalist.
+            </p>
+
+        <p>LK: 12:36:37
+            That's great!
+            </p>
+
+        <p>AK: 12:36:39
+            Yeah, I mean, certainly at the FT.
+            </p>
+
+        <p>LK: 12:36:41
+            Right. You're a journalist. And so do you see this as something growing within the field of journalism that it's useful to have architectural training and that there's more opportunity for architects. For example, the people in a kind of program that I'm running and computational design That they'll be able to apply for this kind of job in the future.
+            </p>
+
+        <p>AK: 12:37:14
+            So I wouldn't put it as demand or Architects within journalism. I don't think that's quite true. I think, though what we have instead is like a growing, I mean, and it's something that's really happened over the past 10, 15, maybe even 20 years, that there's been a real growth in data, journalism and then visual techniques and sort of open source techniques. And the journalism was very focused on testimony and very focused on the written word has started to open up to these others.
+            </p>
+
+        <p>LK: 12:37:45
+            Right.
+            </p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+
+        <p></p>
+        
+
+    <div id="project_tags" class="tag-grid"></div>
+
+    <script>
+        let tutorialsData;
+        let colorsData;
+
+        function loadData() {
+            // Load both JSON files
+            d3.json("../tutorials.json").then(function(loadedData) {
+                tutorialsData = loadedData;
+                d3.json("../colors.json").then(function(loadedColors) {
+                    colorsData = loadedColors;
+                    displayTagsAndPanel();
+                });
+            });
+        }
+
+        function getColorForTag(tag) {
+            // Find the panel color for a given tag
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function getPanelColor(panel) {
+            // Find the color for a given panel
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function displayTagsAndPanel() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+            const panelTextElement = document.getElementById("panel-text");
+            const circleElement = document.querySelector(".tutorials-circle");
+
+            const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
+
+            if (project) {
+                panelTextElement.innerText = project.panel;
+
+                // Find and set the color for the panel
+                const panelColor = getPanelColor(project.panel);
+                circleElement.style.backgroundColor = panelColor;
+
+                // Display and color the tags
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
+                    tagContainer.appendChild(tagElement);
+                });
+            }
+        }
+
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+
+        loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+    </script>
+
+</body>
+</html>

@@ -251,90 +251,42 @@
 
         // When "AUTHOR NAMES" is clicked, a <text> element is created for each tutorial, displaying author information and storing the original panel name based on the panel name. When "PROJECT TITLES" is clicked, a <text> element is created for each tutorial, displaying project information and storing the original panel name based on the panel name.
 
-// Function to wrap text
-function updateTextElements(textContent) {
-    // Delete existing <text> elements
-    d3.select("svg").selectAll("text").remove();
+        function updateTextElements(textContent) {
+            // Delete existing <text> elements
+            svg.selectAll("text").remove();
 
-    // Recreate <text> elements
-    d3.select("svg")
-        .selectAll("text")
-        .data(data.tutorials)
-        .enter()
-        .append("text")
-        .attr("class", "node-text")
-        .attr("x", d => d.x)  // Adjust the x position of the text
-        .attr("y", d => d.y)  // Adjust the y position of the text
-        .each(function(d) {
-            var lines = wrapText(textContent(d), 100); // Wrap text longer than 100px
-            var yOffset = 0;
-
-            for (var i = 0; i < lines.length; i++) {
-                d3.select(this)
-                    .append("tspan")
-                    .attr("x", d.x +350)  // Keep the x position consistent
-                    .attr("y", d.y + yOffset + 35)  // Adjust the y position for each line
-                    .text(lines[i]);
-
-                yOffset += 15;  // Adjust the line height as needed
-            }
-            d3.select(this)
-                .attr("original-panel", d.panel);  // Store the original panel name
-        });
-}
-
-function wrapText(text, width) {
-    var words = text.split(" ");
-    var lines = [];
-    var currentLine = words[0];
-
-    for (var i = 1; i < words.length; i++) {
-        if (currentLine.length + words[i].length < width / 5) {  // Adjust for length
-            currentLine += " " + words[i];
-        } else {
-            lines.push(currentLine);
-            currentLine = words[i];
+            // Recreating <text> elements
+            svg
+                .selectAll("text")
+                .data(data.tutorials)
+                .enter()
+                .append("text")
+                .attr("class", "node-text")
+                .attr("x", d => d.x +50)  // Modify the location of the <text> 
+                .attr("y", d => d.y -15)  // Modify the location of the <text> 
+                .text(d => textContent(d))
+                .each(function(d) {
+                    d3.select(this)
+                        .attr("original-panel", d.panel); // Storing the original panel name
+                });
         }
-    }
-    lines.push(currentLine);
-    return lines;
-}
 
-// Handling button click events
-d3.select("#show-authors").on("click", function() {
-    updateTextElements(d => d.authors.join(", "));  // Show AUTHOR NAMES
-    setFocusClass(this);
-});
+        // Handling button click events (AUTHOR NAMES and PROJECT TITLES)
+        d3.select("#show-authors").on("click", function() {
+            updateTextElements(d => d.authors); // AUTHOR NAMES
+            setFocusClass(this);
+        });
 
-d3.select("#show-projects").on("click", function() {
-    updateTextElements(d => d.project);  // Show PROJECT TITLES
-    setFocusClass(this);
-});
+        d3.select("#show-projects").on("click", function() {
+            updateTextElements(d => d.project); // PROJECT TITLES
+            setFocusClass(this);
+        });
 
-// Keep button focused when clicked
-function setFocusClass(button) {
-    d3.selectAll(".button-container button").classed("custom-focus", false);  // Remove custom focus class
-    d3.select(button).classed("custom-focus", true);  // Add custom focus class
-}
-
-
-// Function to set focus class on buttons
-function setFocusClass(button) {
-    d3.selectAll(".button-container button").classed("custom-focus", false); // Remove custom class from all buttons
-    d3.select(button).classed("custom-focus", true); // Add custom class to the clicked button
-}
-
-// Handling button click events (AUTHOR NAMES and PROJECT TITLES)
-d3.select("#show-authors").on("click", function() {
-    updateTextElements(d => d.authors.join(', ')); // AUTHOR NAMES
-    setFocusClass(this);
-});
-
-d3.select("#show-projects").on("click", function() {
-    updateTextElements(d => d.project); // PROJECT TITLES
-    setFocusClass(this);
-});
-
+        // keep button "active" when click elsewhere 
+        function setFocusClass(button) {
+            d3.selectAll(".button-container button").classed("custom-focus", false); // Remove custom class from all buttons
+            d3.select(button).classed("custom-focus", true); // Add custom class to the clicked button
+        }
 
         
 

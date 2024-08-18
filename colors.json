@@ -3,12 +3,12 @@
         {
             "panel": "Visual Code",
             "color": "#fef445",  
-            "tags": ["data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "CSR", "Ceneter for Spatial Technologies", "mapbox", "motion tracking", "camera matching"]
+            "tags": ["data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "Ceneter for Spatial Technologies", "mapbox", "motion tracking", "camera matching"]
         },
         {
             "panel": "Mapping Conflict",
             "color": "#dcc3ff",  
-            "tags": ["web mapping", "georeferencing", "satellites", "mapping", "counter mapping", "GIS"]
+            "tags": ["web mapping", "georeferencing", "satellites", "mapping", "counter mapping"]
         },
         {
             "panel": "Counter Narrative",
@@ -29,6 +29,11 @@
             "panel": "Counter Forensics",
             "color": "#fac710",  
             "tags": ["alternate realities", "speculative cartography", "black magic", "sentiment analysis", "reconstruction", "forensic architecture", "dolly camera"]
+        }, 
+        {
+            "panel": "Center for Spatial Research", 
+            "color": "#808080",
+            "tags": ["CSR"]
         }
     ]
 }

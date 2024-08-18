@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data is Local</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+<body data-project-name="All Data is Local"> <!-- The name here is to link Tags from json file (project name)-->
+    <div class="top-bar">
+        <div class="menu">
+            <a href="#about" style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;" >ABOUT</a>
+        </div>
+    </div>
+
+    <div class="tutorials-corner-panel"  id="sidePanel">
+        <p>
+            METHODS OF RESEARCH 
+        </p>
+    </div>
+
+    <div class="tutorials-side-panel">
+        <h3 style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;">Workshop Panel: </h3>
+        <div class="visual-code-container">
+            <div class="tutorials-circle"></div>
+            <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+        </div>
+        <h3>Project Tags: </h3>
+        <div class="tutorials-ProjectTagsContainer" id="project_tags">
+            <!-- Tags will be dynamically inserted here -->
+        </div>
+    </div>
+    
+
+    </div>
+
+    <div class="tutorials-section">
+        <h1>Disorientation as a Critical Methodology for Data Visualization</h1>
+        <h3>Yanni Loukissas, Associate Professor of Digital Media at Georgia Tech</h3>
+        <p>Contact: yanni.loukissas@lmc.gatech.edu</p>
+        <div style="height: 100px;"></div> <!-- Adds space -->
+        <img src="./images_Yanni_Loukissas/cBird Interface Slides_Part1.webp" alt="Hero Image" class="tutorials-image">
+        <img src="./images_Yanni_Loukissas/cBird Interface Slides_Part2.webp" alt="Hero Image" class="tutorials-image">
+        <img src="./images_Yanni_Loukissas/cBird Interface Slides_Part3.webp" alt="Hero Image" class="tutorials-image">
+        
+        <p>Acknowledgements: This article is based on research conducted in collaboration with Emily Weigel, Michael Zhou, and Shruti Vedula, and generously supported by the Institute for People and Technology at Georgia Tech</p>
+
+        <iframe src="https://luciarebolino.github.io/CSR-LR-webpres/" class="tutorials-iframe" height="1000" width="1800" title="Exercise 1" frameborder="0"></iframe> 
+        <p>Img 1. Drag the screen left or right, and scroll down to explore the information.</p>
+
+        <p>What possible role can disorientation play in data visualization? Putting together the terms disorientation and data may seem strange to you, and potentially counter-productive. I thought so at first. </p> 
+
+        <p>Along with information studies scholar Catherine Borgman, I believe that data are best understood as “alleged evidence” (Borgman 2015). As Borgman explains, the term data is rhetorical. Anything can become data (i.e. a document, an article of clothing, a box of old photographs), if you use it to support a knowledge claim. Disorientation, on the other hand, describes a confused state of being; one in which you may feel like you do not know what to believe. As an approach, disorientation necessitates losing your perspective. A data visualization that creates disorientation would only seem to invalidate itself. </p> 
+
+        <p>What if disorientation could be employed strategically, however, in the course of designing or making sense of a data visualization? Disorientation need not leave you hopelessly lost. I have come to see disorientation as a momentary experience, within a longer engagement with data. Being disoriented can prompt me to rethink some of my basic assumptions about the data. If I can convince you to embrace disorientation as a critical methodology in data visualization, it may lead you to new insights about your data, as well as your own relationship to those data.</p>
+
+        <p>Disorientation has been developed as a philosophical concept by literary theorist Sara Ahmed to characterize experiences that “throw the body from its ground.” (Ahmed 2006 p. 157). I am interested in how disorientation might be employed as an intentional critical methodology in data visualization, as part of a broader inquiry about the affect of data: what can data do to us, not just for us. In this article, I explain how I learned to embrace the strangeness of disorientation in the process of visualizing data from “eBird,” a project of the Cornell Ornithology Lab, on birds that live all around me, but that I rarely see.</p> 
+
+        <P>Historically, the root word orientation has long been part of the discourse within the philosophical tradition of phenomenology. Developed by continental philosophers in reaction to the overly cognitivist bias of analytic philosophy, phenomenology creates language for talking about embodiment as a fundamental part of understanding. For example, phenomenologist Merleau-Ponty writes about orientation as the condition in which our bodies learn, a “gearing of the subject into his world” (Merleau-Ponty 1945). In other words, being and knowing can be understood as spatial relationships. For Merleau-Ponty, being means being oriented. Ahmed’s writing about disorientation draws attention to what we learn by deviating from existing societal norms and expectations. She uses the example of gender norms to explain such deviations and how they are understood in terms of spatial alignments, such as “straight” and “queer.” The later term was used by Merleau-Ponty in his writing to describe a perspective that had been turned upside down. </P>
+
+        <p>In recent years, the concept of disorientation has been adopted by critical scholars in the field of Human-Computer Interaction (Biggs and Bardzell 2024), as a creative strategy that induces defamiliarization (Bell et. al. 2005). In their recent paper, Heidi Biggs and Shaowen Bardzell describe a series of design research projects in which “the researcher purposefully strives towards experiences that will critically and relationally disorient themselves” (Biggs and Bardzell 2024). In building on these precedents, I use the term disorientation here to characterize my own efforts to challenge long-standing practices that I have used in data visualization.
+        </p>
+
+        <p style="text-align: center;">* * *</p>
+
+        <p>“cBird” is shorthand for an extended reality (XR) data visualization, which makes use of data from the collectively built “eBird” database of over one-hundred million bird sightings. I created cBird in collaboration with biology faculty Emily Weigel and two undergraduates: Michael Zhou, an avid birder and computer science student, and Shruti Vedulla, a design student in the computational media program. 
+        </p>
+
+        <p>We designed, wrote code for, and evaluated cBird in order to visually-track environmental colors and their effects on bird species that frequent our campus at George Tech in Atlanta, Georgia. cBird leverages concepts and technologies that are widely used in commercial XR applications, such as the game “Pokémon Go,” for smartphones and tablet computers. XR is rarely used to present data, however. This is because putting data in XR challenges the contextual stability and presumed neutrality of data presentation. In order to create our own XR application for presenting data, we had to pull the rug out from under traditional data visualization techniques. </p>
+        
+        <p>Gone is the staging for data: the neutral background that typically sits just beyond the data encodings, and keeps the messiness of the world out of our charts, graphs, and maps. cBird invites this “reality” into dialogue with the data. It demonstrates how we might put data into an open interpretive frame, through which the “blooming and buzzing confusion” of the world (as William James calls it) must be considered. Initially, this created some rather confusing images. Later, that confusion resolved for us into a new perspective on data visualization.</p>
+
+        <p style="text-align: center;">* * *</p>
+
+        <p>On the Midtown Atlanta campus of Georgia Tech, urban wildlife and the naturalistic spaces they inhabit are always in flux, following changes in the seasons, construction on campus, and broader shifts in the climate of the region. Tracking color is one way of visualizing these changes. I learned this from Weigel, who is only half joking when she explains that she conducts research on “what makes birds sexy.” Apparently, color is a leading factor. Weigel elaborates: </p>
+
+        <p><i>Sometimes, the rate of change in environmental colors outpaces the ability of wildlife to respond. Human development and extreme weather fluctuations that result from climate change can abruptly transform environments, diminishing the capacity of wildlife to hide from predators or stand out to potential mates using evolved traits, such as color. Although it is difficult for us to track their changes, whether subtle or abrupt, we are aware that the colors present in our environment shape which organisms can survive there. (from an account given by Weigel for the cBird project)</i></p>
+
+        <p>Developing an appreciation for the colors in a space and how they naturally shift over time, as documented through everyday observations, can help us quickly understand whether and how an organism might be able to adapt— or not. Birds, explains Weigel, are one of the most charismatic and fragile examples of these dynamics. Using photographic documentation of their lives, we can see how their color-worlds ebb and flow with our own.</p>
+
+        <p>In seeking to make these dynamics visible, we leveraged photographs submitted to eBird from across the state of Georgia in a single year, 2022. We focused our efforts on five local birds, chosen by Weigel and Zhou, because of the way those birds illustrate the more-than-human significance of color on campus. cBird was designed to be used in a specific place on campus, the Georgia Tech EcoCommons: a naturalistic space on campus, rewilded over the past few years to serve as both a space for student recreation, as well as an open laboratory for the study of local ecologies. Here is how Weigel and Zhou characterize the relevance of each of these species:</p>
+
+        <p>•	Brown Thrasher: The state bird of Georgia, this cryptic bush dweller loves to hang out in the underbrush but appears on prominent perches in the breeding season to sing for mates.</p>
+
+        <p>•	Northern Cardinal: A vibrant bird that highlights the strong sexual dimorphism that birds can display. They illustrate the conflicting goals of standing out for mates and blending in to hide from predators.</p>
+
+        <p>•	Rock Pigeon: These city dwellers are a fixture of the American urban landscape. Originally adapted to rocky cliffs, they’ve fully embraced our streets with their slaty gray, muted tones.</p>
+
+        <p>•	Red-tailed hawk: One of North America’s most common raptors, these hawks are often seen soaring through the skies or perched on a high branch hunting for prey. You’ll often see them against the blue background of the sky.</p>
+
+        <p>•	Barred Owl: These owls are hard to spot in the thick forest canopy despite their booming calls. A distinctive bird with a difficult profile to spot. (from an account given by Weigel and Zhou for the cBird project)</p>
+
+        <p>I wrote the primary code base for the cBird application in p5.js, a JavaScript library and programming environment originally developed at the MIT Media Lab by and for artists and designers. Our application works like an interactive appliqué, fitted for an 11” iPad. Our porous graphic interface is layered over the live video feed that is generated by the built-in camera on the opposite side of the tablet. It consists of a series of interchangeable species-specific radial visualizations. I was inspired to create this radial design by seeing a cyanometer in Dietmar Offenhuber’s book Autographic Design (Offenhuber 2023). The cyanometer is a physical instrument for measuring the “blueness” of the sky, consisting of a printed ring of blue hue values.</p>
+
+        <p>Each visualization in cBird, whether created for the Northern Cardinal, Brown Thrasher, or one of the other local birds, presents a radial graph that draws together all the dominant color values (using hue, but not brightness or saturation) in each photograph that Zhou extracted for a given bird species. To identify and generate each color pallet, he use a Python module called “Color Thief” (<a href="https://github.com/fengsp/color-thief-py)">https://github.com/fengsp/color-thief-py</a>. The radial visualization can be interactively expanded further, by using the iPad camera to capture new photographs and their dominant colors. On its own, the cBird radial visualization would allow us to explore the color-worlds of these five species. As an XR application, the visualization presents eBird data as frame for the broader sensory experience of the EcoCommons. </p>
+
+        <p>I often tell students that they will learn more about an unfamiliar data source by trying to visualize it in their own way, than they will by using existing software or looking at someone else’s ready-made design. I do not encourage my students to create data visualizations simply to disorient them (I think that would be mean). In fact, I did not begin designing cBird with disorientation in mind. Rather, I came by the term after completing the design. I find the term to be useful in hindsight, and in writing about my experience. It is a good a characterization of what happened during the process of design. In the future, I hope to be more open to experiences of disorientation in the design of data visualizations, as well as in considering their reception.</p>
+
+        <p>In order to develop cBird, our team had to consider some unusual questions: What data would be most relevant to the place we had chosen to work in? How might the data become part of, rather than a replacement for the experience of that place? How can our visualization take up the least possible real estate on screen? How will our graphics show up against an unpredictable background? In order to address these questions, we had to let go of many normative assumptions about what a data visualization looks like.</p>
+
+        <p>We came to the final design only after passing through disorientation, after straying from a series of unsuccessful design directions. Along the way, our objectives changed dramatically, along with what we considered as evidence. Initially we expected to make an interface that would help observers learn to look at birds in the EcoCommons. I did not come to this work as a birder, but rather as someone interested in what I might learn about data from birds. Upon repeated visits along and with our group, I felt disoriented. Where were the birds? I could hear a few. But I was lucky if I saw a flash of brown or a flourish of cardinal red in the green canopy overhead. Most birds kept their distance from me and they knew how to use color to hide in plain sight. </p> 
+
+        <p>The relative invisibility of most birds came as a surprise to me. In the photos that I was seeing on eBird, proud specimens stood out prominently against color-contrasting backgrounds, typically blurred by a lens with a short depth of field. Experienced birders know that captures these images is not easy. You are going to have to wake up pretty early, Zhou chided me. There is also the season to consider. You have to know which birds are migrating, mating, or nesting. Moreover, birders do not expect to see much with the naked eye. They typically carry a pair of high-powered binoculars. After unsuccessfully trying to design an interface that would help students to look at birds directly, we pivoted our design. Weigel suggested that students could learn to look at what they can see: an environment that supports a wondrous variety of bird species, and which can be understood at least in part as an ecologically effective color palette.</p>
+
+        <p>Learning all this made me more aware of the biases and absences inherent in eBird. For the most part, the birds portrayed on eBird are highly visible. If birds sometimes wish to hide in their surroundings and sometimes wish to stand out, then at best, eBird is only displaying one side of the complex color-adaptive bodies and behavior that birds manifest. I also had to ask myself, “who are the contributors to eBird?” If you want to be part of the eBird community of contributors, you better be willing to wait for that rare sighting, which may present itself once a day or once a year. While you are at it, you ought to invest in and learn to operate a professional-quality camera. You will also need to spend several thousand dollars on a lens that has both powerful magnification and a low f-stop. These are the tools that will allow you to capture images of birds which are tightly framed, while also being well lit and in clear focus. To extrapolate: eBird contributors are people with ample free time, plus the financial resources and technical skills to capture high-grade images of small lifeforms that manage their visibility better than most human celebrities. As such, the data on eBird are likely to be made by people from the upper social and economic ranks of society. Mainly, white people. In the city of Atlanta, the median income of households identified as Black is $75,000 less than that of households identified as white (Donastorg 2024). In other words, there is a lot missing from these photographs: the color conspicuously absent from images on eBird is the color of the person behind the camera.</p> 
+
+        <p>Building out the interface to cBird was a process of disorientation and reorientation. I had to learn to unsee my own assumptions about the data before I could settle upon more realistic expectations of them. I confronted more assumptions when our group facilitated two workshops to evaluate the reception of cBird with students. A full account of those workshops is outside of the scope of this article. However, I will share a brief representative example of what happened.</p>
+
+        <p style="text-align: center;">* * *</p> 
+
+        <p>Weigel, Zhou, Vedula and I arranged to meet a small group of seven students in the EcoCommons on a Spring morning in 2023. Initially, we asked participants to wander freely. “Notice your experiences of color,” we told them. “But do not immediately attempt to capture your impressions.” </p>
+
+        <p>When they returned from their wanderings, we asked participants to write in a stream-of-consciousness manner about one color, beginning with the statement: “i saw the color …” One student wrote the following account: </p>
+
+        <p><i>I saw the color purple. It is also my favorite color, so naturally drew my attention. I was walking down the outer sidewalk of the EcoCommons when I spotted a few clusters of bright little flowers dividing the path. They stuck out slightly, as most of the surrounding grass and foliage was a muddle of brown and green.</i></p>
+
+        <p>As in the explanation above, several participants reported that they set out to find their favorite color in the EcoCommons. I did not expect for participants to show up with premeditated ideas about what colors were attractive or meaningful for them. In writing this prompt for the workshop, I hoped to learn what colors might directly attract the attention of students, so that we could compare their unmediated experiences of color to their experiences with cBird. Only after reading such accounts, did I grudgingly acknowledge that the participants were not reflecting on direct experiences of color; their experiences were already mediated. </p> 
+
+        <p>Meanwhile, I had developed my own unusual, and rather disinterested, attitude towards individual colors. While writing the code for cBird, I had come to see color as a set of problems to be solved: how should I determine the shape and size of the visualization? how much of the display can I overlay with graphics without obstructing the video feed? If I organize the colors on the spectrum by hue, how will I deal with the outstanding differences in saturation and brightness? It did not occur to me that I might personally value one color over another, or that others may do so. </p> 
+
+        <p>I was equally surprised at how participants reacted when the data in cBird did not support the further exploration of the color they noticed earlier. This same student was disoriented at first, not being able to find the purple using cBird that initially drew their attention. However, they quickly shifted gears. They turned their own disorientation into a game and a mechanism for discovery. </p> 
+
+        <p><i>When I tried to find my color, I was surprised to see its relative lack of presence… While the purple was most vibrant to me, I was surprised to look at my (color) wheel one time, and see a great shade of red. It became a fun little scavenger hunt to trace it back to reality: fallen leaves, the red tinted veins on some plants, etc.</i></p> 
+
+        <p>In considering such explanations, I have learned to pay attention to my own little feelings of surprise when hearing or reading them. These moments of surprise are often prompted by off-hand statements that I did not expect, such as the account above about how our visualization prompted “a fun little scavenger hunt.” It sometimes takes me a while to identify and process a surprise (i.e. I was not looking for that, but now that I see it…). This further suggests that it is a moment of disorientation: not in the design of a data visualization, nor in its reception, but in my assessment of the reception. This may prompt me to go back and change the project again, or to start a new project with the aim of further understanding what surprised me and why. This suggests that one benefit of disorientation as a strategy for data visualization, is as an indication that you do not yet understand the effects of your own work. Experiencing disorientation in the making cBird, and the experience of seeing others use it, has helped me to hone my own questions. I have much to learn about how people might be supported in navigating between their own perceptions and the data: How does the juxtaposition of perception and data and change their understanding of each? Are perception and data judged differently? What might change the way people make judgments of data?</p> 
+
+        <p>Regardless of whether I can answer these new questions, the way they arise in moments of disorientation helps me see how to advance my own thinking. Even though I have been making data visualizations for nearly twenty years, the questions never stop arising. Perhaps this is because I have allowed myself to experience disorientation. I am perpetually trying to unlearn what I think I know, as a means of discovering how it might be done otherwise.</p> 
+
+        <p style="text-align: center;">* * *</p> 
+
+        <p>In my undergraduate Information Design course at Georgia Tech, I tell students that visualizing data means putting (alleged) evidence into “context:” a new visual and interactive setting in which those data will be best understood by someone. After my experience developing cBird and studying its reception, I may need to reconsider. I no longer believe that the term context adequately describes that data visualization does.</p> 
+
+        <p>In 2012, Crawford and Boyd signaled the importance of context in interpreting large quantities of data, as part of their highly influential paper “Critical Questions for Big Data” (Boyd and Crawford 2012) In my 2019 book, All Data Are Local: Thinking Critically in a Data-Driven Society, I continued this line of argumentation, explaining that all data are made by people and their dutiful machines, in a time and a place, etc (Loukissas 2019). In order to work with data effectively and ethically, you need to look beyond the conceptual framing of the data set. </p> 
+
+        <p>The term set implies something complete, discrete, and easily transferable from one place to another. Think of a chess set, a set of dishes, or a set of linens. Data are none of these things. Data are never complete, due to the inherent material limitations of data collection. They are not discrete; they are enmeshed in the places of their collection and use. Data may be transportable, but not without significant efforts to reconstruct the context of their creation and intended use. In the book, I propose that we explore data settings, rather than data sets. A setting implies this broader context in which the data are meant to be fully understood. If you want to reconstruct meaningful patterns in data, I explain, you must learn about the encompassing system of knowledge, of which the data are a small part. </p> 
+
+        <p>From this perspective, the creation of a data visualization can be understood as a process of de- contextualization and re-contextualization. In the case of cBird, observations made by birdwatchers are first extracted from their original contexts by eBird. This is decontextualization: a process of making data “raw.” In my view, “raw data” is not an oxymoron (Gitelman 2013). As with other raw materials, such as “raw film footage” or “raw meat,” data must be prepared for creative use through various phases of technical processing (capture, ingestion, normalization, etc.). Only then, can data be recontextualized: visualized or otherwise situated in a new setting where they accessible to interpretation.</p> 
+
+        <p>In recent work, I have sought to explore the broader implications, as well as the limitations of what I wrote in All Data Are Local. As demonstrated in the example of cBird, I believe in taking speculative approach to this research, in which I prototype new modes of visualizing data with the intention of testing or challenging my own underlying assumptions. I could explain this as a means of seeking out disorientation. I consider cBird to be a useful speculative exercise, because it overturned my assumption that visualizing data is a matter of putting data into a well-defined and stable context.</p> 
+
+        <p>Until now, I believed that by creating new data visualizations I was establishing new contexts in which the data were meant to be understood. Now, I can see that I was just trying to recreate the same illusion that once criticized for obfuscating our understanding of data sets. I have been using the term context to suggest that data visualizations (if not data sets) can be complete, discrete, and easily transferable from one place to another. Creating cBird has helped me see through the illusion that data visualizations are internally stable. This realization or disorientation might have thrown me off data visualization all together. But my experience working with Weigel, Zhou, and Vedula has given me some hope that we might find new ways of expanding the practice of data visualization, which present their instability as a feature, instead of a bug.</p> 
+
+        <p>If my explanation has left you disoriented, do not worry. Here is a simple take-away: do not be afraid to get a bit lost in the process of learning to visualize unfamiliar data. Losing your way may not feel secure; but it is a good indication that you are on the verge of discovering something important.</p> 
+
+        <h2>References</h2>
+        <p>Ahmed, Sara. Queer Phenomenology: Orientations, Objects, Others. Durham: Duke University Press, 2006.</p> 
+        <p>Bell, Genevieve, Mark Blythe, and Phoebe Sengers. “Making by Making Strange: Defamiliarization and the Design of Domestic Technologies.” ACM Trans. Comput.-Hum. Interact. 12, no. 2 (June 1, 2005): 149–73. <a href="https://doi.org/10.1145/1067860.1067862">https://doi.org/10.1145/1067860.1067862</a>.</p> 
+        <p>Biggs, Heidi, and Shaowen Bardzell. “Thrown from Normative Ground: Exploring the Potential of Disorientation as a Critical Methodological Strategy in HCI.” In Proceedings of the CHI Conference on Human Factors in Computing Systems, 1–11. CHI ’24. New York, NY, USA: Association for Computing Machinery, 2024. <a href="https://doi.org/10.1145/3613904.3642724">https://doi.org/10.1145/3613904.3642724</a>.</p>
+        <p>Borgman, Christine L. Big Data, Little Data, No Data: Scholarship in the Networked World. Cambridge: MIT Press, 2015.</p>
+        <p>boyd, danah, and Kate Crawford. “Critical Questions for Big Data.” Information, Communication & Society 15, no. 5 (June 1, 2012): 662–79. <a href="https://doi.org/10.1080/1369118X.2012.678878">https://doi.org/10.1080/1369118X.2012.678878</a>.</p>
+        <p>Donastorg, Mirtha “Atlanta Remains One of the Most Unequal Cities in the US, Report Shows.” Atlanta Journal Constitution, Accessed July 29, 2024. <a href="https://www.ajc.com/news/business/new-report-highlights-atlantas-persistent-racial-inequality/MMRRHH4CRBBEVBXZ57RHRXU7EU/">https://www.ajc.com/news/business/new-report-highlights-atlantas-persistent-racial-inequality/MMRRHH4CRBBEVBXZ57RHRXU7EU/</a>.</p>
+        <p>Gitelman, Lisa. “Raw Data” Is an Oxymoron. Cambridge: MIT Press, 2013. Loukissas, Yanni Alexander. All Data Are Local: Thinking Critically in a Data-Driven Society. Cambridge, MA: The MIT Press, 2019. </p>
+        <p>Merleau-Ponty, Maurice. “Phenomenology of Perception.” London: Routledge, 2010(1945).</p>
+        <p>Offenhauber, Dietmar. Autographic Design. Cambridge: MIT Press, 2024. </p>
+
+        
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2>References
+        </h2>
+
+        <p>1. Jordan Gerth, “Scientific & Meteorological Use of Spectrum,” Presentation at the 2022 National Spectrum Management Association (NSMA) Conference, University of Wisconsin & NOAA, 2022. </p>
+
+        <p>2. Dan Rockmore, "How Much of the World Is It Possible to Model?" The New Yorker, January 15, 2024.</p>
+
+        <p>3. Ibid.</p>
+
+        <p>4. Paul N. Edwards, A Vast Machine: Computer Models, Climate Data, and the Politics of Global Warming (Cambridge, MA: MIT Press, 2010).</p>
+
+        <p>5. Bruno Latour, Science in Action: How to Follow Scientists and Engineers Through Society (Cambridge, MA: Harvard University Press, 1987).</p>
+
+        <p>6. S. Zhang, Z. Xu, Y. Liu, M. Yin, W. Zhu, "Evaluating Multi-Hazard Risk Associated with Tropical Cyclones Using the Fuzzy Analytic Hierarchy Process Model," Published in Ore and Energy, 2024. 
+        </p>
+
+        <p>7. J. Le Moigne, NASA Earth Systems Digital Twins (ESDT) - Presented at the 104th American Meteorological Society (AMS) Annual Meeting, 2024.</p>
+
+        <p>8. Kim Martineau, "IBM and NASA are building an AI foundation model for weather and climate," IBM Research Blog, November 30, 2023.</p>
+
+        <p>9. NASA. "Transform to Open Science." NASA Transform to Open Science (2024). <a href="https://nasa.github.io/Transform-to-Open-Science/" target="_blank">https://nasa.github.io/Transform-to-Open-Science/.</a></p>
+
+        <p>10. NASA. NASA Software Catalog 2023-24. 2023. <a href="https://software.nasa.gov/sites/default/files/NASA_Software_Catalog_2023-24.pdf." target="_blank">https://software.nasa.gov/sites/default/files/NASA_Software_Catalog_2023-24.pdf.</a></p>
+
+
+
+        <h2>TUTORIAL DRAFT (github based)</h2>
+        <p>This tutorial will guide you through the steps to visualize NOAA NOMADS (climate model) data and project them into the web.
+        </p>
+
+        <h3>Wrangle the weather model output files:
+        </h3>
+        <p>GDAL: Translator library for raster and vector geospatial data formats.</p>
+        <p>rasterio: Clean and fast geospatial raster I/O for Python programmers who use Numpy.</p>
+        <p>gribdoctor: Utilities for handling quirks of GRIB (General Regularly-distributed Information in Binary form) files in GIS applications. GRIB data is a concise data format commonly used in meteorology to store historical and forecast weather data, viewable using various software applications.</p>
+        <p>FFmpeg: Create videos from images downloaded via the command line (terminal).</p>
+        <p>WebGL: Project the data onto a 3d environment for web-based visualization.</p>
+
+        
+
+
+    <div id="project_tags" class="tag-grid"></div>
+
+    <script>
+        let tutorialsData;
+        let colorsData;
+
+        function loadData() {
+            // Load both JSON files
+            d3.json("../tutorials.json").then(function(loadedData) {
+                tutorialsData = loadedData;
+                d3.json("../colors.json").then(function(loadedColors) {
+                    colorsData = loadedColors;
+                    displayTagsAndPanel();
+                });
+            });
+        }
+
+        function getColorForTag(tag) {
+            // Find the panel color for a given tag
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function getPanelColor(panel) {
+            // Find the color for a given panel
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function displayTagsAndPanel() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+            const panelTextElement = document.getElementById("panel-text");
+            const circleElement = document.querySelector(".tutorials-circle");
+
+            const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
+
+            if (project) {
+                panelTextElement.innerText = project.panel;
+
+                // Find and set the color for the panel
+                const panelColor = getPanelColor(project.panel);
+                circleElement.style.backgroundColor = panelColor;
+
+                // Display and color the tags
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
+                    tagContainer.appendChild(tagElement);
+                });
+            }
+        }
+
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+
+        loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+    </script>
+
+</body>
+</html>

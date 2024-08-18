@@ -217,7 +217,6 @@ body {
         height: 50px;
         width: 300px;
         /* margin-top: 155px;  */
-        
     }
     
     .button-container button {
@@ -237,11 +236,21 @@ body {
         color: white; /* Text color remains white */
     }
 
-    .button-container button:focus {
-        background-color: black; /* Button color when focused */
-        color: white; /* Text color remains white */
-        outline: none; /* Remove default focus outline */
+    .button-container button.custom-focus {
+        background-color: black; /* Mimic the focus background color */
+        color: white; /* Mimic the focus text color */
+        outline: none; /* Ensure no default outline */
+        box-shadow: 0 0 0 2px white; /* Optional: add a custom outline */
     }
+
+
+/* Add styles to handle text wrapping */
+.node-text {
+    font-size: 12px; /* Adjust font size as needed */
+    text-align: center;
+}
+
+    
 
 
     
@@ -422,8 +431,7 @@ body {
         position: fixed; 
         flex-direction: column;
         max-height: calc(100vh - 65px);
-        justify-content: center; /* Center content vertically */
-        align-items: left; /* Center content horizontally */
+        align-items: left; 
         border-radius: 5px;
     }
     
@@ -433,16 +441,17 @@ body {
         margin: 5px; /* 5px space between each tag */
         margin-top: 5px;
         padding: 5px; /* Add some padding for better appearance */
-        display: inline-block; /* Ensure tags appear inline */
+        display: flex; 
         border-radius: 3px; /* Rounded corners for better appearance */
         color: #000000; /* Default text color */
         border: none; /* Remove any border */
         outline: none; /* Remove any outline */
         height: 50px; 
-        text-align: center; 
-        vertical-align: middle; 
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
         width: 87px;
         white-space: normal; /* Allow text to break to a new line */
+        text-align: center; 
         word-wrap: break-word; /* Break long words onto the next line */
     }
 

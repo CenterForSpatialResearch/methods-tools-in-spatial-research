@@ -11,102 +11,120 @@
         "authors":["Lucia Rebolino"],
         "panel": "Visual Code",
         "tags": ["GIS", "mapping", "cartography", "data representation", "weather", "climate","open data","NASA"]
+
     },
     {
         "project": "What is an Index",
         "authors":["Jia Zhang"],
         "panel": "Visual Code",
-        "tags": ["CSR","GIS", "mapping", "census", "data representation", "administrative boundaries"]
+        "tags": ["CSR","GIS", "mapping", "census", "data representation", "administrative boundaries"],
+        "projectX": 100,  
+        "projectY": 50    
     },
     {
         "project": "Mapping War via Satellite",
         "authors":["Jamon Van Den Hoek"],
         "panel": "Mapping Conflict",
         "tags": ["GIS", "mapping", "speculative cartography", "machine learning", "computer vision","satellite"]
+
     },
     {
         "project": "Field Research for Environmental Research in Gaza",
         "authors":["Shourideh C. Molavi"],
         "panel": "Mapping Conflict",
         "tags": ["GIS", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
+
     },
     {
         "project": "Building the Beirut Built Environment Database",
         "authors":["Mona Fawaz"],
         "panel": "Mapping Conflict",
         "tags": ["GIS", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
+
     },
     {
         "project": "Black Magic",
         "authors":["Ana Paulina Lee"],
         "panel": "Counter Narrative",
         "tags": ["machine learning", "language", "black magic"]
+
     },
     {
         "project": "Creating Expert Testimony",
         "authors":["V. Mitch McEwen"],
         "panel": "Counter Narrative",
         "tags": ["ICE", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
+
     },
     {
         "project": "Public Interest Technology in Academia",
         "authors":["Catherine D’Ignazio"],
         "panel": "Counter Narrative",
         "tags": ["feminicide", "gender-related violence", "data activism", "public interest technology"]
+
     },
     {
         "project": "DIY Tools for Open Weather",
         "authors":["Sophie Dyer","Sasha Engelmann"],
         "panel": "Local Data",
         "tags": ["DIY Tools", "open weather data", "climate", "sensors","mapping"]
+
     },
     {
         "project": "All Data is Local",
         "authors":["Yanni Loukissas"],
         "panel": "Local Data",
         "tags": ["local data", "mapping", "augmented reality", "locality", "community"]
+
     },
     {
         "project": "Mapping Historical New York",
         "authors":["Dan Miller", "Tim Wu"],
         "panel": "Local Data",
         "tags": ["CSR","local data", "mapping", "historical new york", "language", "history","community"]
+
     },
     {
         "project": "No Innocent Models: Creating OBAI",
         "authors":["Beth Coleman"],
         "panel": "Network Models",
         "tags": ["GAN model", "image processing", "artist controls","networks"]
+
     },
     {
         "project": "Anima: Critical Race Studies Otherwise",
         "authors":["Ezekiel Dixon-Román"],
         "panel": "Network Models",
         "tags": ["critical race studies", "computational cultures","network model"]
+
     },
     {
         "project": "Sentiment Analysis",
         "authors":["Wendy Hui Kyong Chun"],
         "panel": "Network Models",
         "tags": ["Homophily", "sentiment analysis", "machine learning", "networks"]
+
     },
     {
         "project": "Xinjiang Detention Camps",
         "authors":["Alison Killing"],
         "panel": "Counter Forensics",
         "tags": ["investigative journalism", "reporting", "migration", "xinjiang", "china"]
+
     },
     {
         "project": "Reconstructing Babyn Yar Models",
         "authors":["Maksym Rokmaniko"],
         "panel": "Counter Forensics",
         "tags": ["reconstruction", "human rights", "GIS","Ceneter for Spatial Technologies", "mapbox", "context model","historical sites","aerial imagery"]
+
     },
     {
         "project": "Forensic Architecture's technique in camera matching",
         "authors":["Nick Masterton"],
         "panel": "Counter Forensics",
         "tags": ["forensic architecture", "dolly camera","GIS", "motion tracking", "camera matching", "video tagging"]
+  
     },
     {
         "project": "Undercounting Underfunding of Poultry Farms in North Carolina",
