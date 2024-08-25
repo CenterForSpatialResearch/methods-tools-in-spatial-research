@@ -341,7 +341,7 @@ body {
         max-width: 50%; 
         float: right;
         margin: 0px auto;
-        padding: 100px;
+        padding: 55px;
     }
 
     .tutorials-section h1 {
@@ -353,8 +353,8 @@ body {
     .tutorials-section h2 {
         font-size: 30px;
         font-weight: bold;
-        margin-top: 150px; 
-        margin-bottom: 50px;
+        margin-top: 100px; 
+        margin-bottom: 20px;
     }
 
     .tutorials-section h3 {

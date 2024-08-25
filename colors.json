@@ -32,8 +32,8 @@
         }, 
         {
             "panel": "Center for Spatial Research", 
-            "color": "#808080",
-            "tags": ["CSR"]
+            "color": "#29AAE1",
+            "tags": ["CSR", "C4SR"]
         }
     ]
 }
