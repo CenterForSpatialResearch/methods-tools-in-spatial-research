@@ -18,74 +18,79 @@
         </div>
     </div>
 
+
     <div class="tutorials-corner-panel"  id="sidePanel">
         <p onclick="location.reload();">
-            METHODS OF RESEARCH 
+        Methods and Tutorials in Spatial Research
         </p>
     </div> 
     
-    <div class="side-panel">
-        <p> 
-            Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
-        </p>
-        <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
-        <button onclick="search()" id="searchButton">Go</button>
-        <p style="margin-top: 35px; font-weight: bold;">
-            Workshop Panels:
-        </p>
-        <div class="panel-button-wrapper">
-            <div id="VisualCodeButton" class="panel-button"></div>
-            <span class="button-text">Visual Code</span>
-        </div>
-    
-        <div class="panel-button-wrapper">
-            <div id="mappingConflictButton" class="panel-button"></div>
-            <div class="button-text">Mapping Conflict</div>
-        </div>
-    
-        <div class="panel-button-wrapper">
-            <div id="counterNarrativesButton" class="panel-button"></div>
-            <span class="button-text">Counter Narratives</span>
-        </div>
-    
-        <div class="panel-button-wrapper">
-            <div id="localDataButton" class="panel-button"></div>
-            <span class="button-text">Local Data</span>
-        </div>
-    
-        <div class="panel-button-wrapper">
-            <div id="networksButton" class="panel-button"></div>
-            <span class="button-text">Network Models</span>
-        </div>
-    
-        <div class="panel-button-wrapper">
-            <div id="forensicsButton" class="panel-button"></div>
-            <span class="button-text">Counter Forensics</span>
-        </div>
+    <div class="column left" id="side-panel">
 
-        <hr style="width: 97%; margin: 20px auto;">
+            <p> 
+                Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
+            </p>
 
-        <p style="font-weight: bold;">
-            Center for Spatial Research
-        </p>
-        <div class="panel-button-wrapper">
-            <div id="csrButton" class="panel-button"></div>
-            <span class="button-text">Projects</span>
-        </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
+            <button onclick="search()" id="searchButton">></button>
+
+            <p style="margin-top: 35px; font-weight: bold;">
+                Workshop Panels:
+            </p>
+            <div class="panel-button-wrapper">
+                <div id="VisualCodeButton" class="panel-button"></div>
+                <span class="button-text">Visual Code</span>
+            </div>
         
+            <div class="panel-button-wrapper">
+                <div id="mappingConflictButton" class="panel-button"></div>
+                <div class="button-text">Mapping Conflict</div>
+            </div>
+        
+            <div class="panel-button-wrapper">
+                <div id="counterNarrativesButton" class="panel-button"></div>
+                <span class="button-text">Counter Narratives</span>
+            </div>
+        
+            <div class="panel-button-wrapper">
+                <div id="localDataButton" class="panel-button"></div>
+                <span class="button-text">Local Data</span>
+            </div>
+        
+            <div class="panel-button-wrapper">
+                <div id="networksButton" class="panel-button"></div>
+                <span class="button-text">Network Models</span>
+            </div>
+        
+            <div class="panel-button-wrapper">
+                <div id="forensicsButton" class="panel-button"></div>
+                <span class="button-text">Counter Forensics</span>
+            </div>
+
+            <hr style="width: 97%; margin: 20px auto;">
+
+            <p style="font-weight: bold;">
+                Center for Spatial Research
+            </p>
+            <div class="panel-button-wrapper">
+                <div id="csrButton" class="panel-button"></div>
+                <span class="button-text">Projects</span>
+            </div>
     </div>
     
-    <div class="visualize-container">
-        <p>Visualize By:</p>
-        <div class="button-container">
-            <button id="show-authors">AUTHOR NAMES</button>
-            <button id="show-projects">PROJECT TITLES</button>
+    <div class="column main">
+        <div id="visualize-container">
+            <p>Visualize By:</p>
+            <div class="button-container">
+                <button id="show-authors">AUTHOR NAMES</button>
+                <button id="show-projects">PROJECT NAMES</button>
+            </div>
+
+            <div id="networkviz"></div>
         </div>
+
     </div>
     
-<div id="networkviz"></div>
-<div id="authorButton"></div>
-<div id="projectButton"></div>
 
 <script>
 
@@ -101,15 +106,15 @@
 
     function visualizeData() {
         // set the dimensions and margins of the graph
-        const margin = {top: 10, right: 10, bottom: 10, left: 400},
+        const margin = {top: 10, right: 10, bottom: 10, left: 10},
         width = window.innerWidth - margin.left - margin.right,
         height = window.innerHeight - margin.top - margin.bottom; // TODO test if it fits in iframe properly on CSR site
 
         // append the svg object to the body of the page
         const svg = d3.select("#networkviz")
         .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("width", width)
+        .attr("height", height)
         .append("g")
         .attr("transform",
                 `translate(${margin.left}, ${margin.top})`); 
@@ -167,8 +172,7 @@
 
         const allLinks = links.concat(tagLinks, panelLinks); 
 
-        console.log(allLinks);
-
+        // console.log(allLinks);
 
         // Define a function to get the color class based on the panel name
         function getNodeColor(panel) {
@@ -238,8 +242,9 @@
             .enter()
             .append("text")
             .attr("class", "node-text")
-            .attr("x", d => d.x -50)  // Modify the location of the <text> 
-            .attr("y", d => d.y -15)  // Modify the location of the <text> 
+            .attr("x", d => d.x +50)  // Modify the location of the <text> 
+            .attr("y", d => d.y + 35)
+            // .attr("text-anchor", "middle") 
             .text(d => d.authors)
             .each(function(d) {
                 d3.select(this)
@@ -251,7 +256,7 @@
 
 
 
-        // When "AUTHOR NAMES" is clicked, a <text> element is created for each tutorial, displaying author information and storing the original panel name based on the panel name. When "PROJECT TITLES" is clicked, a <text> element is created for each tutorial, displaying project information and storing the original panel name based on the panel name.
+// When "AUTHOR NAMES" is clicked, a <text> element is created for each tutorial, displaying author information and storing the original panel name based on the panel name. When "PROJECT TITLES" is clicked, a <text> element is created for each tutorial, displaying project information and storing the original panel name based on the panel name.
 
 // Function to wrap text
 function updateTextElements(textContent) {
@@ -267,14 +272,15 @@ function updateTextElements(textContent) {
         .attr("class", "node-text")
         .attr("x", d => d.x)  // Adjust the x position of the text
         .attr("y", d => d.y)  // Adjust the y position of the text
+        .attr("text-anchor", "middle")
         .each(function(d) {
-            var lines = wrapText(textContent(d), 100); // Wrap text longer than 100px
+            var lines = wrapText(textContent(d), 100); 
             var yOffset = 0;
 
             for (var i = 0; i < lines.length; i++) {
                 d3.select(this)
                     .append("tspan")
-                    .attr("x", d.x +350)  // Keep the x position consistent
+                    .attr("x", d.x  )  // Keep the x position consistent
                     .attr("y", d.y + yOffset + 35)  // Adjust the y position for each line
                     .text(lines[i]);
 
@@ -336,18 +342,8 @@ d3.select("#show-projects").on("click", function() {
     updateTextElements(d => d.project); // PROJECT TITLES
     setFocusClass(this);
 });
-
-
-        
-
-        
-
-        
-
-
-
-                
-            // console.log(links);
+    
+ // console.log(links);
         const simulation = d3.forceSimulation(data.tutorials)
             .force("link", d3.forceLink(allLinks) // This force provides links between nodes
                 .id(d => d.project) // This provide  the id of a node
@@ -355,11 +351,11 @@ d3.select("#show-projects").on("click", function() {
                 ) 
 
             .force("charge", d3.forceManyBody() // This adds repulsion between nodes.
-                .strength(-1500)
+                .strength(-2500)
             ) 
-            .force("center", d3.forceCenter(width / 2, height / 2)) // bring to center of svg
-            .force("x", d3.forceX(width / 2).strength(0.025)) // Horizontal force
-            .force("y", d3.forceY(height / 2).strength(0.1)) // Vertical force
+            .force("center", d3.forceCenter(width /4, height / 4)) // bring to center of svg
+            .force("x", d3.forceX(width/2).strength(0.01)) // Horizontal force
+            .force("y", d3.forceY(height/2).strength(0.01)) // Vertical force
             .on("end", ticked);
 
         function ticked() {
@@ -533,20 +529,6 @@ function toggleHighlight(panel, highlight) {
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Get the VisualCode button element
 const visualCodeButton = document.getElementById('VisualCodeButton');
 const mappingConflictButton = document.getElementById('mappingConflictButton');
@@ -595,18 +577,6 @@ csrButton.addEventListener('click', function() {
 
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//             const buttons = document.querySelectorAll('.button-container button');
-
-//             buttons.forEach(button => {
-//                 button.addEventListener('click', function() {
-//                     // Toggle the 'active' class on the clicked button
-//                     button.classList.toggle('active');
-//                 });
-//             });
-// });
-
-
 // press "esc" to reset the function toggleHighlight, toggleHighlightByTag, and the buttons (visualCodeButton, mappingConflictButton, counterNarrativesButton, localDataButton, networksButton, forensicsButton, and csrButton) 
 function resetAll() {
             // Clear highlighted buttons
@@ -640,12 +610,6 @@ function resetAll() {
             }
         });
 
-
-
- 
-
-
-    
  </script>
 
 </body>

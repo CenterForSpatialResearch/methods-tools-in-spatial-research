@@ -1,12 +1,6 @@
 {
     "tutorials":[
     {
-        "project": "The Edge Of All We Know",
-        "authors":["Robert Gerard Pietrusko"],
-        "panel": "Visual Code",
-        "tags": ["GIS", "mapping", "speculative cartography", "data representation", "alternate realities"]
-    },
-    {
         "project": "Unpredictable Atmospheres",
         "authors":["Lucia Rebolino"],
         "panel": "Visual Code",
@@ -17,30 +11,13 @@
         "project": "What is an Index",
         "authors":["Jia Zhang"],
         "panel": "Visual Code",
-        "tags": ["CSR","GIS", "mapping", "census", "data representation", "administrative boundaries"],
-        "projectX": 100,  
-        "projectY": 50    
+        "tags": ["CSR","GIS", "mapping", "census", "data representation", "administrative boundaries"]
     },
     {
         "project": "Mapping War via Satellite",
         "authors":["Jamon Van Den Hoek"],
         "panel": "Mapping Conflict",
         "tags": ["GIS", "mapping", "speculative cartography", "machine learning", "computer vision","satellite"]
-
-    },
-    {
-        "project": "Field Research for Environmental Research in Gaza",
-        "authors":["Shourideh C. Molavi"],
-        "panel": "Mapping Conflict",
-        "tags": ["GIS", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
-
-    },
-    {
-        "project": "Building the Beirut Built Environment Database",
-        "authors":["Mona Fawaz"],
-        "panel": "Mapping Conflict",
-        "tags": ["GIS", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
-
     },
     {
         "project": "Black Magic",
@@ -57,7 +34,7 @@
 
     },
     {
-        "project": "Public Interest Technology in Academia",
+        "project": "Another AI is Possible",
         "authors":["Catherine D’Ignazio"],
         "panel": "Counter Narrative",
         "tags": ["feminicide", "gender-related violence", "data activism", "public interest technology"]
@@ -65,7 +42,7 @@
     },
     {
         "project": "DIY Tools for Open Weather",
-        "authors":["Sophie Dyer","Sasha Engelmann"],
+        "authors":["Sophie Dyer"," Sasha Engelmann"],
         "panel": "Local Data",
         "tags": ["DIY Tools", "open weather data", "climate", "sensors","mapping"]
 
@@ -78,14 +55,7 @@
 
     },
     {
-        "project": "Mapping Historical New York",
-        "authors":["Dan Miller", "Tim Wu"],
-        "panel": "Local Data",
-        "tags": ["CSR","local data", "mapping", "historical new york", "language", "history","community"]
-
-    },
-    {
-        "project": "No Innocent Models Creating OBAI",
+        "project": "No Innocent Models",
         "authors":["Beth Coleman"],
         "panel": "Network Models",
         "tags": ["GAN model", "image processing", "artist controls","networks"]
@@ -106,7 +76,7 @@
 
     },
     {
-        "project": "Xinjiang Detention Camps",
+        "project": "Interview with Alison Killing",
         "authors":["Alison Killing"],
         "panel": "Counter Forensics",
         "tags": ["investigative journalism", "reporting", "migration", "xinjiang", "china"]
@@ -125,12 +95,6 @@
         "panel": "Counter Forensics",
         "tags": ["forensic architecture", "dolly camera","GIS", "motion tracking", "camera matching", "video tagging"]
   
-    },
-    {
-        "project": "Undercounting Underfunding of Poultry Farms in North Carolina",
-        "authors":["Adeline Chum", "James Clinton-Francis","Tim Wu"],
-        "panel": "CSR",
-        "tags": ["csr","aerial imagery", "satellite","GIS", "agriculture", "machine learning", "training data"]
     }
 ]
 }

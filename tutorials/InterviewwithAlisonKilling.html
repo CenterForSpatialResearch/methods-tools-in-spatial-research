@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data is Local</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+<body data-project-name="Interview with Alison Killing"> <!-- The name here is to link Tags from json file (project name)-->
+    <div class="top-bar">
+        <div class="menu">
+            <a href="../about/about.html">ABOUT</a>
+        </div>
+    </div>
+
+    <div class="tutorials-corner-panel"  id="sidePanel">
+        <p>
+            Methods and Tutorials in Spatial Research
+        </p>
+    </div>
+
+    <div class="tutorials-side-panel">
+        <h3>Workshop Panel: </h3>
+        <div class="visual-code-container">
+            <div class="tutorials-circle"></div>
+            <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+        </div>
+        <h3>Project Tags: </h3>
+        <div class="tutorials-ProjectTagsContainer" id="project_tags">
+            <!-- Tags will be dynamically inserted here -->
+        </div>
+    </div>
+    
+
+    </div>
+
+    <div class="tutorials-section">
+        <h1>Xinjiang Detention Camps</h1>
+        <h3>Alison Killing</h3>
+        <div style="height: 150px;"></div> <!-- Adds space -->
+
+
+
+        
+    <div id="project_tags" class="tag-grid"></div>
+
+    <script>
+        let tutorialsData;
+        let colorsData;
+
+        function loadData() {
+            // Load both JSON files
+            d3.json("../tutorials.json").then(function(loadedData) {
+                tutorialsData = loadedData;
+                d3.json("../colors.json").then(function(loadedColors) {
+                    colorsData = loadedColors;
+                    displayTagsAndPanel();
+                });
+            });
+        }
+
+        function getColorForTag(tag) {
+            // Find the panel color for a given tag
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function getPanelColor(panel) {
+            // Find the color for a given panel
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function displayTagsAndPanel() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+            const panelTextElement = document.getElementById("panel-text");
+            const circleElement = document.querySelector(".tutorials-circle");
+
+            const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
+
+            if (project) {
+                panelTextElement.innerText = project.panel;
+
+                // Find and set the color for the panel
+                const panelColor = getPanelColor(project.panel);
+                circleElement.style.backgroundColor = panelColor;
+
+                // Display and color the tags
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
+                    tagContainer.appendChild(tagElement);
+                });
+            }
+        }
+
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+
+        loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+    </script>
+
+</body>
+</html>

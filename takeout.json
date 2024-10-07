@@ -1,0 +1,44 @@
+{
+    "tutorials":[
+    {
+        "project": "The Edge Of All We Know",
+        "authors":["Robert Gerard Pietrusko"],
+        "panel": "Visual Code",
+        "tags": ["GIS", "mapping", "speculative cartography", "data representation", "alternate realities"]
+    },
+    {
+        "project": "Field Research for Environmental Research in Gaza",
+        "authors":["Shourideh C. Molavi"],
+        "panel": "Mapping Conflict",
+        "tags": ["GIS", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
+
+    },
+    {
+        "project": "Building the Beirut Built Environment Database",
+        "authors":["Mona Fawaz"],
+        "panel": "Mapping Conflict",
+        "tags": ["GIS", "mapping", "ground truth", "agriculture", "chemical warfare","satellite"]
+
+    },
+    {
+        "project": "Mapping Historical New York",
+        "authors":["Dan Miller", "Tim Wu"],
+        "panel": "Local Data",
+        "tags": ["CSR","local data", "mapping", "historical new york", "language", "history","community"]
+
+    },
+    {
+        "project": "Reconstructing Babyn Yar Models",
+        "authors":["Maksym Rokmaniko"],
+        "panel": "Counter Forensics",
+        "tags": ["reconstruction", "human rights", "GIS","Ceneter for Spatial Technologies", "mapbox", "context model","historical sites","aerial imagery"]
+
+    },
+    {
+        "project": "Undercounting Underfunding of Poultry Farms in North Carolina",
+        "authors":["Adeline Chum", "James Clinton-Francis","Tim Wu"],
+        "panel": "CSR",
+        "tags": ["csr","aerial imagery", "satellite","GIS", "agriculture", "machine learning", "training data"]
+    }
+]
+}
