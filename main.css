@@ -101,11 +101,10 @@ body {
 
 /* .top-bar styling */
 .top-bar {
-    width: 5%;
+    /* width: 5%; */
     background-color: #f0f0f0;
     color: rgb(0, 0, 0);
     display: flex;
-    justify-content: space-between;
     justify-content: center; /* Center items horizontally */
     align-items: center;
     padding: 10px 20px;
@@ -133,8 +132,9 @@ body {
   
   .column.main {
     width: 82%;
-    margin-left: 18%;
-    margin-right: 18%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 100px; 
     
   }
 
@@ -160,8 +160,6 @@ body {
 
 visualize-container
 .top-bar .menu {
-    /* display: flex; */
-    /* gap: 20px; */
     margin: 0 auto; /* Center the menu */
 }
 
@@ -176,13 +174,27 @@ visualize-container
     border-radius: 5px;
 }
 
+.title {
+    background-color: #ffffff;
+    height: 24px;
+    justify-content: center;
+    align-items: left; /* Center content horizontally */
+    border-radius: 5px;
+    font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
+    font-weight: bold; 
+    font-size: 20px;
+}
+
+.title:hover {
+    color: #c8c8c8;
+}
+
 /* .side-panel styling */
     .searchButton{
         width: fit-content;
         padding: 15px;
         font-weight: bold;
         /* font: 100px; */
-
     }
     
     #side-panel {
@@ -237,12 +249,6 @@ visualize-container
 
 
     /* buttons "AUTHOR NAMES" and "PROJECT TITLES" */
-    #visualize-container {
-        margin-top: 90px;
-        /* width: 500px; */
-        margin-left: 10px;
-        /* display: block; */
-    }
     
     #visualize-container p {
         font-weight: bold;
@@ -408,35 +414,6 @@ visualize-container
         margin-left: -750px;
         height: 1000px; 
         border: none; 
-    }
-
-    .tutorials-corner-panel {
-        /* margin: 15px 0 30px 15px; */
-        margin-left: 15px;
-        margin-top: 30px; 
-        /* width: 220px; */
-        background-color: #ffffff;
-        padding: 15px;
-        box-sizing: content-box;
-        display: flex;
-        position: fixed; 
-        flex-direction: column;
-        height: 24px;
-        justify-content: center; /* Center content vertically */
-        align-items: left; /* Center content horizontally */
-        border-radius: 5px;
-        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
-        font-weight: bold; 
-        font-size: 20px;
-    }
-
-    .tutorials-corner-panel:hover {
-        /* background-color: #c8c8c8;  */
-        color: #c8c8c8;
-    }
-
-    .tutorials-corner-panel .menu a:hover {
-        color: #c8c8c8;
     }
     
     .tutorials-side-panel {

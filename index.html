@@ -18,12 +18,12 @@
         </div>
     </div>
 
-
-    <div class="tutorials-corner-panel"  id="sidePanel">
+    <div class="title"  id="sidePanel">
         <p onclick="location.reload();">
-        Methods and Tutorials in Spatial Research
+            Methods and Tutorials in Spatial Research 
         </p>
-    </div> 
+    </div>
+
     
     <div class="column left" id="side-panel">
 
@@ -85,9 +85,8 @@
                 <button id="show-authors">AUTHOR NAMES</button>
                 <button id="show-projects">PROJECT NAMES</button>
             </div>
-
-            <div id="networkviz"></div>
         </div>
+        <div id="networkviz"></div>
 
     </div>
     
@@ -106,7 +105,7 @@
 
     function visualizeData() {
         // set the dimensions and margins of the graph
-        const margin = {top: 10, right: 10, bottom: 10, left: 10},
+        const margin = {top: 100, right: 10, bottom: 10, left: 10},
         width = window.innerWidth - margin.left - margin.right,
         height = window.innerHeight - margin.top - margin.bottom; // TODO test if it fits in iframe properly on CSR site
 
@@ -117,7 +116,8 @@
         .attr("height", height)
         .append("g")
         .attr("transform",
-                `translate(${margin.left}, ${margin.top})`); 
+                // `translate(${margin.left}, ${margin.top})`); 
+                `translate(${100/width}, ${margin.top})`);
 
         //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
