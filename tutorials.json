@@ -83,10 +83,17 @@
 
     },
     {
-        "project": "Reconstructing Babyn Yar Models",
-        "authors":["Maksym Rokmaniko"],
+        "project": "Reconstructing Historical Events: The Babyn Yar Models Project",
+        "authors":["Maksym Rokmaniko, The Center for Spatial Technologies"],
         "panel": "Counter Forensics",
-        "tags": ["reconstruction", "human rights", "GIS","Ceneter for Spatial Technologies", "mapbox", "context model","historical sites","aerial imagery"]
+        "tags": ["reconstruction", "human rights", "GIS","Center for Spatial Technologies", "mapbox", "context model","historical sites","aerial imagery"]
+
+    },
+    {
+        "project": "Image-matching: Locating Imagery in 3D Space",
+        "authors":["Maksym Rokmaniko, The Center for Spatial Technologies"],
+        "panel": "Counter Forensics",
+        "tags": ["reconstruction", "human rights", "GIS","Center for Spatial Technologies", "context model","historical sites","aerial imagery"]
 
     },
     {

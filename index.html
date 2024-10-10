@@ -117,7 +117,7 @@
         .append("g")
         .attr("transform",
                 // `translate(${margin.left}, ${margin.top})`); 
-                `translate(${100/width}, ${margin.top})`);
+                `translate(${10/width}, ${margin.top})`);
 
         //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
@@ -242,9 +242,8 @@
             .enter()
             .append("text")
             .attr("class", "node-text")
-            .attr("x", d => d.x +50)  // Modify the location of the <text> 
-            .attr("y", d => d.y + 35)
-            // .attr("text-anchor", "middle") 
+            .attr("x", d => d.x)  // Modify the location of the <text> 
+            .attr("y", d => d.y)
             .text(d => d.authors)
             .each(function(d) {
                 d3.select(this)
@@ -252,10 +251,6 @@
             });
         
         
-
-
-
-
 // When "AUTHOR NAMES" is clicked, a <text> element is created for each tutorial, displaying author information and storing the original panel name based on the panel name. When "PROJECT TITLES" is clicked, a <text> element is created for each tutorial, displaying project information and storing the original panel name based on the panel name.
 
 // Function to wrap text
@@ -272,7 +267,6 @@ function updateTextElements(textContent) {
         .attr("class", "node-text")
         .attr("x", d => d.x)  // Adjust the x position of the text
         .attr("y", d => d.y)  // Adjust the y position of the text
-        .attr("text-anchor", "middle")
         .each(function(d) {
             var lines = wrapText(textContent(d), 100); 
             var yOffset = 0;
@@ -281,7 +275,7 @@ function updateTextElements(textContent) {
                 d3.select(this)
                     .append("tspan")
                     .attr("x", d.x  )  // Keep the x position consistent
-                    .attr("y", d.y + yOffset + 35)  // Adjust the y position for each line
+                    .attr("y", d.y + yOffset+35 )  // Adjust the y position for each line
                     .text(lines[i]);
 
                 yOffset += 15;  // Adjust the line height as needed
@@ -355,7 +349,7 @@ d3.select("#show-projects").on("click", function() {
             ) 
             .force("center", d3.forceCenter(width /4, height / 4)) // bring to center of svg
             .force("x", d3.forceX(width/2).strength(0.01)) // Horizontal force
-            .force("y", d3.forceY(height/2).strength(0.01)) // Vertical force
+            .force("y", d3.forceY(height/2).strength(0.02)) // Vertical force
             .on("end", ticked);
 
         function ticked() {
@@ -371,7 +365,7 @@ d3.select("#show-projects").on("click", function() {
 
             text
                .attr("x", function(d) { return d.x -50; }) // Adjust the position of the text
-               .attr("y", function(d) { return d.y +30; }); // Adjust the position of the text
+               .attr("y", function(d) { return d.y -30; }); // Adjust the position of the text
         };
 
         //onclick link to individual tutorial pages
