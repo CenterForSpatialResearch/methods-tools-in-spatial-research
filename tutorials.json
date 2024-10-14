@@ -15,7 +15,7 @@
     },
     {
         "project": "Mapping War via Satellite",
-        "authors":["Jamon Van Den Hoek"],
+        "authors":["Jamon Van Den Hoek, Corey Scher"],
         "panel": "Mapping Conflict",
         "tags": ["GIS", "mapping", "speculative cartography", "machine learning", "computer vision","satellite"]
     },
@@ -83,7 +83,7 @@
 
     },
     {
-        "project": "Reconstructing Historical Events: The Babyn Yar Models Project",
+        "project": "Reconstructing Historical Events",
         "authors":["Maksym Rokmaniko, The Center for Spatial Technologies"],
         "panel": "Counter Forensics",
         "tags": ["reconstruction", "human rights", "GIS","Center for Spatial Technologies", "mapbox", "context model","historical sites","aerial imagery"]
@@ -97,11 +97,10 @@
 
     },
     {
-        "project": "Forensic Architecture's technique in camera matching",
+        "project": "Techniques in Camera Matching",
         "authors":["Nick Masterton"],
         "panel": "Counter Forensics",
         "tags": ["forensic architecture", "dolly camera","GIS", "motion tracking", "camera matching", "video tagging"]
-  
     }
 ]
 }

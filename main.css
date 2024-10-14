@@ -1,6 +1,6 @@
 body {
     font: 400 14px/1.25 UniversNextW01-Regular, Helvetica, Arial, sans-serif;
-    color: #111111;
+    color: #000;
     background-color: #fdfdfd;
     /* -webkit-text-size-adjust: 100%; */
     -webkit-font-feature-settings: "kern" 1;
@@ -10,7 +10,7 @@ body {
     font-kerning: normal;
     /* display: flex; */
     /* min-height: 100vh; */
-    /* flex-direction: row; */
+    flex-direction: row;
     overflow-wrap: break-word;
     /* height: 100%; */
     /* margin: 0; */
@@ -18,7 +18,7 @@ body {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;
+    font-family: UniversNextW01-Regular, Helvetica, Arial, sans-serif;
     font-weight: 400;
   }
 
@@ -28,6 +28,16 @@ body {
 }
 
 /* network and nodes styling */
+
+#networkviz {
+    /* position: fixed; */
+    width: 100%;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent the SVG from overflowing */
+    justify-content: center;     /* Center horizontally */
+    align-items: center; 
+    font-size: 16px;
+  }
     .node {
     /* fill: white; */
     stroke-width: 2px;
@@ -123,18 +133,23 @@ body {
 
 .column {
     float: left;
-    position: fixed;
+    /* position: fixed; */
   }
   
   /* Left and right column */
   .column.left {
     width: 18%;
+    position: fixed;  /* Make only the left column fixed */
+    left: 0;         /* Position it at the left */
+    /* height: 100vh;   Make it full height of the viewport */
+    overflow-y: auto;
   }
   
   .column.main {
     width: 82%;
-    margin-left: 20%;
+    margin-left: 18%;
     margin-right: 20%;
+    /* min-width: 200px; */
     /* margin-left: 1%;  */
     margin-top: 0.5%; 
     overflow-y: auto;
@@ -147,12 +162,21 @@ body {
     clear: both;
   }
   
-  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
+ /* Responsive layout */
+@media screen and (max-width: 800px) {
     .column {
-      width: 100%;
+        width: 100%;    /* Stack columns on top of each other on small screens */
+        position: relative; /* Remove fixed positioning on small screens */
     }
-  }
+    .column.left {
+        height: auto;
+        margin-left: 0;   /* Allow natural height for the left column */
+    }
+    .column.main {
+        width:150px;
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+}
 
   #about {
     max-width: 64%;
@@ -293,13 +317,13 @@ visualize-container
     }
 
 
-/* Add styles to handle text wrapping */
-.node-text {
-    font-size: 14px; /* Adjust font size as needed */
-    text-align: center;
-    text-anchor: middle;
+    /* Add styles to handle text wrapping */
+    .node-text {
+        font-size: 14px; /* Adjust font size as needed */
+        text-align: center;
+        text-anchor: middle;
 
-}
+    }
     
     #VisualCodeButton {
         border: 3px solid #EDDF2B;
@@ -368,36 +392,72 @@ visualize-container
         font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
     }
 
-    /* Style for tutorials */ 
+/* iframe style  */
+    .container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+      }
+    
+
+.responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+
+
+    /* Style for tutorials - try to match with main-column*/ 
     .tutorials-section {
-        max-width: 50%; 
+        max-width: 40%; 
+        /* width: 82%; */
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 0.5%; 
+        overflow-y: auto;
         float: right;
-        margin: 0px auto;
-        padding: 55px;
+        /* margin: 0px auto; */
+        /* padding: 55px; */
     }
 
     .tutorials-section h1 {
-        font-size: 50px;
+        font-size: 25px;
         font-weight: bold;
-        margin-bottom: 16px;
+        margin-bottom: -10px;
     }
 
+    /* author name */
     .tutorials-section h2 {
-        font-size: 30px;
-        font-weight: bold;
-        margin-top: 100px; 
+        font-size: 20px;
+        /* font-weight: bold; */
+        /* margin-top: 100px;  */
         margin-bottom: 20px;
+        color: #727272;
     }
 
     .tutorials-section h3 {
-        font-size: 25px;
+        font-size: 20px;
         font-weight: bold;
         margin-top: 50px; 
         margin-bottom: 0px;
+        color: #000;
+    }
+
+    .tutorials-section h4 {
+        font-size: 1.071em;
+        font-weight: bold;
+        margin-top: 25px; 
+        margin-bottom: 20px;
     }
 
     .tutorials-section p {
-        font-size: 20px;
+        /* font-size: 20px; */
         margin-bottom: 20px;
     }
 

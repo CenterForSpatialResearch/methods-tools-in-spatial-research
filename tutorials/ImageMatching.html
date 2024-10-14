@@ -13,7 +13,7 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 
-<body data-project-name="Mapping War via Satellite"> <!-- The name here is to link Tags from json file (project name)-->
+<body data-project-name="Image-matching: Locating Imagery in 3D Space"> <!-- The name here is to link Tags from json file (project name)-->
         <div class="top-bar">
             <div class="menu">
                 <a href="../about/about.html">ABOUT</a>
@@ -27,10 +27,10 @@
         </div>
 
         <div class="tutorials-side-panel">
-            <h3 style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;">Workshop Panel: </h3>
+            <h3>Workshop Panel: </h3>
             <div class="visual-code-container">
                 <div class="tutorials-circle"></div>
-                <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+                <p id="panel-text"></p>
             </div>
             <h3>Project Tags: </h3>
             <div class="tutorials-ProjectTagsContainer" id="project_tags">
@@ -40,23 +40,27 @@
 
     <div class="tutorials-section">
         
-        <h1>MAPPING WAR BY SATELLITE - CONFLICT URBANISM IN THE GAZA STRIP</h1>
-        <h3>Jamon Van Den Hoek & Corey Scher</h3>
+        <h1>Image-matching: Locating Imagery in 3D Space</h1>
+        <p>Jump to:</p>
+        
 
-        <img src="./images_Jamon Van_Den_Hoek_Corey_Scher/image1.png" alt="Hero Image" class="center-image">
-        <p style="margin-top: -40px; text-align: center; font-size: 18px;">Figure 1. Map of likely damage/destruction across the Gaza Strip based on analysis of 12 August 2024 Sentinel-1 radar data. Photo Credit: Nicholas Masterton. </p>
+        <h3>About the project</h3>
 
-        <p>As of writing, it’s estimated that 92 million people around the world are directly exposed to the effects of war (<a href="https://acleddata.com/conflict-exposure/" target="_blank">https://acleddata.com/conflict-exposure/</a>). The main concern in any war is the loss of civilian life but the destruction of cities where people live, work, and raise children is an essential concern as well. Unfortunately, we don’t currently have any comprehensive estimates of the breadth or severity of urban damage caused by war. We do know that when buildings are destroyed, people lose their homes, access to food, water, education, income, and medical care. Damaged buildings are one of the earliest indicators of a war’s impacts, and foretell patterns of migration and humanitarian aid needs as people flee conflict. The same pattern of damage also holds information on whether there will be any homes to return to once the conflict ends.</p>
+        <p>Babyn Yar Models is a project that spatially reconstructs the historical events of Babyn Yar around the transformations of its landscape. Working with maps, aerial photographs, photos, videos, eyewitness stories, and historical research, our team reconstructed the lost landscape of Babyn Yar and, through its transformations, followed the course of historical events.</p>
 
-        <p>In our research in the Conflict Ecology lab at Oregon State University (<a href="http://www.conflict-ecology.org" target="_blank">www.conflict-ecology.org</a>), we focus on the impacts of armed conflict on vulnerable people and landscapes. We use satellite imagery and geospatial data to map, measure, and visualize the immediate consequences of conflict such as damage to or destruction of forests, farms, and cities, as well as the longer-term impacts through the forced displacement of whole communities and the establishment of refugee camps, which may be occupied for generations.</p>
+        <p>On September 29-30, 1941, more than 33,000 Jews were massacred in Babyn Yar. During the German occupation of Kyiv, between 100,000 and 150,000 people were killed there, including patients of the Kyiv City Psychiatric Hospital, Roma, Ukrainian nationalists, prisoners of war, and local authorities. Before retreating from Kyiv, the Nazis attempted to hide the traces of the massacres. Several hundred prisoners of war from the Syrets internment camp were forced to exhume and burn the remains of the dead.</p>
 
-        <p>Perhaps nowhere else have these concerns been so recurrent as the Gaza Strip. The residents of Gaza have endured multiple invasions and military operations by Israel that have led to thousands of civilian deaths as well as widespread landscape destruction. Following the invasion in 2014, we mapped agricultural damage in Rafah using satellite imagery detailed enough to spot individual olive trees and measure the width of tank tracks carving through plantations. Following the attacks in 2021, we mapped damage to agriculture using Sentinel-2 optical satellite data and damage to the built environment using Sentinel-1 radar satellite data. And since October 2023, we have been mapping damage to cities across the Gaza Strip resulting from a barrage of attacks by the Israeli military unprecedented in its speed and scale.</p>
+        <p>In the late 50s and early 60s, the landscape of Babyn Yar was fundamentally changed. The spurs were filled with liquid soil and covered over, resulting in the disappearance of the ravine as such. Highways were laid on the territory of Babyn Yar, and a residential area and a park were built. The area has changed so much that even historians argued about the exact location of the mass executions.</p>
 
-        <p>Given the tempo and breadth of this conflict, we designed an approach capable of providing Gaza Strip-wide insights into the war’s effects as close to the speed of the conflict itself. Rather than being retrospective, conducted months or years after the damage occurred, we needed a near-real time approach to produce updated damage maps as soon as a new radar image is collected. We also needed an approach that covered Gaza comprehensively with each assessment rather than in a piecemeal fashion. Finally, we needed an approach that was directly sensitive to physical changes to buildings caused by damage or destruction rather than just the resulting appearance of these changes.</p>
+        <p>In order to help better understand the important historical events of Babyn Yar, this  project reconstructs the landscape where those events happened.</p>
 
-        <p>Our solution was to use open access imagery from the European Space Agency’s Sentinel-1. Radar systems like Sentinel-1 can see the Earth’s surface even on days with blanketing clouds and collect new images every 6-12 days, depending on what corner of the globe the satellite is covering. Sentinel-1 has been collecting data since 2014, offering a lengthy historical archive that can be used to develop a “baseline” against which changes during a conflict can be compared. See (<a href="https://sentiwiki.copernicus.eu/web/s1-mission" target="_blank">https://sentiwiki.copernicus.eu/web/s1-mission</a>) for more information on Sentinel-1’s capabilities.</p>
+        <iframe width="100%" height="600" src="https://www.youtube-nocookie.com/embed/J8LsLWtRLcw?si=DE3eG6p9DjkyJKhP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <p>As of writing, we have made 35 maps of likely damage across the Gaza Strip at a pace of one map every 9 days. In our most recent assessment based on 12 August 2024 Sentinel-1 imagery, we estimate that 59.5% of buildings across the Gaza Strip have likely been damaged or destroyed since early October 2023 (Figure 1). Both Gaza and North Gaza governorates have over 70% of buildings likely damaged or destroyed, most of which occurred in the first two months of the war. The bulk of recent damage has occurred in Deir el-Balah, Khan Younis, and Rafah governorates, each of which is now over 45% damaged.</p>
+        <p>Babyn Yar Models presentation video (Center for Spatial Technologies 2021)</p>
+
+        <h3 id="image-match-guide">Guide overview</h3>
+
+        <p>This guide outlines the general methodology for reconstructing a historical landscape using a variety of media sources. These sources include archival drawings, maps, aerial and satellite photographs, as well as ground-level photographs and videos. The guide describes the processes and techniques used to work with diverse data types – such as topographic maps and photogrammetry – to build a spatial model of a transformed landscape.</p>
 
         <p>We published a damage map based on our radar data analysis in the New York Times on 3 November 2023 (<a href="https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf" target="_blank">https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf</a>). In less than a month of war, our analysis showed that over a quarter of buildings in North Gaza had already been damaged. Following this publication, we started receiving requests for the damage data from journalists and humanitarians. Now, with each new assessment, we email maps of new and cumulative damage and a brief summary of damage statistics and trends to nearly 200 journalists and humanitarians across 90 organizations for uptake into their reporting or analysis. There has been broad uptake of the damage maps by different users, with an amazing array of creative, impactful reporting in the nearly 300 news articles that have used our maps (<a href="https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk" target="_blank">https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk</a>).</p>
 

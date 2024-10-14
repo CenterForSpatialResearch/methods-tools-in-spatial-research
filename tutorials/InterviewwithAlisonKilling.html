@@ -17,9 +17,9 @@
         </div>
     </div>
 
-    <div class="tutorials-corner-panel"  id="sidePanel">
+    <div class="title"  id="sidePanel">
         <p>
-            Methods and Tutorials in Spatial Research
+            Methods and Tutorials in Spatial Research 
         </p>
     </div>
 
@@ -36,77 +36,74 @@
     </div>
     
 
-    </div>
-
     <div class="tutorials-section">
-        <h1>Xinjiang Detention Camps</h1>
-        <h3>Alison Killing</h3>
-        <div style="height: 150px;"></div> <!-- Adds space -->
+        <h1>Interview with Alison Killing, Senior Visual Investigations Reporter</h1>
+        <h2>Center for Spatial Research </h2>
+        
 
 
-
+    </div>
         
     <div id="project_tags" class="tag-grid"></div>
+        <script>
+            let tutorialsData;
+            let colorsData;
 
-    <script>
-        let tutorialsData;
-        let colorsData;
-
-        function loadData() {
-            // Load both JSON files
-            d3.json("../tutorials.json").then(function(loadedData) {
-                tutorialsData = loadedData;
-                d3.json("../colors.json").then(function(loadedColors) {
-                    colorsData = loadedColors;
-                    displayTagsAndPanel();
-                });
-            });
-        }
-
-        function getColorForTag(tag) {
-            // Find the panel color for a given tag
-            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
-            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
-        }
-
-        function getPanelColor(panel) {
-            // Find the color for a given panel
-            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
-            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
-        }
-
-        function displayTagsAndPanel() {
-            const projectName = document.body.getAttribute("data-project-name");
-            const tagContainer = document.getElementById("project_tags");
-            const panelTextElement = document.getElementById("panel-text");
-            const circleElement = document.querySelector(".tutorials-circle");
-
-            const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
-
-            if (project) {
-                panelTextElement.innerText = project.panel;
-
-                // Find and set the color for the panel
-                const panelColor = getPanelColor(project.panel);
-                circleElement.style.backgroundColor = panelColor;
-
-                // Display and color the tags
-                project.tags.forEach(tag => {
-                    const tagElement = document.createElement("div");
-                    tagElement.className = "tag-item";
-                    tagElement.innerText = tag;
-                    tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
-                    tagContainer.appendChild(tagElement);
+            function loadData() {
+                // Load both JSON files
+                d3.json("../tutorials.json").then(function(loadedData) {
+                    tutorialsData = loadedData;
+                    d3.json("../colors.json").then(function(loadedColors) {
+                        colorsData = loadedColors;
+                        displayTagsAndPanel();
+                    });
                 });
             }
-        }
 
-        document.getElementById('sidePanel').addEventListener('click', function() {
-            window.location.href = '../index.html'; 
-        });
+            function getColorForTag(tag) {
+                // Find the panel color for a given tag
+                const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+                return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+            }
 
-        loadData(); // Call the loadData function to load the JSON and display the tags and panel text
-    </script>
+            function getPanelColor(panel) {
+                // Find the color for a given panel
+                const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+                return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+            }
+
+            function displayTagsAndPanel() {
+                const projectName = document.body.getAttribute("data-project-name");
+                const tagContainer = document.getElementById("project_tags");
+                const panelTextElement = document.getElementById("panel-text");
+                const circleElement = document.querySelector(".tutorials-circle");
+
+                const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
+
+                if (project) {
+                    panelTextElement.innerText = project.panel;
+
+                    // Find and set the color for the panel
+                    const panelColor = getPanelColor(project.panel);
+                    circleElement.style.backgroundColor = panelColor;
+
+                    // Display and color the tags
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement("div");
+                        tagElement.className = "tag-item";
+                        tagElement.innerText = tag;
+                        tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
+                        tagContainer.appendChild(tagElement);
+                    });
+                }
+            }
+
+            document.getElementById('sidePanel').addEventListener('click', function() {
+                window.location.href = '../index.html'; 
+            });
+
+            loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+        </script>
 
 </body>
 </html>

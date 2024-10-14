@@ -24,70 +24,72 @@
         </p>
     </div>
 
-    
-    <div class="column left" id="side-panel">
+    <div class="row">
+        <div class="column left" id="side-panel">
 
-            <p> 
-                Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
-            </p>
+                <p> 
+                    Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
+                </p>
 
-            <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
-            <button onclick="search()" id="searchButton">></button>
+                <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
+                <button onclick="search()" id="searchButton">></button>
 
-            <p style="margin-top: 35px; font-weight: bold;">
-                Workshop Panels:
-            </p>
-            <div class="panel-button-wrapper">
-                <div id="VisualCodeButton" class="panel-button"></div>
-                <span class="button-text">Visual Code</span>
-            </div>
-        
-            <div class="panel-button-wrapper">
-                <div id="mappingConflictButton" class="panel-button"></div>
-                <div class="button-text">Mapping Conflict</div>
-            </div>
-        
-            <div class="panel-button-wrapper">
-                <div id="counterNarrativesButton" class="panel-button"></div>
-                <span class="button-text">Counter Narratives</span>
-            </div>
-        
-            <div class="panel-button-wrapper">
-                <div id="localDataButton" class="panel-button"></div>
-                <span class="button-text">Local Data</span>
-            </div>
-        
-            <div class="panel-button-wrapper">
-                <div id="networksButton" class="panel-button"></div>
-                <span class="button-text">Network Models</span>
-            </div>
-        
-            <div class="panel-button-wrapper">
-                <div id="forensicsButton" class="panel-button"></div>
-                <span class="button-text">Counter Forensics</span>
-            </div>
+                <p style="margin-top: 35px; font-weight: bold;">
+                    Workshop Panels:
+                </p>
+                <div class="panel-button-wrapper">
+                    <div id="VisualCodeButton" class="panel-button"></div>
+                    <span class="button-text">Visual Code</span>
+                </div>
+            
+                <div class="panel-button-wrapper">
+                    <div id="mappingConflictButton" class="panel-button"></div>
+                    <div class="button-text">Mapping Conflict</div>
+                </div>
+            
+                <div class="panel-button-wrapper">
+                    <div id="counterNarrativesButton" class="panel-button"></div>
+                    <span class="button-text">Counter Narratives</span>
+                </div>
+            
+                <div class="panel-button-wrapper">
+                    <div id="localDataButton" class="panel-button"></div>
+                    <span class="button-text">Local Data</span>
+                </div>
+            
+                <div class="panel-button-wrapper">
+                    <div id="networksButton" class="panel-button"></div>
+                    <span class="button-text">Network Models</span>
+                </div>
+            
+                <div class="panel-button-wrapper">
+                    <div id="forensicsButton" class="panel-button"></div>
+                    <span class="button-text">Counter Forensics</span>
+                </div>
 
-            <hr style="width: 97%; margin: 20px auto;">
+                <hr style="width: 97%; margin: 20px auto;">
 
-            <p style="font-weight: bold;">
-                Center for Spatial Research
-            </p>
-            <div class="panel-button-wrapper">
-                <div id="csrButton" class="panel-button"></div>
-                <span class="button-text">Projects</span>
-            </div>
-    </div>
-    
-    <div class="column main">
-        <div id="visualize-container">
-            <p>Visualize By:</p>
-            <div class="button-container">
-                <button id="show-authors">AUTHOR NAMES</button>
-                <button id="show-projects">PROJECT NAMES</button>
-            </div>
+                <p style="font-weight: bold;">
+                    Center for Spatial Research
+                </p>
+                <div class="panel-button-wrapper">
+                    <div id="csrButton" class="panel-button"></div>
+                    <span class="button-text">Projects</span>
+                </div>
         </div>
-        <div id="networkviz"></div>
+        
+        <div class="column main">
+            <div id="visualize-container">
+                <p>Visualize By:</p>
+                <div class="button-container">
+                    <button id="show-authors">AUTHOR NAMES</button>
+                    <button id="show-projects">PROJECT NAMES</button>
+                </div>
+            </div>
+            <div id="networkviz"></div>
+            
 
+        </div>
     </div>
     
 
@@ -103,21 +105,33 @@
 
     loadData();
 
-    function visualizeData() {
-        // set the dimensions and margins of the graph
-        const margin = {top: 100, right: 10, bottom: 10, left: 10},
-        width = window.innerWidth - margin.left - margin.right,
-        height = window.innerHeight - margin.top - margin.bottom; // TODO test if it fits in iframe properly on CSR site
 
-        // append the svg object to the body of the page
-        const svg = d3.select("#networkviz")
+    function visualizeData() {
+    // Set initial dimensions
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Define margins with left margin based on a percentage of the viewport width
+    const margin = {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0.2* width // 10% of the viewport width
+    };
+
+    // Adjust the inner width of the content (excluding margins)
+    const adjustedWidth = width - margin.left - margin.right;
+    const adjustedHeight = height - margin.top - margin.bottom;
+
+    // Append the SVG object to the div with id 'networkviz'
+    const svg = d3.select("#networkviz")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
+        .attr("width", '100%')            // Set width to 100% to allow resizing
+        .attr("height", '100%')           // Set height to 100% for full window
+        .attr("viewBox", `0 0 ${width} ${height}`) // Use the viewBox to make it scalable
+        .attr("preserveAspectRatio", "xMidYMid meet") // Maintain aspect ratio
         .append("g")
-        .attr("transform",
-                // `translate(${margin.left}, ${margin.top})`); 
-                `translate(${10/width}, ${margin.top})`);
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
         //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
@@ -234,7 +248,6 @@
                  d3.select(this).attr("original-panel", d.panel); // Store the original panel name
                 });
 
-
         // Create a <text> element for each tutorial that displays author information and stores the original panel name based on the panel name.
         const text = svg
             .selectAll("text")
@@ -244,6 +257,7 @@
             .attr("class", "node-text")
             .attr("x", d => d.x)  // Modify the location of the <text> 
             .attr("y", d => d.y)
+            .style("font-size", "16px")
             .text(d => d.authors)
             .each(function(d) {
                 d3.select(this)
@@ -266,7 +280,8 @@ function updateTextElements(textContent) {
         .append("text")
         .attr("class", "node-text")
         .attr("x", d => d.x)  // Adjust the x position of the text
-        .attr("y", d => d.y)  // Adjust the y position of the text
+        .attr("y", d => d.y) 
+        .attr("font-size", "16px")
         .each(function(d) {
             var lines = wrapText(textContent(d), 100); 
             var yOffset = 0;
@@ -275,10 +290,11 @@ function updateTextElements(textContent) {
                 d3.select(this)
                     .append("tspan")
                     .attr("x", d.x  )  // Keep the x position consistent
-                    .attr("y", d.y + yOffset+35 )  // Adjust the y position for each line
+                    // .attr("y", d.y + yOffset+35 )  // Adjust the y position for each line
+                    .attr("y", d.y + yOffset )
                     .text(lines[i]);
 
-                yOffset += 15;  // Adjust the line height as needed
+                yOffset += 5;  // Adjust the line height as needed
             }
             d3.select(this)
                 .attr("original-panel", d.panel);  // Store the original panel name
@@ -336,7 +352,7 @@ d3.select("#show-projects").on("click", function() {
     updateTextElements(d => d.project); // PROJECT TITLES
     setFocusClass(this);
 });
-    
+
  // console.log(links);
         const simulation = d3.forceSimulation(data.tutorials)
             .force("link", d3.forceLink(allLinks) // This force provides links between nodes
@@ -378,6 +394,20 @@ d3.select("#show-projects").on("click", function() {
             const projectUrl = `${baseUrl}tutorials/${projectName}.html`;
             window.open(projectUrl, '_blank'); // open in new window
         }
+
+    // Handle window resize to adjust the SVG dimensions dynamically
+    window.addEventListener('resize', resize);
+
+    function resize() {
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+        
+        // Update the viewBox to match the new window size
+        svg.attr("viewBox", `0 0 ${newWidth} ${newHeight}`);
+        
+        // Adjust other elements if necessary based on the new size
+        // Example: re-scale text, paths, etc. as needed
+    }
 
     }
 

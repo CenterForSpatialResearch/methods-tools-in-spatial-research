@@ -16,7 +16,8 @@
         </div>
     </div>
 
-    <div class="tutorials-corner-panel"  id="sidePanel">
+    
+    <div class="title"  id="sidePanel">
         <p>
             Methods and Tutorials in Spatial Research 
         </p>
@@ -39,51 +40,67 @@
 
     <div class="tutorials-section">
         <h1>Census Experiments</h1>
-        <h3>Jia Zhang</h3>
-        <div style="height: 100px;"></div> <!-- Adds space -->
+        <h2>Jia Zhang</h2>
+
+        <!-- <div style="height: 100px;"></div> Adds space -->
         <img src="./images_jia_zhang/image5.png" alt="Hero Image" class="center-image">
         <p style="margin-top: -40px; text-align: center; font-size: 18px;">Figure 1: Ranking of New York's 62 Counties across 8 indices. Photo Credit: Jia Zhang. </p>
         
-        <h2>Different ways to think about the Census</h2>
+        <h3>Different ways to think about the Census</h3>
         <p>The census provides crucial data infrastructure for the United States. It orchestrates data collection at scale, its units of measurement are geographical building blocks for systems such as voting.</p>
         <p>In theory, this massive survey is a data centric method of governing, promises are made (in the constitution itself) for a complete count, and the most visible aspect of the project is presented as tables or factoids that describe the state of the nation. In practice, as with most technocratic processes, it is a perfect storm of politics and bureaucracy. Not a single census in its 230 year history has gone undisputed.</p> 
         <p>The census is an obscure monolith. What is visible to the public only appears at either end of its process. At one end, the results of tabulations, and at the other, a person sitting in front of a form, engaged in a very subjective, personal, and even intimate process of self-identifying as a part of the larger population. Census data always comes with its hidden mechanisms of collection and tabulation. The purpose of visualizing census data is therefore both to show where and how people live, and an opportunity to expose some of the hidden infrastructure surrounding how data is made.</p> 
         <p>What follows is a series of exercises in census visualization, which attempt to provide new entry points into, and build more intuitive and widespread understandings of datasets like the Census. There are many ways to think and do data visualization. In order to specifically address the census and the above observations, these exercises focus on 2 sets of terms. Data structures vs. data infrastructures, and close vs. distant reading.</p>
+
         <img src="./images_jia_zhang/image7.png" alt="Placeholder" class="tutorials-image">
+
         <img src="./images_jia_zhang/image4.png" alt="Placeholder" class="tutorials-image">
+
         <p style="margin-top: -40px; text-align: center; font-size: 18px;">Figure 2: Interactive Diagrams of Census Structure and Hierarchy. Photo Credit: Jia Zhang. </p>
 
-        <h2>Exercise 1 Hierarchy and Quantity</h2>
+        <h3>Exercise 1 Hierarchy and Quantity</h3>
         <p>This is an interactive diagram that connects the geographical hierarchy of Census units to the data itself. The original diagram on the left comes from census documentation itself and serves as the interface to access the range of quantities represented by each layer of the hierarchy.</p>
         <!-- <p>Image: diagram and charts</p>  -->
         <!-- <img src="./images_jia_zhang/image8.gif" alt="Image: diagram and charts" class="center-image">  -->
-        <iframe src="https://centerforspatialresearch.github.io/censusGeographicHierarchy/" class="tutorials-iframe" height="1000" width="1800" title="Exercise 1" frameborder="0"></iframe>
+        
+        <div class="container">
+            <iframe class="responsive-iframe" src="https://centerforspatialresearch.github.io/censusGeographicHierarchy/" class="tutorials-iframe" height="1000" width="1800" title="Exercise 1" frameborder="0"></iframe>
+        </div>
+
         <p>See visualization in full screen here: <a href="https://centerforspatialresearch.github.io/censusGeographicHierarchy/" target="_blank">Click here</a></p>
 
-        <h2>Exercise 2 Intersection to Connection</h2>
+        <h3>Exercise 2 Intersection to Connection</h3>
         <p>This interactive map combines the boundaries of the census data system with other systems of control and distinction by mapping 11 layers of the many administrative boundaries that govern nyc. Boundaries of fire and policing are largely dictated by spatial qualities. Community and school districts are physical as well, but interjected with some elements of demographics. In contrast, the places that are drawn intentionally as dictated by politics are in essence groupings of census tracts, here is where demographic advantage is the orienting principle and physical order falls to the wayside.</p>
         <!-- <p>Image: map</p>  -->
         <!-- <img src="./images_jia_zhang/image1.png" alt="Image: map" class="center-image">  -->
-        <iframe src="https://centerforspatialresearch.github.io/admin_infrastructure/" class="tutorials-iframe" height="600" width="1250" title="Exercise 2" frameborder="0"></iframe>
+
+        <div class="container">
+            <iframe class="responsive-iframe" src="https://centerforspatialresearch.github.io/admin_infrastructure/" class="tutorials-iframe" height="600" width="1250" title="Exercise 2" frameborder="0"></iframe>
+        </div> 
+
         <p>See visualization in full screen here: <a href="https://centerforspatialresearch.github.io/admin_infrastructure/" target="_blank">Click here</a></p>
         <p>What is most interesting is what becomes shared spaces when boundaries don’t align. These overlaps are how we share the city. For example, school district 30 in Queens is shared by 3 state senate districts, 13 zip codes, 17 fire companies, 4 community districts, 2 municipal courts, 2 congressional districts, 4 police precincts, and 6 state assembly districts. These boundaries are not faceless. At the center of each boundary is a person, who through the everyday routine of governance must navigate each overlap.</p>
         <p>In a network view, each physical overlap becomes a link, and each boundary is a node. This view shows the strength of the connective tissue between parts of the city in terms of governance. For example, Staten Island is set adrift functionally in terms of schools and safety, but not politically.</p>
         <!-- <p>Image: network</p>  -->
+
         <img src="./images_jia_zhang/image9.gif" alt="Image: network" class="center-image">
         <p style="margin-top: -40px; text-align: center; font-size: 18px;">Figure 3: Network. Photo Credit: Jia Zhang. </p>
 
-        <h2>Exercise 3 Distant reading and Close reading</h2>
+        <h3>Exercise 3 Distant reading and Close reading</h3>
         <p>These grids of images create distant readings of demographically grouped geographies. At a glance, socioeconomic as well as cultural differences and our histories dictate the extremely different landscapes we inhabit.</p>
         <!-- <p>Image: grid of tracts by % race</p> -->
         <!-- <img src="./images_jia_zhang/image3.png" alt="Image: grid of tracts by % race" class="center-image"> -->
-        <iframe src="https://centerforspatialresearch.github.io/svi_rankings/" class="tutorials-iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
+        
+        <div class="container">
+            <iframe class="responsive-iframe"  class="responsive-iframe" src="https://centerforspatialresearch.github.io/svi_rankings/" class="tutorials-iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
+        </div>
         
         <p>These same images placed in a different context than above require closer reading. This series of satellite comparisons show how the same data points can look very different. This sketch generates pairs of satellite images of census tracts in New York city that have the same % of some population measure but are different in almost all other measures. For example, here we can see that unemployment means lots of different things.</p>
         <!-- <p>Image: comparisons of pairs</p> -->
         <!-- <img src="./images_jia_zhang/image6.png" alt="Image: comparisons of pairs" class="center-image"> -->
         <p>See visualization in full screen here: <a href="https://centerforspatialresearch.github.io/svi_rankings/" target="_blank">Click here</a></p>
         
-        <h2>Exercise 4 Indexing</h2>
+        <h3>Exercise 4 Indexing</h3>
         <p>Indexing is one afterlife of census data. The function of the index is to provide order, it is to embed comparison and prioritization into the data and to replace the descriptive data entirely with a numbered ranking. Every index is different even if they address the same.</p>
         <!-- <p>Image: map comparison of 8 indices</p> -->
         <!-- <img src="./images_jia_zhang/image5.png" alt="Image: map comparison of 8 indices" class="center-image"> -->
@@ -96,8 +113,13 @@
         <!--<img src="./images_jia_zhang/image5.png" alt="Image: map comparison of 8 indices" class="center-image"> -->
         <p>Finally, this drag and drop interface uses the statistical methodology of the SVI but allow all the possible census indicators that have been used across the indices we studied - you quickly find that to find meaning in this data is very much a process of self determination.</p>
         <!--<img src="./images_jia_zhang/image11.png" alt="Image: drag and drop" class="center-image">-->
-        <iframe src="https://centerforspatialresearch.github.io/SVI//1.html" class="tutorials-iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
-        <iframe src="https://centerforspatialresearch.github.io/whatIsAnIndex/" class="tutorials-iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
+        <div class="container">
+            <iframe class="responsive-iframe"  src="https://centerforspatialresearch.github.io/SVI//1.html" class="tutorials-iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
+        </div>
+
+        <div class="container">
+            <iframe class="responsive-iframe"  src="https://centerforspatialresearch.github.io/whatIsAnIndex/" class="tutorials-iframe" height="600" width="1250" title="Exercise 1" frameborder="0"></iframe>
+        </div>
 
         
     </div>
