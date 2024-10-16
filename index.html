@@ -12,17 +12,19 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="menu">
-            <a href="../about/about.html">About</a>
-        </div>
-    </div>
 
-    <div class="title"  id="sidePanel">
-        <p onclick="location.reload();">
-            Methods and Tutorials in Spatial Research 
-        </p>
-    </div>
+    <div class="top-bar">
+   
+        <div class="title">
+            <a onclick="location.reload();">
+                Methods and Tutorials in Spatial Research 
+            </a>
+        </div>
+
+        <div class="button-container" id="about">
+            <a href="../about.html">About</a>
+        </div>
+     </div>
 
     <div class="column">
         <div class="column-left" >
@@ -82,13 +84,11 @@
         
         <div class="column-main">
 
-            <div id="visualize-container">
-                <p>Visualize By:</p>
+                <div id="visualize-container">Visualize By:</div>
                 <div class="button-container">
                     <button class="flex-author" id="show-authors">AUTHOR NAMES</button>
                     <button class="flex-project" id="show-projects">PROJECT NAMES</button>
                 </div>
-            </div>
 
             <div id="networkviz"></div>
 
