@@ -505,13 +505,11 @@ body {
     }
     
     #tutorials-side-panel {
-
         background-color: #f0f0f0;
         padding: 10px;
         box-sizing: border-box;
         max-height: calc(100vh - 65px);
         align-items: left; 
-        /* justify-content: center; */
         justify-items: center;
         border-radius: 5px;
         min-width: 150px;
