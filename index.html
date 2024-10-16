@@ -24,9 +24,9 @@
         </p>
     </div>
 
-    <div class="row">
-        <div class="column left" id="side-panel">
-
+    <div class="column">
+        <div class="column-left" >
+        <div id="side-panel" >
                 <p> 
                     Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
                 </p>
@@ -76,18 +76,21 @@
                     <div id="csrButton" class="panel-button"></div>
                     <span class="button-text">Projects</span>
                 </div>
+
+            </div>
         </div>
         
-        <div class="column main">
+        <div class="column-main">
+
             <div id="visualize-container">
                 <p>Visualize By:</p>
                 <div class="button-container">
-                    <button id="show-authors">AUTHOR NAMES</button>
-                    <button id="show-projects">PROJECT NAMES</button>
+                    <button class="flex-author" id="show-authors">AUTHOR NAMES</button>
+                    <button class="flex-project" id="show-projects">PROJECT NAMES</button>
                 </div>
             </div>
+
             <div id="networkviz"></div>
-            
 
         </div>
     </div>

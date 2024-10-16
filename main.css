@@ -132,49 +132,48 @@ body {
 }
 
 .column {
-    float: left;
+    /* float: left; */
+    flex-direction: row;
+    display: flex;
+    /* flex-wrap: nowrap; */
+    /* flex-direction: row; */
+    /* margin-top: 100px; */
     /* position: fixed; */
   }
   
   /* Left and right column */
-  .column.left {
+  .column-left {
     width: 18%;
-    position: fixed;  /* Make only the left column fixed */
-    left: 0;         /* Position it at the left */
-    /* height: 100vh;   Make it full height of the viewport */
-    overflow-y: auto;
+    /* min-width: 150px; */
+
   }
   
-  .column.main {
-    width: 82%;
-    margin-left: 18%;
-    margin-right: 20%;
-    /* min-width: 200px; */
-    /* margin-left: 1%;  */
+
+  .column-main {
+    /* flex:82%; */
+    /* width: 82%; */
+    /* margin-left: 18%; */
+    /* margin-right: 20%; */
     margin-top: 0.5%; 
-    overflow-y: auto;
-    
   }
 
-  .row:after {
+  /* .row:after {
     content: "";
     display: table;
     clear: both;
-  }
+  } */
   
  /* Responsive layout */
-@media screen and (max-width: 800px) {
-    .column {
-        width: 100%;    /* Stack columns on top of each other on small screens */
-        position: relative; /* Remove fixed positioning on small screens */
+@media (max-width: 800px) {
+    .column{
+        flex-direction: column-reverse;
     }
-    .column.left {
-        height: auto;
-        margin-left: 0;   /* Allow natural height for the left column */
-    }
-    .column.main {
-        width:150px;
-        margin-left: 0; /* Remove left margin on small screens */
+    .column-left, .column-main {
+        /* flex-wrap: wrap-reverse; */
+        
+        flex: 100%;
+        margin-left: 2%;  /* Stack columns on top of each other on small screens */
+        /* margin-bottom: 1%; */
     }
 }
 
@@ -185,7 +184,7 @@ body {
     margin-right: 18%;
   }
 
-visualize-container
+/* visualize-container */
 .top-bar .menu {
     margin: 0 auto; /* Center the menu */
 }
@@ -207,10 +206,11 @@ visualize-container
     justify-content: center;
     align-items: left; /* Center content horizontally */
     border-radius: 5px;
-    font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
     font-weight: bold; 
     font-size: 20px;
     margin-left: 1%; 
+    /* display: flex; */
+    /* flex-direction: row; */
 }
 
 .title:hover {
@@ -229,15 +229,12 @@ visualize-container
         /* margin: 30px 0 30px 30px; */
         margin-top: 1%;
         margin-left: 1%; 
-        width: 15%;
+        /* width: 15%; */
         background-color: #f0f0f0;
         padding: 15px;
-        box-sizing: border-box;
-        /* display: flex; */
-        position: fixed;
-        flex-direction: column;
-        /* max-height: calc(120vh - 65px); */
         min-width: 250px;
+        max-height:fit-content;
+        /* max-width: 25%; */
     }
     
     .search-input {
@@ -286,19 +283,36 @@ visualize-container
 
     .button-container { 
         display: flex;
-        margin-left: -10px; 
-        height: 50px;
-        width: 300px;
+        flex-wrap: wrap;
+        margin-left:-10px; 
+        /* margin-bottom: -10px; */
+        text-align: center;
         /* margin-top: 155px;  */
+        align-content: flex-start;
     }
+
+    .flex-author{
+        height: 50px;
+        max-width: 150px;
+
+    }
+    .flex-project{
+        height: 50px;
+        max-width: 150px;
+
+    }
+
+    @media (max-width: 800px) {
+        .flex-author, .flex-project {
+            flex: 100%
+        }
+      }
     
     .button-container button {
-        font-family: UniversNextW01-Regular, Helvetica, Arial, sans-serif;
         font-weight: 400;
-        margin-left: 10px; /* Space between buttons */
+        margin-left: 10px; 
         height: 50px;
         width: 300px;
-        font-size: 14px; /* Font size */
         border: none; 
         cursor: pointer; /* Pointer cursor for hover effect */
         border-radius: 5px;
@@ -314,6 +328,10 @@ visualize-container
         color: white; /* Mimic the focus text color */
         outline: none; /* Ensure no default outline */
         box-shadow: 0 0 0 2px white; /* Optional: add a custom outline */
+    }
+
+    .author-project{
+        justify-content: center;
     }
 
 
