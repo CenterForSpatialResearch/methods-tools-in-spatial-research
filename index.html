@@ -12,19 +12,16 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="menu">
-            <a href="../about/about.html">ABOUT</a>
-        </div>
-    </div>
+    <a href="../about/about.html" class="top-bar" class="menu" id="about-text">About</a>
 
-    <div class="title"  id="sidePanel">
-        <p onclick="location.reload();">
+    <p class="title" onclick="location.reload();">
             Methods and Tutorials in Spatial Research 
-        </p>
-    </div>
+    </p>
 
-    <div class="row">
+
+
+
+    <div class="row" id="visualization">
         <div class="column left" id="side-panel">
 
                 <p> 
@@ -132,6 +129,8 @@
         .attr("preserveAspectRatio", "xMidYMid meet") // Maintain aspect ratio
         .append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        // console.log(margin.left);
 
         //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
@@ -263,6 +262,7 @@
                 d3.select(this)
                     .attr("original-panel", d.panel); // Store the original panel name
             });
+
         
         
 // When "AUTHOR NAMES" is clicked, a <text> element is created for each tutorial, displaying author information and storing the original panel name based on the panel name. When "PROJECT TITLES" is clicked, a <text> element is created for each tutorial, displaying project information and storing the original panel name based on the panel name.
@@ -279,8 +279,7 @@ function updateTextElements(textContent) {
         .enter()
         .append("text")
         .attr("class", "node-text")
-        .attr("x", d => d.x)  // Adjust the x position of the text
-        .attr("y", d => d.y) 
+        .attr("y", d => d.y) // Keep only the y position here, remove x
         .attr("font-size", "16px")
         .each(function(d) {
             var lines = wrapText(textContent(d), 100); 
@@ -289,17 +288,17 @@ function updateTextElements(textContent) {
             for (var i = 0; i < lines.length; i++) {
                 d3.select(this)
                     .append("tspan")
-                    .attr("x", d.x  )  // Keep the x position consistent
-                    // .attr("y", d.y + yOffset+35 )  // Adjust the y position for each line
-                    .attr("y", d.y + yOffset )
+                    .attr("x", d.x)  // Ensure x position is set here for each tspan
+                    .attr("y", d.y + yOffset)  // Adjust the y position for each line
                     .text(lines[i]);
 
-                yOffset += 5;  // Adjust the line height as needed
+                yOffset += 20;  // Adjust the line height as needed (increased from 5 for better readability)
             }
             d3.select(this)
                 .attr("original-panel", d.panel);  // Store the original panel name
         });
 }
+
 
 function wrapText(text, width) {
     var words = text.split(" ");

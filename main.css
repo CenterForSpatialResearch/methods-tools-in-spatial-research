@@ -22,20 +22,25 @@ body {
     font-weight: 400;
   }
 
-  .text {
+.text {
     font: 10px sans-serif;
     pointer-events: none;
 }
 
 /* network and nodes styling */
 
+top-nav{
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 10px; */
+}
+
 #networkviz {
-    /* position: fixed; */
     width: 100%;  /* Full viewport width */
     height: 100vh; /* Full viewport height */
     overflow: hidden; /* Prevent the SVG from overflowing */
     justify-content: center;     /* Center horizontally */
-    align-items: center; 
+    /* align-items: center;  */
     font-size: 16px;
   }
     .node {
@@ -183,20 +188,33 @@ body {
     padding: 18%;
     margin-left: 250px;
     margin-right: 18%;
+    /* text-decoration-thickness: 5px; */
   }
 
+  #about-text{
+    font-weight: 100;
+    text-decoration: none;
+    color:black;
+  }
+
+  #visualization{
+    margin-top: 100px;
+  }
+
+
 visualize-container
-.top-bar .menu {
+.top-nav .menu {
     margin: 0 auto; /* Center the menu */
+    /* justify-content: end; */
 }
 
-.top-bar .menu a {
+.top-nav .menu a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     padding: 8px 16px;
 }
 
-.top-bar .menu a:hover {
+.top-nav .menu a:hover {
     background-color: #c8c8c8;
     border-radius: 5px;
 }
@@ -211,6 +229,7 @@ visualize-container
     font-weight: bold; 
     font-size: 20px;
     margin-left: 1%; 
+    position: fixed;
 }
 
 .title:hover {
@@ -285,16 +304,15 @@ visualize-container
     }
 
     .button-container { 
-        display: flex;
         margin-left: -10px; 
         height: 50px;
         width: 300px;
+        display: flex;
+        flex-direction: row;
         /* margin-top: 155px;  */
     }
     
     .button-container button {
-        font-family: UniversNextW01-Regular, Helvetica, Arial, sans-serif;
-        font-weight: 400;
         margin-left: 10px; /* Space between buttons */
         height: 50px;
         width: 300px;
@@ -315,6 +333,12 @@ visualize-container
         outline: none; /* Ensure no default outline */
         box-shadow: 0 0 0 2px white; /* Optional: add a custom outline */
     }
+
+    @media (max-width: 800px) {
+        .button-container {
+          flex-direction: column;
+        }
+      }
 
 
     /* Add styles to handle text wrapping */
@@ -536,7 +560,10 @@ visualize-container
         display: flex; 
         flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
     }
-    
-    
 
-    
+    .figure-text{
+        margin-top: -50px; 
+        text-align: center; 
+        font-size: 14px;
+        color: #727272;
+    }
