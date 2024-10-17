@@ -32,9 +32,10 @@ top-nav{
 
   @media (max-width: 800px) {
     #networkviz{
-        margin-top: -250px;
-        margin-bottom: -100px;
-        font-size: 16px;
+        /* margin-top: -250px; */
+        margin-bottom: -200px;
+        font-size: 10px; 
+        overflow: hidden;
         
     }
 }

@@ -134,7 +134,7 @@
         .attr("viewBox", `0 0 ${width} ${height}`) // Use the viewBox to make it scalable
         .attr("preserveAspectRatio", "xMidYMid meet") // Maintain aspect ratio
         .append("g")
-        .attr("transform", `translate(${width / 4}, ${height / 4})`); // Center the <g>
+        .attr("transform", `translate(${0}, ${-height/4})`); // Center the <g>
 
 
     // Adjust the transformation on window resize
@@ -259,8 +259,7 @@
                 // .style("fill", d => getNodeColor(d.panel))
                 .each(function(d) {
                  d3.select(this).attr("original-panel", d.panel); // Store the original panel name
-                })
-                ;
+                });
         //         .call(
         //             d3.drag()
         //             .on("start", dragstarted)
@@ -272,6 +271,38 @@
 
         // }
 
+        const wrapText = (text, maxWidth) => {
+            if (typeof text !== "string") {
+                text = String(text || '');  // Convert non-strings to empty strings or ensure it's a string
+            }
+            
+            const words = text.split(/\s+/);  // Split text into words
+            let lines = [];
+            let currentLine = [];
+
+            words.forEach(word => {
+                currentLine.push(word);
+                const currentLineStr = currentLine.join(" ");
+                const testText = svg.append("text").text(currentLineStr).attr("class", "test-wrap"); // Temporary element for testing width
+
+                if (testText.node().getComputedTextLength() > maxWidth) {
+                    currentLine.pop();  // Remove the last word if width exceeds maxWidth
+                    lines.push(currentLine.join(" "));  // Push the valid line to lines array
+                    currentLine = [word];  // Start a new line with the word that overflowed
+                }
+
+                testText.remove();  // Clean up the temporary text element
+            });
+
+            // Add the last line
+            if (currentLine.length > 0) {
+                lines.push(currentLine.join(" "));
+            }
+
+            return lines;
+        };
+
+
     
         // Create a <text> element for each tutorial that displays author information and stores the original panel name based on the panel name.
         const text = svg
@@ -282,69 +313,36 @@
             .attr("class", "node-text")
             .attr("x", d => d.x )  // Modify the location of the <text> 
             .attr("y", d => d.y )
-            .style("font-size", "16px")
-            .text(d => d.authors)
+            // .style("font-size", "16px")
+            // .text(d => d.authors)
+            // .each(function(d) {
+            //     d3.select(this)
+            //         .attr("original-panel", d.panel); // Store the original panel name
+            // });
             .each(function(d) {
+                const lines = wrapText(d.authors, textWrap);  // Pass d.authors string to wrapText
+                const yOffset = 20;  // Line height
+                let dy = 0;  // Initial y offset
+
+                lines.forEach(line => {
+                    d3.select(this)
+                        .append("tspan")
+                        .attr("x", d.x + xTextOffset)  // Set the x position
+                        .attr("y", d.y + dy + yTextOffset)  // Adjust the y position for each line
+                        .text(line);
+
+                    dy += yOffset;  // Increase dy for the next line
+                });
+
                 d3.select(this)
-                    .attr("original-panel", d.panel); // Store the original panel name
+                    .attr("original-panel", d.panel);  // Store the original panel name
             });
-
-            // .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-// Function to wrap text
-function updateTextElements(textContent) {
-    // Delete existing <text> elements
-    d3.select("svg").selectAll("text").remove();
-
-    // Recreate <text> elements
-    d3.select("svg")
-        .selectAll("text")
-        .data(data.tutorials)
-        .enter()
-        .append("text")
-        .attr("class", "node-text")
-        .attr("y", d => d.y) // Keep only the y position here, remove x
-        .attr("font-size", "16px")
-        .each(function(d) {
-            var lines = wrapText(textContent(d), 100); 
-            var yOffset = 0;
-
-            for (var i = 0; i < lines.length; i++) {
-                d3.select(this)
-                    .append("tspan")
-                    .attr("x", d.x)  // Ensure x position is set here for each tspan
-                    .attr("y", d.y + yOffset)  // Adjust the y position for each line
-                    .text(lines[i]);
-
-                yOffset += 20;  // Adjust the line height as needed (increased from 5 for better readability)
-            }
-            d3.select(this)
-                .attr("original-panel", d.panel);  // Store the original panel name
-        });
-}
-
-
-function wrapText(text, width) {
-    var words = text.split(" ");
-    var lines = [];
-    var currentLine = words[0];
-
-    for (var i = 1; i < words.length; i++) {
-        if (currentLine.length + words[i].length < width / 5) {  // Adjust for length
-            currentLine += " " + words[i];
-        } else {
-            lines.push(currentLine);
-            currentLine = words[i];
-        }
-    }
-    lines.push(currentLine);
-    return lines;
-}
 
 // Handling button click events
 
 var xTextOffset = 0;
-var yTextOffset = -30;
+var yTextOffset = 30;
+var textWrap = 200;
 
 d3.select("#show-authors").on("click", function() {
     //TODO: instead of removing and recreating, maybe just hide
@@ -357,12 +355,31 @@ d3.select("#show-authors").on("click", function() {
             .attr("class", "node-text")
             .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
             .attr("y", d => d.y + yTextOffset)
-            .style("font-size", "16px")
-            .text(d => d.authors)
+            // .style("font-size", "16px")
+            // .text(d => d.authors)
+            // .each(function(d) {
+            //     d3.select(this)
+            //         .attr("original-panel", d.panel); // Store the original panel name
+            // });
             .each(function(d) {
+                const lines = wrapText(d.authors, textWrap);  // Pass d.authors string to wrapText
+                const yOffset = 20;  // Line height
+                let dy = 0;  // Initial y offset
+
+                lines.forEach(line => {
+                    d3.select(this)
+                        .append("tspan")
+                        .attr("x", d.x + xTextOffset)  // Set the x position
+                        .attr("y", d.y + dy + yTextOffset)  // Adjust the y position for each line
+                        .text(line);
+
+                    dy += yOffset;  // Increase dy for the next line
+                });
+
                 d3.select(this)
-                    .attr("original-panel", d.panel); // Store the original panel name
+                    .attr("original-panel", d.panel);  // Store the original panel name
             });
+            
     setFocusClass(this);
 });
 
@@ -378,12 +395,27 @@ d3.select("#show-projects").on("click", function() {
             .attr("class", "node-text")
             .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
             .attr("y", d => d.y + yTextOffset)
-            .style("font-size", "16px")
-            .text(d => d.project)
+            // .style("font-size", "16px")
+            // .text(d => d.project)
             .each(function(d) {
+                const lines = wrapText(d.project, textWrap);  // Pass d.authors string to wrapText
+                const yOffset = 20;  // Line height
+                let dy = 0;  // Initial y offset
+
+                lines.forEach(line => {
+                    d3.select(this)
+                        .append("tspan")
+                        .attr("x", d.x + xTextOffset)  // Set the x position
+                        .attr("y", d.y + dy + yTextOffset)  // Adjust the y position for each line
+                        .text(line);
+
+                    dy += yOffset;  // Increase dy for the next line
+                });
+
                 d3.select(this)
-                    .attr("original-panel", d.panel); // Store the original panel name
+                    .attr("original-panel", d.panel);  // Store the original panel name
             });
+
     setFocusClass(this);
 });
 
@@ -409,12 +441,12 @@ function setFocusClass(button) {
 
             .force("charge", d3.forceManyBody() // This adds repulsion between nodes.
                 // .strength(-2000)
-                .strength(-2 * width/2)
+                .strength(-3 * width/2)
 
             ) 
             .force("center", d3.forceCenter(width /2, height / 2)) // bring to center of svg
-            .force("x", d3.forceX(width/2).strength(width/2000000)) // Horizontal force
-            .force("y", d3.forceY(height/2).strength(0.01)) // Vertical force
+            .force("x", d3.forceX(width/2).strength(width*0.000002)) // Horizontal force
+            .force("y", d3.forceY(height/2).strength(width/70000)) // Vertical force
             .on("tick", ticked);
 
         function ticked() {
@@ -429,8 +461,8 @@ function setFocusClass(button) {
                 .attr("cy", function(d) { return d.y-1; });
 
             text
-               .attr("x", function(d) { return d.x +xTextOffset; }) // Adjust the position of the text
-               .attr("y", function(d) { return d.y +yTextOffset; }); // Adjust the position of the text
+               .attr("x", function(d) { return d.x + xTextOffset; }) // Adjust the position of the text
+               .attr("y", function(d) { return d.y + yTextOffset; }); // Adjust the position of the text
         };
 
         //onclick link to individual tutorial pages
