@@ -14,71 +14,76 @@
 </head>
 
 <body data-project-name="Mapping War via Satellite"> <!-- The name here is to link Tags from json file (project name)-->
-        <div class="top-bar">
-            <div class="menu">
-                <a href="../about/about.html">ABOUT</a>
-            </div>
-        </div>
-    
-        <div class="title"  id="sidePanel">
-            <p>
+    <div class="top-bar">
+   
+        <div class="title">
+            <a href="../index.html" id="sidePanel">
                 Methods and Tutorials in Spatial Research 
-            </p>
+            </a>
         </div>
 
-        <div class="tutorials-side-panel">
-            <h3 style="font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;">Workshop Panel: </h3>
-            <div class="visual-code-container">
-                <div class="tutorials-circle"></div>
-                <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+        <div class="button-container" id="about">
+            <a href="../about.html">About</a>
+        </div>
+     </div>
+
+     <div class="column">
+        <div class="column-left">
+            <div id="tutorials-side-panel">
+                <h3>Workshop Panel: </h3>
+                <div class="visual-code-container">
+                    <div class="tutorials-circle"></div>
+                    <p id="panel-text"></p>
+                </div>
+                <h3>Project Tags: </h3>
+                <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
             </div>
-            <h3>Project Tags: </h3>
-            <div class="tutorials-ProjectTagsContainer" id="project_tags">
-                <!-- Tags will be dynamically inserted here -->
+
+        </div>
+        <div class="main">
+            <div class="tutorials-section">
+                
+                <h1>MAPPING WAR BY SATELLITE - CONFLICT URBANISM IN THE GAZA STRIP</h1>
+                <h2>Jamon Van Den Hoek & Corey Scher</h2>
+
+                <img src="./images_Jamon Van_Den_Hoek_Corey_Scher/image1.png" alt="Hero Image" class="center-image">
+                <p>Figure 1. Map of likely damage/destruction across the Gaza Strip based on analysis of 12 August 2024 Sentinel-1 radar data.</p>
+
+                <p>As of writing, it’s estimated that 92 million people around the world are directly exposed to the effects of war (<a href="https://acleddata.com/conflict-exposure/" target="_blank">https://acleddata.com/conflict-exposure/</a>). The main concern in any war is the loss of civilian life but the destruction of cities where people live, work, and raise children is an essential concern as well. Unfortunately, we don’t currently have any comprehensive estimates of the breadth or severity of urban damage caused by war. We do know that when buildings are destroyed, people lose their homes, access to food, water, education, income, and medical care. Damaged buildings are one of the earliest indicators of a war’s impacts, and foretell patterns of migration and humanitarian aid needs as people flee conflict. The same pattern of damage also holds information on whether there will be any homes to return to once the conflict ends.</p>
+
+                <p>In our research in the Conflict Ecology lab at Oregon State University (<a href="http://www.conflict-ecology.org" target="_blank">www.conflict-ecology.org</a>), we focus on the impacts of armed conflict on vulnerable people and landscapes. We use satellite imagery and geospatial data to map, measure, and visualize the immediate consequences of conflict such as damage to or destruction of forests, farms, and cities, as well as the longer-term impacts through the forced displacement of whole communities and the establishment of refugee camps, which may be occupied for generations.</p>
+
+                <p>Perhaps nowhere else have these concerns been so recurrent as the Gaza Strip. The residents of Gaza have endured multiple invasions and military operations by Israel that have led to thousands of civilian deaths as well as widespread landscape destruction. Following the invasion in 2014, we mapped agricultural damage in Rafah using satellite imagery detailed enough to spot individual olive trees and measure the width of tank tracks carving through plantations. Following the attacks in 2021, we mapped damage to agriculture using Sentinel-2 optical satellite data and damage to the built environment using Sentinel-1 radar satellite data. And since October 2023, we have been mapping damage to cities across the Gaza Strip resulting from a barrage of attacks by the Israeli military unprecedented in its speed and scale.</p>
+
+                <p>Given the tempo and breadth of this conflict, we designed an approach capable of providing Gaza Strip-wide insights into the war’s effects as close to the speed of the conflict itself. Rather than being retrospective, conducted months or years after the damage occurred, we needed a near-real time approach to produce updated damage maps as soon as a new radar image is collected. We also needed an approach that covered Gaza comprehensively with each assessment rather than in a piecemeal fashion. Finally, we needed an approach that was directly sensitive to physical changes to buildings caused by damage or destruction rather than just the resulting appearance of these changes.</p>
+
+                <p>Our solution was to use open access imagery from the European Space Agency’s Sentinel-1. Radar systems like Sentinel-1 can see the Earth’s surface even on days with blanketing clouds and collect new images every 6-12 days, depending on what corner of the globe the satellite is covering. Sentinel-1 has been collecting data since 2014, offering a lengthy historical archive that can be used to develop a “baseline” against which changes during a conflict can be compared. See (<a href="https://sentiwiki.copernicus.eu/web/s1-mission" target="_blank">https://sentiwiki.copernicus.eu/web/s1-mission</a>) for more information on Sentinel-1’s capabilities.</p>
+
+                <p>As of writing, we have made 35 maps of likely damage across the Gaza Strip at a pace of one map every 9 days. In our most recent assessment based on 12 August 2024 Sentinel-1 imagery, we estimate that 59.5% of buildings across the Gaza Strip have likely been damaged or destroyed since early October 2023 (Figure 1). Both Gaza and North Gaza governorates have over 70% of buildings likely damaged or destroyed, most of which occurred in the first two months of the war. The bulk of recent damage has occurred in Deir el-Balah, Khan Younis, and Rafah governorates, each of which is now over 45% damaged.</p>
+
+                <p>We published a damage map based on our radar data analysis in the New York Times on 3 November 2023 (<a href="https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf" target="_blank">https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf</a>). In less than a month of war, our analysis showed that over a quarter of buildings in North Gaza had already been damaged. Following this publication, we started receiving requests for the damage data from journalists and humanitarians. Now, with each new assessment, we email maps of new and cumulative damage and a brief summary of damage statistics and trends to nearly 200 journalists and humanitarians across 90 organizations for uptake into their reporting or analysis. There has been broad uptake of the damage maps by different users, with an amazing array of creative, impactful reporting in the nearly 300 news articles that have used our maps (<a href="https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk" target="_blank">https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk</a>).</p>
+
+                <p>As we began distributing the damage maps to a broader group of recipients, we realized the need to clearly communicate the appropriate use cases as well as limitations of the damage maps. For example, we state that the damage maps are “intended for visualization/cartography but are not intended for analytical (quantitative and/or spatially explicit) comparisons with other data such as population or building footprints.” We also share a slightly coarsened version of our damage maps that precludes identification of specific buildings that may have been damaged or destroyed. We caution users that a small portion of new damage in a given date’s analysis may not be confirmed again. These ephemeral changes may look like damage in our analysis but instead could result from seasonal changes in vegetation unassociated with the war, the deposition of dust, or the clearing of debris. Since ephemeral changes are not (re-)detected in later imagery, we remove them from subsequent maps of cumulative damage.</p>
+
+                <p>Other damage assessments of the Gaza Strip have been published using different remote sensing techniques, and we have sought to understand reasons for agreement or disagreement in the extent and timing of damage. Chief among these is the pseudo-monthly damage dataset produced by the United Nations Operational Satellite Program, or UNOSAT (e.g. <a href="https://unosat.org/products/3904" target="_blank">https://unosat.org/products/3904</a>). UNOSAT urban damage assessments are based on expert visual interpretation of very-high resolution (usually a half-meter or less) satellite imagery. UNOSAT analysts place points at locations of evident damage and assign a grade of damage severity. UNOSAT and any other damage dataset based on aerial or satellite imagery that looks at earth from a bird’s eye view above will be well suited to identify damage to rooftops but may miss damage to the sides of buildings. Radar, like the Sentinel-1 system that we use, is “side looking” and sees the world from an angle, giving it theoretically greater sensitivity to lateral damage along a building’s exterior.</p>
+
+                <p>Differences in damage maps from two different approaches are inevitable but should be explainable. Agreement assessments between different damage maps can be performed in many ways; we use four types of agreement metrics. </p>
+                
+                <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  True positive and true negative are the most direct in that they are examples of agreement between the presence (positive) or absence (negative) of “damage” in one dataset compared to another. In most cases, we aspire to have high rates of true positives and true negatives, expressing general agreement both where damage is and isn’t found.</p>
+
+                <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false positive, on the other hand, occurs where damage is reported in one dataset that is not detected in a reference dataset. False positives could occur because a detection approach is too generous with its damage detection and may need additional constraints to limit over-detection of damage in places with insufficient evidence of damage.</p>
+
+                <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false negative occurs where an approach does not detect damage that is reported in a reference dataset. Perhaps an approach is too restrictive in what it considers to be ‘damage’ and excludes legitimate locations of damage.</p>
+
+                <p>A challenge we face in using these metrics when comparing our damage maps to those made by UNOSAT or any other group is that these metrics assume that the approaches are sensitive to the same thing: building damage. But we know that the overhead view adopted by UNOSAT excludes lateral damage to the building, and we also know that the side-looking radar may have its view of lateral damage occluded by neighboring buildings. There are many differences due to spatial resolutions of imagery, dates of imagery used, and sensitivity to severity of damage, among others that we know matter but whose impact on the level of agreement has not yet been examined in detail.</p>
+
+                <p>Ideally, we would use a reference building damage dataset where damage presence and severity is assessed structure by
+
+
             </div>
         </div>
-
-    <div class="tutorials-section">
-        
-        <h1>MAPPING WAR BY SATELLITE - CONFLICT URBANISM IN THE GAZA STRIP</h1>
-        <h3>Jamon Van Den Hoek & Corey Scher</h3>
-
-        <img src="./images_Jamon Van_Den_Hoek_Corey_Scher/image1.png" alt="Hero Image" class="center-image">
-        <p style="margin-top: -40px; text-align: center; font-size: 18px;">Figure 1. Map of likely damage/destruction across the Gaza Strip based on analysis of 12 August 2024 Sentinel-1 radar data. Photo Credit: Nicholas Masterton. </p>
-
-        <p>As of writing, it’s estimated that 92 million people around the world are directly exposed to the effects of war (<a href="https://acleddata.com/conflict-exposure/" target="_blank">https://acleddata.com/conflict-exposure/</a>). The main concern in any war is the loss of civilian life but the destruction of cities where people live, work, and raise children is an essential concern as well. Unfortunately, we don’t currently have any comprehensive estimates of the breadth or severity of urban damage caused by war. We do know that when buildings are destroyed, people lose their homes, access to food, water, education, income, and medical care. Damaged buildings are one of the earliest indicators of a war’s impacts, and foretell patterns of migration and humanitarian aid needs as people flee conflict. The same pattern of damage also holds information on whether there will be any homes to return to once the conflict ends.</p>
-
-        <p>In our research in the Conflict Ecology lab at Oregon State University (<a href="http://www.conflict-ecology.org" target="_blank">www.conflict-ecology.org</a>), we focus on the impacts of armed conflict on vulnerable people and landscapes. We use satellite imagery and geospatial data to map, measure, and visualize the immediate consequences of conflict such as damage to or destruction of forests, farms, and cities, as well as the longer-term impacts through the forced displacement of whole communities and the establishment of refugee camps, which may be occupied for generations.</p>
-
-        <p>Perhaps nowhere else have these concerns been so recurrent as the Gaza Strip. The residents of Gaza have endured multiple invasions and military operations by Israel that have led to thousands of civilian deaths as well as widespread landscape destruction. Following the invasion in 2014, we mapped agricultural damage in Rafah using satellite imagery detailed enough to spot individual olive trees and measure the width of tank tracks carving through plantations. Following the attacks in 2021, we mapped damage to agriculture using Sentinel-2 optical satellite data and damage to the built environment using Sentinel-1 radar satellite data. And since October 2023, we have been mapping damage to cities across the Gaza Strip resulting from a barrage of attacks by the Israeli military unprecedented in its speed and scale.</p>
-
-        <p>Given the tempo and breadth of this conflict, we designed an approach capable of providing Gaza Strip-wide insights into the war’s effects as close to the speed of the conflict itself. Rather than being retrospective, conducted months or years after the damage occurred, we needed a near-real time approach to produce updated damage maps as soon as a new radar image is collected. We also needed an approach that covered Gaza comprehensively with each assessment rather than in a piecemeal fashion. Finally, we needed an approach that was directly sensitive to physical changes to buildings caused by damage or destruction rather than just the resulting appearance of these changes.</p>
-
-        <p>Our solution was to use open access imagery from the European Space Agency’s Sentinel-1. Radar systems like Sentinel-1 can see the Earth’s surface even on days with blanketing clouds and collect new images every 6-12 days, depending on what corner of the globe the satellite is covering. Sentinel-1 has been collecting data since 2014, offering a lengthy historical archive that can be used to develop a “baseline” against which changes during a conflict can be compared. See (<a href="https://sentiwiki.copernicus.eu/web/s1-mission" target="_blank">https://sentiwiki.copernicus.eu/web/s1-mission</a>) for more information on Sentinel-1’s capabilities.</p>
-
-        <p>As of writing, we have made 35 maps of likely damage across the Gaza Strip at a pace of one map every 9 days. In our most recent assessment based on 12 August 2024 Sentinel-1 imagery, we estimate that 59.5% of buildings across the Gaza Strip have likely been damaged or destroyed since early October 2023 (Figure 1). Both Gaza and North Gaza governorates have over 70% of buildings likely damaged or destroyed, most of which occurred in the first two months of the war. The bulk of recent damage has occurred in Deir el-Balah, Khan Younis, and Rafah governorates, each of which is now over 45% damaged.</p>
-
-        <p>We published a damage map based on our radar data analysis in the New York Times on 3 November 2023 (<a href="https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf" target="_blank">https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf</a>). In less than a month of war, our analysis showed that over a quarter of buildings in North Gaza had already been damaged. Following this publication, we started receiving requests for the damage data from journalists and humanitarians. Now, with each new assessment, we email maps of new and cumulative damage and a brief summary of damage statistics and trends to nearly 200 journalists and humanitarians across 90 organizations for uptake into their reporting or analysis. There has been broad uptake of the damage maps by different users, with an amazing array of creative, impactful reporting in the nearly 300 news articles that have used our maps (<a href="https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk" target="_blank">https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk</a>).</p>
-
-        <p>As we began distributing the damage maps to a broader group of recipients, we realized the need to clearly communicate the appropriate use cases as well as limitations of the damage maps. For example, we state that the damage maps are “intended for visualization/cartography but are not intended for analytical (quantitative and/or spatially explicit) comparisons with other data such as population or building footprints.” We also share a slightly coarsened version of our damage maps that precludes identification of specific buildings that may have been damaged or destroyed. We caution users that a small portion of new damage in a given date’s analysis may not be confirmed again. These ephemeral changes may look like damage in our analysis but instead could result from seasonal changes in vegetation unassociated with the war, the deposition of dust, or the clearing of debris. Since ephemeral changes are not (re-)detected in later imagery, we remove them from subsequent maps of cumulative damage.</p>
-
-        <p>Other damage assessments of the Gaza Strip have been published using different remote sensing techniques, and we have sought to understand reasons for agreement or disagreement in the extent and timing of damage. Chief among these is the pseudo-monthly damage dataset produced by the United Nations Operational Satellite Program, or UNOSAT (e.g. <a href="https://unosat.org/products/3904" target="_blank">https://unosat.org/products/3904</a>). UNOSAT urban damage assessments are based on expert visual interpretation of very-high resolution (usually a half-meter or less) satellite imagery. UNOSAT analysts place points at locations of evident damage and assign a grade of damage severity. UNOSAT and any other damage dataset based on aerial or satellite imagery that looks at earth from a bird’s eye view above will be well suited to identify damage to rooftops but may miss damage to the sides of buildings. Radar, like the Sentinel-1 system that we use, is “side looking” and sees the world from an angle, giving it theoretically greater sensitivity to lateral damage along a building’s exterior.</p>
-
-        <p>Differences in damage maps from two different approaches are inevitable but should be explainable. Agreement assessments between different damage maps can be performed in many ways; we use four types of agreement metrics. </p>
-        
-        <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  True positive and true negative are the most direct in that they are examples of agreement between the presence (positive) or absence (negative) of “damage” in one dataset compared to another. In most cases, we aspire to have high rates of true positives and true negatives, expressing general agreement both where damage is and isn’t found.</p>
-
-        <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false positive, on the other hand, occurs where damage is reported in one dataset that is not detected in a reference dataset. False positives could occur because a detection approach is too generous with its damage detection and may need additional constraints to limit over-detection of damage in places with insufficient evidence of damage.</p>
-
-        <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false negative occurs where an approach does not detect damage that is reported in a reference dataset. Perhaps an approach is too restrictive in what it considers to be ‘damage’ and excludes legitimate locations of damage.</p>
-
-        <p>A challenge we face in using these metrics when comparing our damage maps to those made by UNOSAT or any other group is that these metrics assume that the approaches are sensitive to the same thing: building damage. But we know that the overhead view adopted by UNOSAT excludes lateral damage to the building, and we also know that the side-looking radar may have its view of lateral damage occluded by neighboring buildings. There are many differences due to spatial resolutions of imagery, dates of imagery used, and sensitivity to severity of damage, among others that we know matter but whose impact on the level of agreement has not yet been examined in detail.</p>
-
-        <p>Ideally, we would use a reference building damage dataset where damage presence and severity is assessed structure by
-
-        
-        
-
     </div>
 
     <script>

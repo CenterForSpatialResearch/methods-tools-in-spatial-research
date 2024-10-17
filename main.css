@@ -1,31 +1,19 @@
-body {
-    font: 400 14px/1.25 UniversNextW01-Regular, Helvetica, Arial, sans-serif;
+body, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
     color: #000;
-    background-color: #fdfdfd;
-    /* -webkit-text-size-adjust: 100%; */
+    font-family: UniversNextW01-Regular,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
-    /* display: flex; */
-    /* min-height: 100vh; */
     flex-direction: row;
     overflow-wrap: break-word;
-    /* height: 100%; */
-    /* margin: 0; */
     overflow-y: auto;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: UniversNextW01-Regular, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-  }
-
-.text {
-    font: 10px sans-serif;
-    pointer-events: none;
-}
 
 /* network and nodes styling */
 
@@ -38,11 +26,19 @@ top-nav{
 #networkviz {
     width: 100%;  /* Full viewport width */
     height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Prevent the SVG from overflowing */
-    justify-content: center;     /* Center horizontally */
-    /* align-items: center;  */
+    overflow: hidden;
     font-size: 16px;
   }
+
+  @media (max-width: 800px) {
+    #networkviz{
+        margin-top: -250px;
+        margin-bottom: -100px;
+        font-size: 16px;
+        
+    }
+}
+  
     .node {
     /* fill: white; */
     stroke-width: 2px;
@@ -115,149 +111,142 @@ top-nav{
         stroke: #727272;
     }
 
-/* .top-bar styling */
-.top-bar {
-    /* width: 5%; */
-    background-color: #f0f0f0;
-    color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center;
-    padding: 10px 20px;
-    position: fixed;
-    top: 15px;
-    right: 0;
-    margin-right: 15px; 
-    z-index: 1000;
-    border-radius: 5px;
-}
-
-.top-bar:hover {
-    background-color: #c8c8c8; 
-}
-
 .column {
-    float: left;
-    /* position: fixed; */
+    padding-top: 50px;
+    flex-direction: row;
+    display: flex;
   }
   
   /* Left and right column */
-  .column.left {
+  .column-left {
     width: 18%;
-    position: fixed;  /* Make only the left column fixed */
-    left: 0;         /* Position it at the left */
-    /* height: 100vh;   Make it full height of the viewport */
-    overflow-y: auto;
-  }
-  
-  .column.main {
-    width: 82%;
-    margin-left: 18%;
-    margin-right: 20%;
-    /* min-width: 200px; */
-    /* margin-left: 1%;  */
-    margin-top: 0.5%; 
-    overflow-y: auto;
-    
+    min-width: 250px;
+
   }
 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  .column-main {
+    margin-top: 0.5%; 
   }
   
  /* Responsive layout */
-@media screen and (max-width: 800px) {
-    .column {
-        width: 100%;    /* Stack columns on top of each other on small screens */
-        position: relative; /* Remove fixed positioning on small screens */
+@media (max-width: 800px) {
+    .column{
+        flex-direction: column-reverse;
+        width: 100%;
     }
-    .column.left {
-        height: auto;
-        margin-left: 0;   /* Allow natural height for the left column */
+    .column-left, .column-main {
+        flex: 100%;
+        width: 100%;
     }
-    .column.main {
-        width:150px;
-        margin-left: 0; /* Remove left margin on small screens */
+    .column-main{
+        margin-top: 20px;
     }
 }
 
-  #about {
-    max-width: 64%;
-    padding: 18%;
-    margin-left: 250px;
-    margin-right: 18%;
-    /* text-decoration-thickness: 5px; */
-  }
 
-  #about-text{
-    font-weight: 100;
-    text-decoration: none;
-    color:black;
-  }
-
-  #visualization{
-    margin-top: 100px;
-  }
-
-
-visualize-container
-.top-nav .menu {
-    margin: 0 auto; /* Center the menu */
-    /* justify-content: end; */
-}
-
-.top-nav .menu a {
+/* .top-bar styling */
+.top-bar {
+    background-color: white;
     color: rgb(0, 0, 0);
-    text-decoration: none;
-    padding: 8px 16px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* align-items: center; */
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+
 }
 
-.top-nav .menu a:hover {
-    background-color: #c8c8c8;
+#about{
+    right: 10px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+#about a{
+    height: 50px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none; 
+    cursor: pointer; /* Pointer cursor for hover effect */
     border-radius: 5px;
+    background-color: #f0f0f0;
+    text-decoration: none; 
+    color: #000;
+}
+
+#about a:hover {
+    background-color: #999;
+}
+
+#about a:active{
+    background-color: #000;
+    color: white;
+}
+
+.about-body-text {
+    max-width: 64%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+@media (max-width: 800px) {
+    .about-body-text{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 50px;
+    }
 }
 
 .title {
     background-color: #ffffff;
-    height: 24px;
+    height: 22px;
     justify-content: center;
     align-items: left; /* Center content horizontally */
     border-radius: 5px;
-    font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; 
-    font-weight: bold; 
+    font-weight: medium; 
     font-size: 20px;
     margin-left: 1%; 
-    position: fixed;
+    pointer-events: ;
+
 }
 
-.title:hover {
-    color: #c8c8c8;
+.title a:link{
+    text-decoration: none;
+}
+
+.title a:visited {
+    color: #000;
+  }
+
+.title a:hover {
+    color: #999;
 }
 
 /* .side-panel styling */
-    .searchButton{
+#side-panel {
+    margin-top: 10px;
+    margin-left: 1%; 
+    margin-right: 1%;
+    background-color: #f0f0f0;
+    padding: 15px;
+    min-width: 150px;
+    max-height:fit-content;
+    /* max-height: calc(100vh - 65px); */
+}
+
+.searchButton{
         width: fit-content;
         padding: 15px;
         font-weight: bold;
         /* font: 100px; */
     }
     
-    #side-panel {
-        /* margin: 30px 0 30px 30px; */
-        margin-top: 1%;
-        margin-left: 1%; 
-        width: 15%;
-        background-color: #f0f0f0;
-        padding: 15px;
-        box-sizing: border-box;
-        /* display: flex; */
-        position: fixed;
-        flex-direction: column;
-        /* max-height: calc(120vh - 65px); */
-        min-width: 250px;
-    }
     
     .search-input {
         width: 85%;
@@ -287,44 +276,62 @@ visualize-container
         margin-left: 10px;  /* indent */
     }
 
-    .button-text {
+    #visualize-container  {
         margin-left: 10px;
-        /* margin-right: 20px; */
-        /* align-items: top; */
-        line-height: 24px;
-        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 10px; /* Add spacing between the text and buttons */
     }
 
-
-    /* buttons "AUTHOR NAMES" and "PROJECT TITLES" */
-    
-    #visualize-container p {
-        font-weight: bold;
-        margin-bottom: 10px; /* Add spacing between the text and buttons */
+    .button-text {
+        margin-left: 10px;
+        line-height: 24px;
+        /* font-size: 14px; */
     }
 
     .button-container { 
-        margin-left: -10px; 
-        height: 50px;
-        width: 300px;
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
         /* margin-top: 155px;  */
+        /* align-content: flex-start; */
     }
+
+    .flex-author{
+        height: 50px;
+        max-width: 150px;
+
+    }
+    .flex-project{
+        height: 50px;
+        max-width: 150px;
+
+    }
+
+    @media (max-width: 800px) {
+        .flex-author, .flex-project {
+            flex: 100%;
+            margin-bottom: 10px;
+        }
+      }
     
     .button-container button {
-        margin-left: 10px; /* Space between buttons */
+        font-weight: 400;
+        margin-left: 10px; 
         height: 50px;
         width: 300px;
-        font-size: 14px; /* Font size */
         border: none; 
         cursor: pointer; /* Pointer cursor for hover effect */
         border-radius: 5px;
+        background-color: #f0f0f0;
     }
 
     .button-container button:active {
         background-color: black; /* Button color when clicked */
         color: white; /* Text color remains white */
+    }
+
+    .button-container button:hover{
+        background-color: #999;
     }
 
     .button-container button.custom-focus {
@@ -334,12 +341,9 @@ visualize-container
         box-shadow: 0 0 0 2px white; /* Optional: add a custom outline */
     }
 
-    @media (max-width: 800px) {
-        .button-container {
-          flex-direction: column;
-        }
-      }
-
+    .author-project{
+        justify-content: center;
+    }
 
     /* Add styles to handle text wrapping */
     .node-text {
@@ -407,6 +411,7 @@ visualize-container
         gap: 10px;
         padding: 10px;
     }
+     
     .tag-item {
         background-color: #f0f0f0;
         border: 1px solid #ccc;
@@ -423,7 +428,6 @@ visualize-container
         width: 100%;
         padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
       }
-    
 
 .responsive-iframe {
         position: absolute;
@@ -435,32 +439,34 @@ visualize-container
         height: 100%;
       }
 
-
-
     /* Style for tutorials - try to match with main-column*/ 
     .tutorials-section {
-        max-width: 40%; 
-        /* width: 82%; */
-        margin-left: 30%;
-        margin-right: 30%;
-        margin-top: 0.5%; 
-        overflow-y: auto;
-        float: right;
-        /* margin: 0px auto; */
-        /* padding: 55px; */
+        /* max-width: 40%;  */
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 10px; 
+        /* overflow-y: auto; */
+        min-width: 300px;
+        /* width:100%; */
     }
 
+    @media (max-width: 800px) {
+        .tutorials-section{
+            width: 100%;
+            margin: 20px;
+        }
+    }
+    
+
     .tutorials-section h1 {
-        font-size: 25px;
-        font-weight: bold;
+        font-size: 20px;
+        /* font-weight: bold; */
         margin-bottom: -10px;
     }
 
     /* author name */
     .tutorials-section h2 {
-        font-size: 20px;
-        /* font-weight: bold; */
-        /* margin-top: 100px;  */
+        /* font-size: px; */
         margin-bottom: 20px;
         color: #727272;
     }
@@ -475,7 +481,7 @@ visualize-container
 
     .tutorials-section h4 {
         font-size: 1.071em;
-        font-weight: bold;
+        /* font-weight: bold; */
         margin-top: 25px; 
         margin-bottom: 20px;
     }
@@ -487,9 +493,11 @@ visualize-container
 
     .tutorials-section img {
         max-width: 100%;
-        display: block;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        /* margin-top: 50px; */
+        /* margin-bottom: 50px; */
     }
     
     .tutorials-image {
@@ -507,24 +515,20 @@ visualize-container
         border: none; 
     }
     
-    .tutorials-side-panel {
-        margin: 15px 0 30px 15px;
-        margin-top: 105px; 
-        width: 250px;
+    #tutorials-side-panel {
         background-color: #f0f0f0;
-        padding: 15px;
+        padding: 10px;
         box-sizing: border-box;
-        display: flex;
-        position: fixed; 
-        flex-direction: column;
         max-height: calc(100vh - 65px);
         align-items: left; 
+        justify-items: center;
         border-radius: 5px;
+        min-width: 200px;
+        width:100%;
+        margin-left: 10px;
     }
-    
 
     .tag-item {
-        font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif;
         margin: 5px; /* 5px space between each tag */
         margin-top: 5px;
         padding: 5px; /* Add some padding for better appearance */
@@ -560,10 +564,4 @@ visualize-container
         display: flex; 
         flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
     }
-
-    .figure-text{
-        margin-top: -50px; 
-        text-align: center; 
-        font-size: 14px;
-        color: #727272;
-    }
+    
