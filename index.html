@@ -33,7 +33,7 @@
                     In connection with our research and project collaborations, the Center for Spatial Research develops tutorials on tools in critical mapping and data visualization. Tutorials are crafted to provide the technical expertise necessary for critically-minded spatial research across a broad range of disciplines. This growing library is designed to be a resource for students, faculty, and practitioners engaging in spatial research at Columbia University and beyond.
                 </p>
 
-                <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
+                <input type="text" id="searchInput" class="search-input" placeholder="search by author, key terms, method ...">
                 <button onclick="search()" id="searchButton">></button>
 
                 <p style="margin-top: 35px; font-weight: bold;">
@@ -435,6 +435,20 @@ function setFocusClass(button) {
             .force("x", d3.forceX(width/2).strength(width*0.000002)) // Horizontal force
             .force("y", d3.forceY(height/2).strength(width/70000)) // Vertical force
             .on("tick", ticked);
+
+        //TO DO this is temp fix for intial text wrap
+        function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            async function clickVisual() {
+                // console.log("Waiting 2 seconds...");
+                await delay(1200);
+                document.getElementById('show-authors').click();
+                // console.log("Function executed after 2 seconds");
+                }
+
+            clickVisual();
 
         function ticked() {
             link
