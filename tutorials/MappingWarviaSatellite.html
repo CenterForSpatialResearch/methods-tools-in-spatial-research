@@ -42,13 +42,13 @@
             </div>
 
         </div>
-        <div class="main">
+        <div class="column-main">
             <div class="tutorials-section">
                 
                 <h1>MAPPING WAR BY SATELLITE - CONFLICT URBANISM IN THE GAZA STRIP</h1>
                 <h2>Jamon Van Den Hoek & Corey Scher</h2>
 
-                <img src="./images_Jamon Van_Den_Hoek_Corey_Scher/image1.png" alt="Hero Image" class="center-image">
+                <img src="./images/MappingWarviaSatellite/image1.png" alt="Hero Image" class="tutorials-image">
                 <p>Figure 1. Map of likely damage/destruction across the Gaza Strip based on analysis of 12 August 2024 Sentinel-1 radar data.</p>
 
                 <p>As of writing, it’s estimated that 92 million people around the world are directly exposed to the effects of war (<a href="https://acleddata.com/conflict-exposure/" target="_blank">https://acleddata.com/conflict-exposure/</a>). The main concern in any war is the loss of civilian life but the destruction of cities where people live, work, and raise children is an essential concern as well. Unfortunately, we don’t currently have any comprehensive estimates of the breadth or severity of urban damage caused by war. We do know that when buildings are destroyed, people lose their homes, access to food, water, education, income, and medical care. Damaged buildings are one of the earliest indicators of a war’s impacts, and foretell patterns of migration and humanitarian aid needs as people flee conflict. The same pattern of damage also holds information on whether there will be any homes to return to once the conflict ends.</p>
@@ -71,11 +71,11 @@
 
                 <p>Differences in damage maps from two different approaches are inevitable but should be explainable. Agreement assessments between different damage maps can be performed in many ways; we use four types of agreement metrics. </p>
                 
-                <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  True positive and true negative are the most direct in that they are examples of agreement between the presence (positive) or absence (negative) of “damage” in one dataset compared to another. In most cases, we aspire to have high rates of true positives and true negatives, expressing general agreement both where damage is and isn’t found.</p>
+                <p class="indent">●  True positive and true negative are the most direct in that they are examples of agreement between the presence (positive) or absence (negative) of “damage” in one dataset compared to another. In most cases, we aspire to have high rates of true positives and true negatives, expressing general agreement both where damage is and isn’t found.</p>
 
-                <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false positive, on the other hand, occurs where damage is reported in one dataset that is not detected in a reference dataset. False positives could occur because a detection approach is too generous with its damage detection and may need additional constraints to limit over-detection of damage in places with insufficient evidence of damage.</p>
+                <p class="indent">●  A false positive, on the other hand, occurs where damage is reported in one dataset that is not detected in a reference dataset. False positives could occur because a detection approach is too generous with its damage detection and may need additional constraints to limit over-detection of damage in places with insufficient evidence of damage.</p>
 
-                <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false negative occurs where an approach does not detect damage that is reported in a reference dataset. Perhaps an approach is too restrictive in what it considers to be ‘damage’ and excludes legitimate locations of damage.</p>
+                <p class="indent">●  A false negative occurs where an approach does not detect damage that is reported in a reference dataset. Perhaps an approach is too restrictive in what it considers to be ‘damage’ and excludes legitimate locations of damage.</p>
 
                 <p>A challenge we face in using these metrics when comparing our damage maps to those made by UNOSAT or any other group is that these metrics assume that the approaches are sensitive to the same thing: building damage. But we know that the overhead view adopted by UNOSAT excludes lateral damage to the building, and we also know that the side-looking radar may have its view of lateral damage occluded by neighboring buildings. There are many differences due to spatial resolutions of imagery, dates of imagery used, and sensitivity to severity of damage, among others that we know matter but whose impact on the level of agreement has not yet been examined in detail.</p>
 

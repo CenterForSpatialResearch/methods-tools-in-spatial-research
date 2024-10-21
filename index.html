@@ -30,7 +30,7 @@
         <div class="column-left" >
         <div id="side-panel" >
                 <p> 
-                    Description of how network visualization and methods of research tool works: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at urna gravida, convallis est ac, faucibus nulla. Ut eleifend ex non orci tempus commodo.
+                    In connection with our research and project collaborations, the Center for Spatial Research develops tutorials on tools in critical mapping and data visualization. Tutorials are crafted to provide the technical expertise necessary for critically-minded spatial research across a broad range of disciplines. This growing library is designed to be a resource for students, faculty, and practitioners engaging in spatial research at Columbia University and beyond.
                 </p>
 
                 <input type="text" id="searchInput" class="search-input" placeholder="search by author, keyword, method...">
@@ -94,11 +94,11 @@
 
         </div>
     </div>
-    
 
 <script>
 
     let data; 
+
     function loadData() {
         d3.json("tutorials.json").then(function(loadedData) {
             data = loadedData;
@@ -107,44 +107,44 @@
     }
 
     loadData();
-
+ 
 
     function visualizeData() {
-    // Set initial dimensions
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+        // Set initial dimensions
+        const width = window.innerWidth;
+        const height = window.innerHeight;
 
-    // Define margins with left margin based on a percentage of the viewport width
-    const margin = {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0.2* width // 10% of the viewport width
-    };
+        // Define margins with left margin based on a percentage of the viewport width
+        const margin = {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0.2* width // 10% of the viewport width
+        };
 
-    // Adjust the inner width of the content (excluding margins)
-    const adjustedWidth = width - margin.left - margin.right;
-    const adjustedHeight = height - margin.top - margin.bottom;
+        // Adjust the inner width of the content (excluding margins)
+        const adjustedWidth = width - margin.left - margin.right;
+        const adjustedHeight = height - margin.top - margin.bottom;
 
-    // Append the SVG object to the div with id 'networkviz'
-    const svg = d3.select("#networkviz")
-        .append("svg")
-        .attr("width", '100%')            // Set width to 100% to allow resizing
-        .attr("height", '100%')           // Set height to 100% for full window
-        .attr("viewBox", `0 0 ${width} ${height}`) // Use the viewBox to make it scalable
-        .attr("preserveAspectRatio", "xMidYMid meet") // Maintain aspect ratio
-        .append("g")
-        .attr("transform", `translate(${0}, ${-height/4})`); // Center the <g>
+        // Append the SVG object to the div with id 'networkviz'
+        const svg = d3.select("#networkviz")
+            .append("svg")
+            .attr("width", '100%')            // Set width to 100% to allow resizing
+            .attr("height", '100%')           // Set height to 100% for full window
+            .attr("viewBox", `0 0 ${width} ${height}`) // Use the viewBox to make it scalable
+            .attr("preserveAspectRatio", "xMidYMid meet") // Maintain aspect ratio
+            .append("g")
+            .attr("transform", `translate(${0}, ${-height/4})`); // Center the <g>
 
 
-    // Adjust the transformation on window resize
-    window.addEventListener("resize", () => {
-        const newWidth = window.innerWidth;
-        const newHeight = window.innerHeight;
-        svg.attr("viewBox", `0 0 ${newWidth} ${newHeight}`) // Update viewBox
-            .select("g")
-            .attr("transform", `translate(${newWidth / 2}, ${newHeight /2})`); // Re-center <g>
-    });
+        // Adjust the transformation on window resize
+        window.addEventListener("resize", () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            svg.attr("viewBox", `0 0 ${newWidth} ${newHeight}`) // Update viewBox
+                .select("g")
+                .attr("transform", `translate(${newWidth / 2}, ${newHeight /2})`); // Re-center <g>
+        });
 
         //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
@@ -223,24 +223,24 @@
 
         // console.log(panelLinks);
 
-    // Returns the linked CSS class name for style definition based on the panel name.
-    function getLinkClassName(panel) {
-        return `link ${panel.replace(/\s+/g, '')}`; // Remove spaces and lowercase
-    }
+        // Returns the linked CSS class name for style definition based on the panel name.
+        function getLinkClassName(panel) {
+            return `link ${panel.replace(/\s+/g, '')}`; // Remove spaces and lowercase
+        }
 
-    // Create a <line> element for each linked data and assign CSS class names based on the panel name. 
-    const link = svg
-        .selectAll("line")
-        .data(allLinks)
-        .enter()
-        .append("line")
-        .attr("class", function(d) {
-            if (d.panel) {
-                return getLinkClassName(d.panel); // Assign the class dynamically based on panel name
-            } else {
-                return "link"; // Default class for links without a panel
-            }
-        });
+        // Create a <line> element for each linked data and assign CSS class names based on the panel name. 
+        const link = svg
+            .selectAll("line")
+            .data(allLinks)
+            .enter()
+            .append("line")
+            .attr("class", function(d) {
+                if (d.panel) {
+                    return getLinkClassName(d.panel); // Assign the class dynamically based on panel name
+                } else {
+                    return "link"; // Default class for links without a panel
+                }
+            });
 
         
         function getNodePanel(node) {
@@ -302,7 +302,9 @@
             return lines;
         };
 
-
+        var xTextOffset = 0;
+        var yTextOffset = 30;
+        var textWrap = 200;
     
         // Create a <text> element for each tutorial that displays author information and stores the original panel name based on the panel name.
         const text = svg
@@ -313,12 +315,6 @@
             .attr("class", "node-text")
             .attr("x", d => d.x )  // Modify the location of the <text> 
             .attr("y", d => d.y )
-            // .style("font-size", "16px")
-            // .text(d => d.authors)
-            // .each(function(d) {
-            //     d3.select(this)
-            //         .attr("original-panel", d.panel); // Store the original panel name
-            // });
             .each(function(d) {
                 const lines = wrapText(d.authors, textWrap);  // Pass d.authors string to wrapText
                 const yOffset = 20;  // Line height
@@ -338,11 +334,7 @@
                     .attr("original-panel", d.panel);  // Store the original panel name
             });
 
-// Handling button click events
-
-var xTextOffset = 0;
-var yTextOffset = 30;
-var textWrap = 200;
+        // Handling button click events
 
 d3.select("#show-authors").on("click", function() {
     //TODO: instead of removing and recreating, maybe just hide
@@ -355,12 +347,6 @@ d3.select("#show-authors").on("click", function() {
             .attr("class", "node-text")
             .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
             .attr("y", d => d.y + yTextOffset)
-            // .style("font-size", "16px")
-            // .text(d => d.authors)
-            // .each(function(d) {
-            //     d3.select(this)
-            //         .attr("original-panel", d.panel); // Store the original panel name
-            // });
             .each(function(d) {
                 const lines = wrapText(d.authors, textWrap);  // Pass d.authors string to wrapText
                 const yOffset = 20;  // Line height
@@ -383,6 +369,7 @@ d3.select("#show-authors").on("click", function() {
     setFocusClass(this);
 });
 
+
 //Display projects
 d3.select("#show-projects").on("click", function() {
     //TODO: instead of removing and recreating, maybe just hide
@@ -395,8 +382,7 @@ d3.select("#show-projects").on("click", function() {
             .attr("class", "node-text")
             .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
             .attr("y", d => d.y + yTextOffset)
-            // .style("font-size", "16px")
-            // .text(d => d.project)
+
             .each(function(d) {
                 const lines = wrapText(d.project, textWrap);  // Pass d.authors string to wrapText
                 const yOffset = 20;  // Line height
@@ -418,6 +404,7 @@ d3.select("#show-projects").on("click", function() {
 
     setFocusClass(this);
 });
+
 
 // Keep button focused when clicked
 function setFocusClass(button) {
@@ -477,7 +464,7 @@ function setFocusClass(button) {
         }
 
     // Handle window resize to adjust the SVG dimensions dynamically
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize); // TODO: is this working?
 
     function resize() {
         const newWidth = window.innerWidth;

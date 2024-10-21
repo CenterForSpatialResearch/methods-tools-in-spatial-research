@@ -120,8 +120,8 @@ top-nav{
   
   /* Left and right column */
   .column-left {
-    width: 18%;
-    min-width: 250px;
+    width: 20%;
+    min-width: 350px;
 
   }
 
@@ -208,12 +208,12 @@ top-nav{
     background-color: #ffffff;
     height: 22px;
     justify-content: center;
-    align-items: left; /* Center content horizontally */
+    /* align-items: left;  */
     border-radius: 5px;
-    font-weight: medium; 
+    /* font-weight: medium;  */
     font-size: 20px;
     margin-left: 1%; 
-    pointer-events: ;
+    /* pointer-events: ; */
 
 }
 
@@ -236,7 +236,7 @@ top-nav{
     margin-right: 1%;
     background-color: #f0f0f0;
     padding: 15px;
-    min-width: 150px;
+    min-width: 250px;
     max-height:fit-content;
     /* max-height: calc(100vh - 65px); */
 }
@@ -245,7 +245,6 @@ top-nav{
         width: fit-content;
         padding: 15px;
         font-weight: bold;
-        /* font: 100px; */
     }
     
     
@@ -348,10 +347,8 @@ top-nav{
 
     /* Add styles to handle text wrapping */
     .node-text {
-        font-size: 14px; /* Adjust font size as needed */
         text-align: center;
         text-anchor: middle;
-
     }
     
     #VisualCodeButton {
@@ -492,19 +489,27 @@ top-nav{
         margin-bottom: 20px;
     }
 
+    .tutorials-section p.indent{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
     .tutorials-section img {
         max-width: 100%;
         display: grid;
         justify-content: center;
         justify-items: center;
-        /* margin-top: 50px; */
-        /* margin-bottom: 50px; */
-    }
-    
-    .tutorials-image {
-        display: block;
         margin-left: auto;
         margin-right: auto;
+        max-height: 80vh;
+
+    }
+
+    .tutorials-section p.image-text{
+        margin-left: auto;
+        margin-right: auto;
+        justify-items: center;
+        justify-content: center;
     }
     
     .tutorials-iframe {
@@ -521,7 +526,7 @@ top-nav{
         padding: 10px;
         box-sizing: border-box;
         max-height: calc(100vh - 65px);
-        align-items: left; 
+        /* align-items: left;  */
         justify-items: center;
         border-radius: 5px;
         min-width: 200px;
@@ -546,7 +551,6 @@ top-nav{
         text-align: center; 
         word-wrap: break-word; /* Break long words onto the next line */
     }
-
 
     .visual-code-container {
         display: flex; 

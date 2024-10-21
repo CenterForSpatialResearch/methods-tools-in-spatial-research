@@ -27,70 +27,72 @@
         </div>
      </div>
 
-        <div class="tutorials-side-panel">
-            <h3>Workshop Panel: </h3>
-            <div class="visual-code-container">
-                <div class="tutorials-circle"></div>
-                <p id="panel-text"></p>
+
+     <div class="column">
+        <div class="column-left">
+            <div id="tutorials-side-panel">
+                <h3>Workshop Panel: </h3>
+                <div class="visual-code-container">
+                    <div class="tutorials-circle"></div>
+                    <p id="panel-text"></p>
+                </div>
+                <h3>Project Tags: </h3>
+                <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
             </div>
-            <h3>Project Tags: </h3>
-            <div class="tutorials-ProjectTagsContainer" id="project_tags">
-                <!-- Tags will be dynamically inserted here -->
+
+        </div>
+        <div class="main">
+
+            <div class="tutorials-section">
+                
+                <h1>Reconstructing Historical Events: The Babyn Yar Models Project</h1>
+                <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
+                <p>Jump to:</p>
+                <p> </p>
+
+                
+                <h3>About the project</h3>
+
+                <p>Babyn Yar Models is a project that spatially reconstructs the historical events of Babyn Yar around the transformations of its landscape. Working with maps, aerial photographs, photos, videos, eyewitness stories, and historical research, our team reconstructed the lost landscape of Babyn Yar and, through its transformations, followed the course of historical events.</p>
+
+                <p>On September 29-30, 1941, more than 33,000 Jews were massacred in Babyn Yar. During the German occupation of Kyiv, between 100,000 and 150,000 people were killed there, including patients of the Kyiv City Psychiatric Hospital, Roma, Ukrainian nationalists, prisoners of war, and local authorities. Before retreating from Kyiv, the Nazis attempted to hide the traces of the massacres. Several hundred prisoners of war from the Syrets internment camp were forced to exhume and burn the remains of the dead.</p>
+
+                <p>In the late 50s and early 60s, the landscape of Babyn Yar was fundamentally changed. The spurs were filled with liquid soil and covered over, resulting in the disappearance of the ravine as such. Highways were laid on the territory of Babyn Yar, and a residential area and a park were built. The area has changed so much that even historians argued about the exact location of the mass executions.</p>
+
+                <p>In order to help better understand the important historical events of Babyn Yar, this  project reconstructs the landscape where those events happened.</p>
+
+
+        <div class="container">
+            <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/J8LsLWtRLcw?si=DE3eG6p9DjkyJKhP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div> 
+
+                <p>Babyn Yar Models presentation video (Center for Spatial Technologies 2021)</p>
+
+                <h3 id="image-match-guide">Guide overview</h3>
+
+                <p>This guide outlines the general methodology for reconstructing a historical landscape using a variety of media sources. These sources include archival drawings, maps, aerial and satellite photographs, as well as ground-level photographs and videos. The guide describes the processes and techniques used to work with diverse data types – such as topographic maps and photogrammetry – to build a spatial model of a transformed landscape.</p>
+
+            <h3>Building a Digital Elevation Model (DEM)</h3>
+
+                <p>We sourced topographic surveys and aerial photographs from different periods to build a Digital Elevation Model (DEM) of Babyn Yar. Using specialized software like AutoCAD, QGIS, Blender, and Grasshopper for Rhinoceros 3D, we navigated the challenges of integrating varying coordinate systems and correcting map distortions to accurately reconstruct the historical landscape.</p>
+
+                <h4>Processing of Source Materials</h4>
+
+                <p>Most source materials required significant pre-processing. Archival maps, for example, often had visible seams, and aerial reconnaissance photographs contained distortions. To ensure usability, we corrected these issues through alignment, calibration, and distortion adjustments. This involved preparing template files for each map sheet and using QGIS Georeferencer to align the maps to a 100x100 fathom orthogonal grid.</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+
+                <p class="image-text">Raster Deformation and Orthogonal Grid Alignment ©Center for Spatial Technologies 2020</p>
+
+
+
+            
+
+
             </div>
         </div>
-
-    <div class="tutorials-section">
-        
-        <h1>Reconstructing Historical Events: The Babyn Yar Models Project</h1>
-        <p>Jump to:</p>
-        <p></p>
-
-        
-        <h3>About the project</h3>
-
-        <p>Babyn Yar Models is a project that spatially reconstructs the historical events of Babyn Yar around the transformations of its landscape. Working with maps, aerial photographs, photos, videos, eyewitness stories, and historical research, our team reconstructed the lost landscape of Babyn Yar and, through its transformations, followed the course of historical events.</p>
-
-        <p>On September 29-30, 1941, more than 33,000 Jews were massacred in Babyn Yar. During the German occupation of Kyiv, between 100,000 and 150,000 people were killed there, including patients of the Kyiv City Psychiatric Hospital, Roma, Ukrainian nationalists, prisoners of war, and local authorities. Before retreating from Kyiv, the Nazis attempted to hide the traces of the massacres. Several hundred prisoners of war from the Syrets internment camp were forced to exhume and burn the remains of the dead.</p>
-
-        <p>In the late 50s and early 60s, the landscape of Babyn Yar was fundamentally changed. The spurs were filled with liquid soil and covered over, resulting in the disappearance of the ravine as such. Highways were laid on the territory of Babyn Yar, and a residential area and a park were built. The area has changed so much that even historians argued about the exact location of the mass executions.</p>
-
-        <p>In order to help better understand the important historical events of Babyn Yar, this  project reconstructs the landscape where those events happened.</p>
-
-
-
-<div class="container">
-    <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/J8LsLWtRLcw?si=DE3eG6p9DjkyJKhP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div> 
-
-        <p>Babyn Yar Models presentation video (Center for Spatial Technologies 2021)</p>
-
-        <h3 id="image-match-guide">Guide overview</h3>
-
-        <p>This guide outlines the general methodology for reconstructing a historical landscape using a variety of media sources. These sources include archival drawings, maps, aerial and satellite photographs, as well as ground-level photographs and videos. The guide describes the processes and techniques used to work with diverse data types – such as topographic maps and photogrammetry – to build a spatial model of a transformed landscape.</p>
-
-       <h3>Building a Digital Elevation Model (DEM)</h3>
-
-        <p>We sourced topographic surveys and aerial photographs from different periods to build a Digital Elevation Model (DEM) of Babyn Yar. Using specialized software like AutoCAD, QGIS, Blender, and Grasshopper for Rhinoceros 3D, we navigated the challenges of integrating varying coordinate systems and correcting map distortions to accurately reconstruct the historical landscape.</p>
-
-        <h4>Processing of Source Materials</h4>
-
-        <p>Other damage assessments of the Gaza Strip have been published using different remote sensing techniques, and we have sought to understand reasons for agreement or disagreement in the extent and timing of damage. Chief among these is the pseudo-monthly damage dataset produced by the United Nations Operational Satellite Program, or UNOSAT (e.g. <a href="https://unosat.org/products/3904" target="_blank">https://unosat.org/products/3904</a>). UNOSAT urban damage assessments are based on expert visual interpretation of very-high resolution (usually a half-meter or less) satellite imagery. UNOSAT analysts place points at locations of evident damage and assign a grade of damage severity. UNOSAT and any other damage dataset based on aerial or satellite imagery that looks at earth from a bird’s eye view above will be well suited to identify damage to rooftops but may miss damage to the sides of buildings. Radar, like the Sentinel-1 system that we use, is “side looking” and sees the world from an angle, giving it theoretically greater sensitivity to lateral damage along a building’s exterior.</p>
-
-        <p>Differences in damage maps from two different approaches are inevitable but should be explainable. Agreement assessments between different damage maps can be performed in many ways; we use four types of agreement metrics. </p>
-        
-        <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  True positive and true negative are the most direct in that they are examples of agreement between the presence (positive) or absence (negative) of “damage” in one dataset compared to another. In most cases, we aspire to have high rates of true positives and true negatives, expressing general agreement both where damage is and isn’t found.</p>
-
-        <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false positive, on the other hand, occurs where damage is reported in one dataset that is not detected in a reference dataset. False positives could occur because a detection approach is too generous with its damage detection and may need additional constraints to limit over-detection of damage in places with insufficient evidence of damage.</p>
-
-        <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false negative occurs where an approach does not detect damage that is reported in a reference dataset. Perhaps an approach is too restrictive in what it considers to be ‘damage’ and excludes legitimate locations of damage.</p>
-
-        <p>A challenge we face in using these metrics when comparing our damage maps to those made by UNOSAT or any other group is that these metrics assume that the approaches are sensitive to the same thing: building damage. But we know that the overhead view adopted by UNOSAT excludes lateral damage to the building, and we also know that the side-looking radar may have its view of lateral damage occluded by neighboring buildings. There are many differences due to spatial resolutions of imagery, dates of imagery used, and sensitivity to severity of damage, among others that we know matter but whose impact on the level of agreement has not yet been examined in detail.</p>
-
-        <p>Ideally, we would use a reference building damage dataset where damage presence and severity is assessed structure by
-
-        
-        
-
     </div>
 
     <script>
