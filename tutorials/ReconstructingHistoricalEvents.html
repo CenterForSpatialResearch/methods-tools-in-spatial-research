@@ -13,7 +13,7 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 
-<body data-project-name="Reconstructing Historical Events: The Babyn Yar Models Project"> <!-- The name here is to link Tags from json file (project name)-->
+<body data-project-name="Reconstructing Historical Events"> <!-- MATCH project name from tutorials.json -->
     <div class="top-bar">
    
         <div class="title">
@@ -49,8 +49,12 @@
                 
                 <h1>Reconstructing Historical Events: The Babyn Yar Models Project</h1>
                 <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
+
                 <p>Jump to:</p>
-                <p> </p>
+                <a href="#image-match-guide">Guide Overview</a>
+                <a href="#image-match-DEM">Building a Digital Elevation Model (DEM)</a>
+                <a href="#image-match-guide">Guide Overview</a>
+                <a href="#image-match-guide">Guide Overview</a>
 
                 
                 <h3>About the project</h3>
@@ -74,17 +78,62 @@
 
                 <p>This guide outlines the general methodology for reconstructing a historical landscape using a variety of media sources. These sources include archival drawings, maps, aerial and satellite photographs, as well as ground-level photographs and videos. The guide describes the processes and techniques used to work with diverse data types – such as topographic maps and photogrammetry – to build a spatial model of a transformed landscape.</p>
 
-            <h3>Building a Digital Elevation Model (DEM)</h3>
+            <h3 id="image-match-DEM">Building a Digital Elevation Model (DEM)</h3>
 
                 <p>We sourced topographic surveys and aerial photographs from different periods to build a Digital Elevation Model (DEM) of Babyn Yar. Using specialized software like AutoCAD, QGIS, Blender, and Grasshopper for Rhinoceros 3D, we navigated the challenges of integrating varying coordinate systems and correcting map distortions to accurately reconstruct the historical landscape.</p>
 
-                <h4>Processing of Source Materials</h4>
+                <h4 id="image-match-source">Processing of Source Materials</h4>
 
                 <p>Most source materials required significant pre-processing. Archival maps, for example, often had visible seams, and aerial reconnaissance photographs contained distortions. To ensure usability, we corrected these issues through alignment, calibration, and distortion adjustments. This involved preparing template files for each map sheet and using QGIS Georeferencer to align the maps to a 100x100 fathom orthogonal grid.</p>
 
                 <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
 
                 <p class="image-text">Raster Deformation and Orthogonal Grid Alignment ©Center for Spatial Technologies 2020</p>
+            
+                <h4 id="image-match-contour">Vectorization of Contour Lines</h4>
+
+                <p>For topographic maps, color filters were applied to isolate contour lines, and superfluous elements were removed to enhance clarity. These images were then imported into a CAD environment, where each contour line was vectorized and elevated to its respective height using Bitonal mode. This crucial step allowed for the precise creation of a three-dimensional terrain model.</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">A processed fragment of a topographic map of Kyiv from 1923. ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">The process of drawing topographic lines from archival drawings. ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">Transition from original raster to vectorized contour lines: raw map (left), level inversion (center), and vectorized contour lines (right). ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">Forming a three-dimentional model of the terrain based on the topographic lines. ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">A model of the Babyn Yar landscape as of 1924. ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">A model of the Babyn Yar landscape as of 2020. ©Center for Spatial Technologies, 2020</p>
+
+
+            <h3 id="image-match-georef">Georeferencing Aerial Photographs</h3>
+
+                <p>
+                    The process of geolocating of the historic photographs relies on the. By creating a detailed 3D model of the landscape as it existed in the past, historical images can be accurately placed within their geographical context. This method allows a deeper understanding of the historical site and the events that took place there, enhancing both the interpretation of photographs and the landscape itself, providing crucial insights for research and reconstruction.
+                </p>
+
+                <p>
+                    We worked with a diverse range of photographic materials, gathering images from various archives, tracking down originals, and carefully excluding pictures that were not actually from Babyn Yar (which were surprisingly numerous in Google search results for "Babyn Yar").   
+                </p>
+
+                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <p class="image-text">Photo film by Johannes Hähle. Photographs numbered 6-18 are taken in Babyn Yar. ©Hamburg Institute for Social Research.</p>
+
+
+
+
+
+                
+
+
+
 
 
 

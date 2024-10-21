@@ -3,32 +3,32 @@
         {
             "panel": "Visual Code",
             "color": "#fef445",  
-            "tags": ["data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "Ceneter for Spatial Technologies", "mapbox", "motion tracking", "camera matching"]
+            "tags": ["speculative cartography",  "data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "mapbox"]
         },
         {
             "panel": "Mapping Conflict",
             "color": "#dcc3ff",  
-            "tags": ["web mapping", "georeferencing", "satellites", "mapping", "counter mapping"]
+            "tags": ["web mapping", "georeferencing", "satellites", "mapping", "counter mapping", "agriculture", "chemical warfare", "satellite"]
         },
         {
             "panel": "Counter Narrative",
             "color": "#f9836c",  
-            "tags": ["narrative", "mixed media", "histories", "media actvism", "storytelling", "data activism", "critical race studies", "computational cultures", "reporting", "human rights"]
+            "tags": ["feminicide","gender-related violence","black magic","public interest technology","narrative", "mixed media", "histories", "media actvism", "storytelling", "data activism", "human rights"]
         },
         {
             "panel": "Local Data",
             "color": "#12cdd4",  
-            "tags": ["weather", "climate", "satellite", "ground truth", "agriculture", "chemical warfare", "feminicide", "language", "gender-related violence", "sensors", "locality", "community", "historical new york", "history", "xinjiang", "china", "historical sites", "aerial imagery"]
+            "tags": ["open source","administrative boundaries","weather", "climate", "language",  "sensors", "locality", "community", "historical new york", "history", "historical sites", "aerial imagery", "migration"]
         },
         {
             "panel": "Network Models",
             "color": "#0ca789",  
-            "tags": ["administrative boundaries", "machine learning", "ICE", "public interest technology", "DIY Tools", "open weather data", "augmented reality", "GAN model", "image processing", "artist controls", "network model", "Homophily", "investigative journalism", "migration", "context model", "video tagging", "training data"]
+            "tags": ["sentiment analysis","human in the loop","critical race studies", "computational cultures","social media", "machine learning", "ICE",  "DIY Tools", "open weather data", "augmented reality", "GAN model", "image processing", "artist controls", "network model", "Homophily", "context model",  "training data"]
         },
         {
             "panel": "Counter Forensics",
             "color": "#fac710",  
-            "tags": ["alternate realities", "speculative cartography", "black magic", "sentiment analysis", "reconstruction", "forensic architecture", "dolly camera"]
+            "tags": [ "reporting","ground truth","spatial analysis", "visual investigations","eye witness","journalism","alternate realities", "reconstruction", "forensic architecture", "dolly camera", "camera matching",  "motion tracking", "Center for Spatial Technologies", "investigative journalism", "video tagging"]
         }, 
         {
             "panel": "Center for Spatial Research", 

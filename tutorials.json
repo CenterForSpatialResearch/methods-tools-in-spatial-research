@@ -17,7 +17,7 @@
         "project": "Mapping War via Satellite",
         "authors":["Jamon Van Den Hoek, Corey Scher"],
         "panel": "Mapping Conflict",
-        "tags": ["GIS", "mapping", "speculative cartography", "machine learning", "computer vision","satellite"]
+        "tags": ["GIS", "mapping", "machine learning", "computer vision","satellite"]
     },
     {
         "project": "Black Magic",
@@ -79,7 +79,7 @@
         "project": "Interview with Alison Killing",
         "authors":["Alison Killing"],
         "panel": "Counter Forensics",
-        "tags": ["investigative journalism", "reporting", "migration", "xinjiang", "china"]
+        "tags": ["journalism", "open source", "spatial analysis", "social media", "eye witness", "visual investigations", "human in the loop"]
 
     },
     {

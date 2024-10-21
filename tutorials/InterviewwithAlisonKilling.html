@@ -24,28 +24,37 @@
         </div>
      </div>
 
-    <div class="tutorials-side-panel">
-        <h3>Workshop Panel: </h3>
-        <div class="visual-code-container">
-            <div class="tutorials-circle"></div>
-            <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+    <div class="column">
+        <div class="column-left">
+            <div class="tutorials-side-panel">
+                <h3>Workshop Panel: </h3>
+                <div class="visual-code-container">
+                    <div class="tutorials-circle"></div>
+                    <p id="panel-text" style="font-family: 'UniversNextW01-Regular', Helvetica, Arial, sans-serif; font-weight: bold;"></p>
+                </div>
+                <h3>Project Tags: </h3>
+                <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
+            </div>
         </div>
-        <h3>Project Tags: </h3>
-        <div class="tutorials-ProjectTagsContainer" id="project_tags">
-            <!-- Tags will be dynamically inserted here -->
+        <div class="column-main">
+            <div class="tutorials-section">
+                <h1>Interview with Alison Killing</h1>
+                    <h2>Senior Visual Investigations Reporter talks about her training in architecture, the open source community, and using computational tools in journalism.</h2>
+                <h2>Interview by Laura Kurgan and Adeline Chum</h2>
+        
+            </div>
+                
+           
+
         </div>
+        <div id="project_tags" class="tag-grid"></div>
     </div>
+
+    
     
 
-    <div class="tutorials-section">
-        <h1>Interview with Alison Killing, Senior Visual Investigations Reporter</h1>
-        <h2>Center for Spatial Research </h2>
-        
-
-
-    </div>
-        
-    <div id="project_tags" class="tag-grid"></div>
         <script>
             let tutorialsData;
             let colorsData;

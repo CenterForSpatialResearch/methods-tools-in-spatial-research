@@ -506,10 +506,10 @@ top-nav{
     }
 
     .tutorials-section p.image-text{
-        margin-left: auto;
-        margin-right: auto;
-        justify-items: center;
+        display: grid;
         justify-content: center;
+        justify-items: center;
+        color: #999;
     }
     
     .tutorials-iframe {
