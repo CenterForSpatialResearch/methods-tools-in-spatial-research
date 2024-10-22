@@ -37,7 +37,7 @@ top-nav{
         margin-bottom: -200px;
         font-size: 11px; 
         /* line-height: 0; */
-        overflow: hidden;
+        overflow: visible;
         overflow-wrap: break-word; 
         /* line */
     }

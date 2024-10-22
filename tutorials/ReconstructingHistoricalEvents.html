@@ -51,12 +51,12 @@
                 <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
 
                 <p>Jump to:</p>
-                <a href="#image-match-guide">Guide Overview</a><br>
-                <a href="#image-match-DEM">Building a Digital Elevation Model (DEM)</a><br>
-                <a class="indent" href="#image-match-source">Processing of Source Materials</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-                <a href="#image-match-georef-aerial">Georeferencing Aerial Photographs</a><br>
-                <a href="#image-match-georef-histo">Georeferencing Historical Photographs</a>
+                <a href="#reconstruct-guide">Guide Overview</a><br>
+                <a href="#reconstruct-DEM">Building a Digital Elevation Model (DEM)</a><br>
+                <a class="indent" href="#reconstruct-source">Processing of Source Materials</a><br>
+                <a class="indent" href="#reconstruct-contour">Vectorization of Contour Lines</a><br>
+                <a href="#reconstruct-georef-aerial">Georeferencing Aerial Photographs</a><br>
+                <a href="#reconstruct-georef-histo">Georeferencing Historical Photographs</a>
                 
                 <h3>About the project</h3>
 
@@ -75,15 +75,15 @@
 
                 <p>Babyn Yar Models presentation video (Center for Spatial Technologies 2021)</p>
 
-                <h3 id="image-match-guide">Guide overview</h3>
+                <h3 id="reconstruct-guide">Guide overview</h3>
 
                 <p>This guide outlines the general methodology for reconstructing a historical landscape using a variety of media sources. These sources include archival drawings, maps, aerial and satellite photographs, as well as ground-level photographs and videos. The guide describes the processes and techniques used to work with diverse data types – such as topographic maps and photogrammetry – to build a spatial model of a transformed landscape.</p>
 
-            <h3 id="image-match-DEM">Building a Digital Elevation Model (DEM)</h3>
+            <h3 id="reconstruct-DEM">Building a Digital Elevation Model (DEM)</h3>
 
                 <p>We sourced topographic surveys and aerial photographs from different periods to build a Digital Elevation Model (DEM) of Babyn Yar. Using specialized software like AutoCAD, QGIS, Blender, and Grasshopper for Rhinoceros 3D, we navigated the challenges of integrating varying coordinate systems and correcting map distortions to accurately reconstruct the historical landscape.</p>
 
-                <h4 id="image-match-source">Processing of Source Materials</h4>
+                <h4 id="reconstruct-source">Processing of Source Materials</h4>
 
                 <p>Most source materials required significant pre-processing. Archival maps, for example, often had visible seams, and aerial reconnaissance photographs contained distortions. To ensure usability, we corrected these issues through alignment, calibration, and distortion adjustments. This involved preparing template files for each map sheet and using QGIS Georeferencer to align the maps to a 100x100 fathom orthogonal grid.</p>
 
@@ -91,7 +91,7 @@
 
                 <p class="image-text">Raster Deformation and Orthogonal Grid Alignment ©Center for Spatial Technologies 2020</p>
             
-                <h4 id="image-match-contour">Vectorization of Contour Lines</h4>
+                <h4 id="reconstruct-contour">Vectorization of Contour Lines</h4>
 
                 <p>For topographic maps, color filters were applied to isolate contour lines, and superfluous elements were removed to enhance clarity. These images were then imported into a CAD environment, where each contour line was vectorized and elevated to its respective height using Bitonal mode. This crucial step allowed for the precise creation of a three-dimensional terrain model.</p>
 
@@ -114,7 +114,7 @@
                 <p class="image-text">A model of the Babyn Yar landscape as of 2020. ©Center for Spatial Technologies, 2020</p>
 
 
-            <h3 id="image-match-georef-aerial">Georeferencing Aerial Photographs</h3>
+            <h3 id="reconstruct-georef-aerial">Georeferencing Aerial Photographs</h3>
 
                 <p>
                     The georeferencing process involves overlaying archival aerial photographs and maps onto the 3D terrain model to better understand the historical landscape. The process begins by collecting archival materials from different archives. The topographic maps are aligned using buildings from the 1920s that still stand today as reference points. Photogrammetry tools are then used to georeference the aerial photographs, accurately determine camera positions, and reproject the original images onto a 3D terrain model of the area. This georeferencing is essential for ensuring that the historical images align correctly with the modern landscape, providing a reliable foundation for further analysis and reconstruction.
@@ -133,7 +133,7 @@
                 <p class="image-text">Bird’s-eye view of the Babyn Yar terrain from 1943, overlaid with an aerial image. ©Center for Spatial Technologies, 2020.</p>
 
 
-            <h3 id="image-match-georef-histo">Georeferencing Historical Photographs</h3>
+            <h3 id="reconstruct-georef-histo">Georeferencing Historical Photographs</h3>
 
                 <p>
                     The process of geolocating of the historic photographs relies on the. By creating a detailed 3D model of the landscape as it existed in the past, historical images can be accurately placed within their geographical context. This method allows a deeper understanding of the historical site and the events that took place there, enhancing both the interpretation of photographs and the landscape itself, providing crucial insights for research and reconstruction.
