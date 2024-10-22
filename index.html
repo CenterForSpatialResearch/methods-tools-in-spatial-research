@@ -430,13 +430,13 @@ function setFocusClass(button) {
                 ) 
 
             .force("charge", d3.forceManyBody() // This adds repulsion between nodes.
-                .strength(-20000) 
+                .strength(-10*width) 
 
             ) 
             .force("center", d3.forceCenter(width /2, height / 2)) // bring to center of svg
-            .force("x", d3.forceX(width/2).strength(width/1300)) // Horizontal force 1300
+            .force("x", d3.forceX(width/2).strength(1)) // Horizontal force 1300
             // .force("y", d3.forceY(height/2).strength(width/1000000)) // Vertical force 
-            .force("y", d3.forceY(height/2).strength(height/400)) 
+            .force("y", d3.forceY(height/2).strength(1)) 
             .on("tick", ticked);
 
         //TO DO this is temp fix for intial text wrap
