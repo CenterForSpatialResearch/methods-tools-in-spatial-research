@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image-matching: Locating Imagery in 3D Space</title>
+    <title>Reconstructing Historical Events: The Babyn Yar Models Project</title>
     <link rel="stylesheet" href="../main.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -47,15 +47,16 @@
 
             <div class="tutorials-section">
                 
-                <h1>Reconstructing Historical Events: The Babyn Yar Models Project</h1>
+                <h1>Reconstructing Historical Events: The Babyn Yar Models Project</h1> <!-- MATCH with title above in head -->
                 <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
 
                 <p>Jump to:</p>
-                <a href="#image-match-guide">Guide Overview</a>
-                <a href="#image-match-DEM">Building a Digital Elevation Model (DEM)</a>
-                <a href="#image-match-guide">Guide Overview</a>
-                <a href="#image-match-guide">Guide Overview</a>
-
+                <a href="#image-match-guide">Guide Overview</a><br>
+                <a href="#image-match-DEM">Building a Digital Elevation Model (DEM)</a><br>
+                <a class="indent" href="#image-match-source">Processing of Source Materials</a><br>
+                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
+                <a href="#image-match-georef-aerial">Georeferencing Aerial Photographs</a><br>
+                <a href="#image-match-georef-histo">Georeferencing Historical Photographs</a>
                 
                 <h3>About the project</h3>
 
@@ -94,26 +95,45 @@
 
                 <p>For topographic maps, color filters were applied to isolate contour lines, and superfluous elements were removed to enhance clarity. These images were then imported into a CAD environment, where each contour line was vectorized and elevated to its respective height using Bitonal mode. This crucial step allowed for the precise creation of a three-dimensional terrain model.</p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/kyivTopoMap.png" alt="1923 Kyiv Topo Map"></img>
                 <p class="image-text">A processed fragment of a topographic map of Kyiv from 1923. ©Center for Spatial Technologies, 2020</p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/CADKyivContourLines.png" alt="Topo Lines from Archive Drawing"></img>
                 <p class="image-text">The process of drawing topographic lines from archival drawings. ©Center for Spatial Technologies, 2020</p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/RasterToVector.png" alt="Grid Transition from Raster to Vector Lines"></img>
                 <p class="image-text">Transition from original raster to vectorized contour lines: raw map (left), level inversion (center), and vectorized contour lines (right). ©Center for Spatial Technologies, 2020</p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/Babyn_Yar_Models___CST_for_BYHMC_work_in_progress.gif" alt="CST Babyn Yar Model 3d Model from Topo Lines"></img>
                 <p class="image-text">Forming a three-dimentional model of the terrain based on the topographic lines. ©Center for Spatial Technologies, 2020</p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/model1924.png" alt="3d model of 1924 Babyn Yar landscape"></img>
                 <p class="image-text">A model of the Babyn Yar landscape as of 1924. ©Center for Spatial Technologies, 2020</p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/model2020.png" alt="3d model of 2020 Babyn Yar landscape"></img>
                 <p class="image-text">A model of the Babyn Yar landscape as of 2020. ©Center for Spatial Technologies, 2020</p>
 
 
-            <h3 id="image-match-georef">Georeferencing Aerial Photographs</h3>
+            <h3 id="image-match-georef-aerial">Georeferencing Aerial Photographs</h3>
+
+                <p>
+                    The georeferencing process involves overlaying archival aerial photographs and maps onto the 3D terrain model to better understand the historical landscape. The process begins by collecting archival materials from different archives. The topographic maps are aligned using buildings from the 1920s that still stand today as reference points. Photogrammetry tools are then used to georeference the aerial photographs, accurately determine camera positions, and reproject the original images onto a 3D terrain model of the area. This georeferencing is essential for ensuring that the historical images align correctly with the modern landscape, providing a reliable foundation for further analysis and reconstruction.
+                </p>
+
+                <img src="./images/ReconstructingHistoricalEvents/footageColleciton.png" alt="Reconnaissance Footage"></img>
+                    <p class="image-text">Collection of German reconnaissance footage from 1939, 1941, 1943, and 1944. ©Center for Spatial Technologies, 2020</p>
+                
+                <img src="./images/ReconstructingHistoricalEvents/stereoscopicImagePair.png" alt="Stereoscopic image pairs"></img>
+                <p class="image-text">Stereoscopic image pairs used for terrain photogrammetry and lens distortion correction. ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/topoAerialMaps.png" alt="Aligned Topo Maps"></img>
+                <p class="image-text">Topographic maps and aerial images are aligned using buildings from the 1920s that still stand today as reference points. ©Center for Spatial Technologies, 2020</p>
+
+                <img src="./images/ReconstructingHistoricalEvents/AerialTerrain.png" alt="Babyn Yar terrain from 1943"></img>
+                <p class="image-text">Bird’s-eye view of the Babyn Yar terrain from 1943, overlaid with an aerial image. ©Center for Spatial Technologies, 2020.</p>
+
+
+            <h3 id="image-match-georef-histo">Georeferencing Historical Photographs</h3>
 
                 <p>
                     The process of geolocating of the historic photographs relies on the. By creating a detailed 3D model of the landscape as it existed in the past, historical images can be accurately placed within their geographical context. This method allows a deeper understanding of the historical site and the events that took place there, enhancing both the interpretation of photographs and the landscape itself, providing crucial insights for research and reconstruction.
@@ -123,22 +143,32 @@
                     We worked with a diverse range of photographic materials, gathering images from various archives, tracking down originals, and carefully excluding pictures that were not actually from Babyn Yar (which were surprisingly numerous in Google search results for "Babyn Yar").   
                 </p>
 
-                <img src="./images/ReconstructingHistoricalEvents/RasterDeformation-and-OrthogonalGridAlignment.gif" alt="Raster Deformation and Ortho Grid"></img>
+                <img src="./images/ReconstructingHistoricalEvents/photoFilm.png" alt="Photo Film"></img>
                 <p class="image-text">Photo film by Johannes Hähle. Photographs numbered 6-18 are taken in Babyn Yar. ©Hamburg Institute for Social Research.</p>
 
+                <p>
+                    The next step is to identify the terrain features visible in both photographs and aerial images/models. For example, on the bird's-eye view model of the site below, a large grassy hill with a tree line in the background is visible. This distinctive hill can be identified in photographs from the 1940s, providing a consistent reference point across different time periods. Through the angle from which this hill is visible, we identified the locations of several key photographs.
+                </p>
 
+                <img src="./images/ReconstructingHistoricalEvents/keyFeatures.png" alt="Identification of the key terrain features"></img>
+                <p class="image-text">Identification of the key terrain features (photographs numbered 16 and 17 from the Johannes Hähle film), visible on the aerial images. ©Center for Spatial Technologies, 2021.</p>
 
+                <img src="./images/ReconstructingHistoricalEvents/VhillModel.png" alt="Hill with V-shaped grass on the bird’s-eye view model of Babyn Yar"></img>
+                <p class="image-text">The hill with V-shaped grass on the bird’s-eye view model of Babyn Yar. ©Center for Spatial Technologies, 2021.</p>
 
+                <img src="./images/ReconstructingHistoricalEvents/modelToPhotos.gif" alt="Different photographs from the 1940s showing a hill with V-shaped"></img>
+                <p class="image-text">Different photographs from the 1940s showing a hill with V-shaped grass, visible from multiple angles. ©Center for Spatial Technologies, 2021.</p>
 
-                
+                <p>
+                    This work led us to develop the <a href="https://github.com/sptch/image-matcher/tree/main">Image-matcher Add-on for Blender plugin</a>, which we also used in our later analysis of the <a href="https://www.spatialtech.info/en/works/tv-tower">Russian attack on Kyiv TV tower</a>, the <a href="https://www.spatialtech.info/en/works/mykolaiv">missile strike on Mykolaiv ODA</a>, and our in-depth study of the <a href="https://theater.spatialtech.info/en">Russian bombing of the Mariupol Drama Theater</a>. For more details on how to use this add-on we created a separate tutorial, available <a href="./ImageMatching.html">here</a>. 
+                </p>
 
+                <p>
+                    Presented below are the located photographs:
+                </p>
 
-
-
-
-
-            
-
+                <img src="./images/ReconstructingHistoricalEvents/siteHistoricalPhotos.gif" alt="Contemporary Babyn Yar overlaid with the terrain of the historic ravines"></img>
+                <p class="image-text">Contemporary territory of Babyn Yar overlaid with the terrain of the historic ravines, including exact locations of historic photographs. ©Center for Spatial Technologies, 2021.</p>
 
             </div>
         </div>

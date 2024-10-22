@@ -36,7 +36,7 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="search by author, key terms, method ...">
                 <button onclick="search()" id="searchButton">></button>
 
-                <p style="margin-top: 35px; font-weight: bold;">
+                <p style="font-weight: bold;">
                     Workshop Panels:
                 </p>
                 <div class="panel-button-wrapper">
@@ -69,7 +69,7 @@
                     <span class="button-text">Counter Forensics</span>
                 </div>
 
-                <hr style="width: 97%; margin: 20px auto;">
+                <!-- <hr style="width: 97%; margin: 20px auto;"> -->
 
                 <p style="font-weight: bold;">
                     Center for Spatial Research
@@ -125,6 +125,9 @@
         // Adjust the inner width of the content (excluding margins)
         const adjustedWidth = width - margin.left - margin.right;
         const adjustedHeight = height - margin.top - margin.bottom;
+
+        // console.log(adjustedWidth, adjustedHeight);
+        console.log(width, height);
 
         // Append the SVG object to the div with id 'networkviz'
         const svg = d3.select("#networkviz")
@@ -427,13 +430,13 @@ function setFocusClass(button) {
                 ) 
 
             .force("charge", d3.forceManyBody() // This adds repulsion between nodes.
-                // .strength(-2000)
-                .strength(-3 * width/2)
+                .strength(-20000) 
 
             ) 
             .force("center", d3.forceCenter(width /2, height / 2)) // bring to center of svg
-            .force("x", d3.forceX(width/2).strength(width*0.000002)) // Horizontal force
-            .force("y", d3.forceY(height/2).strength(width/70000)) // Vertical force
+            .force("x", d3.forceX(width/2).strength(width/1300)) // Horizontal force 1300
+            // .force("y", d3.forceY(height/2).strength(width/1000000)) // Vertical force 
+            .force("y", d3.forceY(height/2).strength(height/400)) 
             .on("tick", ticked);
 
         //TO DO this is temp fix for intial text wrap
@@ -443,7 +446,7 @@ function setFocusClass(button) {
 
             async function clickVisual() {
                 // console.log("Waiting 2 seconds...");
-                await delay(1500);
+                await delay(1700);
                 document.getElementById('show-authors').click();
                 // console.log("Function executed after 2 seconds");
                 }
