@@ -28,15 +28,18 @@ top-nav{
     height: 100vh; /* Full viewport height */
     overflow: hidden;
     font-size: 16px;
+    margin-top: -100px;
   }
 
   @media (max-width: 800px) {
     #networkviz{
-        /* margin-top: -250px; */
+        margin-top: 0px;
         margin-bottom: -200px;
-        font-size: 10px; 
+        font-size: 11px; 
+        /* line-height: 0; */
         overflow: hidden;
-        
+        overflow-wrap: break-word; 
+        /* line */
     }
 }
   
@@ -47,8 +50,15 @@ top-nav{
 
     .link {
         stroke: #b6b6b6;
-        /* stroke-opacity: 0.6; */
+        stroke-opacity: 0.9;
+        
     }
+    @media(max-width:800px){
+        .link{
+            stroke-opacity: 0.6;
+        }
+    }
+
     .panel-VisualCode {
         fill: white;
         stroke: #EDDF2B;
