@@ -273,12 +273,6 @@
                     .on("end", dragended)
                 );
 
-        node.append("svg:text")
-            .selectAll('text')
-            .attr("dx", -6)
-            .attr("dy",6)
-            .text(d.author)
-
           // Reheat the simulation when drag starts, and fix the subject position.
             function dragstarted(event) {
                 if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -336,81 +330,78 @@
         var xTextOffset = 0;
     
         // Create a <text> element for each tutorial that displays author information and stores the original panel name based on the panel name.
+// console.log(node);
 
+d3.select("#show-authors").on("click", function() {
+    //TODO: instead of removing and recreating, maybe just hide
+    svg.selectAll("text").remove()
 
+    svg.selectAll("text")
+            .data(data.tutorials)
+            .enter()
+            .append("text")
+            .attr("class", "node-text")
+            .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
+            .attr("y", d => d.y + yTextOffset())
+            .each(function(d) {
+                const lines = wrapText(d.authors, 0.098 * window.innerWidth + 63.25);  // Pass d.authors string to wrapText
+                const yOffset = 20;  // Line height
+                let dy = 0;  // Initial y offset
 
+                lines.forEach(line => {
+                    d3.select(this)
+                        .append("tspan")
+                        .attr("x",d.cx)
+                        .attr("y",d.cy + dy + yTextOffset())
+                        // .attr("x", d.x + xTextOffset)  // Set the x position
+                        // .attr("y", d.y + dy + yTextOffset())  // Adjust the y position for each line
+                        .text(line);
 
+                    dy += yOffset;  // Increase dy for the next line
+                });
 
-// const text = svg
-
-// d3.select("#show-authors").on("click", function() {
-//     //TODO: instead of removing and recreating, maybe just hide
-//     svg.selectAll("text").remove()
-
-//     svg.selectAll("text")
-//             .data(data.tutorials)
-//             .enter()
-//             .append("text")
-//             .attr("class", "node-text")
-//             .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
-//             .attr("y", d => d.y + yTextOffset())
-//             .each(function(d) {
-//                 const lines = wrapText(d.authors, 0.098 * window.innerWidth + 63.25);  // Pass d.authors string to wrapText
-//                 const yOffset = 20;  // Line height
-//                 let dy = 0;  // Initial y offset
-
-//                 lines.forEach(line => {
-//                     d3.select(this)
-//                         .append("tspan")
-//                         .attr("x", d.x + xTextOffset)  // Set the x position
-//                         .attr("y", d.y + dy + yTextOffset())  // Adjust the y position for each line
-//                         .text(line);
-
-//                     dy += yOffset;  // Increase dy for the next line
-//                 });
-
-//                 d3.select(this)
-//                     .attr("original-panel", d.panel);  // Store the original panel name
-//             });
+                d3.select(this)
+                    .attr("original-panel", d.panel);  // Store the original panel name
+            });
             
-//     setFocusClass(this);
-// });
+    setFocusClass(this);
+});
 
 
-// //Display projects
-// d3.select("#show-projects").on("click", function() {
-//     //TODO: instead of removing and recreating, maybe just hide
-//     svg.selectAll("text").remove()
+//Display projects
+d3.select("#show-projects").on("click", function() {
+    //TODO: instead of removing and recreating, maybe just hide
+    svg.selectAll("text").remove()
 
-//     svg.selectAll("text")
-//             .data(data.tutorials)
-//             .enter()
-//             .append("text")
-//             .attr("class", "node-text")
-//             .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
-//             .attr("y", d => d.y + yTextOffset())
+    svg.selectAll("text")
+            .data(data.tutorials)
+            .enter()
+            .append("text")
+            .attr("class", "node-text")
+            .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
+            .attr("y", d => d.y + yTextOffset())
 
-//             .each(function(d) {
-//                 const lines = wrapText(d.project, 0.098 * window.innerWidth + 63.25);  // Pass d.authors string to wrapText
-//                 const yOffset = 20;  // Line height
-//                 let dy = 0;  // Initial y offset
+            .each(function(d) {
+                const lines = wrapText(d.project, 0.098 * window.innerWidth + 63.25);  // Pass d.authors string to wrapText
+                const yOffset = 20;  // Line height
+                let dy = 0;  // Initial y offset
 
-//                 lines.forEach(line => {
-//                     d3.select(this)
-//                         .append("tspan")
-//                         .attr("x", d.x + xTextOffset)  // Set the x position
-//                         .attr("y", d.y + dy + yTextOffset())  // Adjust the y position for each line
-//                         .text(line);
+                lines.forEach(line => {
+                    d3.select(this)
+                        .append("tspan")
+                        .attr("x", d.cx + xTextOffset)  // Set the x position
+                        .attr("y", d.cy + dy + yTextOffset())  // Adjust the y position for each line
+                        .text(line);
 
-//                     dy += yOffset;  // Increase dy for the next line
-//                 });
+                    dy += yOffset;  // Increase dy for the next line
+                });
 
-//                 d3.select(this)
-//                     .attr("original-panel", d.panel);  // Store the original panel name
-//             });
+                d3.select(this)
+                    .attr("original-panel", d.panel);  // Store the original panel name
+            });
 
-//     setFocusClass(this);
-// });
+    setFocusClass(this);
+});
 
 
 // Keep button focused when clicked
@@ -440,8 +431,6 @@ function setFocusClass(button) {
         };
     }
 
-        // console.log(svgWidth, svgHeight);
-
  // console.log(links);
         const simulation = d3.forceSimulation(data.tutorials)
             .force("link", d3.forceLink(allLinks) // This force provides links between nodes
@@ -455,10 +444,6 @@ function setFocusClass(button) {
             ) 
             .force("center", d3.forceCenter(svgWidth/2, svgHeight/2)) // bring to center
             .force("collide", d3.forceCollide(Math.min(svgWidth, svgHeight)/10))
-            // .force("charge",d3.forceManyBody().strength(-1000))
-            // .force("center", d3.forceCenter().strength(5))
-            // .force("x", d3.forceX(svgWidth/2).strength(1.4)) // Horizontal force 1300
-            // .force("y", d3.forceY(svgHeight/2).strength(1.4)) 
             .on("tick", ticked);
 
         //TO DO this is temp fix for intial text wrap
@@ -475,6 +460,7 @@ function setFocusClass(button) {
 
             clickVisual();
 
+
         function ticked() {
             link
                 .attr("x1", function(d) { return d.source.x; })
@@ -486,9 +472,11 @@ function setFocusClass(button) {
                 .attr("cx", function (d) { return d.x+1; })
                 .attr("cy", function(d) { return d.y-1; });
 
-        //     // text
-        //     //    .attr("x", function(d) { return d.x + xTextOffset; }) // Adjust the position of the text
-        //     //    .attr("y", function(d) { return d.y + yTextOffset(); }); // Adjust the position of the text
+            const text = svg.selectAll("text")
+
+            text
+               .attr("x", function(d) { return d.x + xTextOffset; }) // Adjust the position of the text
+               .attr("y", function(d) { return d.y + yTextOffset(); }); // Adjust the position of the text
         };
 
         //onclick link to individual tutorial pages
