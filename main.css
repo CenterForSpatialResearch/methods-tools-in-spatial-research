@@ -121,6 +121,8 @@ top-nav{
   .column-left {
     width: 20%;
     min-width: 350px;
+    
+    /* flex-flow: column; */
 
   }
 
@@ -143,15 +145,19 @@ top-nav{
  /* Responsive layout */
 @media (max-width: 800px) {
     .column{
+        width: 100%;
         flex-direction: column-reverse;
+        align-items: center;
     }
-    .column-main {
+    .column-main{
         width: 100%;
         margin-top: 20px;
         height: 500px;
     }
-    .column-left, .column-main-viz {
+    .column-left, .column-main-viz, .column-main {
+        flex: 100%;
         width: 100%;
+        /* justify-items: center; */
     }
     .column-main-viz{
         margin-top: 20px;
@@ -481,6 +487,7 @@ top-nav{
     .tutorials-section h2 {
         /* font-size: px; */
         margin-bottom: 20px;
+        padding-bottom: 20px;
         color: #727272;
     }
 
