@@ -130,27 +130,14 @@
         const adjustedHeight = height - margin.top - margin.bottom;
 
         // console.log(adjustedWidth, adjustedHeight);
-        console.log(width, height);
+        // console.log(width, height);
 
         // Append the SVG object to the div with id 'networkviz'
         const svg = d3.select("#networkviz")
             .append("svg")
             .attr("width", '100%')            // Set width to 100% to allow resizing
             .attr("height", '100%')           // Set height to 100% for full window
-            // .attr("viewBox", `0 0 ${width} ${height}`) // Use the viewBox to make it scalable
-            // .attr("preserveAspectRatio", "xMidYMid meet") // Maintain aspect ratio
             .append("g")
-            // .attr("transform", `translate(${0}, ${-height/4})`); // Center the <g>
-
-
-        // Adjust the transformation on window resize
-        // window.addEventListener("resize", () => {
-        //     const newWidth = window.innerWidth;
-        //     const newHeight = window.innerHeight;
-        //     svg.attr("viewBox", `0 0 ${newWidth} ${newHeight}`) // Update viewBox
-        //         .select("g")
-        //         .attr("transform", `translate(${newWidth / 2}, ${newHeight /2})`); // Re-center <g>
-        // });
 
         //Extract all unique panel names and create links to the tutorials within each panel. These links represent relationships between different items within the same panel.
         var panels = Array.from(new Set(data.tutorials.map(tutorial => tutorial.panel)));
@@ -205,8 +192,6 @@
 
         const allLinks = links.concat(tagLinks, panelLinks); 
 
-        // console.log(allLinks);
-
         // Define a function to get the color class based on the panel name
         function getNodeColor(panel) {
             switch (panel) {
@@ -226,8 +211,6 @@
                     return "panel-Default";
             }
         }
-
-        // console.log(panelLinks);
 
         // Returns the linked CSS class name for style definition based on the panel name.
         function getLinkClassName(panel) {
@@ -294,7 +277,6 @@
                 event.subject.fy = null;
             }
 
-
         const wrapText = (text, maxWidth) => {
             
             if (typeof text !== "string") {
@@ -328,99 +310,20 @@
         };
 
         var xTextOffset = 0;
-    
-        // Create a <text> element for each tutorial that displays author information and stores the original panel name based on the panel name.
-// console.log(node);
+        let showAuthor = true;
 
-d3.select("#show-authors").on("click", function() {
-    //TODO: instead of removing and recreating, maybe just hide
-    svg.selectAll("text").remove()
+        d3.select("#show-authors").on("click", function() {
+            showAuthor = true;
+            updateTextContent();  // Call the function to update text content
+            setFocusClass(this);
+        });
 
-    svg.selectAll("text")
-            .data(data.tutorials)
-            .enter()
-            .append("text")
-            .attr("class", "node-text")
-            .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
-            .attr("y", d => d.y + yTextOffset())
-            .each(function(d) {
-                const lines = wrapText(d.authors, 0.098 * window.innerWidth + 63.25);  // Pass d.authors string to wrapText
-                const yOffset = 20;  // Line height
-                let dy = 0;  // Initial y offset
-
-                lines.forEach(line => {
-                    d3.select(this)
-                        .append("tspan")
-                        .attr("x",d.cx)
-                        .attr("y",d.cy + dy + yTextOffset())
-                        // .attr("x", d.x + xTextOffset)  // Set the x position
-                        // .attr("y", d.y + dy + yTextOffset())  // Adjust the y position for each line
-                        .text(line);
-
-                    dy += yOffset;  // Increase dy for the next line
-                });
-
-                d3.select(this)
-                    .attr("original-panel", d.panel);  // Store the original panel name
-            });
-            
-    setFocusClass(this);
-});
-
-
-//Display projects
-d3.select("#show-projects").on("click", function() {
-    //TODO: instead of removing and recreating, maybe just hide
-    svg.selectAll("text").remove()
-
-    svg.selectAll("text")
-            .data(data.tutorials)
-            .enter()
-            .append("text")
-            .attr("class", "node-text")
-            .attr("x", d => d.x + xTextOffset)  // Modify the location of the <text> 
-            .attr("y", d => d.y + yTextOffset())
-
-            .each(function(d) {
-                const lines = wrapText(d.project, 0.098 * window.innerWidth + 63.25);  // Pass d.authors string to wrapText
-                const yOffset = 20;  // Line height
-                let dy = 0;  // Initial y offset
-
-                lines.forEach(line => {
-                    d3.select(this)
-                        .append("tspan")
-                        .attr("x", d.cx + xTextOffset)  // Set the x position
-                        .attr("y", d.cy + dy + yTextOffset())  // Adjust the y position for each line
-                        .text(line);
-
-                    dy += yOffset;  // Increase dy for the next line
-                });
-
-                d3.select(this)
-                    .attr("original-panel", d.panel);  // Store the original panel name
-            });
-
-    setFocusClass(this);
-});
-
-
-// Keep button focused when clicked
-function setFocusClass(button) {
-    d3.selectAll(".button-container button").classed("custom-focus", false);  // Remove custom focus class
-    d3.select(button).classed("custom-focus", true);  // Add custom focus class
-}
-
-
-// Function to set focus class on buttons
-function setFocusClass(button) {
-    d3.selectAll(".button-container button").classed("custom-focus", false); // Remove custom class from all buttons
-    d3.select(button).classed("custom-focus", true); // Add custom class to the clicked button
-}
-
-        // var forceStrength = Math.min(adjustedHeight, adjustedWidth);
-
-        var svgWidth = parseFloat(d3.select("#networkviz").style("width"));
-        var svgHeight = parseFloat(d3.select("#networkviz").style("height"));
+        // Display projects
+        d3.select("#show-projects").on("click", function() {
+            showAuthor = false;
+            updateTextContent();  // Call the function to update text content
+            setFocusClass(this);
+        });
 
         function yTextOffset(){
         if(svgWidth > 800){
@@ -431,8 +334,47 @@ function setFocusClass(button) {
         };
     }
 
- // console.log(links);
-        const simulation = d3.forceSimulation(data.tutorials)
+// Function to update text content based on showAuthor
+function updateTextContent() {
+    svg.selectAll("text").remove();  // Clear previous text elements
+    
+    svg.selectAll("text").data(data.tutorials)
+        .enter()
+        .append("text")
+        .attr("class", "node-text")
+        .attr("x", d => d.cx + xTextOffset)
+        .attr("y", d => d.cy + yTextOffset())
+        .each(function(d) {
+            d3.select(this).selectAll("tspan").remove();  // Clear previous tspans
+            const textContent = showAuthor ? d.authors : d.project;
+            const yOffset = svgWidth > 800 ? 20 : 10;
+            const lines = wrapText(textContent, 0.098 * window.innerWidth + 63.25);
+            let dy = 0;
+
+            lines.forEach(line => {
+                d3.select(this)
+                    .append("tspan")
+                    .attr("x", d.x + xTextOffset)
+                    .attr("y", d.y + dy + yTextOffset())
+                    .text(line);
+
+                dy += yOffset;
+            });
+
+        });
+    }
+
+    // Function to set focus class on buttons
+    function setFocusClass(button) {
+        d3.selectAll(".button-container button").classed("custom-focus", false); // Remove custom class from all buttons
+        d3.select(button).classed("custom-focus", true); // Add custom class to the clicked button
+    }
+
+        var svgWidth = parseFloat(d3.select("#networkviz").style("width"));
+        var svgHeight = parseFloat(d3.select("#networkviz").style("height"));
+
+
+    const simulation = d3.forceSimulation(data.tutorials)
             .force("link", d3.forceLink(allLinks) // This force provides links between nodes
                 .id(d => d.project) // This provide  the id of a node
                 .links(allLinks)  // and this the list of links
@@ -453,7 +395,7 @@ function setFocusClass(button) {
 
             async function clickVisual() {
                 // console.log("Waiting 2 seconds...");
-                await delay(1700);
+                await delay(1000);
                 document.getElementById('show-authors').click();
                 // console.log("Function executed after 2 seconds");
                 }
@@ -462,6 +404,7 @@ function setFocusClass(button) {
 
 
         function ticked() {
+
             link
                 .attr("x1", function(d) { return d.source.x; })
                 .attr("y1", function(d) { return d.source.y; })
@@ -472,12 +415,36 @@ function setFocusClass(button) {
                 .attr("cx", function (d) { return d.x+1; })
                 .attr("cy", function(d) { return d.y-1; });
 
-            const text = svg.selectAll("text")
+            const text = svg.selectAll("text").remove()
 
-            text
-               .attr("x", function(d) { return d.x + xTextOffset; }) // Adjust the position of the text
-               .attr("y", function(d) { return d.y + yTextOffset(); }); // Adjust the position of the text
-        };
+            svg.selectAll("text")
+                .data(data.tutorials)
+                .enter()
+                .append("text")
+                .attr("class", "node-text")
+                .attr("x", d => d.cx + xTextOffset)  // Modify the location of the <text> 
+                .attr("y", d => d.cy + yTextOffset())
+                .each(function(d){
+                    const yOffset = svgWidth > 800 ? 20 : 10;
+                    const textContent = showAuthor ? d.authors : d.project;
+                    const lines = wrapText(textContent, 0.098 * window.innerWidth + 63.25);
+                    let dy = 0;  // Initial y offset
+
+                    lines.forEach(line => {
+                        d3.select(this)
+                            .append("tspan")
+                            .attr("x",d.x)
+                            .attr("y",d.y + dy + yTextOffset())
+                            .text(line);
+
+                        dy += yOffset;  // Increase dy for the next line
+                    });
+
+                    d3.select(this)
+                        .attr("original-panel", d.panel);  // Store the original panel name
+
+                    });
+        }
 
         //onclick link to individual tutorial pages
         svg.selectAll(".node")
