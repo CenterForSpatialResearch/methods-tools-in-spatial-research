@@ -45,13 +45,14 @@
             <div class="tutorials-section">
                 <h1>Visual Code</h1>
                 <h2>Lucia Rebolino</h2>
-                <img src="./images_Lucia_Rebolino/image1.png" alt="Hero Image" class="tutorials-image" style="margin-top: -20px;">
-                <p style="margin-top: -40px; text-align: center; font-size: 18px;">Figure 1. Photo Credit: Lucia Rebolino. </p>
+                <img src="./images/unpredictableAtmosphere/image1.png" alt="Main image">
+                <p class="image-text">Image Credit: Lucia Rebolino </p>
                 
                 <p>In recent years, the rapid pace of technological evolution has profoundly impacted climate science, highlighting the unpredictability of our climate against new models of technology. These technologies, designed to question deeper timelines in the future, have revealed that telecommunications companies and high-speed networks, crucial to today's digital infrastructure, often obstruct the collection of atmospheric data1. As we address these challenges, new AI models are being developed to predict weather patterns by integrating high-quality observations with historical climate data. However, these models often struggle to detect extreme weather events because they are typically designed to ignore outliers2. This unpredictability has become a space of political conflict, fostering the development of counter-modeling practices that could harness tools and methodologies from Architecture and Design, potentially leading to new architectural agendas where unreal data and models might induce real environmental impacts.</p>
     
-                <iframe src="https://luciarebolino.github.io/CSR-LR-webpres/" class="tutorials-iframe" height="1000" width="1800" title="Exercise 1" frameborder="0"></iframe> 
-                <p style="margin-top: -40px; text-align: center; font-size: 18px;">Drag the screen left or right, and scroll down to explore the information. </p>
+                <iframe src="https://luciarebolino.github.io/CSR-LR-webpres/" class="tutorials-iframe" title="Exercise 1" allow="fullscreen"></iframe>
+
+                <p class="image-text">Use the arrow keys (up, down, right, left) to navigate the platform, or drag the screen left and right. Scroll down to explore the information and datasets used as an appendix for this article</p>
     
                 <p>Climate science relies heavily on models3, but the complexity and uncertainty of the atmosphere's climate system mean these models must continually evolve4. It is essential to reconsider how we approach uncertainty as a condition of possibility within the complexities of weather and climate modeling5. From atmospheric parameters like water vapor, cloud cover, storm patterns, and moisture levels to ground data from antennas and radar systems, crowd-sourced databases, open-source information, and APIs—there are numerous sources that can reveal spatial correlations in diverse datasets6. By developing new aesthetics and languages of prediction, we can transform concrete aspects of climate into data and images that help remap our concept of unpredictability.</p> 
     
@@ -72,10 +73,26 @@
                 <p>New aesthetics and languages of prediction help modulate concrete aspects of climate into data and images that re-map our conception of the atmosphere through a counter-cartography practice. This approach poses questions along deeper timelines in the future, aiming to build a new vocabulary around an uncertain future where critical practices stretch their boundaries, adapting and transforming. For a model to be successful, it must replicate the known while generalizing into the unknown. New knowledge pushes models forward, understanding spatial and design practices as a space where different fields and branches of science and art intersect conceptually and visually, provoking new vibrant aesthetics. Using critical computation as active tools, we can redraw the space of uncertainty, opening new possibilities for understanding and engaging with our changing world.
                 </p>
     
+                <h3>Tutorial:</h3>
+
+                <p>Among the various weather indicators that NOAA and NASA collect and model, Precipitable Water (PWAT) is a crucial variable. PWAT measures the total amount of water vapor in the entire atmosphere above a specific location on Earth's surface. Essentially, it represents the potential amount of water that could be extracted from the atmosphere as rain or snow. When PWAT values are high, the atmosphere is rich with moisture, making it possible for storms to produce large amounts of precipitation. Conversely, low PWAT values indicate a drier atmosphere, reducing the likelihood of significant rainfall.</p>
+                    
+                <p>It’s essential to remember that PWAT by itself doesn’t determine whether precipitation will happen—it only shows the potential for it, depending on the occurrence of other atmospheric processes like thunderstorms. However, it's still a critical measurement collected by satellite instruments and is heavily used in NOAA’s weather forecasting.</p>
     
-    
-                <h2>References
-                </h2>
+                <h4>Tutorial Breakdown:</h4>
+
+                <p>The tutorial is divided into two parts:</p>
+
+                <p>• <bold>Part 1</bold>: We’ll go through processing and visualizing PWAT data from the 0.25-degree Global Forecast System (GFS). Given how atmospheric rivers and water vapor move dynamically, shaping weather patterns, we’ll explore how to create an animated video map of this data spanning 12 days, revealing complex temporal patterns.
+</p>
+                <p>• rasterio: Clean and fast geospatial raster I/O for Python programmers who use Numpy.</p>
+                <p>• gribdoctor: Utilities for handling quirks of GRIB (General Regularly-distributed Information in Binary form) files in GIS applications. GRIB data is a concise data format commonly used in meteorology to store historical and forecast weather data, viewable using various software applications.</p>
+                <p>• FFmpeg: Create videos from images downloaded via the command line (terminal).</p>
+                <p>• WebGL: Project the data onto a 3d environment for web-based visualization.</p>
+
+
+                <h3>References
+                </h3>
     
                 <p>1. Jordan Gerth, “Scientific & Meteorological Use of Spectrum,” Presentation at the 2022 National Spectrum Management Association (NSMA) Conference, University of Wisconsin & NOAA, 2022. </p>
     
@@ -94,23 +111,12 @@
     
                 <p>8. Kim Martineau, "IBM and NASA are building an AI foundation model for weather and climate," IBM Research Blog, November 30, 2023.</p>
     
-                <p>9. NASA. "Transform to Open Science." NASA Transform to Open Science (2024). <a href="https://nasa.github.io/Transform-to-Open-Science/" target="_blank">https://nasa.github.io/Transform-to-Open-Science/.</a></p>
+                <p>9. NASA. "Transform to Open Science." NASA Transform to Open Science (2024). 
+                    <br><a href="https://nasa.github.io/Transform-to-Open-Science/" target="_blank">https://nasa.github.io/Transform-to-Open-Science/.</a></p>
     
-                <p>10. NASA. NASA Software Catalog 2023-24. 2023. <a href="https://software.nasa.gov/sites/default/files/NASA_Software_Catalog_2023-24.pdf." target="_blank">https://software.nasa.gov/sites/default/files/NASA_Software_Catalog_2023-24.pdf.</a></p>
-    
-    
-    
-                <h2>TUTORIAL (github based)</h2>
-                <p>This tutorial will guide you through the steps to visualize NOAA NOMADS (climate model) data and project them into the web.
-                </p>
-    
-                <h3>Wrangle the weather model output files:
-                </h3>
-                <p>• GDAL: Translator library for raster and vector geospatial data formats.</p>
-                <p>• rasterio: Clean and fast geospatial raster I/O for Python programmers who use Numpy.</p>
-                <p>• gribdoctor: Utilities for handling quirks of GRIB (General Regularly-distributed Information in Binary form) files in GIS applications. GRIB data is a concise data format commonly used in meteorology to store historical and forecast weather data, viewable using various software applications.</p>
-                <p>• FFmpeg: Create videos from images downloaded via the command line (terminal).</p>
-                <p>• WebGL: Project the data onto a 3d environment for web-based visualization.</p>
+                <p>10. NASA. NASA Software Catalog 2023-24. 2023. 
+                    <br><a href="https://software.nasa.gov/sites/default/files/NASA_Software_Catalog_2023-24.pdf." target="_blank">https://software.nasa.gov/sites/default/files/NASA_Software_Catalog_2023-24.pdf.</a></p>
+
             </div>
         </div>
      </div>

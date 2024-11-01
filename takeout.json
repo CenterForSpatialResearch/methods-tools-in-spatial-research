@@ -28,6 +28,13 @@
 
     },
     {
+        "project": "Sentiment Analysis",
+        "authors":["Wendy Hui Kyong Chun"],
+        "panel": "Network Models",
+        "tags": ["Homophily", "sentiment analysis", "machine learning", "networks"]
+
+    },
+    {
         "project": "Undercounting Underfunding of Poultry Farms in North Carolina",
         "authors":["Adeline Chum", "James Clinton-Francis","Tim Wu"],
         "panel": "CSR",

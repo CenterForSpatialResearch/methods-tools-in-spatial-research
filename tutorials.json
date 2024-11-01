@@ -69,13 +69,6 @@
 
     },
     {
-        "project": "Sentiment Analysis",
-        "authors":["Wendy Hui Kyong Chun"],
-        "panel": "Network Models",
-        "tags": ["Homophily", "sentiment analysis", "machine learning", "networks"]
-
-    },
-    {
         "project": "Interview with Alison Killing",
         "authors":["Alison Killing"],
         "panel": "Counter Forensics",
