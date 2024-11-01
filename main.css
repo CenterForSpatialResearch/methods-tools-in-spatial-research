@@ -21,6 +21,7 @@ body, h1, h2, h3, h4, h5, h6 {
 top-nav{
     display: flex;
     flex-direction: column;
+    /* position: relative; */
     /* margin-top: 10px; */
 }
 
@@ -36,7 +37,6 @@ top-nav{
     #networkviz{
         font-size: 10px; 
         overflow: hidden;
-        
     }
 }
   
@@ -502,9 +502,15 @@ top-nav{
 
     .tutorials-section h4 {
         font-size: 1.071em;
-        /* font-weight: bold; */
+        font-weight: bold;
         margin-top: 25px; 
         margin-bottom: 20px;
+    }
+
+    .tutorials-section h5 {
+        font-size: 1.071em;
+        font-style: italic;
+        color:#999;
     }
 
     .tutorials-section p {
@@ -520,15 +526,18 @@ top-nav{
     .tutorials-section  a:link{
             color: #000;
             text-decoration: underline;
-            font-weight: bold;
+            /* font-weight: bold; */
+
             }
     .tutorials-section  a:visited {
-            color: #29AAE1;
+            /* color: #29AAE1; */
+            color: #000;
           }
           
           /* mouse over link */
     .tutorials-section a:hover {
             color: #999;
+            font-weight: bold;
           }
           
           /* selected link */
@@ -536,22 +545,70 @@ top-nav{
             color: #999;
           }
 
-    .tutorials-section img {
-        /* max-width: 100%; */
+    .image img{
+        /* max-width: 60%; */
         display: grid;
         justify-content: center;
-        justify-items: center;
-        margin-left: auto;
-        margin-right: auto;
+        /* justify-items: center; */
+        justify-self: center;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
         max-height: 80vh;
         width:100%;
         height:auto;
     }
+      
+    .image-fullwidth{
+        flex-direction: row;
+        display: flex;
+        width: 150%;
+        translate: -18%;
+        max-height: 80vh;
+        height: auto;
+    }
 
-    .tutorials-section p.image-text{
-        display: grid;
+    .image-fullwidth-100{
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+
+    }
+
+    .image-fullwidth-50{
+        width: 50%;
+        display: flex;
+        flex-flow: column;
+    }
+
+    @media (max-width: 800px) {
+        .image-fullwidth{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            translate: 0%;
+        }
+        .image-fullwidth-50 {
+            flex: 100%;
+            width: 100%;
+            /* justify-items: center; */
+        }
+    }
+
+    .code-block{
+        background-color: #f0f0f0;
+        padding: 3px;
+        color: red;
+        font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+        font-size: 13px;
+    }
+
+    .image-text{
+        /* display: grid; */
+        /* display: inherit; */
+        flex-direction: column;
         justify-content: center;
         justify-items: center;
+        justify-self: center;
         color: #999;
         margin-top: 5px;
     }
@@ -574,8 +631,6 @@ top-nav{
         }
     }
 
-    
-    
     #tutorials-side-panel {
         background-color: #f0f0f0;
         padding: 10px;
@@ -624,4 +679,9 @@ top-nav{
         display: flex; 
         flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
     }
+
+    sup {
+        vertical-align: super;
+        font-size: smaller;
+      }
     

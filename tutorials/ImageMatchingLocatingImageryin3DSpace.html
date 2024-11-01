@@ -47,53 +47,279 @@
         
             <h1>Image-matching: Locating Imagery in 3D Space</h1>
             <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
-            <p>Jump to:</p>
-
-            <a href="#image-match-setup">Setup</a><br>
-                <a class="indent"href="#image-match-setup"></a><br>
-                <a class="indent" href="#image-match-source">Processing of Source Materials</a><br>
-            <a href="#image-match-georef-aerial">Georeferencing Aerial Photographs</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-            <a href="#image-match-georef-histo">Georeferencing Historical Photographs</a>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
-                <a class="indent" href="#image-match-contour">Vectorization of Contour Lines</a><br>
     
             <p>In this tutorial, we'll explore how to use the <a href="https://github.com/sptch/image-matcher/tree/main">image-matcher Blender add-on</a> to locate 2D images within a 3D model. This technique is crucial for our ongoing work at the <a href="https://www.spatialtech.info/en">Center for Spatial Technologies</a>, where we've applied it to various projects.</p>
     
-            <p>On September 29-30, 1941, more than 33,000 Jews were massacred in Babyn Yar. During the German occupation of Kyiv, between 100,000 and 150,000 people were killed there, including patients of the Kyiv City Psychiatric Hospital, Roma, Ukrainian nationalists, prisoners of war, and local authorities. Before retreating from Kyiv, the Nazis attempted to hide the traces of the massacres. Several hundred prisoners of war from the Syrets internment camp were forced to exhume and burn the remains of the dead.</p>
+            <p>We've used and evolved this method to document and analyze sites of significant historical and current events, including:</p>
     
-            <p>In the late 50s and early 60s, the landscape of Babyn Yar was fundamentally changed. The spurs were filled with liquid soil and covered over, resulting in the disappearance of the ravine as such. Highways were laid on the territory of Babyn Yar, and a residential area and a park were built. The area has changed so much that even historians argued about the exact location of the mass executions.</p>
+            <a class="indent" href="https://www.spatialtech.info/en/works/by-models" target="_blank">• Babyn Yar</a><br>
+            <a class="indent" target="_blank" href="https://www.spatialtech.info/en/works/tv-tower">• Russian attack on Kyiv TV tower</a><br>
+            <a class="indent" target="_blank" href="https://www.spatialtech.info/en/works/mykolaiv">• Missile strike on Mykolaiv ODA</a><br>
+            <a class="indent" target="_blank" href="https://theater.spatialtech.info/en">• Mariupol Drama Theater</a>
     
-            <p>In order to help better understand the important historical events of Babyn Yar, this  project reconstructs the landscape where those events happened.</p>
-    
-            <iframe width="100%" height="600" src="https://www.youtube-nocookie.com/embed/J8LsLWtRLcw?si=DE3eG6p9DjkyJKhP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-            <p class="figure-text">Babyn Yar Models presentation video (Center for Spatial Technologies 2021)</p>
-    
-            <h3 id="image-match-guide">Guide overview</h3>
-    
-            <p>This guide outlines the general methodology for reconstructing a historical landscape using a variety of media sources. These sources include archival drawings, maps, aerial and satellite photographs, as well as ground-level photographs and videos. The guide describes the processes and techniques used to work with diverse data types – such as topographic maps and photogrammetry – to build a spatial model of a transformed landscape.</p>
-    
-            <p>We published a damage map based on our radar data analysis in the New York Times on 3 November 2023 (<a href="https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf" target="_blank">https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf</a>). In less than a month of war, our analysis showed that over a quarter of buildings in North Gaza had already been damaged. Following this publication, we started receiving requests for the damage data from journalists and humanitarians. Now, with each new assessment, we email maps of new and cumulative damage and a brief summary of damage statistics and trends to nearly 200 journalists and humanitarians across 90 organizations for uptake into their reporting or analysis. There has been broad uptake of the damage maps by different users, with an amazing array of creative, impactful reporting in the nearly 300 news articles that have used our maps (<a href="https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk" target="_blank">https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk</a>).</p>
-    
-            <p>As we began distributing the damage maps to a broader group of recipients, we realized the need to clearly communicate the appropriate use cases as well as limitations of the damage maps. For example, we state that the damage maps are “intended for visualization/cartography but are not intended for analytical (quantitative and/or spatially explicit) comparisons with other data such as population or building footprints.” We also share a slightly coarsened version of our damage maps that precludes identification of specific buildings that may have been damaged or destroyed. We caution users that a small portion of new damage in a given date’s analysis may not be confirmed again. These ephemeral changes may look like damage in our analysis but instead could result from seasonal changes in vegetation unassociated with the war, the deposition of dust, or the clearing of debris. Since ephemeral changes are not (re-)detected in later imagery, we remove them from subsequent maps of cumulative damage.</p>
-    
-            <p>Other damage assessments of the Gaza Strip have been published using different remote sensing techniques, and we have sought to understand reasons for agreement or disagreement in the extent and timing of damage. Chief among these is the pseudo-monthly damage dataset produced by the United Nations Operational Satellite Program, or UNOSAT (e.g. <a href="https://unosat.org/products/3904" target="_blank">https://unosat.org/products/3904</a>). UNOSAT urban damage assessments are based on expert visual interpretation of very-high resolution (usually a half-meter or less) satellite imagery. UNOSAT analysts place points at locations of evident damage and assign a grade of damage severity. UNOSAT and any other damage dataset based on aerial or satellite imagery that looks at earth from a bird’s eye view above will be well suited to identify damage to rooftops but may miss damage to the sides of buildings. Radar, like the Sentinel-1 system that we use, is “side looking” and sees the world from an angle, giving it theoretically greater sensitivity to lateral damage along a building’s exterior.</p>
-    
-            <p>Differences in damage maps from two different approaches are inevitable but should be explainable. Agreement assessments between different damage maps can be performed in many ways; we use four types of agreement metrics. </p>
             
-            <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  True positive and true negative are the most direct in that they are examples of agreement between the presence (positive) or absence (negative) of “damage” in one dataset compared to another. In most cases, we aspire to have high rates of true positives and true negatives, expressing general agreement both where damage is and isn’t found.</p>
-    
-            <p style="padding-left: 3em; text-indent: -3em;">&emsp;&emsp;●  A false positive, on the other hand, occurs where damage is reported in one dataset that is not detected in a reference dataset. False positives could occur because a detection approach is too generous with its damage detection and may need additional constraints to limit over-detection of damage in places with insufficient evidence of damage.</p>
-    
-            <p style="padding-left: 3em; text-indent: -3em;">&emsp;&;●  A false negative occurs where an approach does not detect damage that is reported in a reference dataset. Perhaps an approach is too restrictive in what it considers to be ‘damage’ and excludes legitimate locations of damage.</p>
-    
-            <p>A challenge we face in using these metrics when comparing our damage maps to those made by UNOSAT or any other group is that these metrics assume that the approaches are sensitive to the same thing: building damage. But we know that the overhead view adopted by UNOSAT excludes lateral damage to the building, and we also know that the side-looking radar may have its view of lateral damage occluded by neighboring buildings. There are many differences due to spatial resolutions of imagery, dates of imagery used, and sensitivity to severity of damage, among others that we know matter but whose impact on the level of agreement has not yet been examined in detail.</p>
-    
+            <p style="font-style: italic; background-color: #f0f0f0; padding: 20px;">
+                * Currently, CST team applying this technique to the Chersonesus archaeological site in occupied Crimea. <a href="https://whc.unesco.org/en/list/1411/">This UNESCO World Heritage Site</a> is being manipulated for Russian national myth-building, with rushed construction and ideologically-driven excavations causing irreversible damage. *
+
+                <br><br>
+
+                * By precisely positioning photographs and drone footage in a 3D model, we can document these changes, providing vital evidence of cultural heritage destruction. In this tutorial we will learn to create a base 3D terrain model, match various imagery types to it, and create animations between matched positions. While we use Chersonesus as our case study, these skills can be applied to any site requiring accurate documentation and analysis. * 
+            </p>
+            
+            <h4>Jump to:</h4>
+
+            <a href="#setup">Setup</a>
+                <p class="indent">
+                    <a href="#software">Software Requirements</a> | <a href="#downloads">Data Downloads</a></p>
+            <a href="#base-model">Building the Base Model</a><br>
+                <p class="indent">
+                    <a href="#DEM">Creating a Base Model with DEM and Satellite Imagery</a><br>
+                    <a href="#coordinates">Setup project coordinate system</a> |
+                    <a href="#GISmodel">Export GIS data for model</a> | 
+                    <a href="#blender-model">Building Mesh model with Blender</a> | 
+                    <a href="#base-model">Alternative Methods to Build the Base Model</a>
+                </p>
+                
+                
+            <a href="#image-match">Image-Matching</a>
+            <p class="indent">
+                <a href="#image-camera">Solve Static Image camera position</a> | <a href="#troubleshoot">Troubleshooting a Bad Match</a>
+            </p>
+            
+            <h3 id="setup">Setup</h3>
+
+            <h4 id="software">Software Requirements</h4>
+            
+            <p>To follow this tutorial, you'll need to have the following software installed:</p>
+            <p class="indent">1. <b>Blender</b> (version 3.0 or newer): Blender is a free and open-source 3D creation suite. Download it from blender.org. We will use Blender 4.2.</p>
+            <p class="indent">2. <b>Image-matcher Add-on for Blender</b>: This custom add-on enables precise image matching in Blender. You can download it from our <a href="https://github.com/sptch/image-matcher/tree/main">GitHub repository.</a></p>
+            <p class="indent">3. <b>Blender-GIS add-on for Blender</b>: This add-on enables the import and manipulation of geospatial data in Blender. Download it from the <a href="https://github.com/domlysz/BlenderGIS">BlenderGIS GitHub repository.</a></p>
+            <p class="indent">4. <b>QGIS</b> (latest stable version): QGIS is a free and open-source geographic information system. Download it from <a href="https://qgis.org/en/site/forusers/download.html">qgis.org.</a></p>
+
+            <p>
+                Ensure all software is installed and functioning correctly before beginning the tutorial. If you encounter any issues with installation or setup, please refer to the documentation for each software.
+            </p>
+            
+            <h4 id="downloads">Data Downloads</h4>
+
+            <p>For this tutorial, you'll need several types of geospatial data to create a 3D model and match 2D images to it. Download the following datasets:</p>
+
+            <p class="indent">1. <b>ALOS PALSAR Radiometric Terrain Corrected (RTC) Data</b>: This high-resolution digital elevation model (DEM) is derived from radar data. Source: <a href="https://search.asf.alaska.edu/#/?dataset=ALOS">Alaska Satellite Facility (ASF) Data Search.</a></p>
+            <p class="indent">2. <b>High-resolution Satellite Imagery</b>: Recent high-resolution imagery of your study area.</p>
+            <p class="indent">3. <b>Drone Footage</b>: Aerial imagery captured by drones over your study area.</p>
+            <p class="indent">4. <b>Ground-level Photographs</b>: Photographs taken at ground level of key areas in your study site.</p>
+            <p class="indent">5. <b>Photogrammetry Model</b> (optional): A detailed 3D model of specific structures within your study area.</p>
+
+            <p>
+                To make it easier to follow along with this tutorial, we've prepared a sample dataset that includes all necessary files for the Chersonesus site. You can download this dataset here:
+            </p>
+            <p>
+                Download Sample Dataset (sample_image-match_data.zip)
+            </p>
+
+            <h3 id="base-model">Building the Base Model</h3>
+
+            <p>
+                In this tutorial, we will demonstrate the use of the <a href="https://github.com/sptch/image-matcher/tree/main">Image-Matcher Add-on for Blender</a> by using the example of aerial photographs around a large-scale archaeological site. This technique can be applied in various contexts and across different model scales, including architectural, interior, and object models.
+            </p>
+            <p>
+                If your primary interest is learning how to use the Image Matcher tool, you can skip the section on building the base model, directly towards <a href="#image-match"></a>Image-matching</a>, as this is only one possible use case for the tool. The add-on is versatile and can be applied to a wide range of scenarios, enabling precise image alignment and location on both small and large-scale models.
+            </p>
+
+            <h4>Creating a Base Model with DEM and Satellite Imagery</h4>
+
+            <p>
+                A <b>Digital Elevation Model (DEM)</b> provides essential elevation data for 3D terrain modeling. <br>
+                Several options for obtaining DEM data, depending on your project’s location and requirements:
+            </p>
+            <p>
+                1. <b>Provided DEM for Chersonesus</b>: You can use the provided .tif file for the Chersonesus site, which contains high-resolution elevation data for the area.
+            </p>
+
+        
+        <div class="image">
+            <img src="./images/imageMatching/image1.webp" alt="DEM">
+        </div>
+
+            <p>
+                2. <b>ALOS PALSAR DEM</b>: For other regions or more detailed elevation data, you can download high-resolution DEMs from the <b>Alaska Satellite Facility (ASF)</b>. Go to <a href="https://search.asf.alaska.edu/#/?dataset=ALOS">ASF Data Search</a>, select the <b>Hi-Res Terrain Corrected</b> data, and download the .tif file for your area of interest.
+            </p>
+            
+            <div class="image">
+            <img src="./images/imageMatching/image2.webp" alt="DEM">
+            </div>
+            
+            <p>
+                3. <b>Mapzen Terrain Tiles</b>: As an alternative, you can use the <a href="https://www.mapzen.com/blog/terrain-tile-service/">Mapzen Terrain Tiles</a> dataset, a public source for global elevation data. This tiled dataset offers lower-resolution but easily accessible DEMs, which can be added to QGIS via XYZ-tile connection. Simply configure the URL (<a href="https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png">https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png</a>) in the XYZ-tile connection dialog in QGIS to load global elevation tiles.
+            </p>
+
+        <div class="image-fullwidth">
+
+            <div class="image-fullwidth-50">
+                <img src="./images/imageMatching/image3.webp" alt="DEM">
+                <p class="image-text">
+                    Mapzen Terrain Tiles (<a href="https://elevation-tiles-prod.s3.amazonaws.com/index.html#3/0.09/-0.09">  Public Dataset</a>)
+                </p>
+            </div>
+
+            <div class="image-fullwidth-50">
+                <img src="./images/imageMatching/image4.webp" alt="DEM">
+                <p class="image-text">QGIS XYZ-tiles connection configuration</p>
+            </div>
+
+        </div>
+
+            <p>
+                When using <b>satellite imagery</b>, select images captured as close to nadir (directly overhead) as possible. This approach minimizes distortions, especially in areas with varied terrain, reducing the need for complex orthorectification and ensuring a more accurate 3D landscape representation.
+            </p>
+
+
+            <div class="image-fullwidth">
+                <div class="image-fullwidth-100">
+                    <img src="./images/imageMatching/image5.webp" alt="DEM">
+                </div>
+            </div>
+            <p class="image-text">Evaluating satellite imagery for base model texture</p>
+            
+
+            <p>
+                When evaluating satellite imagery for your model, consider the terrain’s impact on image quality:
+            </p>
+            <p class="indent">1. <b>Poor Quality</b>: Significant terrain relief causes noticeable distortions. Steep slopes and tall structures may appear skewed or stretched.</p>
+            <p class="indent">2. <b>Acceptable Quality</b>: Less terrain influence, but some distortion still visible on slopes and taller objects.</p>
+            <p class="indent">3. <b>Ideal Quality</b>: Minimal terrain-induced distortion. The image appears flattened, with vertical elements and slopes accurately represented.</p>
+
+            <p>
+                Select and import your satellite imagery into QGIS
+            </p>
+
+            <p>
+                With the Digital Elevation Model (DEM) and satellite imagery layers prepared, we are ready to proceed to the next step: building the geometry. This step will involve overlaying the DEM with the satellite imagery to create a textured 3D model, accurately reflecting the terrain’s historical features.
+            </p>
+
+            <div class="image-fullwidth">
+                <div class="image-fullwidth-50">
+                    <img src="./images/imageMatching/image6.webp" alt="DEM">
+                    <p class="image-text">Heracles Peninsula DEM tileset. @Mapzen tiles, 2024
+                    </p>
+                </div>
+                <div class="image-fullwidth-50">
+                <img src="./images/imageMatching/image7.webp" alt="DEM">
+                <p class="image-text">Heracles Peninsula Satelite image. @Google Earth, 2022
+                </p>
+                </div>
+                
+            </div>
+
+            <h3>Setup project coordinate system</h3>
+
+            <p>
+                For this image-matching tool tutorial, we'll focus on the Ancient City of Tauric Chersonese site and its buffer protected zone.
+            </p>
+            <div class="image">
+                <img src="./images/imageMatching/image8.webp" alt="DEM">
+            </div>
+            <p class="image-text">The Ancient City of Tauric Chersonese and its buffer zone
+            </p>
+
+            <p>
+            When zooming in on a particular site, we recommend defining a local coordinate system for 3D modeling and coordination. While optional, we prefer to derive an offset local <b>coordinate reference system (CRS)</b> from the defined regional one. In this case, we'll use <span class="code-block">UCS-2000 / 3-degree Gauss-Kruger zone 11</span> as the CRS for this area.
+            </p>
+
+            <p>
+                We'll define a 2000x2000 meter square domain for our model, with a user coordinate system <span class="code-block">UCS-2000 / Chersonese</span> originating in the square's bottom-left corner.
+            </p>
+
+            <div class="image-fullwidth">
+                <div class="image-fullwidth-50">
+                    <img src="./images/imageMatching/image9.png" alt="DEM">
+                    <p class="image-text">Define Custom CRS</p>
+
+                    <img src="./images/imageMatching/image10.png" alt="DEM">
+                    <p class="image-text">Select User-Defined or suitable general CRS for your geographic area
+                    </p>
+
+                </div>
+
+                <div class="image-fullwidth-50">
+                    <p class="code-block">code here</p>
+                </div>
+
+            </div>
+
+            <p>
+                Using this local coordinate system allows for easy conversion between local Blender model data and world/GIS contexts.
+            </p>
+
+            <h3 id="GISmodel">Export GIS data for model</h3>
+            <h4>Create an area of interest (AOI) polygon</h4>
+            <p>
+                Before clipping the DEM and satellite imagery, you need to define the <b>Area of Interest (AOI)</b>. Follow these steps to create an AOI polygon:
+            </p>
+            <p>
+                1. <b>Create a New Shapefile Layer (Vector Layer):</b>
+            </p>
+            <p class="indent">
+                •   In QGIS, go to the top menu and select <span class="code-block">Layer > Create Layer > New Shapefile Layer…</span><br>
+                •   In the dialog box, choose <b>Polygon </b>as the geometry type.<br>
+                •   Set the CRS to your custom CRS (or the regional CRS).<br>
+                •   Name the file (e.g., 2000.shp) and save it.
+            </p>
+  
+            <p>
+                2. <b>Draw the AOI Polygon:</b>
+            </p>
+            <p class="indent">
+                    •   Select the <b>Toggle Editing</b> button for the new shapefile layer in the Layers panel.<br>
+                    •   Click the <b>Add Polygon Feature</b> tool from the toolbar.<br>
+                    •   Draw a rectangle covering your 2000x2000m area of interest by clicking on the map canvas or using advanced digitizing tools.<br>
+                    •   Press <b>Enter or Right Click</b> to finish the polygon and save the shapefile.    
+            </p>
+            <p>
+                3. <b>Save and Exit Editing Mode:</b>
+            </p>
+            <p class="indent">
+                •   After drawing the polygon, click Toggle Editing again, and choose Save when prompted.
+            </p>
+
+            <h4>Clip and export selected layers</h4>
+            <p>There are two option we can save clipped region:</p>
+            <p class="indent">
+                1. Clipping raster <span class="code-block">Raster > Extraction > Clip Raster by Mask Layer. </span> <br>
+                2. Export layer with clipping boundaries <span class="code-block">Right-Click on the Raster Layer in the Layers Panel > Select “Export” > “Save As…”</span>
+            </p>
+
+            <p>
+                While the “<b>Clip Raster by Mask Layer</b>” method generally offers better precision and higher quality, we recommend using it for most clipping tasks. However, when working with raster tiles, this method may not be supported. In such cases, we suggest using the <b>“Export” > “Save As”</b> option, which is more suitable for clipping tiled datasets or formats that don’t allow the use of the “Clip Raster by Mask Layer” tool.
+            </p>
+
+            <div class="image-fullwidth">
+                <div class="image-fullwidth-50">
+                    <img src="./images/imageMatching/image11.png" alt="DEM">
+                    <p class="image-text">Clip Raster by Mask Layer. Properties for TIFF-souce layer </p>
+                </div>
+
+                <div class="image-fullwidth-50">
+                    <img src="./images/imageMatching/image12.png" alt="DEM">
+                    <p class="image-text">“Export” > “Save As”. Properties for XYZ-raster-tiles-source layer.</p>
+                </div>
+            </div>
+            <div class="image-fullwidth">
+                <div class="image-fullwidth-100">
+                    <img src="./images/imageMatching/image13.png" alt="DEM">
+                    <p class="image-text">Exported Satellite and DEM raster.</p>
+                </div>
+            </div>
+
+        <h3 id="blender-model">Building Mesh model with Blender</h3>
+        
+
+
+
+
+
+
+
 
     
         </div>
