@@ -8,7 +8,7 @@
 
     },
     {
-        "project": "What is an Index",
+        "project": "What is An Index: Census Experiments",
         "authors":["Jia Zhang"],
         "panel": "Visual Code",
         "tags": ["CSR","GIS", "mapping", "census", "data representation", "administrative boundaries"]
@@ -20,7 +20,7 @@
         "tags": ["GIS", "mapping", "machine learning", "computer vision","satellite"]
     },
     {
-        "project": "Black Magic",
+        "project": "",
         "authors":["Ana Paulina Lee"],
         "panel": "Counter Narrative",
         "tags": ["machine learning", "language", "black magic"]
@@ -69,7 +69,7 @@
 
     },
     {
-        "project": "Interview with Alison Killing",
+        "project": "Interview On Visual Investigative Reporting",
         "authors":["Alison Killing"],
         "panel": "Counter Forensics",
         "tags": ["journalism", "open source", "spatial analysis", "social media", "eye witness", "visual investigations", "human in the loop"]

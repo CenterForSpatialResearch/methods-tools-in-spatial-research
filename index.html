@@ -86,8 +86,8 @@
 
                 <div id="visualize-container">Visualize By:</div>
                 <div class="button-container">
-                    <button class="flex-author" id="show-authors">AUTHOR NAMES</button>
                     <button class="flex-project" id="show-projects">PROJECT NAMES</button>
+                    <button class="flex-author" id="show-authors">AUTHOR NAMES</button>
                 </div>
 
             <div id="networkviz"></div>
@@ -129,9 +129,6 @@
         const adjustedWidth = width - margin.left - margin.right;
         const adjustedHeight = height - margin.top - margin.bottom;
 
-        // console.log(adjustedWidth, adjustedHeight);
-        // console.log(width, height);
-
         // Append the SVG object to the div with id 'networkviz'
         const svg = d3.select("#networkviz")
             .append("svg")
@@ -161,9 +158,6 @@
                 }
             }
         });
-
-
-        // console.log(links);
 
         // Extract tags for each project
         const projectTags = data.tutorials.map(tutorial => ({ project: tutorial.project, tags: tutorial.tags }));
@@ -344,7 +338,8 @@ function updateTextContent() {
             d3.select(this).selectAll("tspan").remove();  // Clear previous tspans
             const textContent = showAuthor ? d.authors : d.project;
             const yOffset = svgWidth > 800 ? 20 : 10;
-            const lines = wrapText(textContent, 0.098 * window.innerWidth + 63.25);
+            const lines = wrapText(textContent, 0.05 * window.innerWidth + 63.25);
+            // const lines = wrapText(textContent,  0.098 * window.innerWidth + 50);
             let dy = 0;
 
             lines.forEach(line => {
@@ -369,6 +364,8 @@ function updateTextContent() {
         var svgWidth = parseFloat(d3.select("#networkviz").style("width"));
         var svgHeight = parseFloat(d3.select("#networkviz").style("height"));
 
+        const collideWidth = svgWidth > 800 ? (Math.min(svgWidth, svgHeight)/10) : (Math.min(svgWidth, svgHeight)/8);
+
 
     const simulation = d3.forceSimulation(data.tutorials)
             .force("link", d3.forceLink(allLinks) // This force provides links between nodes
@@ -377,11 +374,12 @@ function updateTextContent() {
                 ) 
 
             .force("charge", d3.forceManyBody() // This adds repulsion between nodes.
-                .strength(-1 * Math.min(svgWidth, svgHeight) / 300) //was at 50
+                .strength(-1 * Math.min(svgWidth, svgHeight) / 300)
 
             ) 
             .force("center", d3.forceCenter(svgWidth/2, svgHeight/2)) // bring to center
-            .force("collide", d3.forceCollide(Math.min(svgWidth, svgHeight)/10))
+            // .force("collide", d3.forceCollide(Math.min(svgWidth, svgHeight)/10))
+            .force("collide", d3.forceCollide(collideWidth))
             .on("tick", ticked);
 
         //TO DO this is temp fix for intial text wrap
@@ -392,7 +390,7 @@ function updateTextContent() {
             async function clickVisual() {
                 // console.log("Waiting 2 seconds...");
                 await delay(1000);
-                document.getElementById('show-authors').click();
+                document.getElementById('show-projects').click();
                 // console.log("Function executed after 2 seconds");
                 }
 
@@ -422,7 +420,7 @@ function updateTextContent() {
                 .each(function(d){
                     const yOffset = svgWidth > 800 ? 20 : 10;
                     const textContent = showAuthor ? d.authors : d.project;
-                    const lines = wrapText(textContent, 0.098 * window.innerWidth + 63.25);
+                    const lines = wrapText(textContent, 0.05 * window.innerWidth + 63.25);
                     let dy = 0;  // Initial y offset
 
                     lines.forEach(line => {

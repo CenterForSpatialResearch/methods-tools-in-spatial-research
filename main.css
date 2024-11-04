@@ -16,14 +16,29 @@ body, h1, h2, h3, h4, h5, h6 {
     overflow-x: hidden;
   }
 
-/* network and nodes styling */
+  h6 {
+    font-style: italic;
+    margin: 5px;
+    /* font-size: 1px; */
+  }
 
-top-nav{
-    display: flex;
-    flex-direction: column;
-    /* position: relative; */
-    /* margin-top: 10px; */
-}
+  h6 a{
+    color: #000;
+  }
+
+  h6 a.visited{
+    color: #000;
+  }
+
+  h6 a:hover{
+    color: #999;
+  }
+
+  h3{
+    font-weight: bold;
+  }
+
+/* network and nodes styling */
 
 #networkviz {
     width: 100%;  /* Full viewport width */
@@ -37,6 +52,8 @@ top-nav{
     #networkviz{
         font-size: 10px; 
         overflow: hidden;
+        min-height: 400px;
+        /* translate: 0px 100px; */
     }
 }
   
@@ -113,7 +130,7 @@ top-nav{
     }
 
 .column {
-    padding-top: 50px;
+    /* padding-top: 50px; */
     flex-direction: row;
     display: flex;
   }
@@ -166,7 +183,6 @@ top-nav{
     }
 }
 
-
 /* .top-bar styling */
 .top-bar {
     background-color: white;
@@ -179,6 +195,7 @@ top-nav{
     justify-content: space-between;
     align-items: center;
     position: absolute;
+    position: sticky;
 
 }
 
@@ -636,12 +653,14 @@ top-nav{
         padding: 10px;
         box-sizing: border-box;
         max-height: calc(100vh - 65px);
-        /* align-items: left;  */
         justify-items: center;
         border-radius: 5px;
         min-width: 200px;
         width:100%;
         margin-left: 10px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
     }
 
     .tag-item {
