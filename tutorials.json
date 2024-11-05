@@ -20,10 +20,10 @@
         "tags": ["GIS", "mapping", "machine learning", "computer vision","satellite"]
     },
     {
-        "project": "",
+        "project": "Mapping Religious Persecution in Rio de Janeiro",
         "authors":["Ana Paulina Lee"],
         "panel": "Counter Narrative",
-        "tags": ["machine learning", "language", "black magic"]
+        "tags": ["machine learning", "language", "black magic", "Rio de Janeiro", "religious persecution"]
 
     },
     {

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data is Local</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+<body data-project-name="Mapping Religious Persecution in Rio de Janeiro"> <!-- The name here is to link Tags from json file (project name)-->
+    <div class="top-bar">
+   
+        <div class="title">
+            <a href="../index.html" id="sidePanel">
+                Methods and Tutorials in Spatial Research 
+            </a>
+        </div>
+
+        <div class="button-container" id="about">
+            <a href="../about.html">About</a>
+        </div>
+     </div>
+
+    <div class="column">
+
+        <div class="column-left">
+            <div id="tutorials-side-panel">
+                <h6>
+                    Currently viewing tutorial page, <br><a href="../index.html">click here to return to main page.</a>
+                </h6>
+
+                <h3>Workshop Panel: </h3>
+                <div class="visual-code-container">
+                    <div class="tutorials-circle"></div>
+                    <p id="panel-text"></p>
+                </div>
+                <h3>Project Tags: </h3>
+                <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        <div class="column-main">
+            <div class="tutorials-section">
+                <h1>Mapping Religious Persecution in Rio de Janeiro</h1>
+                <h2>
+                    Ana Paulina Lee | Associate Professor of Luso-Brazilian Studies <br> 
+                    Jared Lieberman | MS Statistics and Data Scientist <br>
+                    Research Assistants: Jacqueline Grac McMahon Vera and Ashley Elizabeth Young
+                </h2>
+
+                <p>
+                    Jump to: <br>
+                    <a href="#Introduction">Introduction</a><br>
+                    <a href="#Tutorial"> Technical Tutorial</a> <br>
+                    <a href="#part1" class="indent">Part 1:  Collecting data from newspapers</a><br>
+                    <a href="#part2" class="indent">Part 2:  Text analysis, <span style="font-style: italic;">More than a Map Visualization</span></a>
+                </p>
+
+                <h3 id="Introduction">Introduction</h3>
+
+                    <p>This tutorial provides a methodology for examining the role that print media played in animating Rio de Janeiro’s urban imagination. For this study, I collaborated with data scientist Jared Lieberman to create a database of terms related to Afro-Brazilian religions such as candomblé and umbanda with the aim of tracking the role that newspapers played in depicting African diasporic religious and cultural practices in the vocabulary of demonology. To do this research, I created a “sorcery glossary” that included terms as <span class="italic">feitiçaria</span> (sorcery) and magia negra (black magic) to examine how journalists translated Afro-diasporic religious, cultural, and linguistic terms such as candomblé, umbanda, mandinga, and macumba into Catholic and Portuguese semantic and symbolic worlds associated with demonology.</p>
+
+                <h3 id="Tutorial">Technical Tutorial</h3>
+
+                <h4 id="part1">Part 1:  Collecting data from newspapers</h4>
+                <h4>Data</h4>
+                    <p>
+                        The data are retrieved from the Brazilian Digital Library can be accessed <a href="https://memoria.bn.gov.br/hdb/periodico.aspx">here</a>.
+                    </p>
+                    <p>The database includes a massive amount of articles broken down by newspaper and year of publication. This digital library has been particularly useful for our goals because of its ease of searching newspapers by individual terms. This has allowed us to quickly select specific articles in PDF format without having to search through entire newspapers. The digital library also provides certain metadata that we have integrated into our data collection process. In particular, we are able to gather the number of matches within a newspaper for terms over time.
+                    </p>
+                    <p>
+                        An example of a search from the digital library homepage is shown below.
+                    </p>
+
+                    <div class="image">
+                        <img src="./images/MappingReligiousPersecution/image2.png" alt="Search in Brazilian Digital Library">
+                    </div>
+
+                    <p>An example of the metadata for individual articles is found below.</p>
+                    <div class="image">
+                        <img src="./images/MappingReligiousPersecution/image3.png" alt="Search in Brazilian Digital Library">
+                    </div>
+
+                    <p>
+                        The metadata were obtained from a mixed process of manually recording data and web scraping. The code that runs this automated process can be found on <a href="https://github.com/jared-lieberman/CSR-Tutorial/blob/main/scrape_metadata.py">the GitHub repository linked here</a>. 
+                    </p>
+
+                    <p>
+                        The algorithm uses two files: 
+                    </p>
+                    <p class="indent">
+                        1. a main script<br>
+                        2. a configuration file
+
+                    </p>
+                    <p>
+                        The configuration file (config.py) defines several constants used in the scraping process, including the search terms (<span class="code-block">SEARCH_TERMS</span>), the output file name(<span class="code-block">OUTPUT_FILE</span>), and a dictionary mapping newspaper IDs to their corresponding names (<span class="code-block">NEWSPAPER_ID_DICT</span>). Additionally, the script allows the user to specify which newspaper to search within by setting the <span  class="code-block">NEWSPAPER_ID</span>.
+                    </p>
+
+                    <p>
+                        The main script (scrape_metadata.py) uses Selenium to automate interactions with the website. It begins by initializing a Chrome web driver and navigating to the appropriate URL based on the selected newspaper's ID. The script includes functions to handle pop-ups, extract data from the web page, and hover over elements to reveal additional options. It iterates through the specified search terms, performing searches on the website and extracting relevant data for each term. The extracted data is then compiled into a Pandas DataFrame, which is saved as a CSV file. The entire process is automated to run seamlessly, with informative print statements throughout to track the script's progress and any issues encountered.
+                    </p>
+
+                    <p>
+                        In order to run the code, the user must have a Jupyter environment running and the required packages installed. Additionally, the user needs to define the four variables in the configuration file: 
+                    </p>
+                    <p class="indent">
+                        1. <span class="code-block">SEARCH_TERMS</span> (list),<br>
+                        2. <span class="code-block">OUTPUT_FILE</span> (CSV string name),<br>
+                        3. <span class="code-block">NEWSPAPER_ID_DICT</span> (to add more newspapers to search), and <br>
+                        4. <span class="code-block">NEWSPAPER_ID</span> (string found from dict).
+
+                    </p><p>
+                    
+                        The code can search through one newspaper at a time. Once these are set, then code in Jupyter can be run.
+                    </p>
+
+                    <p>
+                        From these article ID strings, in combination with ID’s for individual newspapers, we were able to recreate the URLs of each article. 
+                    </p>
+                    <p class="indent">
+                        For example, the <span class="code-block">ID</span> for Gazeta de Notícias is <span class="code-block">103730</span>, and a full form URL of an article in that newspaper is “https://memoria.bn.gov.br/pdf/103730/per103730_1875_00052.pdf”. <br><br>Thus, the article that has an ID of <span class="code-block">00052</span> and was published in 1875. This process was conducted in Python. Once we pieced together the URLs, research assistants were able to more efficiently access relevant articles. 
+                    </p>
+
+                <h4 id="part2">Part 2:  Text analysis, <span class="italic">More than a Map Visualization</span></h4>
+        
+            </div>
+
+            
+                
+        </div>
+        <div id="project_tags" class="tag-grid"></div>
+    </div>
+
+        <script>
+            let tutorialsData;
+            let colorsData;
+
+            function loadData() {
+                // Load both JSON files
+                d3.json("../tutorials.json").then(function(loadedData) {
+                    tutorialsData = loadedData;
+                    d3.json("../colors.json").then(function(loadedColors) {
+                        colorsData = loadedColors;
+                        displayTagsAndPanel();
+                    });
+                });
+            }
+
+            function getColorForTag(tag) {
+                // Find the panel color for a given tag
+                const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+                return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+            }
+
+            function getPanelColor(panel) {
+                // Find the color for a given panel
+                const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+                return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+            }
+
+            function displayTagsAndPanel() {
+                const projectName = document.body.getAttribute("data-project-name");
+                const tagContainer = document.getElementById("project_tags");
+                const panelTextElement = document.getElementById("panel-text");
+                const circleElement = document.querySelector(".tutorials-circle");
+
+                const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
+
+                if (project) {
+                    panelTextElement.innerText = project.panel;
+
+                    // Find and set the color for the panel
+                    const panelColor = getPanelColor(project.panel);
+                    circleElement.style.backgroundColor = panelColor;
+
+                    // Display and color the tags
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement("div");
+                        tagElement.className = "tag-item";
+                        tagElement.innerText = tag;
+                        tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
+                        tagContainer.appendChild(tagElement);
+                    });
+                }
+            }
+
+            document.getElementById('sidePanel').addEventListener('click', function() {
+                window.location.href = '../index.html'; 
+            });
+
+            loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+        </script>
+
+</body>
+</html>
