@@ -48,6 +48,7 @@
         
             <h1>Image-matching: Locating Imagery in 3D Space</h1>
             <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
+            <!-- project: https://spatialtech.notion.site/Image-matching-Locating-Imagery-in-3D-Space-113bc6e1b0978028b5c5d630ad9b7a00#113bc6e1b0978058b7ebec8340aa2bec</p> -->
     
             <p>In this tutorial, we'll explore how to use the <a href="https://github.com/sptch/image-matcher/tree/main">image-matcher Blender add-on</a> to locate 2D images within a 3D model. This technique is crucial for our ongoing work at the <a href="https://www.spatialtech.info/en">Center for Spatial Technologies</a>, where we've applied it to various projects.</p>
     
@@ -243,7 +244,45 @@
                 </div>
 
                 <div class="image-fullwidth-50">
-                    <p class="code-block">code here</p>
+                    <p class="code-block">
+                        PROJCRS["UCS-2000 / Chersonese",
+    BASEGEOGCRS["UCS-2000",
+        DATUM["Ukraine 2000",
+            ELLIPSOID["Krassowsky 1940",6378245,298.3,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",5561]],
+    CONVERSION["3-degree Gauss-Kruger zone 11",
+        METHOD["Transverse Mercator",
+            ID["EPSG",9807]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",33,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["Scale factor at natural origin",1,
+            SCALEUNIT["unity",1],
+            ID["EPSG",8805]],
+        PARAMETER["False easting",-38220,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",-4940800,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["northing (X)",north,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["easting (Y)",east,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Heritage site violations documentation, high-precision surveying, and 3D modeling of Tauric Chersonese."],
+        AREA["Ukraine, Crimia. Ancient City of Tauric Chersonese."],
+        BBOX[44.60, 33.48,44.62, 33.51]]]
+                    </p>
                 </div>
 
             </div>
@@ -313,6 +352,10 @@
             </div>
 
         <h3 id="blender-model">Building Mesh model with Blender</h3>
+
+        <p>
+
+        </p>
 
 
 

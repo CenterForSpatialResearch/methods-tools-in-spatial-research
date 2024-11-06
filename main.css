@@ -536,9 +536,24 @@ body, h1, h2, h3, h4, h5, h6 {
     }
 
     .tutorials-section p.indent, a.indent{
+        /* text-indent: -2ch; */
         margin-left: 10%;
         margin-right: 10%;
     }
+
+    p.indent-num{
+        text-indent: -2ch;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    p.indent-next{
+        text-indent: -2ch;
+        margin-top: -13px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
 
     .italic{
         font-style: italic;
@@ -584,7 +599,7 @@ body, h1, h2, h3, h4, h5, h6 {
         display: flex;
         width: 150%;
         translate: -18%;
-        max-height: 80vh;
+        /* max-height: 80vh; */
         height: auto;
     }
 
@@ -662,9 +677,10 @@ body, h1, h2, h3, h4, h5, h6 {
         min-width: 200px;
         width:100%;
         margin-left: 10px;
-        position: -webkit-sticky;
+        /* position: -webkit-sticky; */
         position: sticky;
         top: 20px;
+        height: fit-content;
     }
 
     .tag-item {
