@@ -51,17 +51,26 @@
                 <h1>Mapping War by Satellite: Conflict Urbanism in the Gaza Strip</h1>
                 <h2>Jamon Van Den Hoek & Corey Scher</h2>
 
-                <h4>Jump to:</h4>
-                <a> </a>
+                <p>Jump to:<br>
+                        <a href=#Intro>Introduction</a> | 
+                        <a href="#approach">Approach</a> | 
+                        <a href="#limits">Limitations</a><br>
+                        <a href="#Tutorial">Mapping Building Damage Tutorial</a>
 
-                <div class="image"><img src="./images/MappingWarviaSatellite/image1.png" alt="Tutorial Main Image" style="width:auto"></div>
+                </p>
+
+                <div class="image"><img src="./images/MappingWarviaSatellite/image1.png" alt="Tutorial Main Image" style="width:auto; justify-content: center;"></div>
                 <p class="image-text">Map of likely damage/destruction across the Gaza Strip based on analysis of 12 August 2024 Sentinel-1 radar data.</p>
+
+                <h3 id="Intro">Introduction:</h3>
 
                 <p>As of writing, it’s estimated that 92 million people around the world are directly exposed to the effects of war (<a href="https://acleddata.com/conflict-exposure/" target="_blank">https://acleddata.com/conflict-exposure/</a>). The main concern in any war is the loss of civilian life but the destruction of cities where people live, work, and raise children is an essential concern as well. Unfortunately, we don’t currently have any comprehensive estimates of the breadth or severity of urban damage caused by war. We do know that when buildings are destroyed, people lose their homes, access to food, water, education, income, and medical care. Damaged buildings are one of the earliest indicators of a war’s impacts, and foretell patterns of migration and humanitarian aid needs as people flee conflict. The same pattern of damage also holds information on whether there will be any homes to return to once the conflict ends.</p>
 
                 <p>In our research in the Conflict Ecology lab at Oregon State University (<a href="http://www.conflict-ecology.org" target="_blank">www.conflict-ecology.org</a>), we focus on the impacts of armed conflict on vulnerable people and landscapes. We use satellite imagery and geospatial data to map, measure, and visualize the immediate consequences of conflict such as damage to or destruction of forests, farms, and cities, as well as the longer-term impacts through the forced displacement of whole communities and the establishment of refugee camps, which may be occupied for generations.</p>
 
                 <p>Perhaps nowhere else have these concerns been so recurrent as the Gaza Strip. The residents of Gaza have endured multiple invasions and military operations by Israel that have led to thousands of civilian deaths as well as widespread landscape destruction. Following the invasion in 2014, we mapped agricultural damage in Rafah using satellite imagery detailed enough to spot individual olive trees and measure the width of tank tracks carving through plantations. Following the attacks in 2021, we mapped damage to agriculture using Sentinel-2 optical satellite data and damage to the built environment using Sentinel-1 radar satellite data. And since October 2023, we have been mapping damage to cities across the Gaza Strip resulting from a barrage of attacks by the Israeli military unprecedented in its speed and scale.</p>
+
+                <h3 id="approach">Approach:</h3>
 
                 <p>Given the tempo and breadth of this conflict, we designed an approach capable of providing Gaza Strip-wide insights into the war’s effects as close to the speed of the conflict itself. Rather than being retrospective, conducted months or years after the damage occurred, we needed a near-real time approach to produce updated damage maps as soon as a new radar image is collected. We also needed an approach that covered Gaza comprehensively with each assessment rather than in a piecemeal fashion. Finally, we needed an approach that was directly sensitive to physical changes to buildings caused by damage or destruction rather than just the resulting appearance of these changes.</p>
 
@@ -70,6 +79,8 @@
                 <p>As of writing, we have made 35 maps of likely damage across the Gaza Strip at a pace of one map every 9 days. In our most recent assessment based on 12 August 2024 Sentinel-1 imagery, we estimate that 59.5% of buildings across the Gaza Strip have likely been damaged or destroyed since early October 2023 (Figure 1). Both Gaza and North Gaza governorates have over 70% of buildings likely damaged or destroyed, most of which occurred in the first two months of the war. The bulk of recent damage has occurred in Deir el-Balah, Khan Younis, and Rafah governorates, each of which is now over 45% damaged.</p>
 
                 <p>We published a damage map based on our radar data analysis in the New York Times on 3 November 2023 (<a href="https://static01.nyt.com/images/2023/11/03/nytfrontpage/scan.pdf" target="_blank">linked here</a>). In less than a month of war, our analysis showed that over a quarter of buildings in North Gaza had already been damaged. Following this publication, we started receiving requests for the damage data from journalists and humanitarians. Now, with each new assessment, we email maps of new and cumulative damage and a brief summary of damage statistics and trends to nearly 200 journalists and humanitarians across 90 organizations for uptake into their reporting or analysis. There has been broad uptake of the damage maps by different users, with an amazing array of creative, impactful reporting in the nearly 300 news articles that have used our maps (<a href="https://docs.google.com/spreadsheets/d/1_XVQx97hH3n31XPoYimmIstnZUhof8a5Z5rt3Z2VZg4/edit?usp=drivesdk" target="_blank">linked here</a>).</p>
+
+                <h3 id="limits">Limitations:</h3>
 
                 <p>As we began distributing the damage maps to a broader group of recipients, we realized the need to clearly communicate the appropriate use cases as well as limitations of the damage maps. For example, we state that the damage maps are “intended for visualization/cartography but are not intended for analytical (quantitative and/or spatially explicit) comparisons with other data such as population or building footprints.” We also share a slightly coarsened version of our damage maps that precludes identification of specific buildings that may have been damaged or destroyed. We caution users that a small portion of new damage in a given date’s analysis may not be confirmed again. These ephemeral changes may look like damage in our analysis but instead could result from seasonal changes in vegetation unassociated with the war, the deposition of dust, or the clearing of debris. Since ephemeral changes are not (re-)detected in later imagery, we remove them from subsequent maps of cumulative damage.</p>
 
@@ -90,6 +101,8 @@
                 <p>
                     We started this damage mapping research in part because of what was revealed through the Conflict Urbanism project’s work on mapping damage in Aleppo, Syria: that detailing urban damage is just a jumping off point for grappling with how wars upend lives, livelihoods, and landscapes. This analysis of urban damage in Gaza will continue as long as the war does, but we hope that the value of the research will outlast the war. We hope that the nearly three dozen damage maps will provide essential spatial and temporal context for other analyses, studies, and investigations, and offer something of a testimonial of the dynamics of this unprecedented war. 
                 </p>
+
+                <h3 id="Tutorial">Mapping Building Damage Tutorial:</h3>
 
                 <p>
                     For those interested in exploring the use of Sentinel-1 radar data for urban damage mapping, we provide an introductory but fully executable workflow for mapping building damage in a NASA Applied Remote Sensing Training Program (ARSET) tutorial from 2022. 

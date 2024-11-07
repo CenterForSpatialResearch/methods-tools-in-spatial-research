@@ -531,12 +531,10 @@ body, h1, h2, h3, h4, h5, h6 {
     }
 
     .tutorials-section p {
-        /* font-size: 20px; */
         margin-bottom: 20px;
     }
 
     .tutorials-section p.indent, a.indent{
-        /* text-indent: -2ch; */
         margin-left: 10%;
         margin-right: 10%;
     }
@@ -553,7 +551,6 @@ body, h1, h2, h3, h4, h5, h6 {
         margin-left: 10%;
         margin-right: 10%;
     }
-
 
     .italic{
         font-style: italic;
@@ -581,14 +578,16 @@ body, h1, h2, h3, h4, h5, h6 {
             color: #999;
           }
 
-    .image img{
-        /* max-width: 60%; */
+    .image {
         display: grid;
+    }
+    
+    .image img{
+        display: flex;
+        align-items: center;
         justify-content: center;
-        /* justify-items: center; */
+        justify-content: center;
         justify-self: center;
-        /* margin-left: auto; */
-        /* margin-right: auto; */
         max-height: 80vh;
         width:100%;
         height:auto;
@@ -630,7 +629,7 @@ body, h1, h2, h3, h4, h5, h6 {
         }
     }
 
-    .code-block{
+    code{
         background-color: #f0f0f0;
         padding: 3px;
         color: red;
@@ -640,6 +639,8 @@ body, h1, h2, h3, h4, h5, h6 {
 
     .image-text{
         /* display: grid; */
+        display: block;
+        text-align: center;
         /* display: inherit; */
         flex-direction: column;
         justify-content: center;

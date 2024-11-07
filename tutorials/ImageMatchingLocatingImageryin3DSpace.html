@@ -11,6 +11,10 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="/path/to/styles/default.css"/>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 
 <body data-project-name="Image Matching: Locating Imagery in 3D Space"> <!-- The name here is to link Tags from json file (project name)-->
@@ -225,11 +229,11 @@
             </p>
 
             <p>
-            When zooming in on a particular site, we recommend defining a local coordinate system for 3D modeling and coordination. While optional, we prefer to derive an offset local <b>coordinate reference system (CRS)</b> from the defined regional one. In this case, we'll use <span class="code-block">UCS-2000 / 3-degree Gauss-Kruger zone 11</span> as the CRS for this area.
+            When zooming in on a particular site, we recommend defining a local coordinate system for 3D modeling and coordination. While optional, we prefer to derive an offset local <b>coordinate reference system (CRS)</b> from the defined regional one. In this case, we'll use <code>UCS-2000 / 3-degree Gauss-Kruger zone 11</code> as the CRS for this area.
             </p>
 
             <p>
-                We'll define a 2000x2000 meter square domain for our model, with a user coordinate system <span class="code-block">UCS-2000 / Chersonese</span> originating in the square's bottom-left corner.
+                We'll define a 2000x2000 meter square domain for our model, with a user coordinate system <code>UCS-2000 / Chersonese</code> originating in the square's bottom-left corner.
             </p>
 
             <div class="image-fullwidth">
@@ -244,45 +248,46 @@
                 </div>
 
                 <div class="image-fullwidth-50">
-                    <p class="code-block">
-                        PROJCRS["UCS-2000 / Chersonese",
-    BASEGEOGCRS["UCS-2000",
-        DATUM["Ukraine 2000",
-            ELLIPSOID["Krassowsky 1940",6378245,298.3,
-                LENGTHUNIT["metre",1]]],
-        PRIMEM["Greenwich",0,
-            ANGLEUNIT["degree",0.0174532925199433]],
-        ID["EPSG",5561]],
-    CONVERSION["3-degree Gauss-Kruger zone 11",
-        METHOD["Transverse Mercator",
-            ID["EPSG",9807]],
-        PARAMETER["Latitude of natural origin",0,
-            ANGLEUNIT["degree",0.0174532925199433],
-            ID["EPSG",8801]],
-        PARAMETER["Longitude of natural origin",33,
-            ANGLEUNIT["degree",0.0174532925199433],
-            ID["EPSG",8802]],
-        PARAMETER["Scale factor at natural origin",1,
-            SCALEUNIT["unity",1],
-            ID["EPSG",8805]],
-        PARAMETER["False easting",-38220,
-            LENGTHUNIT["metre",1],
-            ID["EPSG",8806]],
-        PARAMETER["False northing",-4940800,
-            LENGTHUNIT["metre",1],
-            ID["EPSG",8807]]],
-    CS[Cartesian,2],
-        AXIS["northing (X)",north,
-            ORDER[1],
-            LENGTHUNIT["metre",1]],
-        AXIS["easting (Y)",east,
-            ORDER[2],
-            LENGTHUNIT["metre",1]],
-    USAGE[
-        SCOPE["Heritage site violations documentation, high-precision surveying, and 3D modeling of Tauric Chersonese."],
-        AREA["Ukraine, Crimia. Ancient City of Tauric Chersonese."],
-        BBOX[44.60, 33.48,44.62, 33.51]]]
-                    </p>
+                    <pre style="background-color: #f0f0f0;"><code >
+                    PROJCRS["UCS-2000 / Chersonese",<br>
+                            BASEGEOGCRS["UCS-2000",<br>
+                                DATUM["Ukraine 2000",<br>
+                                    ELLIPSOID["Krassowsky 1940",6378245,298.3,<br>
+                                        LENGTHUNIT["metre",1]]],<br>
+                                PRIMEM["Greenwich",0,<br>
+                                    ANGLEUNIT["degree",0.0174532925199433]],<br>
+                                ID["EPSG",5561]],<br>
+                            CONVERSION["3-degree Gauss-Kruger zone 11",<br>
+                                METHOD["Transverse Mercator",<br>
+                                    ID["EPSG",9807]],<br>
+                                PARAMETER["Latitude of natural origin",0,<br>
+                                    ANGLEUNIT["degree",0.0174532925199433],<br>
+                                    ID["EPSG",8801]],<br>
+                                PARAMETER["Longitude of natural origin",33,<br>
+                                    ANGLEUNIT["degree",0.0174532925199433],<br>
+                                    ID["EPSG",8802]],<br>
+                                PARAMETER["Scale factor at natural origin",1,<br>
+                                    SCALEUNIT["unity",1],<br>
+                                    ID["EPSG",8805]],<br>
+                                PARAMETER["False easting",-38220,<br>
+                                    LENGTHUNIT["metre",1],<br>
+                                    ID["EPSG",8806]],<br>
+                                PARAMETER["False northing",-4940800,<br>
+                                    LENGTHUNIT["metre",1],<br>
+                                    ID["EPSG",8807]]],<br>
+                            CS[Cartesian,2],<br>
+                                AXIS["northing (X)",north,<br>
+                                    ORDER[1],<br>
+                                    LENGTHUNIT["metre",1]],<br>
+                                AXIS["easting (Y)",east,<br>
+                                    ORDER[2],<br>
+                                    LENGTHUNIT["metre",1]],<br>
+                            USAGE[<br>
+                                SCOPE["Heritage site violations documentation, high-precision surveying, and 3D modeling of Tauric Chersonese."],<br>
+                                AREA["Ukraine, Crimia. Ancient City of Tauric Chersonese."],<br>
+                                BBOX[44.60, 33.48,44.62, 33.51]]]
+                    </code></pre>
+                    <p class="image-text"><code>UCS-2000 / Chersonese</code> CRS definition</p>
                 </div>
 
             </div>
@@ -300,7 +305,7 @@
                 1. <b>Create a New Shapefile Layer (Vector Layer):</b>
             </p>
             <p class="indent">
-                •   In QGIS, go to the top menu and select <span class="code-block">Layer > Create Layer > New Shapefile Layer…</span><br>
+                •   In QGIS, go to the top menu and select <code>Layer > Create Layer > New Shapefile Layer…</code><br>
                 •   In the dialog box, choose <b>Polygon </b>as the geometry type.<br>
                 •   Set the CRS to your custom CRS (or the regional CRS).<br>
                 •   Name the file (e.g., 2000.shp) and save it.
@@ -325,8 +330,8 @@
             <h4>Clip and export selected layers</h4>
             <p>There are two option we can save clipped region:</p>
             <p class="indent">
-                1. Clipping raster <span class="code-block">Raster > Extraction > Clip Raster by Mask Layer. </span> <br>
-                2. Export layer with clipping boundaries <span class="code-block">Right-Click on the Raster Layer in the Layers Panel > Select “Export” > “Save As…”</span>
+                1. Clipping raster <code>Raster > Extraction > Clip Raster by Mask Layer. </code> <br>
+                2. Export layer with clipping boundaries <code>Right-Click on the Raster Layer in the Layers Panel > Select “Export” > “Save As…”</code>
             </p>
 
             <p>
