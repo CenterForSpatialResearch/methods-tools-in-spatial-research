@@ -2,33 +2,33 @@
     "colors": [
         {
             "panel": "Visual Code",
-            "color": "#fef445",  
-            "tags": ["speculative cartography",  "data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "mapbox"]
+            "color": "#EDDF2B",  
+            "tags": ["speculative cartography",  "data visualization", "drawings", "3D", "animation", "interactive", "data representation", "cartography", "computer vision", "mapbox", "drawing"]
         },
         {
             "panel": "Mapping Conflict",
-            "color": "#dcc3ff",  
+            "color": "#AC7EEB",  
             "tags": ["web mapping", "georeferencing", "satellites", "mapping", "counter mapping", "agriculture", "chemical warfare", "satellite"]
         },
         {
             "panel": "Counter Narrative",
-            "color": "#f9836c",  
-            "tags": ["feminicide","gender-related violence","black magic","public interest technology","narrative", "mixed media", "histories", "media actvism", "storytelling", "data activism", "human rights"]
+            "color": "#EF422D",  
+            "tags": ["feminicide","gender-related violence","black magic","public interest technology","narrative", "mixed media", "histories", "media actvism", "storytelling", "data activism", "human rights", "Pruitt-Igoe","reparative analysis" ]
         },
         {
             "panel": "Local Data",
-            "color": "#12cdd4",  
-            "tags": ["open source","administrative boundaries","weather", "climate", "language",  "sensors", "locality", "community", "historical new york", "history", "historical sites", "aerial imagery", "migration"]
+            "color": "#19C5CC",  
+            "tags": ["open source","administrative boundaries","weather", "climate", "language",  "sensors", "locality", "community", "historical new york", "history", "historical sites", "aerial imagery", "migration", "Open Street Maps"]
         },
         {
             "panel": "Network Models",
-            "color": "#0ca789",  
+            "color": "#BCD18A",  
             "tags": ["sentiment analysis","human in the loop","critical race studies", "computational cultures","social media", "machine learning", "ICE",  "DIY Tools", "open weather data", "augmented reality", "GAN model", "image processing", "artist controls", "network model", "Homophily", "context model",  "training data"]
         },
         {
             "panel": "Counter Forensics",
-            "color": "#fac710",  
-            "tags": [ "reporting","ground truth","spatial analysis", "visual investigations","eye witness","journalism","alternate realities", "reconstruction", "forensic architecture", "dolly camera", "camera matching",  "motion tracking", "Center for Spatial Technologies", "investigative journalism", "video tagging"]
+            "color": "#FF9922",  
+            "tags": [ "reporting","ground truth","spatial analysis", "visual investigations","eye witness","journalism","alternate realities", "reconstruction", "forensic architecture", "dolly camera", "camera matching",  "motion tracking", "Center for Spatial Technologies", "investigative journalism", "video tagging", "Atmospheric modeling"]
         }, 
         {
             "panel": "Center for Spatial Research", 
