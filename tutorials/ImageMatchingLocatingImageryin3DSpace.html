@@ -4,14 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Matching: Locating Imagery in 3D Space</title>
+    <title>Image-matching: Locating Imagery in 3D Space</title>
     <link rel="stylesheet" href="../main.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+
+
+
     <link rel="stylesheet" href="/path/to/styles/default.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
     <script src="/path/to/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
@@ -53,6 +63,27 @@
             <h1>Image-matching: Locating Imagery in 3D Space</h1>
             <h2>Maksym Rokmaniko, The Center for Spatial Technologies</h2>
             <!-- project: https://spatialtech.notion.site/Image-matching-Locating-Imagery-in-3D-Space-113bc6e1b0978028b5c5d630ad9b7a00#113bc6e1b0978058b7ebec8340aa2bec</p> -->
+
+            <h4>Jump to:</h4>
+
+            <a href="#setup" style="margin-bottom: 0%;">Part 1: Setup</a>: 
+                    <a href="#software">Software Requirements</a> | <a href="#downloads">Data Downloads</a></p>
+            <a href="#base-model">Part 2: Building the Base Model</a>:
+                <p class="indent">
+                    <a href="#DEM">Creating a Base Model with DEM and Satellite Imagery</a><br>
+                    <a href="#coordinates">Setup project coordinate system</a> |
+                    <a href="#GISmodel">Export GIS data for model</a> | 
+                    <a href="#blender-model">Building Mesh model with Blender</a> | 
+                    <a href="#base-model">Alternative Methods to Build the Base Model</a>
+                </p>
+
+            <a href="#image-match">Part 3: Image-Matching</a>:
+                    <a href="#image-camera">Solve Static Image camera position</a> | <a href="#troubleshoot">Troubleshooting a Bad Match</a>
+
+            <p class="image">
+                <img src="./images/imageMatching/main.png" alt="tutorial-main-image" style="margin-bottom: 0%;">
+                <p class="image-text" style="margin-top: -40px;">© Center for Spatial Technologies</p>
+            </p>
     
             <p>In this tutorial, we'll explore how to use the <a href="https://github.com/sptch/image-matcher/tree/main">image-matcher Blender add-on</a> to locate 2D images within a 3D model. This technique is crucial for our ongoing work at the <a href="https://www.spatialtech.info/en">Center for Spatial Technologies</a>, where we've applied it to various projects.</p>
     
@@ -71,26 +102,7 @@
 
                 * By precisely positioning photographs and drone footage in a 3D model, we can document these changes, providing vital evidence of cultural heritage destruction. In this tutorial we will learn to create a base 3D terrain model, match various imagery types to it, and create animations between matched positions. While we use Chersonesus as our case study, these skills can be applied to any site requiring accurate documentation and analysis. * 
             </p>
-            
-            <h4>Jump to:</h4>
-
-            <a href="#setup">Setup</a>
-                <p class="indent">
-                    <a href="#software">Software Requirements</a> | <a href="#downloads">Data Downloads</a></p>
-            <a href="#base-model">Building the Base Model</a><br>
-                <p class="indent">
-                    <a href="#DEM">Creating a Base Model with DEM and Satellite Imagery</a><br>
-                    <a href="#coordinates">Setup project coordinate system</a> |
-                    <a href="#GISmodel">Export GIS data for model</a> | 
-                    <a href="#blender-model">Building Mesh model with Blender</a> | 
-                    <a href="#base-model">Alternative Methods to Build the Base Model</a>
-                </p>
                 
-                
-            <a href="#image-match">Image-Matching</a>
-            <p class="indent">
-                <a href="#image-camera">Solve Static Image camera position</a> | <a href="#troubleshoot">Troubleshooting a Bad Match</a>
-            </p>
             
             <h3 id="setup">Setup</h3>
 
@@ -132,7 +144,7 @@
                 If your primary interest is learning how to use the Image Matcher tool, you can skip the section on building the base model, directly towards <a href="#image-match"></a>Image-matching</a>, as this is only one possible use case for the tool. The add-on is versatile and can be applied to a wide range of scenarios, enabling precise image alignment and location on both small and large-scale models.
             </p>
 
-            <h4>Creating a Base Model with DEM and Satellite Imagery</h4>
+            <h4 id="DEM">Creating a Base Model with DEM and Satellite Imagery</h4>
 
             <p>
                 A <b>Digital Elevation Model (DEM)</b> provides essential elevation data for 3D terrain modeling. <br>
@@ -217,7 +229,7 @@
                 
             </div>
 
-            <h3>Setup project coordinate system</h3>
+            <h3 id="coordinates">Setup project coordinate system</h3>
 
             <p>
                 For this image-matching tool tutorial, we'll focus on the Ancient City of Tauric Chersonese site and its buffer protected zone.
@@ -247,47 +259,48 @@
 
                 </div>
 
-                <div class="image-fullwidth-50">
-                    <pre style="background-color: #f0f0f0;"><code >
-                    PROJCRS["UCS-2000 / Chersonese",<br>
-                            BASEGEOGCRS["UCS-2000",<br>
-                                DATUM["Ukraine 2000",<br>
-                                    ELLIPSOID["Krassowsky 1940",6378245,298.3,<br>
-                                        LENGTHUNIT["metre",1]]],<br>
-                                PRIMEM["Greenwich",0,<br>
-                                    ANGLEUNIT["degree",0.0174532925199433]],<br>
-                                ID["EPSG",5561]],<br>
-                            CONVERSION["3-degree Gauss-Kruger zone 11",<br>
-                                METHOD["Transverse Mercator",<br>
-                                    ID["EPSG",9807]],<br>
-                                PARAMETER["Latitude of natural origin",0,<br>
-                                    ANGLEUNIT["degree",0.0174532925199433],<br>
-                                    ID["EPSG",8801]],<br>
-                                PARAMETER["Longitude of natural origin",33,<br>
-                                    ANGLEUNIT["degree",0.0174532925199433],<br>
-                                    ID["EPSG",8802]],<br>
-                                PARAMETER["Scale factor at natural origin",1,<br>
-                                    SCALEUNIT["unity",1],<br>
-                                    ID["EPSG",8805]],<br>
-                                PARAMETER["False easting",-38220,<br>
-                                    LENGTHUNIT["metre",1],<br>
-                                    ID["EPSG",8806]],<br>
-                                PARAMETER["False northing",-4940800,<br>
-                                    LENGTHUNIT["metre",1],<br>
-                                    ID["EPSG",8807]]],<br>
-                            CS[Cartesian,2],<br>
-                                AXIS["northing (X)",north,<br>
-                                    ORDER[1],<br>
-                                    LENGTHUNIT["metre",1]],<br>
-                                AXIS["easting (Y)",east,<br>
-                                    ORDER[2],<br>
-                                    LENGTHUNIT["metre",1]],<br>
-                            USAGE[<br>
-                                SCOPE["Heritage site violations documentation, high-precision surveying, and 3D modeling of Tauric Chersonese."],<br>
-                                AREA["Ukraine, Crimia. Ancient City of Tauric Chersonese."],<br>
-                                BBOX[44.60, 33.48,44.62, 33.51]]]
+                <div class="image-fullwidth-50" style="margin-left:5%">
+                    <!-- <pre><code class="language-html">...</code></pre> -->
+                <pre style="background-color:white;" class="language-html"><code >
+    PROJCRS["UCS-2000 / Chersonese",
+    BASEGEOGCRS["UCS-2000",
+        DATUM["Ukraine 2000",
+            ELLIPSOID["Krassowsky 1940",6378245,298.3,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",5561]],
+    CONVERSION["3-degree Gauss-Kruger zone 11",
+        METHOD["Transverse Mercator",
+            ID["EPSG",9807]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",33,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["Scale factor at natural origin",1,
+            SCALEUNIT["unity",1],
+            ID["EPSG",8805]],
+        PARAMETER["False easting",-38220,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",-4940800,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["northing (X)",north,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["easting (Y)",east,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Heritage site violations documentation, high-precision surveying, and 3D modeling of Tauric Chersonese."],
+        AREA["Ukraine, Crimia. Ancient City of Tauric Chersonese."],
+        BBOX[44.60, 33.48,44.62, 33.51]]]
                     </code></pre>
-                    <p class="image-text"><code>UCS-2000 / Chersonese</code> CRS definition</p>
+                <p class="image-text"><code>UCS-2000 / Chersonese</code> CRS definition</p>
                 </div>
 
             </div>
@@ -356,11 +369,213 @@
                 </div>
             </div>
 
-        <h3 id="blender-model">Building Mesh model with Blender</h3>
+    <h3 id="blender-model">Building Mesh model with Blender</h3>
+
+        <p> 
+            Now that we have DEM and satellite imagery prepared, we can start building a 3D mesh model using Blender and the BlenderGIS add-on.
+        </p>
+
+        <p class="indent-num">
+            1. Start new blender project (<a href="https://github.com/domlysz/BlenderGIS/wiki/Install-and-usage">don't forget to download, activate and configure Blender GIS plugin</a>). <br>
+            Setup custom CRS with Proj4 string:
+        </p>
+        <p class="indent">
+        <code style="color:black">
+            +proj=tmerc +lat_0=0 +lon_0=33 +k=1 +x_0=-38220 +y_0=-4940800 +ellps=krass +units=m +no_defs +type=crs
+        </code>
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image14.png" alt="mesh1">
+            
+        </p>
+
+        <p class="indent-num">
+            2. Build mesh using <code>GIS > Import > Georeferenced raster </code> <br>
+            • Mode - DEM as displacement texture<br>
+            • Subdivision - Subsurf<br>
+            • Smooth relief = TRUE<br>
+            • CRS - pick custom CRS
+        </p>
+
+        <p class="image">
+            <img src="./images/imageMatching/image15.png" alt="mesh2">
+            <p class="image-text">Load DEM as base texture for building mesh model</p>
+        </p>
+
+        <p class="indent-num">
+            3. While we have model loaded and generated, we can adjust sharpness increasing or decreasing Subdivision Levels from <code>Select Mesh > Modifiers > Subdivision Surface properties > Levels Viewport/Render </code>
+        </p>
+
+        <p class="image">
+            <img src="./images/imageMatching/image16.png" alt="mesh2">
+            <p class="image-text">Control model sharpness</p>
+        </p>
+
+        <p class="indent-num">
+            4. Check Georeference:<br>
+            • Go to <code>3D View > View > Geoscene > Scene Georeferencing.</code><br>
+            • Set the CRS to your custom CRS.<br>
+            • Set <code>X=0</code> and <code>Y=0</code> to match the Blender scene’s origin to your custom CRS.<br>
+            • Smooth relief = TRUE<br>
+            • If you’re using a global or regional CRS, you can configure offsets to ensure alignment between your 3D model and the GIS data.
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image17.png" alt="mesh2">
+            <p class="image-text">Configure Blender ↔ CRS offset</p>
+        </p>
+
+        <p class="indent-num">
+            5. Load satellite imagery georaster as mesh texture basemap using <code>GIS > Import > Georeferenced raster</code> :<br>
+            • Mode - Basemap on mesh<br>
+            • Object - <b>Provide mesh</b><br>
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image18.png" alt="mesh2">
+            <p class="image-text">
+                Load satellite imagery georaster as mesh texture basemap   
+            </p>
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image19.png" alt="mesh2">
+            <p class="image-text">
+                Textured 3D model
+        </p>
+
+        <h4 id="base-model">Alternative Methods to Build the Base Model</h4>
+        <p>
+            For users who don’t require highly precise georeferencing, configuring custom CRS or who need a faster workflow, there are other methods to create a 3D base model:
+        </p>
+        <p class="indent-num">
+            1. <a href="https://github.com/domlysz/BlenderGIS/wiki/SRTM">BlenderGIS with SRTM and Google Basemap Data:</a><br>
+            • If high-resolution DEMs aren’t needed, you can use BlenderGIS to import SRTM data directly within Blender. This method is faster but less accurate.
+        </p>
+        <p class="indent-num">
+            2. <a href="https://speckle.systems/tutorials/create-3d-context-map-with-qgis-and-speckle/">Create 3D Context Maps with QGIS and Speckle </a><br>
+            • Similar to QGIS→Blender workflow, but use Speckle as geometry processor and storage.
+        </p>
+
+        <h3 id="image-match">
+            Image-Matching
+        </h3>
+        <p>
+            Image matching aligns 2D images to a 3D model using the <b>Perspective-n-Point (PnP)</b> method. This approach determines camera <b><i>extrinsics</i></b> (position and orientation) and ***intrinsics*** (lens characteristics like focal length and distortion).
+        </p>
 
         <p>
+            <b>PnP</b> works by matching multiple 2D points with their corresponding 3D points. Solving these relationships allows us to determine the camera's 3D position and estimate internal parameters.
+        </p>
+        <p>
+            To solve camera extrinsics with known focal length, you need at least <b>4 points</b>. If you want to automatically determine the focal length, optical center, and lens distortion (camera intrinsics), you need at least <b>6 points</b>. For more details, see <a href="https://docs.opencv.org/4.x/d5/d1f/calib3d_solvePnP.html">OpenCV's solvePnP</a> and <a href="https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html">OpenCV`s camera calibration documentation</a>.
+        </p>
+
+        <h4 id="image-camera">
+            Solve Static Image camera position
+        </h4>
+        <p class="indent-num">
+            1. <b>Install the Image-matcher Blender add-on</b> following the <a href="https://github.com/sptch/image-matcher/blob/main/docs/installation.md">initial instructions</a>.
+        </p>
+        <p class="indent-num">
+            2. <b>Split the Blender screen</b> by dragging the top left corner of the 3D view until the mouse cursor turns into a cross. Click and drag to the right to create a split-screen. This allows you to view both the 2D image and 3D model side by side.
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image20.png" alt="mesh2">
+            <p class="image-text">
+                Split Blender screen
+            </p>
+        </p>
+
+        <p class="indent-num">
+            3. <b>Change the Window editor type</b> to 'Movie Clip Editor' for one of the windows you created. Click on the icon in the top left corner of the newly split screen, and select 'Movie Clip Editor'.
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image21.png" alt="mesh2">
+            <p class="image-text">
+                Change Window editor type to Movie Clip Editor
+            </p>
+        </p>
+
+        <p class="indent-num">
+            4. <b>Add Image</b> Go to <code>Image Match > Define Image Filepath > pick image and click Accept > Click Add Image</code>
+        </p>
+        <p class="image">
+            <img src="./images/imageMatching/image22.png" alt="mesh2">
+            <p class="image-text">
+                Select and load Image
+            </p>
+        </p>
+        <p class="indent-num">
+            5. <b>Pick 3D Model and Select Points</b> <br>
 
         </p>
+        <p class="indent">
+            • Go to the <b>Points Tab</b> > Use the dropdown to select your 3D model or click the eyedropper icon to pick it directly in the 3D viewport. <br>
+            • In <b>Point Mode</b>, left-click in the 2D image to add a point, and then select the corresponding point on the 3D model in the 3D viewer.<br>
+            • Repeat this process until you have at least <b>6 pairs</b> of points (or <b>4 pairs</b> if you know the focal length or plan to adjust it manually).<br>
+            • Ensure that the points are distributed across the entire image plane for better accuracy. To exit <b>Point Mode</b>, right-click or press <b>Esc</b>.<br>
+        </p>
+        <div class="image-fullwidth">
+            <div class="image-fullwidth-50">
+                <p class="image">
+                <img src="./images/imageMatching/image23.png" alt="mesh2">
+                <p class="image-text">
+                    Pick 3D Model
+                </p>
+            </p>    
+            </div>
+            <div class="image-fullwidth-50">
+            <p class="image">
+                <img src="./images/imageMatching/image24.png" alt="mesh2">
+                <p class="image-text">
+                    Select corresponding points pairs
+                </p>
+            </p>
+            </div>
+        </div>
+            <p class="indent-num">
+                6. <b>Camera Calibration (PNP-Calibrate Camera Tab)</b><br>
+            </p>
+            <p class="indent">
+                • Calibrate the camera settings (e.g., focal length) using <b>OpenCV</b>.<br>
+                • If you know the focal length, input it directly. Otherwise:<br>
+                    ⸰ Tick <b>Focal Length</b> and click <b>Calibrate Camera</b>.<br>
+                    ⸰ Check <b>Reprojection Error</b>; lower values are better.
+                </p>
+            </p>
+            <p class="indent-num">
+                7. <b>Solve Camera Pose (PNP-Solve Pose Tab)</b><br>
+            </p>
+            <p class="indent">
+                • Click <b>Solve Camera Pose</b> to calculate the camera's position and orientation.<br>
+                • Use <b>Toggle Camera View</b> to see the match.<br>
+
+                    ⸰ Adjust image opacity and toggle the 2D image for better visualization.
+            </p>
+            </p>
+            <p class="image">
+                <img src="./images/imageMatching/image25.png" alt="mesh2">
+                <p class="image-text">
+                    Calibrate and solve camera
+                </p>
+            </p>
+
+            <p>
+                8. <b>Add more images</b><br>
+                • Switch between images by clicking the blue highlighted icon next to their names.
+
+            </p>
+            <div class="image-fullwidth">
+                <div class="image-fullwidth-100">
+                    <img src="./images/imageMatching/image26.png" alt="mesh2">
+            </div></div>
+            <h4 id="troubleshoot">
+                Troubleshooting a Bad Match
+            </h4>
+            <p>
+                • <b>Check Point Pairs</b>: Ensure points are accurately placed in both the 2D and 3D <br>
+                • <b>Spread Points Evenly</b>: If the match is bad in specific areas, add more points there.<br>
+
+                • <b>Recalibrate Camera</b>: Click <b>Reset Camera</b>, then <b>Calibrate Camera</b> again, and re-solve the pose. 
+            </p>
 
 
 
@@ -434,6 +649,12 @@
         });
 
         loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+
+        // first, find all the div.code blocks
+            document.querySelectorAll('div.code').forEach(block => {
+            // then highlight each
+            hljs.highlightBlock(block);
+            });
     </script>
 </body>
 
