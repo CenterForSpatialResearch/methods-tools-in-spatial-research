@@ -18,12 +18,12 @@
         {
             "panel": "Local Data",
             "color": "#19C5CC",  
-            "tags": ["open source","administrative boundaries","weather", "climate", "language",  "sensors", "locality", "community", "historical new york", "history", "historical sites", "aerial imagery", "migration", "Open Street Maps"]
+            "tags": ["open source","administrative boundaries","weather", "climate", "language",  "sensors", "locality", "community", "historical new york", "history", "historical sites", "aerial imagery", "migration", "Open Street Maps", "local data", "disorientation", "augmented reality"]
         },
         {
             "panel": "Network Models",
             "color": "#BCD18A",  
-            "tags": ["sentiment analysis","human in the loop","critical race studies", "computational cultures","social media", "machine learning", "ICE",  "DIY Tools", "open weather data", "augmented reality", "GAN model", "image processing", "artist controls", "network model", "Homophily", "context model",  "training data"]
+            "tags": ["sentiment analysis","human in the loop","critical race studies", "computational cultures","social media", "machine learning", "ICE",  "DIY Tools", "open weather data", "GAN model", "image processing", "artist controls", "network model", "Homophily", "context model",  "training data", "algorithmic practices", "social networks", "imagined networks", "network science", "data discrimination"]
         },
         {
             "panel": "Counter Forensics",
@@ -33,7 +33,12 @@
         {
             "panel": "Center for Spatial Research", 
             "color": "#29AAE1",
-            "tags": ["CSR", "C4SR"]
+            "tags": ["CSR", "C4SR", "research methodology", "Homophily" ]
+        }, 
+        {
+            "panel": "Software",
+            "color": "#f0f0f0",
+            "tags": ["p5.js", "rhino", "drawing", "qgis", "processing"]
         }
     ]
 }

@@ -51,7 +51,7 @@
         "project": "All Data is Local",
         "authors":["Yanni Loukissas"],
         "panel": "Local Data",
-        "tags": ["local data", "mapping", "augmented reality", "locality", "community"]
+        "tags": ["local data", "mapping", "augmented reality", "disorientation", "community"]
 
     },
     {
@@ -94,6 +94,12 @@
         "authors":["Nick Masterton"],
         "panel": "Counter Forensics",
         "tags": ["forensic architecture", "dolly camera","GIS", "motion tracking", "camera matching", "video tagging"]
+    },
+    {
+        "project": "Recovering the Social, Ground the Technical",
+        "authors":["Wendy Hui Kyong Chun"],
+        "panel": "Network Models",
+        "tags": ["Homophily", "algorithmic practices", "social networks", "imagined networks", "network science", "data discrimination","research methodology"]
     }
 ]
 }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Innocent Models</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+<body data-project-name="Recovering the Social, Ground the Technical"> <!-- The name here is to link Tags from json file (project name)-->
+    <div class="top-bar">
+   
+        <div class="title">
+            <a href="../index.html" id="sidePanel">
+                Methods and Tutorials in Spatial Research 
+            </a>
+        </div>
+
+        <div class="button-container" id="about">
+            <a href="../about.html">About</a>
+        </div>
+     </div>
+
+     <div class="column">
+        <div class="column-left">
+            <div id="tutorials-side-panel">
+                <h6>
+                    Currently viewing tutorial page, <br><a href="../index.html">click here to return to main page.</a>
+                </h6>
+
+                <h3>Workshop Panel: </h3>
+                <div class="visual-code-container">
+                    <div class="tutorials-circle"></div>
+                    <p id="panel-text"></p>
+                </div>
+                <h3>Project Tags: </h3>
+                <div class="tutorials-ProjectTagsContainer" id="project_tags">
+                    <!-- Tags will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        <div class="column-main">
+            <div class="tutorials-section">
+                <h1>Recovering the Social, Ground the Technical</h1>
+                <h2>Wendy Hui Kyong Chun</h2>
+        
+                <div class="image-fullwidth">
+                    <iframe src="https://prezi.com/p/embed/yDnjWcV1kCzmwnMcUck3/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" width="100%" style="min-height: 80vh; translate: 2%"></iframe>
+                    <!-- <iframe src="https://prezi.com/p/embed/yDnjWcV1kCzmwnMcUck3/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="563" width="1000"></iframe> -->
+                </div>
+
+                <p class="image-text">
+                    Use the arrows to navigate through the presentation. Click and drag to move around the screen.
+                    <br>For full screen, click the icon on the bottom right corner or see link <a href="https://prezi.com/view/yDnjWcV1kCzmwnMcUck3/">here</a>.
+                </p>
+                
+            </div>
+
+            
+        </div>
+     </div>
+    
+
+    <div id="project_tags" class="tag-grid"></div>
+
+    <script>
+        let tutorialsData;
+        let colorsData;
+
+        function loadData() {
+            // Load both JSON files
+            d3.json("../tutorials.json").then(function(loadedData) {
+                tutorialsData = loadedData;
+                d3.json("../colors.json").then(function(loadedColors) {
+                    colorsData = loadedColors;
+                    displayTagsAndPanel();
+                });
+            });
+        }
+
+        function getColorForTag(tag) {
+            // Find the panel color for a given tag
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.tags.includes(tag));
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function getPanelColor(panel) {
+            // Find the color for a given panel
+            const colorEntry = colorsData.colors.find(colorEntry => colorEntry.panel === panel);
+            return colorEntry ? colorEntry.color : "#CCCCCC"; // Default to grey if not found
+        }
+
+        function displayTagsAndPanel() {
+            const projectName = document.body.getAttribute("data-project-name");
+            const tagContainer = document.getElementById("project_tags");
+            const panelTextElement = document.getElementById("panel-text");
+            const circleElement = document.querySelector(".tutorials-circle");
+
+            const project = tutorialsData.tutorials.find(tutorial => tutorial.project === projectName);
+
+            if (project) {
+                panelTextElement.innerText = project.panel;
+
+                // Find and set the color for the panel
+                const panelColor = getPanelColor(project.panel);
+                circleElement.style.backgroundColor = panelColor;
+
+                // Display and color the tags
+                project.tags.forEach(tag => {
+                    const tagElement = document.createElement("div");
+                    tagElement.className = "tag-item";
+                    tagElement.innerText = tag;
+                    tagElement.style.backgroundColor = getColorForTag(tag); // Use color for each tag
+                    tagContainer.appendChild(tagElement);
+                });
+            }
+        }
+
+        document.getElementById('sidePanel').addEventListener('click', function() {
+            window.location.href = '../index.html'; 
+        });
+
+        $(document).ready(function(){
+            $('#scrollToLink').click(function(e){
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $('#targetLink').offset().top
+                }, 800);
+            });
+        });
+
+        loadData(); // Call the loadData function to load the JSON and display the tags and panel text
+    </script>
+
+</body>
+</html>

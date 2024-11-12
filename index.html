@@ -444,7 +444,7 @@ function updateTextContent() {
             .on("click", handleClick);
 
         function handleClick(event, d) {
-            const projectName = d.project.replace(/[\s:.-]+/g, '');
+            const projectName = d.project.replace(/[\s:.,-]+/g, '');
             const baseUrl = `${window.location.origin}${window.location.pathname.replace('index.html', '')}`;
             const projectUrl = `${baseUrl}tutorials/${projectName}.html`;
             window.open(projectUrl, '_blank'); // open in new window
