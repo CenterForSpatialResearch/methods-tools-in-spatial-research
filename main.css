@@ -629,11 +629,12 @@ body, h1, h2, h3, h4, h5, h6 {
     }
 
     #tutorials-side-panel {
+        left: 40px;
         background-color: #f0f0f0;
-        padding: 10px;
+        padding: 15px;
         box-sizing: border-box;
         max-height: calc(100vh - 65px);
-        justify-items: center;
+        /* justify-items: left; */
         border-radius: 5px;
         min-width: 200px;
         width:100%;
@@ -646,8 +647,8 @@ body, h1, h2, h3, h4, h5, h6 {
 
     .tag-item {
         margin: 5px; /* 5px space between each tag */
-        margin-top: 5px;
-        padding: 5px; /* Add some padding for better appearance */
+        /* margin-top: 5px; */
+        padding: 5px;
         display: flex; 
         border-radius: 3px; /* Rounded corners for better appearance */
         color: #000000; /* Default text color */
@@ -656,7 +657,7 @@ body, h1, h2, h3, h4, h5, h6 {
         height: 50px; 
         justify-content: center; /* Center horizontally */
         align-items: center; /* Center vertically */
-        width: 87px;
+        width: 85px;
         white-space: normal; /* Allow text to break to a new line */
         text-align: center; 
         word-wrap: break-word; /* Break long words onto the next line */
