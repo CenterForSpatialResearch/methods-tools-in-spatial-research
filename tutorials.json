@@ -41,7 +41,7 @@
 
     },
     {
-        "project": "DIY Tools for Open Weather",
+        "project": "Weather Patterns, Climate Footprints",
         "authors":["Sophie Dyer"," Sasha Engelmann"],
         "panel": "Local Data",
         "tags": ["DIY Tools", "open weather data", "climate", "sensors","mapping"]
