@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Data is Local</title>
+    <title>Mapping Afro-Brazilian Religious Histories: An AI-Assisted Tutorial</title>
     <link rel="stylesheet" href="../main.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2SEN9LXNV"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
 
 </head>
-<body data-project-name="Mapping Religious Persecution in Rio de Janeiro"> <!-- The name here is to link Tags from json file (project name)-->
+<body data-project-name="Mapping Afro-Brazilian Religious Histories: An AI-Assisted Tutorial"> <!-- The name here is to link Tags from json file (project name)-->
     <div class="top-bar">
    
         <div class="title">
@@ -45,7 +45,7 @@
         </div>
         <div class="column-main">
             <div class="tutorials-section">
-                <h1>Mapping Religious Persecution in Rio de Janeiro</h1>
+                <h1>Mapping Afro-Brazilian Religious Histories: An AI-Assisted Tutorial</h1>
                 <h2>
                     Ana Paulina Lee | Associate Professor of Luso-Brazilian Studies <br> 
                     Jared Lieberman | MS Statistics and Data Scientist <br>
@@ -62,20 +62,39 @@
 
                 <h3 id="Introduction">Introduction</h3>
 
-                    <p>This tutorial provides a methodology for examining the role that print media played in animating Rio de Janeiro’s urban imagination. For this study, I collaborated with data scientist Jared Lieberman to create a database of terms related to Afro-Brazilian religions such as candomblé and umbanda with the aim of tracking the role that newspapers played in depicting African diasporic religious and cultural practices in the vocabulary of demonology. To do this research, I created a “sorcery glossary” that included terms as <i>feitiçaria</i> (sorcery) and <i>magia negra</i> (black magic) to examine how journalists translated Afro-diasporic religious, cultural, and linguistic terms such as <i>candomblé, umbanda, mandinga, and macumba</i> into Catholic and Portuguese semantic and symbolic worlds associated with demonology.</p>
+                    <p>Throughout the nineteenth and twentieth centuries, Rio de Janeiro's newspapers published thousands of stories that made “sorcery” (feitiçaria) and “black magic” (magia negra) synonymous with Atlantic African religions such as Candomblé and Umbanda. Journalists regularly provided names and addresses of the individuals they reported on, effectively mapping a range of religious practices into the city’s urban fabric. Through analyzing a glossary of about 60 words found in thousands of newspaper articles spanning two centuries, we focused on print media as a tool to examine the disciplinary logic of twentieth-century Rio de Janeiro during a presidency-turned-dictatorship of Getúlio Vargas (1930-1945).</p>
 
                     <p>
-                        Concerns with devilry, superstitious practices, and demonic magic are part of a longer theological and intellectual history of Catholic thought. The Portuguese Catholic empire spread across the globe in different yet connect ways. A primary characteristic of the Portuguese imperial experience included the spread of Catholicism as a means of conversion and colonization through translating local practices, kinship structures, and trade relations into the symbolic and semantic structures of Catholicism and Portuguese. In Brazil, in the context of colonial extraction and slavery, missionaries and colonialists turned their attention to converting Indigenous people and enslaved Africans, and treated their engagements with non-Catholic spiritual and healing practices as actionable offenses, punishable with banishment, enslavement, and death. Brazilian independence from Portugal, and national independence, did not put an end to these histories of religious persecution. Rather, Brazilian republican law adapted the language of religious intolerance to national concerns related to presenting Brazil on the world stage as a modern, Christian nation with a racial whitening agenda.
+                        Print media outlets circulated stories and narratives that created affective architectures of urbanization—fears, hopes, and a sense of unease or opulence clustered around specific neighborhoods, streets, and addresses. Using geolocation, Natural Language Processing (NLP), computational linguistics, and manual searches, our team employed data science to spatialize newspaper stories about centers of Black Atlantic religious and cultural practices. These spatial layers of meaning reveal intersections between African diasporic worship and cultural spaces and Brazilian state efforts to organize cosmological and ecological environments into property and urban infrastructure, effectively mapping the overlapping religious, political, and cultural networks that constitute the geographical imagination of Rio de Janeiro.
                     </p>
 
                     <p>
-                        Print media played a critical part in producing the urban geographical imagination. <i>The Gazeta de Notícias</i> and the <i>Jornal do Brasil</i>, two of Brazil’s most widely circulated and read newspapers, printed and distributed thousands of stories that associated Afro-Brazilian religions with demonic magic. The <i>Jornal do Brasil</i> was founded in 1891 and remains in circulation. Between 1891-2010, the <i>Jornal do Brasil</i> published 5054 stories on feiticeiros (sorcerers) and 4487 reports on candomblé. Between 1896-2010, it published 9494 stories on macumba. The <i>Gazeta de Notícias</i> circulated from 1875 to 1956. During those years, it published 1592 stories on feiticeiros and 97 stories on candomblé. Between 1881 to 1956, it published 565 articles on macumba.
+                        Collaborating with Jared Lieberman, a Data Scientist, Rosie Robot, an AI-driven assistant, and research assistants Jacqueline Grac McMahon Vera and Ashley Elizabeth Young, we used a combination of human and computational realms to deepen our understanding of how language and space interact in these narratives. To prepare data for Named Entity Recognition (NER) and NLP, we parsed historical texts, identified key entities, and linked them to spatial and cultural contexts. Using newspapers to study affective urban geographies—sites of thrills, danger, and mystery, this tutorial provides a method for studying sentiment by geography to better understand the relationship between language and the material spaces of the city in crafting the economic and emotional experiences of urbanism.
                     </p>
+
+
+                    <h3>
+                        Analyzing Context and Sentiment
+                    </h3>
+
                     <p>
-                        Journalists contributed to inventing an urban social imagination about Afro-Brazilian religions by mapping a relation between African Atlantic spiritual practices and cultural gatherings with marginality, poverty, and danger.  Newspapers listed addresses and names of people, and journalists accompanied the police in raiding homes and temples. Their stories steadily reinforced a relationship between <i>feitiçaria</i> (sorcery) and <i>magia negra</i> (black magic) with Afro-Brazilian religions and cultures, and their depictions criminalized candomblé and umbanda priests, priestess, and religious and cultural gatherings as noisy, disruptive, and morally dangerous. Tales about the black magic activities happening in various parts of the city cast a spatial understanding onto these neighborhoods, and shed light on the cultural role that newspapers played in mapping affective geographies onto the urban landscape. Print media played a central role in demonizing African Atlantic religions like candomblé and umbanda to enforce discourses of Catholic supremacy as an issue of public health. Journalists named priests and priestesses and listed the addresses of their terreiros (African diasporic sacred spaces); hence, their chronicles produced spatial and affective understandings about urban economic geographies that paved the way to blighting neighborhoods as centers of supernaturally bad activities, and thus fit for urban renewal projects. These stories cultivated the cultural and moral grounds to justify the destruction or neglect of areas known as centers of African Brazilian cultural, religious, and social life. 
+                        Through sentiment analysis, Rosie Robot examined the tone of articles, uncovering biases in how journalists portrayed Afro-Brazilian religions. Articles often depicted religious practices and ceremonial gatherings as noisy, dangerous, or immoral, reinforcing stereotypes. For instance, phrases such as “the noise of the feiticeiros interrupted the sleep of the neighbors” conveyed disapproval, linking these rituals to disruption and criminality.
                     </p>
+
                     <p>
-                        To give an example of the typical rhetoric used in these stories, below are excerpts from an article published in the <i>Gazeta de Notícias</i> on May 5, 1918 titled, “A Macumba Interrupted: 25 Imprisoned” and subtitle, “The <i>apetrechos</i> (instruments, tools) used in “candomblé” and those arrested by the police of the 20th district.”
+                        Additionally, Rosie Robot identified co-occurring terms, revealing thematic connections. Words like macumba often appeared alongside raid, crime, and noise, deepening the association between African diasporic spiritual practices and urban disorder.
+                    </p>
+
+                    <h3>
+                        Interpretation and Implications
+                    </h3>
+
+                    <p>
+                        Journalists did not merely report on Afro-Brazilian religions, but they actively constructed an affective geography that criminalized these practices and justified their suppression. An article published in the <i>Gazeta de Notícias</i> on May 5, 1918 titled “A Macumba Interrupted: 25 Imprisoned” and subtitle, “The <i>Apetrechos</i> (instruments, tools) used in Candomblé and Those Arrested by the Police of the 20th District” listed entities that can be mapped onto the cityscape. The article named individuals and addresses and provided details about police districts as well.
+                    </p>
+
+                    <p>
+                        These narratives reinforced a new era of Church-State collaboration and also supported state efforts to urbanize and sanitize certain areas. By framing neighborhoods as centers of danger and immorality, these stories laid the groundwork for urban renewal projects that displaced African descendants, immigrants, and women from their homes and centers of work and worship.
                     </p>
                     <p class="indent" style="text-indent:0px">
                         A few days ago, the delegate of the 20th district, Dr. Gualberto de Oliveira Filho, received a report that Arsenio Vieira de Magalhães and his wife, “Marinquinhas Chucaleira,” were performing “macumba” in house no. 33 on Gaspar Street in Terra Nova. The noise of the feiticeiros (sorcerer, religious healers) interrupted the sleep of the neighbors, who were already surprised by the inaction of the police. Sending after carrying out a rigorous investigation, the police delegate came to the conclusion that Arsenio and his wife were the leaders of the “macumba,” in which many women and children took part. To put an end to the exploitation, the police delegate ordered the commissar Dr. Morães to raid the house and arrest all the “macumbeiros.” At 3 a.m. yesterday morning, in compliance with the order, Dr. Morães proceeded to the place indicated and, after surrounding the house, entered it, followed by soldiers. The dancing was very lively, and the sorcerers, upon seeing the police, began to disperse. The following people were arrested, in addition to the owners of the house: Theodoro Gonçalves da Costa, an ex-police soldier, who lives in the Saude barracks, João Silva, who lives in Rua da Saude. Francisco Luiz n. 87, Eustachio Vieira, resident at Rua Visconde de Sapucahy n. 113, Olympio Miranda, resident at Rua Augusto Nunes n. 69, Abelardo Ribeiro da Silva, resident at Rua Santa Philomena n. 34, casa 1; João Baptista da Rocha, resident at Rua Cunha Barbosa n. 77; Manoel da Silva Gaspar, resident at Rua Gaspar n. 33; Antonio Rodriguez, resident in the same house; José de Carvalho Silva, resident at Rua Dorothéa Eugenia n. 84; Antonio Ferreira Mendes, resident at Rua Visconde do Rio Branco n.47 Augusto Costa, resident at Rua Vista Alegre n. 16; Elvira Tavares, resident at Rua Francisco Ziezi n. 87; Guiomar Tavares, resident at Rua Senador Pompeu numero 203; Isabel de Mattos, resident at Rua Francisco Eugenio n. 125; Maria Lydia de Mello, resident at Rua Visconde de Sapucahy n. 113; Olivia dos Santos, resident at Rua Francisco Ziezi n. 86; Joaquina Rosa dos Santos, resident at Rua Páo Ferro n. 41; Joanna Evangelista, in the same house; Anna Evangelista, resident at Rua Francisco Ziezi n. 87. Sorcery paraphernalia such as figurines, daggers, magic sticks, cardboard fish, barrels of different colors, sticks, bows, swords, black hens, rosaries, saints, etc. were seized. They have all been locked up and will be prosecuted.
