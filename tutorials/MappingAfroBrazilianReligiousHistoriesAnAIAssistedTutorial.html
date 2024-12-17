@@ -47,7 +47,7 @@
             <div class="tutorials-section">
                 <h1>Mapping Afro-Brazilian Religious Histories: An AI-Assisted Tutorial</h1>
                 <h2>
-                    Ana Paulina Lee | Associate Professor of Luso-Brazilian Studies <br> 
+                    Ana Paulina Lee | Associate Professor<br> 
                     Jared Lieberman | MS Statistics and Data Scientist <br>
                     Research Assistants: Jacqueline Grac McMahon Vera and Ashley Elizabeth Young
                 </h2>
@@ -55,6 +55,9 @@
                 <p>
                     Jump to: <br>
                     <a href="#Introduction">Introduction</a><br>
+                    <a href="#Analyzing">Analyzing Context and Sentiment</a><br>
+                    <a href="#Interpretation">Interpretation and Implications</a><br>
+                    <a href="#Conclusion">Conclusion</a><br>
                     <a href="#Tutorial"> Technical Tutorial</a> <br>
                     <a href="#part1" class="indent">Part 1:  Collecting data from newspapers</a><br>
                     <a href="#part2" class="indent">Part 2:  Text analysis, <span style="font-style: italic;">More than a Map Visualization</span></a>
@@ -62,18 +65,18 @@
 
                 <h3 id="Introduction">Introduction</h3>
 
-                    <p>Throughout the nineteenth and twentieth centuries, Rio de Janeiro's newspapers published thousands of stories that made “sorcery” (feitiçaria) and “black magic” (magia negra) synonymous with Atlantic African religions such as Candomblé and Umbanda. Journalists regularly provided names and addresses of the individuals they reported on, effectively mapping a range of religious practices into the city’s urban fabric. Through analyzing a glossary of about 60 words found in thousands of newspaper articles spanning two centuries, we focused on print media as a tool to examine the disciplinary logic of twentieth-century Rio de Janeiro during a presidency-turned-dictatorship of Getúlio Vargas (1930-1945).</p>
+                    <p>Throughout the nineteenth and twentieth centuries, Rio de Janeiro's newspapers published thousands of stories that made “sorcery” (feitiçaria) and “black magic” (magia negra) synonymous with Atlantic African religions such as Candomblé and Umbanda. Journalists regularly provided names and addresses of the individuals they reported on, effectively mapping a range of religious practices into the city’s urban fabric. Through analyzing a glossary of about 60 words found in thousands of newspaper articles spanning two centuries, we focused on print media as a tool to examine the disciplinary logic of twentieth-century Rio de Janeiro during presidency-turned-dictatorship of Getúlio Vargas (1930-1945).</p>
 
                     <p>
                         Print media outlets circulated stories and narratives that created affective architectures of urbanization—fears, hopes, and a sense of unease or opulence clustered around specific neighborhoods, streets, and addresses. Using geolocation, Natural Language Processing (NLP), computational linguistics, and manual searches, our team employed data science to spatialize newspaper stories about centers of Black Atlantic religious and cultural practices. These spatial layers of meaning reveal intersections between African diasporic worship and cultural spaces and Brazilian state efforts to organize cosmological and ecological environments into property and urban infrastructure, effectively mapping the overlapping religious, political, and cultural networks that constitute the geographical imagination of Rio de Janeiro.
                     </p>
 
                     <p>
-                        Collaborating with Jared Lieberman, a Data Scientist, Rosie Robot, an AI-driven assistant, and research assistants Jacqueline Grac McMahon Vera and Ashley Elizabeth Young, we used a combination of human and computational realms to deepen our understanding of how language and space interact in these narratives. To prepare data for Named Entity Recognition (NER) and NLP, we parsed historical texts, identified key entities, and linked them to spatial and cultural contexts. Using newspapers to study affective urban geographies—sites of thrills, danger, and mystery, this tutorial provides a method for studying sentiment by geography to better understand the relationship between language and the material spaces of the city in crafting the economic and emotional experiences of urbanism.
+                        In a collaboration between Ana Paulina Lee, a historian of Brazil; Jared Lieberman, a Data Scientist; Rosie Robot, an AI-driven assistant; and research assistants Jacqueline Grac McMahon Vera and Ashley Elizabeth Young, we used a combination of human and computational realms to deepen our understanding of how language and space interact in these narratives. To prepare data for Named Entity Recognition (NER) and NLP, we parsed historical texts, identified key entities, and linked them to spatial and cultural contexts. Using newspapers to study affective urban geographies—sites of thrills, danger, and mystery, this tutorial provides a method for studying sentiment by geography to better understand the relationship between language and the material spaces of the city in crafting the economic and emotional experiences of urbanism.
                     </p>
 
 
-                    <h3>
+                    <h3 id="Analyzing">
                         Analyzing Context and Sentiment
                     </h3>
 
@@ -85,7 +88,7 @@
                         Additionally, Rosie Robot identified co-occurring terms, revealing thematic connections. Words like macumba often appeared alongside raid, crime, and noise, deepening the association between African diasporic spiritual practices and urban disorder.
                     </p>
 
-                    <h3>
+                    <h3 id="Interpretation">
                         Interpretation and Implications
                     </h3>
 
@@ -96,13 +99,22 @@
                     <p>
                         These narratives reinforced a new era of Church-State collaboration and also supported state efforts to urbanize and sanitize certain areas. By framing neighborhoods as centers of danger and immorality, these stories laid the groundwork for urban renewal projects that displaced African descendants, immigrants, and women from their homes and centers of work and worship.
                     </p>
-                    <p class="indent" style="text-indent:0px">
-                        A few days ago, the delegate of the 20th district, Dr. Gualberto de Oliveira Filho, received a report that Arsenio Vieira de Magalhães and his wife, “Marinquinhas Chucaleira,” were performing “macumba” in house no. 33 on Gaspar Street in Terra Nova. The noise of the feiticeiros (sorcerer, religious healers) interrupted the sleep of the neighbors, who were already surprised by the inaction of the police. Sending after carrying out a rigorous investigation, the police delegate came to the conclusion that Arsenio and his wife were the leaders of the “macumba,” in which many women and children took part. To put an end to the exploitation, the police delegate ordered the commissar Dr. Morães to raid the house and arrest all the “macumbeiros.” At 3 a.m. yesterday morning, in compliance with the order, Dr. Morães proceeded to the place indicated and, after surrounding the house, entered it, followed by soldiers. The dancing was very lively, and the sorcerers, upon seeing the police, began to disperse. The following people were arrested, in addition to the owners of the house: Theodoro Gonçalves da Costa, an ex-police soldier, who lives in the Saude barracks, João Silva, who lives in Rua da Saude. Francisco Luiz n. 87, Eustachio Vieira, resident at Rua Visconde de Sapucahy n. 113, Olympio Miranda, resident at Rua Augusto Nunes n. 69, Abelardo Ribeiro da Silva, resident at Rua Santa Philomena n. 34, casa 1; João Baptista da Rocha, resident at Rua Cunha Barbosa n. 77; Manoel da Silva Gaspar, resident at Rua Gaspar n. 33; Antonio Rodriguez, resident in the same house; José de Carvalho Silva, resident at Rua Dorothéa Eugenia n. 84; Antonio Ferreira Mendes, resident at Rua Visconde do Rio Branco n.47 Augusto Costa, resident at Rua Vista Alegre n. 16; Elvira Tavares, resident at Rua Francisco Ziezi n. 87; Guiomar Tavares, resident at Rua Senador Pompeu numero 203; Isabel de Mattos, resident at Rua Francisco Eugenio n. 125; Maria Lydia de Mello, resident at Rua Visconde de Sapucahy n. 113; Olivia dos Santos, resident at Rua Francisco Ziezi n. 86; Joaquina Rosa dos Santos, resident at Rua Páo Ferro n. 41; Joanna Evangelista, in the same house; Anna Evangelista, resident at Rua Francisco Ziezi n. 87. Sorcery paraphernalia such as figurines, daggers, magic sticks, cardboard fish, barrels of different colors, sticks, bows, swords, black hens, rosaries, saints, etc. were seized. They have all been locked up and will be prosecuted.
+
+                    <h3 id="Conclusion">
+                        Conclusion
+                    </h3>
+                    <p>
+                        Our collaboration highlights how language, space, and power intersect in shaping urban geographies by integrating computational tools like NLP and NER with historical and cultural analysis. Rosie Robot’s AI-driven processing complemented Lee’s historical expertise, allowing us to map the geographical dimensions of Afro-Brazilian religions. Together, we developed a method for studying how print media crafted narratives that stigmatized cultural and spiritual practices while justifying more extensive state efforts at “re-educating” such practices in the name of modernization and public order. This AI-assisted methodology demonstrates the potential of combining data science with historical inquiry to recover and reimagine the spatial histories of the past.
                     </p>
 
                     <h5>
-                        *This research is an excerpt from my forthcoming book, Coding Witchcraft: Race, Religion, and Public Health. I would like to thank Laura Kurgan and Adeline Chum for inviting me to participate in the Center for Spatial Research workshops and for their feedback on this project. 
+                        This research is part of my forthcoming book, Coding Witchcraft: Magic, Religion, and Public Health (Duke University Press). I would like to thank Laura Kurgan and Adeline Chum for inviting me to participate in the Center for Spatial Research workshops and for their feedback on this project.
                     </h5>
+
+                <h3>Bibliography Entry:</h3>  
+                <p>
+                    Ana Paulina Lee and Rosie Robot (OpenAI). “Mapping Afro-Brazilian Religious Histories: An AI-Assisted Tutorial in NLP and NER.” December 9, 2024.
+                </p>
 
                 <h3 id="Tutorial">Technical Tutorial</h3>
 
